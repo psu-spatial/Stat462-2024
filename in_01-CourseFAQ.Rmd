@@ -1,0 +1,76 @@
+# (PART\*) **About this course** {.unnumbered}
+
+```{r, include=FALSE,echo=FALSE,warning=FALSE,message=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+```
+
+# Course FAQ  {#FAQ}
+
+<br>
+
+## What files should I submit? {#FAQ-1}
+
+You will be creating two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document.
+
+You need to submit BOTH of these files on the relevant Canvas assignment page.
+
+You can also add comments to your submission as needed on the canvas page, or you can message Dr G.
+
+<br><br>
+
+## How am I graded? {#FAQ-2}
+
+You can see the specific rubric I use for each lab on the canvas page.
+
+My grader and I will also provide as much feedback as possible, so please remember to click the "view rubric" button (top right) to take a look.
+
+Overall, here is what your lab should correspond to:
+
+```{r, tab-main-rubric, echo=FALSE}
+rubric <- readxl::read_excel("in_G364_Lab0Rubric.xlsx")
+knitr::kable(rubric,caption = 'Your overall grade') %>%   
+  kable_classic_2() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive"))
+```
+
+<br><br>
+
+## Late policy? {#FAQ-3}
+
+**Sometimes R breaks, so I rarely incur have late penalties for technical issues, for example that you can't knit.** For example, if you send me canvas message with our code and a screenshot of the issue BEFORE THE DEADLINE; all late penalties go away until we have fixed it.
+
+**In general, I would prefer you submit late than not at all.** All assignments will be left open for you to submit. If you're a few hrs late, you will be absolutely fine, so if you're reading this at 4am, go to bed! Beyond that, if you're going to be late for any reason then send Dr G a canvas message (you don't need to explain why).
+
+[**BUT! Submitting late is a risk.**]{.underline} At any time past the deadline, I reserve the right to:
+
+1.  Release worked answers and close canvas without warning. You cannot submit in that situation.
+
+2.  Grade the labs at any time past the deadline without warning. If you miss the grading window, it will probably be several weeks until I am able to give you feedback.
+
+But, I will only start penalizing if you're consistently late and I have sent a written warning, or if I have stated otherwise for an individual assignment. See the course syllabus for more info.
+
+<br><br>
+
+## Can I work with friends? {#FAQ-4}
+
+See [Question](#FAQ-5) \@ref(FAQ-5)
+
+<br><br>
+
+## What counts as cheating? {#FAQ-5}
+
+You are encouraged to talk with each other during these labs e.g. you can see each others screens and work out answers together.
+
+**BUT NEVER SHARE CODE OR SEND SCRIPT TO SOMEONE ELSE. ALL TEXT SHOULD BE IN YOUR OWN WORDS.**
+
+For example:
+
+-   Working out together the right way to apply the `seq()` function, then each independently adding it to your own scripts is fine.
+
+-   **Copy/pasting your friend's code/text is never OK**.
+
+So DISCUSS with friends, but then turn away to your own screen and write your own code and text. I will be randomly running lab reports through plagiarism software.
+
+You are also not allowed to get someone else to complete the lab for you, whether online or in person. See the syllabus for the full description.
