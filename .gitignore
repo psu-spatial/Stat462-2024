@@ -41,9 +41,6 @@ vignettes/*.pdf
 .Rhistory
 .RData
 
-# pkgdown site
-docs/
-
 # translation temp files
 po/*~
 
