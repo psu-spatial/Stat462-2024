@@ -1,4 +1,5 @@
-book_filename: "STAT-462 Lab Book (SP24)"
+book_filename: "STAT-462_SP24 Lab Book"
+output_dir: "docs"
 language:
   ui:
     chapter_name: "Chapter "
