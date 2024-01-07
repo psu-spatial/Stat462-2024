@@ -19,22 +19,27 @@ csl: chicago-fullnote-bibliography.csl
 
 <br>
 
-This lab book has been written by Dr Helen Greatrex to help you work through the code needed to conduct applied regression analysis.  
+Dr Greatrex has written this lab book to provide all the code and instructions you need for regression analysis. You will be conducting analysis using R and writing up your reports using R-Markdown.
 
-You will be conducting analysis using R and writing up your reports using R-Markdown. Don't panic if you are new to this! We will start from scratch and you are expected to have zero programming experience.
+[Unless I tell you otherwise, you can find all the code you need in this lab book]{.underline}
 
-**Unless I say otherwise, all the code you need can be found in this lab book**
+Don't panic if you are new to this! We will start from scratch and you are expected to have zero programming experience.
 
 <br>
-
 
 ## Useful Links {.unnumbered}
 
 -   The course canvas page:
 
--   The syllabus:
+-   [Lab FAQs (I'm late, Can I work with friends etc)](#FAQ "Lab FAQs")
 
--   [Click here for Lab FAQs (I'm late, I'm stuck etc)](#FAQ)
+<br>
+
+## This website {.unnumbered}
+
+This website has been written using R-bookdown and uploaded to github. The format has been tweaked using the excellent bookdown example of [Mastering Shiny](https://mastering-shiny.org/).
+
+<br>
 
 ```{r, eval=FALSE,include=FALSE}
 # This is just for Dr G's usage
@@ -48,10 +53,3 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
-
-<br>
-
-## This website {.unnumbered}
-
-This website has been written using R-bookdown and uploaded to github.  The format has been tweaked using the excellent bookdown example of [Mastering Shiny](https://mastering-shiny.org/).
-
