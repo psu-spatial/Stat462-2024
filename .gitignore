@@ -38,6 +38,8 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+.Rhistory
+.RData
 
 # pkgdown site
 docs/
@@ -48,18 +50,3 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-.Rproj.user
-.Rhistory
-.RData
-_publish.R
-_book
-rsconnect
-_download_cache
-shiny-book.rds
-*_cache
-*_files
-shiny-book.*
-README.html
-cran-logs
-shiny_bookmarks
-scaling-testing
