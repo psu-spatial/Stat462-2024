@@ -15,7 +15,7 @@ csl: chicago-fullnote-bibliography.csl
 
 <br>
 
-# Welcome to STAT-462!
+# Welcome to STAT-462! {.unnumbered}
 
 <br>
 

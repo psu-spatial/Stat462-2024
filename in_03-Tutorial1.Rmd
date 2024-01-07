@@ -1,0 +1,12 @@
+# (PART\*) **Tutorials** {.unnumbered}
+
+```{r, include=FALSE,echo=FALSE,warning=FALSE,message=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+```
+
+# T1 - Installing R {#Tut_1}
+
+
+<br>

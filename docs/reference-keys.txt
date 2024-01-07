@@ -1,11 +1,4 @@
 tab:tab-main-rubric
-welcome-to-stat-462
-FAQ
-FAQ-1
-FAQ-2
-FAQ-3
-FAQ-4
-FAQ-5
 Lab_1
-introduction-lab_1_01
 Lab_1_01
+Tut_1

@@ -2,9 +2,9 @@
 
 
 
-# Lab 1  {#Lab_1}
+# Lab 1 {#Lab_1}
 
-## Introduction {Lab_1_01}
+
 
 <br>
 

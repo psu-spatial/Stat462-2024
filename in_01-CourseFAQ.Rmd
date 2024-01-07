@@ -1,15 +1,14 @@
-
 ```{r, include=FALSE,echo=FALSE,warning=FALSE,message=FALSE}
 library(tidyverse)
 library(knitr)
 library(kableExtra)
 ```
 
-# Course FAQ  {#FAQ} 
+# Course FAQ {#FAQ .unnumbered}
 
 <br>
 
-## What files should I submit? {#FAQ-1}
+## What files should I submit? {#FAQ-1 .unnumbered}
 
 You will be creating two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document.
 
@@ -17,9 +16,11 @@ You need to submit BOTH of these files on the relevant Canvas assignment page.
 
 You can also add comments to your submission as needed on the canvas page, or you can message Dr G.
 
-<br><br>
+------------------------------------------------------------------------
 
-## How am I graded? {#FAQ-2}
+<br>
+
+## How am I graded? {#FAQ-2 .unnumbered}
 
 You can see the specific rubric I use for each lab on the canvas page.
 
@@ -34,31 +35,45 @@ knitr::kable(rubric,caption = 'Your overall grade') %>%
   kable_styling(bootstrap_options = c("striped", "hover", "responsive"))
 ```
 
-<br><br>
+------------------------------------------------------------------------
 
-## Late policy? {#FAQ-3}
+<br>
 
-**Sometimes R breaks, so I rarely incur have late penalties for technical issues, for example that you can't knit.** For example, if you send me canvas message with our code and a screenshot of the issue BEFORE THE DEADLINE; all late penalties go away until we have fixed it.
+## Late policy? {#FAQ-3 .unnumbered}
 
-**In general, I would prefer you submit late than not at all.** All assignments will be left open for you to submit. If you're a few hrs late, you will be absolutely fine, so if you're reading this at 4am, go to bed! Beyond that, if you're going to be late for any reason then send Dr G a canvas message (you don't need to explain why).
+#### **I rarely incur have late penalties for technical issues.** {.unnumbered}
 
-[**BUT! Submitting late is a risk.**]{.underline} At any time past the deadline, I reserve the right to:
+For example, imagine your code suddenly won't knit. If you send me canvas message with our code and a screenshot of the issue before the deadline, then all late penalties go away until we have fixed it (even if I'm not able to reply immediately).
 
-1.  Release worked answers and close canvas without warning. You cannot submit in that situation.
+#### **In general, I prefer you submit late than not at all.** {.unnumbered}
+
+All assignments will be left open for you to submit all semester (unless worked answers have been provided). If you're a few hrs late, you will be absolutely fine, so if you're reading this at 4am, go to bed!
+
+Beyond that, if you're going to be late for any reason then send Dr G a canvas message (you don't need to explain why).
+
+#### [**BUT! Submitting late is a risk.**]{.underline} {.unnumbered}
+
+At any time past the deadline, I reserve the right to:
+
+1.  Release worked answers and close canvas without warning. You cannot submit in that situation as you will already have the answers.
 
 2.  Grade the labs at any time past the deadline without warning. If you miss the grading window, it will probably be several weeks until I am able to give you feedback.
 
 But, I will only start penalizing if you're consistently late and I have sent a written warning, or if I have stated otherwise for an individual assignment. See the course syllabus for more info.
 
-<br><br>
+------------------------------------------------------------------------
 
-## Can I work with friends? {#FAQ-4}
+<br>
 
-See [Question](#FAQ-5) \@ref(FAQ-5)
+## Can I work with friends? {#FAQ-4 .unnumbered}
 
-<br><br>
+See [What counts as cheating, Question](#FAQ-5) \@ref(FAQ-5)
 
-## What counts as cheating? {#FAQ-5}
+------------------------------------------------------------------------
+
+<br>
+
+## What counts as cheating? {#FAQ-5 .unnumbered}
 
 You are encouraged to talk with each other during these labs e.g. you can see each others screens and work out answers together.
 
@@ -73,3 +88,5 @@ For example:
 So DISCUSS with friends, but then turn away to your own screen and write your own code and text. I will be randomly running lab reports through plagiarism software.
 
 You are also not allowed to get someone else to complete the lab for you, whether online or in person. See the syllabus for the full description.
+
+------------------------------------------------------------------------
