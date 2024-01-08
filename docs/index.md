@@ -1,7 +1,7 @@
 ---
 title: "STAT462 Lab Book 2024"
 author: "Dr Helen Greatrex"
-date: "2024-01-06"
+date: "2024-01-07"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -31,7 +31,7 @@ Don't panic if you are new to this! We will start from scratch and you are expec
 
 -   The course canvas page:
 
--   [Lab FAQs (I'm late, Can I work with friends etc)](#FAQ "Lab FAQs")
+-   [Lab FAQs: (I'm late! Can I work with friends? What about ChatGPT? etc)](#FAQ "Lab FAQs")
 
 <br>
 
