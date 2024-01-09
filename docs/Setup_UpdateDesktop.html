@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>UPDATING R/R-Studio | STAT462 Lab Book 2024</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="EXCEPTIONS: If you are working in a lab and need a specific version of R, you do not have to update. Equally, if you KNOW your computer is going to hate this, then as long as you installed after...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="UPDATING R/R-Studio | STAT462 Lab Book 2024">
+<meta property="og:type" content="book">
+<meta property="og:description" content="EXCEPTIONS: If you are working in a lab and need a specific version of R, you do not have to update. Equally, if you KNOW your computer is going to hate this, then as long as you installed after...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UPDATING R/R-Studio | STAT462 Lab Book 2024">
+<meta name="twitter:description" content="EXCEPTIONS: If you are working in a lab and need a specific version of R, you do not have to update. Equally, if you KNOW your computer is going to hate this, then as long as you installed after...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">STAT462 Lab Book 2024</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to STAT-462!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li class="book-part">.</li>
+<li class="book-part">Getting Started</li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio on your computer for the first time</a></li>
+<li><a class="active" href="Setup_UpdateDesktop.html">UPDATING R/R-Studio</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="Setup_UpdateDesktop" class="section level1 unnumbered">
+<h1>UPDATING R/R-Studio<a class="anchor" aria-label="anchor" href="#Setup_UpdateDesktop"><i class="fas fa-link"></i></a>
+</h1>
+<p>EXCEPTIONS:</p>
+<ul>
+<li><p>If you are working in a lab and need a specific version of R, you do not have to update.</p></li>
+<li><p>Equally, if you KNOW your computer is going to hate this, then as long as you installed after June 2023, you don’t <em>have</em> to update, but give it a go and know that any weird issues might be because of the version of R you are running.</p></li>
+</ul>
+<p><br></p>
+<div id="Setup_WhyUpdate" class="section level2 unnumbered">
+<h2>Why update R and R-Studio? I took a course using them last semester<a class="anchor" aria-label="anchor" href="#Setup_WhyUpdate"><i class="fas fa-link"></i></a>
+</h2>
+<p>When R updates, it can sometimes cause weird issues with an individual package (or vica versa if the package is updated but you are running on an old version of R). This is more likely this semester because in November 2023, R went through a huge update that had been planned for years.</p>
+<p>It’s good programming practice to use the most recent version but normally, people tend to update when they can but take their chances. In our case, I don’t have a TA and there are 50 of you. So if half of you are on an old version of R and half are on a new version, it’s really hard for me to tell if a weird error is because you are on an old version of R or if there is something else going on. So if everyone is running the same version, life is MUCH easier all around.</p>
+<p>So if you already have R, treat this as an exercise in how easy it is to update and to get in the routine of good programming practice.</p>
+<p>And because if you get stuck and you’re using an old version of R or R-Studio, I’m not going to help you debug until you update, so you may as well…</p>
+<p><br></p>
+<hr>
+</div>
+<div id="Setup_UpdateHow" class="section level2 unnumbered">
+<h2>How to update?<a class="anchor" aria-label="anchor" href="#Setup_UpdateHow"><i class="fas fa-link"></i></a>
+</h2>
+<p>R AND RStudio need to be updated and you do that exactly the same way as installing for the first time. It will automatically overwrite.</p>
+<p>So go to <a href="Setup_Desktop.html#Setup_Desktop">Installing R/R-Studio on your computer</a> and follow the instructions exactly.</p>
+<div id="then-update-your-packages." class="section level3" number="0.1.1">
+<h3>
+<span class="header-section-number">0.1.1</span> Then update your packages.<a class="anchor" aria-label="anchor" href="#then-update-your-packages."><i class="fas fa-link"></i></a>
+</h3>
+<p>We ALSO need to update the packages you have. So once you are done, make sure you are connected to the internet, then open RStudio and click “Update/Update all”. Go for a coffee.</p>
+<p>R might also need to reinstall some packages, so don’t panic if you see the little yellow “install banner”, just click yes.</p>
+<div class="figure" style="text-align: center">
+<img src="index_images/im_02Setup_10UpdatePackages.png" alt="*Click this to update the packages*" width="1354"><p class="caption">
+(#fig:Setup_Fig7)<em>Click this to update the packages</em>
+</p>
+</div>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="Setup_Desktop.html">Installing R/R-Studio on your computer for the first time</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#Setup_UpdateDesktop">UPDATING R/R-Studio</a></li>
+<li><a class="nav-link" href="#Setup_WhyUpdate">Why update R and R-Studio? I took a course using them last semester</a></li>
+<li>
+<a class="nav-link" href="#Setup_UpdateHow">How to update?</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#then-update-your-packages."><span class="header-section-number">0.1.1</span> Then update your packages.</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-01-09.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

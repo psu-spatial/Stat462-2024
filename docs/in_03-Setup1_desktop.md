@@ -1,20 +1,25 @@
+# (PART\*) [.]{style="color: white;"} {.unnumbered}
 # (PART\*) **Getting Started** {.unnumbered}
 
 
 
-# Installing/updating R/R-Studio on your own computer  {#Setup_Desktop  .unnumbered}
+# Installing R/R-Studio on your computer for the first time  {#Setup_Desktop  .unnumbered}
 
 <br>
 
-Here need to do two things. <br>
+If you are brand new, consider skimming through [What are R and R-Studio](#WhatIsR)
+
+To use it on your own computer we need to do two things. <br>
 
 -   First, teach the computer to 'speak R'.
 
 -   Secondly download the RStudio software.<br><br>
 
-In this section, I first include a video where I go through it - and also written instructions.
+In this section, I first include a video where I go through it - and then written instructions going over the same thing.
 
 <br>
+
+------------------------------------------------------------------------
 
 ### Video instructions {#Setup_DesktopVideo .unnumbered}
 
@@ -35,9 +40,7 @@ Here's a video where I install R/R-Studio on my mac.  It should take less than 1
 
 ## Written Instructions
 
-If you're not a video sort of person, then here are some instructions:
-
-<br>
+If you're not a video sort of person, here are written instructions:
 
 ### 1. Installing R. {#Setup_R .unnumbered}
 
@@ -47,19 +50,16 @@ Go here: <https://posit.co/download/rstudio-desktop/>. Click the Install R butto
 
 <div class="figure" style="text-align: center">
 <img src="./index_images/im_02Setup_4InstallR.png" alt="Click here!" width="698" />
-<p class="caption">(\#fig:Tut_Fig3)Click here!</p>
+<p class="caption">(\#fig:Setup_Fig1)Click here!</p>
 </div>
-
-<br><br>
 
 Click the link and you will go to a terrifying website called CRAN R.
 
 <div class="figure" style="text-align: center">
 <img src="./index_images/im_02Setup_5CranR.png" alt="*Choose your computer type*" width="1025" />
-<p class="caption">(\#fig:Tut_Fig4)*Choose your computer type*</p>
+<p class="caption">(\#fig:Setup_Fig2)*Choose your computer type*</p>
 </div>
 
-<br><br>
 
 #### If you are on a WINDOWS/PC computer {#Setup_R_PC .unnumbered}
 
@@ -69,7 +69,7 @@ Click the link and you will go to a terrifying website called CRAN R.
 
 <div class="figure" style="text-align: center">
 <img src="./index_images/im_02Setup_6WINDOWS.png" alt="*Choose your computer type*" width="1128" />
-<p class="caption">(\#fig:Tut_Fig4a)*Choose your computer type*</p>
+<p class="caption">(\#fig:Setup_Fig3)*Choose your computer type*</p>
 </div>
 
 Click the "install for the first time" link and follow through to install R - EVEN IF YOU ALREADY HAVE R AND R STUDIO INSTALLED. <br><br>
@@ -90,14 +90,19 @@ If you are a MAC user, you will need [EITHER]{.underline} one of these two files
 
 <div class="figure" style="text-align: center">
 <img src="./index_images/im_02Setup_7MAC.png" alt="*Choose your computer type*" width="1437" />
-<p class="caption">(\#fig:Tut_Fig4b)*Choose your computer type*</p>
+<p class="caption">(\#fig:Setup_Fig4)*Choose your computer type*</p>
 </div>
 
-1.  Click the filename to download <br><br>
-2.  MOVE THE DOWNLOAD OUTSIDE YOUR DOWNLOAD FOLDER (they have a weird bug.) Put it on your desktop <br><br>
-3.  Open the download and follow the instructions. <br><br>
 
-If you have issues, try watching my video at the top and see if that solves it.
+1.  Click the filename to download <br>
+
+2.  MOVE THE DOWNLOAD OUTSIDE YOUR DOWNLOAD FOLDER (they have a weird bug.) Put it on your desktop 
+
+3.  Open the download and follow the instructions. <br>
+
+4.  You can delete the download.
+
+If you have issues, try watching my video at the top and see if that solves it. Or talk to Dr G
 
 <br> 
 </details>
@@ -111,18 +116,24 @@ Go back here: <https://posit.co/download/rstudio-desktop/>. Click the Install R-
 
 #### If you are on a WINDOWS/PC computer {#Setup_RStudio_PC .unnumbered}
 
+<details>
+<summary>[Click to expand]{style="color: #1388aa;"}</summary>
+<br>
+
 Install the same way you install any new software
 
-<br>
+<br> 
+</details>
 
 #### If you are on a Mac computer {#Setup_RStudio_Mac .unnumbered}
 
-If you are on a MAC:
-
+<details>
+<summary>[Click to expand]{style="color: #1388aa;"}</summary>
+<br>
 
 <div class="figure" style="text-align: center">
 <img src="./index_images/im_02Setup_9RstudioMacinstall.png" alt="*Will look different for windows*" width="428" />
-<p class="caption">(\#fig:Tut_Fig5b)*Will look different for windows*</p>
+<p class="caption">(\#fig:Setup_Fig6)*Will look different for windows*</p>
 </div>
 
 -   Download the dmg file, click to open, then DRAG it over to applications.
@@ -131,3 +142,7 @@ If you are on a MAC:
 
 It might get angry at this stage if your mac is very out of date.  Your choices are probably to backup your computer, update your operating system and reinstall R.  OR! Just use RStudio online rather than downloading it at all. Feel free to chat with Dr G about options.
 
+<br> 
+</details>
+
+<br>

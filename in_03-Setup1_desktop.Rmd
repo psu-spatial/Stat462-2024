@@ -1,3 +1,4 @@
+# (PART\*) [.]{style="color: white;"} {.unnumbered}
 # (PART\*) **Getting Started** {.unnumbered}
 
 ```{r, include=FALSE,echo=FALSE,warning=FALSE,message=FALSE}
@@ -6,18 +7,23 @@ library(knitr)
 library(kableExtra)
 ```
 
-# Installing/updating R/R-Studio on your own computer  {#Setup_Desktop  .unnumbered}
+# Installing R/R-Studio on your computer for the first time  {#Setup_Desktop  .unnumbered}
 
 <br>
 
-Here need to do two things. <br>
+If you are brand new, consider skimming through [What are R and R-Studio](#WhatIsR)
+
+To use it on your own computer we need to do two things. <br>
 
 -   First, teach the computer to 'speak R'.
 
 -   Secondly download the RStudio software.<br><br>
 
-In this section, I first include a video where I go through it - and also written instructions.
+In this section, I first include a video where I go through it - and then written instructions going over the same thing.
 
+<br>
+
+------------------------------------------------------------------------
 
 ### Video instructions {#Setup_DesktopVideo .unnumbered}
 
@@ -38,9 +44,7 @@ Here's a video where I install R/R-Studio on my mac.  It should take less than 1
 
 ## Written Instructions
 
-If you're not a video sort of person, then here are some instructions:
-
-<br>
+If you're not a video sort of person, here are written instructions:
 
 ### 1. Installing R. {#Setup_R .unnumbered}
 
@@ -48,19 +52,16 @@ First, we teach the computer to 'speak R'.
 
 Go here: <https://posit.co/download/rstudio-desktop/>. Click the Install R button <br>
 
-```{r, Tut_Fig3, echo=FALSE, fig.cap = "Click here!",fig.align='center'}
+```{r, Setup_Fig1, echo=FALSE, fig.cap = "Click here!",fig.align='center'}
 knitr::include_graphics('./index_images/im_02Setup_4InstallR.png')
 ```
 
-<br><br>
-
 Click the link and you will go to a terrifying website called CRAN R.
 
-```{r, Tut_Fig4, echo=FALSE, fig.cap = "*Choose your computer type*",fig.align='center'}
+```{r, Setup_Fig2, echo=FALSE, fig.cap = "*Choose your computer type*",fig.align='center'}
 knitr::include_graphics('./index_images/im_02Setup_5CranR.png')
 ```
 
-<br><br>
 
 #### If you are on a WINDOWS/PC computer {#Setup_R_PC .unnumbered}
 
@@ -68,7 +69,7 @@ knitr::include_graphics('./index_images/im_02Setup_5CranR.png')
 <summary>[Click to expand]{style="color: #1388aa;"}</summary>
 <br>
 
-```{r, Tut_Fig4a, echo=FALSE, fig.cap = "*Choose your computer type*",fig.align='center'}
+```{r, Setup_Fig3, echo=FALSE, fig.cap = "*Choose your computer type*",fig.align='center'}
 knitr::include_graphics('./index_images/im_02Setup_6WINDOWS.png')
 ```
 
@@ -88,15 +89,20 @@ Say yes to all the default options. Send Dr G a message if you get stuck <br>
 
 If you are a MAC user, you will need [EITHER]{.underline} one of these two files. If your computer is new, try the top one, if it's older try the second - the wrong one simply won't work.
 
-```{r, Tut_Fig4b, echo=FALSE, fig.cap = "*Choose your computer type*",fig.align='center'}
+```{r, Setup_Fig4, echo=FALSE, fig.cap = "*Choose your computer type*",fig.align='center'}
 knitr::include_graphics('./index_images/im_02Setup_7MAC.png')
 ```
 
-1.  Click the filename to download <br><br>
-2.  MOVE THE DOWNLOAD OUTSIDE YOUR DOWNLOAD FOLDER (they have a weird bug.) Put it on your desktop <br><br>
-3.  Open the download and follow the instructions. <br><br>
 
-If you have issues, try watching my video at the top and see if that solves it.
+1.  Click the filename to download <br>
+
+2.  MOVE THE DOWNLOAD OUTSIDE YOUR DOWNLOAD FOLDER (they have a weird bug.) Put it on your desktop 
+
+3.  Open the download and follow the instructions. <br>
+
+4.  You can delete the download.
+
+If you have issues, try watching my video at the top and see if that solves it. Or talk to Dr G
 
 <br> 
 </details>
@@ -106,22 +112,28 @@ If you have issues, try watching my video at the top and see if that solves it.
 
 Go back here: <https://posit.co/download/rstudio-desktop/>. Click the Install R-Studio button
 
-```{r, Tut_Fig5, echo=FALSE, fig.align='center'}
+```{r, Setup_Fig5, echo=FALSE, fig.align='center'}
 knitr::include_graphics('./index_images/im_02Setup_8InstallRstudio.png')
 ```
 
 #### If you are on a WINDOWS/PC computer {#Setup_RStudio_PC .unnumbered}
 
+<details>
+<summary>[Click to expand]{style="color: #1388aa;"}</summary>
+<br>
+
 Install the same way you install any new software
 
-<br>
+<br> 
+</details>
 
 #### If you are on a Mac computer {#Setup_RStudio_Mac .unnumbered}
 
-If you are on a MAC:
+<details>
+<summary>[Click to expand]{style="color: #1388aa;"}</summary>
+<br>
 
-
-```{r, Tut_Fig5b, echo=FALSE, fig.cap = "*Will look different for windows*",fig.align='center'}
+```{r, Setup_Fig6, echo=FALSE, fig.cap = "*Will look different for windows*",fig.align='center'}
 knitr::include_graphics('./index_images/im_02Setup_9RstudioMacinstall.png')
 ```
 
@@ -131,3 +143,7 @@ knitr::include_graphics('./index_images/im_02Setup_9RstudioMacinstall.png')
 
 It might get angry at this stage if your mac is very out of date.  Your choices are probably to backup your computer, update your operating system and reinstall R.  OR! Just use RStudio online rather than downloading it at all. Feel free to chat with Dr G about options.
 
+<br> 
+</details>
+
+<br>
