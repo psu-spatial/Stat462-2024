@@ -255,6 +255,10 @@ You are also not allowed to get someone else to complete the lab for you, whethe
 
 <br>
 
+Your generation is in a weird spot. It’s like when google translate or Wikipedia started. ChatGPT is there, but it’s not yet perfect and society is still working out how it can help and how it can mislead.
+
+[**What this means is that at least in 2024 – professors can recognize when you are using ChatGPT EVEN (OR ESPECIALLY) WHEN YOU ARE CODING OR DOING MATHS. If you imagine coding is like a language, it’s like your handwriting changes.**]{style="color: red;"}
+
 **I'm OK with you using ChatGPT, I use it! Here's how to use it without breaking any rules.**
 
 <br>
@@ -325,7 +329,9 @@ When you're thinking through any scenario or question you have, replace "ChatGPT
 
 **Making things up**
 
--   **ChatGPT is programmed to find the series of words that sounds most like your request, it has no idea if the words are 'true'!** So Sam/ChatGPT will NEVER say they don't know the answer. Think of the amount of times an overconfident friend/sibling says they definitely know the answer and it turns out to be wrong and they won't even admit it!
+-   **ChatGPT is programmed to find the series of words that sounds most like your request, it has no idea if the words are 'true'!** Just like an older friend is often too embarrased to admit they don't know and will make something up that 'sounds right'
+
+-   So Sam/ChatGPT will NEVER say they don't know the answer. Think of the amount of times an overconfident friend/sibling says they definitely know the answer and it turns out to be wrong and they won't even admit it!
 
 -   [Never fully trust what ChatGPT/Sam says! Always google it.]{.underline}
 

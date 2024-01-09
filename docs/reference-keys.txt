@@ -1,4 +1,11 @@
 tab:tab-main-rubric
 Lab_1
 Lab_1_01
-Tut_1
+Setup_1
+installingupdating-r-and-r-studio
+video-instructions
+written-instructions
+installing-r.
+if-you-are-on-a-windowspc-computer
+if-you-are-on-a-macapplemac
+installing-r-studio

@@ -10,9 +10,9 @@ rmd_files:
   [
     "index.Rmd",
     "in_01-CourseFAQ.Rmd",
+    "in_01-WhatIsR.Rmd",
 
     "in_02-Lab1.Rmd",
 
-    "in_03-Tutorial1.Rmd",
-
+    "in_03-Setup1_desktop.Rmd",
   ]

@@ -18,6 +18,7 @@
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -45,10 +46,11 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome to STAT-462!</a></li>
 <li><a class="active" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
 <li class="book-part">Lab instructions</li>
 <li><a class="" href="Lab_1.html"><span class="header-section-number">1</span> Lab 1</a></li>
-<li class="book-part">Tutorials</li>
-<li><a class="" href="Tut_1.html"><span class="header-section-number">2</span> T1 - Installing R</a></li>
+<li class="book-part">Set-Up</li>
+<li><a class="" href="Setup_1.html"><span class="header-section-number">2</span> Click for R-Desktop</a></li>
 </ul>
 
         <div class="book-extra">
@@ -297,6 +299,8 @@ Didn’t submit, or incredibly limited attempt. 
 </summary><p><br></p>
 <p><span style="color: red;"><strong>This advice is specific to this class.</strong></span></p>
 <p><br></p>
+<p>Your generation is in a weird spot. It’s like when google translate or Wikipedia started. ChatGPT is there, but it’s not yet perfect and society is still working out how it can help and how it can mislead.</p>
+<p><span style="color: red;"><strong>What this means is that at least in 2024 – professors can recognize when you are using ChatGPT EVEN (OR ESPECIALLY) WHEN YOU ARE CODING OR DOING MATHS. If you imagine coding is like a language, it’s like your handwriting changes.</strong></span></p>
 <p><strong>I’m OK with you using ChatGPT, I use it! Here’s how to use it without breaking any rules.</strong></p>
 <p><br></p>
 <p>Imagine an older brother/sister/sibling who is always <em>super</em> confident about their answers but isn’t always right. Or if that doesn’t work for you, imagine an older friend /undergrad-LA/ friend-who-took-the-course-last-year, or someone on TV.</p>
@@ -346,7 +350,8 @@ Didn’t submit, or incredibly limited attempt. 
 <p><br></p>
 <p><strong>Making things up</strong></p>
 <ul>
-<li><p><strong>ChatGPT is programmed to find the series of words that sounds most like your request, it has no idea if the words are ‘true’!</strong> So Sam/ChatGPT will NEVER say they don’t know the answer. Think of the amount of times an overconfident friend/sibling says they definitely know the answer and it turns out to be wrong and they won’t even admit it!</p></li>
+<li><p><strong>ChatGPT is programmed to find the series of words that sounds most like your request, it has no idea if the words are ‘true’!</strong> Just like an older friend is often too embarrased to admit they don’t know and will make something up that ‘sounds right’</p></li>
+<li><p>So Sam/ChatGPT will NEVER say they don’t know the answer. Think of the amount of times an overconfident friend/sibling says they definitely know the answer and it turns out to be wrong and they won’t even admit it!</p></li>
 <li>
 <p><u>Never fully trust what ChatGPT/Sam says! Always google it.</u></p>
 <ul>
@@ -378,16 +383,18 @@ Didn’t submit, or incredibly limited attempt. 
 <li><p><code>Can you give me concrete examples I can google?</code></p></li>
 </ul>
 <hr>
+<style>
+details > *:not(summary){
+  margin-left: 10em;
+}
+</style>
 </div>
 </details>
 </div>
 </div>
-
-
-
   <div class="chapter-nav">
 <div class="prev"><a href="index.html">Welcome to STAT-462!</a></div>
-<div class="next"><a href="Lab_1.html"><span class="header-section-number">1</span> Lab 1</a></div>
+<div class="next"><a href="WhatIsR.html">What are R and R-Studio?</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -419,7 +426,7 @@ Didn’t submit, or incredibly limited attempt. 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-01-07.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-01-09.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
