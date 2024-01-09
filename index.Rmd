@@ -15,7 +15,7 @@ csl: chicago-fullnote-bibliography.csl
 
 <br>
 
-# Welcome to STAT-462! {.unnumbered}
+# Welcome to STAT-462! {#Home .unnumbered}
 
 <br>
 
@@ -27,17 +27,23 @@ Don't panic if you are new to this! We will start from scratch and you are expec
 
 <br>
 
-## Useful Links {.unnumbered}
+## Useful Links {#Home_UsefulLinks .unnumbered}
 
--   The course canvas page:
+-   [The course canvas page:]{.underline} <https://psu.instructure.com/courses/2312605>
 
--   [Lab FAQs: (I'm late! Can I work with friends? What about ChatGPT? etc)](#FAQ "Lab FAQs")
+-   [Have a question?]{.underline} (I'm late! Can I work with friends? What about ChatGPT? etc), see [Lab FAQs](#FAQ "Lab FAQs")
+
+-   [Brand new?]{.underline} Start here: [What is R](#WhatIsR), then go here if you want to use it on your own computer [Installing for the first time](#WhatIsR) or here if you want to use it online.
+
+-   [Used R before?]{.underline} Please update your version. Instructions and the reason why here: [Updating R and R-Studio](#Setup_UpdateDesktop), Click here to read here for more on a tool you might not have used, [R-Markdown](#WhatisMarkdown).
 
 <br>
 
-## This website {.unnumbered}
+## How to use this website {#Home_howtouse .unnumbered}
 
 This website has been written using R-bookdown and uploaded to github. The format has been tweaked using the excellent bookdown example of [Mastering Shiny](https://mastering-shiny.org/).
+
+Expand here to see how to navigate:
 
 <br>
 

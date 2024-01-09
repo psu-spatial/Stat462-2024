@@ -50,7 +50,7 @@ details > *:not(summary){
 
 <br>
 
-## 1. What is R? {.unnumbered}
+## 1. What is R? {#WhatisRitself .unnumbered}
 
 #### **R IS A LANGUAGE SPOKEN BY YOUR COMPUTER** {.unnumbered}
 
@@ -69,7 +69,7 @@ knitr::include_graphics('./index_images/im_02Setup_1RConsole.png')
 
 <br>
 
-## 2. What is R-Studio/POSIT? {.unnumbered}
+## 2. What is R-Studio/POSIT? {#WhatisRstudio .unnumbered}
 
 #### **R-STUDIO/POSIT is a Software Application like Word, Chrome or Spotify** {.unnumbered}
 
@@ -93,7 +93,7 @@ embed_url("https://www.youtube.com/watch?v=SdMPh5uphO0")
 
 <br>
 
-## 3. What is R-Markdown? {.unnumbered}
+## 3. What is R-Markdown? {#WhatisMarkdown .unnumbered}
 
 
 #### Markdown is a way of writing documents with computer code embedded into them. {.unnumbered}

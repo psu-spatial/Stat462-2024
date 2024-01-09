@@ -2,13 +2,14 @@
 
 # UPDATING R/R-Studio {#Setup_UpdateDesktop .unnumbered}
 
-EXCEPTIONS:
+## Exceptions {#Setup_UpdateExceptions .unnumbered}
 
--   If you are working in a lab and need a specific version of R, you do not have to update.
+You do not *have* to update in the following situations, but know that any weird issues might be because of the version of R you are running.
 
--   Equally, if you KNOW your computer is going to hate this, then as long as you installed after June 2023, you don't *have* to update, but give it a go and know that any weird issues might be because of the version of R you are running.
+1. If you are working in a lab and need a specific version of R, you do not have to update.
 
-<br>
+2. If you KNOW your computer is going to hate this, then as long as you installed after June 2023, you don't *have* to update, but give it a go if you can.
+
 
 ## Why update R and R-Studio? I took a course using them last semester {#Setup_WhyUpdate .unnumbered}
 

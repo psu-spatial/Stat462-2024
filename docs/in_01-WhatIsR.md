@@ -12,7 +12,7 @@ details > *:not(summary){
 
 <br>
 
-## 1. What is R? {.unnumbered}
+## 1. What is R? {#WhatisRitself .unnumbered}
 
 #### **R IS A LANGUAGE SPOKEN BY YOUR COMPUTER** {.unnumbered}
 
@@ -32,7 +32,7 @@ If you open "R" on your computer (DON'T DO THIS), you will see a simple window w
 
 <br>
 
-## 2. What is R-Studio/POSIT? {.unnumbered}
+## 2. What is R-Studio/POSIT? {#WhatisRstudio .unnumbered}
 
 #### **R-STUDIO/POSIT is a Software Application like Word, Chrome or Spotify** {.unnumbered}
 
@@ -62,7 +62,7 @@ Watch this 5 min video on the newest version of R studio. More here: <https://po
 
 <br>
 
-## 3. What is R-Markdown? {.unnumbered}
+## 3. What is R-Markdown? {#WhatisMarkdown .unnumbered}
 
 
 #### Markdown is a way of writing documents with computer code embedded into them. {.unnumbered}
