@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 2 Libraries/Packages | STAT462 Lab Book 2024</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="2.1 What are packages? R is open source, so over the last 20 years, millions of useful commands have been written that we might want to use. To make life easier, commands are grouped together into...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Chapter 2 Libraries/Packages | STAT462 Lab Book 2024">
+<meta property="og:type" content="book">
+<meta property="og:description" content="2.1 What are packages? R is open source, so over the last 20 years, millions of useful commands have been written that we might want to use. To make life easier, commands are grouped together into...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 2 Libraries/Packages | STAT462 Lab Book 2024">
+<meta name="twitter:description" content="2.1 What are packages? R is open source, so over the last 20 years, millions of useful commands have been written that we might want to use. To make life easier, commands are grouped together into...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">STAT462 Lab Book 2024</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to STAT-462!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li class="book-part">.</li>
+<li class="book-part">Lab instructions</li>
+<li><a class="" href="Lab_1.html">Lab 1</a></li>
+<li class="book-part">~</li>
+<li class="book-part">Getting Started</li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio on your computer for the first time</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">UPDATING R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Using R Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
+<li><a class="active" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="T2_Libraries" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> Libraries/Packages<a class="anchor" aria-label="anchor" href="#T2_Libraries"><i class="fas fa-link"></i></a>
+</h1>
+<div id="T2_Libraries_about" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> What are packages?<a class="anchor" aria-label="anchor" href="#T2_Libraries_about"><i class="fas fa-link"></i></a>
+</h2>
+<p>R is open source, so over the last 20 years, <em>millions</em> of useful commands have been written that we might want to use. To make life easier, commands are grouped together into collections called <code>Packages</code> or <code>Libraries</code> (two names for the same thing). For example, one package might make pretty plots, another might focus on efficient Bayesian analysis.</p>
+<p><br></p>
+<hr>
+<ul>
+<li><p><em><strong>A close analogy is your phone:</strong> There are millions of apps now available from banking, to social media, to calendars and games.</em></p></li>
+<li><p><em>But! You don’t have every app in the world installed on your phone - Instead you download the apps that you think you will need (occasionally downloading a new one on the fly) -</em></p></li>
+<li><p><em>You also don’t have all the apps you downloaded running at the same time on your phone. When when you need to use an app, you click on it to open.</em></p></li>
+</ul>
+<p>Just like your phone, to access the commands in a package we need two steps:</p>
+<ol style="list-style-type: decimal">
+<li><strong>ONCE ONLY: Download the package from the internet</strong></li>
+<li><strong>EVERY TIME: Load/Open the packages you want</strong></li>
+</ol>
+<hr>
+<p><br></p>
+</div>
+<div id="seeing-what-packages-you-already-have" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> Seeing what packages you already have<a class="anchor" aria-label="anchor" href="#seeing-what-packages-you-already-have"><i class="fas fa-link"></i></a>
+</h2>
+<p>Some packages are downloaded on your computer by default (just like the flashlight /calculator app on your phone). You can see this list in the Package tab.</p>
+<div class="inline-figure"><img src="index_images/im_T2_Packages.png" width="80%" style="display: block; margin: auto;"></div>
+<p><br></p>
+<hr>
+</div>
+<div id="the-app-storegetting-new-packages" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> The app store/getting new packages<a class="anchor" aria-label="anchor" href="#the-app-storegetting-new-packages"><i class="fas fa-link"></i></a>
+</h2>
+<p>There is a package for literally everything and there are now well over 20,000 available. You can see the full list here: <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" class="uri">https://cran.r-project.org/web/packages/available_packages_by_name.html</a></p>
+<p>This is far too many to store on your computer, so most live on the internet in an online (free) “Package Store”. You can download the ones you want, ready to load later.<br></p>
+<p><br></p>
+<p>To download/install a new package</p>
+<div id="manually-click" class="section level3" number="2.3.1">
+<h3>
+<span class="header-section-number">2.3.1</span> Manually click<a class="anchor" aria-label="anchor" href="#manually-click"><i class="fas fa-link"></i></a>
+</h3>
+<p>This is like going to the app store to get a new app. Just like you only go to the app store once, this is a one-off for each package. NOTE! For R studio cloud online, you might have to do this for each project.</p>
+<ul>
+<li>Look for the quadrant with the packages tab in it.
+<ul>
+<li>You will see a list of packages/apps that have already been installed.</li>
+<li>Click the INSTALL button in the Packages tab menu (on the left - see figure above)</li>
+<li>Start typing the package name and it will show up (check the include dependencies box). Install the package.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+</div>
+<div id="little-yellow-banner" class="section level3" number="2.3.2">
+<h3>
+<span class="header-section-number">2.3.2</span> Little yellow banner<a class="anchor" aria-label="anchor" href="#little-yellow-banner"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>R will sometime tell you that you are missing a package (sometimes a little yellow ribbon), click install to install!</li>
+</ul>
+<div class="inline-figure"><img src="index_images/im_T2_yellowbanner.png" width="100%" style="display: block; margin: auto;"></div>
+<p><br></p>
+</div>
+<div id="problem-solving" class="section level3" number="2.3.3">
+<h3>
+<span class="header-section-number">2.3.3</span> Problem solving<a class="anchor" aria-label="anchor" href="#problem-solving"><i class="fas fa-link"></i></a>
+</h3>
+<div id="why-isnt-my-package-downloading-its-frozen" class="section level4" number="2.3.3.1">
+<h4>
+<span class="header-section-number">2.3.3.1</span> Why isn’t my package downloading? Its frozen<a class="anchor" aria-label="anchor" href="#why-isnt-my-package-downloading-its-frozen"><i class="fas fa-link"></i></a>
+</h4>
+<p>Sometimes R will ask you if you want to install binaries or other things. IT WILL ASK YOU THIS QUESTION THROUGH “SPEAKING” IN THE CONSOLE. It expects you to type yes or no, and to press enter to continue. Try yes, if it doesn’t work (esp xfun), try no. <br><br></p>
+</div>
+<div id="r-keeps-asking-to-restart." class="section level4" number="2.3.3.2">
+<h4>
+<span class="header-section-number">2.3.3.2</span> R keeps asking to restart.<a class="anchor" aria-label="anchor" href="#r-keeps-asking-to-restart."><i class="fas fa-link"></i></a>
+</h4>
+<p>Sometimes R-Studio might want to restart when downloading packages and occasionally gets confused. If it keeps asking, press cancel, then go to the Session menu at the VERY top, click Restart R and Clear output, reopen and try again.</p>
+<p><br></p>
+<hr>
+</div>
+</div>
+</div>
+<div id="usingloading-a-package-you-own" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> Using/Loading a package you ‘own’<a class="anchor" aria-label="anchor" href="#usingloading-a-package-you-own"><i class="fas fa-link"></i></a>
+</h2>
+<p>Just as going to the app store doesn’t check your credit-card balance or make an Instagram post, simply <em>downloading</em> a package from the app-store doesn’t make the commands immediately available. For that you need to load it (just as you click on a phone app to open it).</p>
+<p><strong>I will tell you which packages you need for each lab, but if R tells you it wants a package, then install it AND load it.</strong></p>
+<p>This can be done with the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> command.</p>
+<p>For example, this command loads the full works of Shakespeare from the the bardr package. (<a href="https://www.rdocumentation.org/packages/bardr/versions/0.0.9" class="uri">https://www.rdocumentation.org/packages/bardr/versions/0.0.9</a>). If you want to try this, you will need to first install bardr using the instructions above.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">bardr</span><span class="op">)</span></span></code></pre></div>
+<p><br></p>
+<div id="using-a-single-command-from-a-package" class="section level3" number="2.4.1">
+<h3>
+<span class="header-section-number">2.4.1</span> Using a single command from a package<a class="anchor" aria-label="anchor" href="#using-a-single-command-from-a-package"><i class="fas fa-link"></i></a>
+</h3>
+<p>ADVANCED: Sometimes several packages name a command the same word and you want to specify which package you want to use.</p>
+<p>You can do this using the :: symbol. For example, this command <em>forces</em> the computer to use the ‘dplyr package’ version of filter.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mydata</span><span class="op">)</span></span></code></pre></div>
+<p><br></p>
+</div>
+<div id="problem-solving-1" class="section level3" number="2.4.2">
+<h3>
+<span class="header-section-number">2.4.2</span> Problem Solving<a class="anchor" aria-label="anchor" href="#problem-solving-1"><i class="fas fa-link"></i></a>
+</h3>
+<div id="nothing-happened" class="section level4" number="2.4.2.1">
+<h4>
+<span class="header-section-number">2.4.2.1</span> Nothing happened!<a class="anchor" aria-label="anchor" href="#nothing-happened"><i class="fas fa-link"></i></a>
+</h4>
+<p>If you have managed to load a package successfully, often nothing happens - this is great! It means it loaded the package without errors.</p>
+</div>
+<div id="there-was-a-load-of-text-output---an-error" class="section level4" number="2.4.2.2">
+<h4>
+<span class="header-section-number">2.4.2.2</span> There was a load of text output - an error?<a class="anchor" aria-label="anchor" href="#there-was-a-load-of-text-output---an-error"><i class="fas fa-link"></i></a>
+</h4>
+<p>Hard to tell. So I suggest running the library command TWICE! This is because many packages will print “friendly messages” or “welcome text” the first time you load them.</p>
+<p>For example, this is what shows up when you install the tidyverse package. The welcome text is indicating the sub-packages that tidyverse downloaded and also that some commands now have a different meaning.</p>
+<div class="figure" style="text-align: center">
+<img src="index_images/im_T2_friendlytext.png" alt="Tidyverse install messages" width="100%"><p class="caption">
+(#fig:im_T2_friendlytext)Tidyverse install messages
+</p>
+</div>
+<p><strong>To find out if what you are seeing is a friendly message or an error, run the command again. If you run it a second time and and nothing happens then you’re fine.</strong></p>
+<p><br></p>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></div>
+<div class="next"><a href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T2_Libraries"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="nav-link" href="#T2_Libraries_about"><span class="header-section-number">2.1</span> What are packages?</a></li>
+<li><a class="nav-link" href="#seeing-what-packages-you-already-have"><span class="header-section-number">2.2</span> Seeing what packages you already have</a></li>
+<li>
+<a class="nav-link" href="#the-app-storegetting-new-packages"><span class="header-section-number">2.3</span> The app store/getting new packages</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#manually-click"><span class="header-section-number">2.3.1</span> Manually click</a></li>
+<li><a class="nav-link" href="#little-yellow-banner"><span class="header-section-number">2.3.2</span> Little yellow banner</a></li>
+<li><a class="nav-link" href="#problem-solving"><span class="header-section-number">2.3.3</span> Problem solving</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#usingloading-a-package-you-own"><span class="header-section-number">2.4</span> Using/Loading a package you ‘own’</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#using-a-single-command-from-a-package"><span class="header-section-number">2.4.1</span> Using a single command from a package</a></li>
+<li><a class="nav-link" href="#problem-solving-1"><span class="header-section-number">2.4.2</span> Problem Solving</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-01-17.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
