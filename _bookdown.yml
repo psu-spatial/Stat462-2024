@@ -13,6 +13,7 @@ rmd_files:
     "in_01-WhatIsR.Rmd",
 
     "in_02-Lab1.Rmd",
+    "in_02-Lab2.Rmd",
 
     "in_03-Setup1_desktop.Rmd",
     "in_03-Setup2_updatedesktop.Rmd",

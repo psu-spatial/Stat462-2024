@@ -14,11 +14,11 @@ An R project typically refers to a collection of files, data, and code organized
 
 Watch this short video to learn why we are using them (4 minutes)
 
-[*![](./index_images/im_T1_ProjectVideo.png)*](https://www.linkedin.com/learning/learning-the-r-tidyverse/why-should-you-use-projects-in-rstudio?u=76811570)*(link here if it's not working: <https://www.linkedin.com/learning/learning-the-r-tidyverse/why-should-you-use-projects-in-rstudio?u=76811570>, you will need to log into Penn State)*
+![](./index_images/im_T1_ProjectVideo.png){width="600"}*(link here if it's not working: <https://www.linkedin.com/learning/learning-the-r-tidyverse/why-should-you-use-projects-in-rstudio?u=76811570>, you will need to log into Penn State)*
 
 <br>
 
-#### [WE WILL BE MAKING A NEW PROJECT FOR EACH LAB]{.underline}
+[WE WILL BE MAKING A NEW PROJECT FOR EACH LAB]{.underline}
 
 ------------------------------------------------------------------------
 
@@ -32,7 +32,7 @@ Watch this short video to learn why we are using them (4 minutes)
 3.  **Returning to your lab projects on the cloud is very easy. Just go back to** <https://posit.cloud/content/yours>
 
 <div class="figure" style="text-align: center">
-<img src="./index_images/im_T1_ProjectCloud.png" alt="*The Cloud dashboard*" width="1003" />
+<img src="./index_images/im_T1_ProjectCloud.png" alt="*The Cloud dashboard*" width="90" />
 <p class="caption">(\#fig:im_T1_ProjectCloud)*The Cloud dashboard*</p>
 </div>
 
@@ -40,7 +40,7 @@ Watch this short video to learn why we are using them (4 minutes)
 
 ------------------------------------------------------------------------
 
-## Projects on your desktop
+## Projects on your desktop {#T1_ProjectsDesktop}
 
 1.  Make a folder called STAT462 in an easy to access location on your computer.
     -   This is where all of your labs will live for this course.\

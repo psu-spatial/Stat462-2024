@@ -26,6 +26,8 @@ details > *:not(summary){
 
 <details>
 
+![](./index_images/im_T1_ProjectVideo.png){width="600"}\*
+
 <summary>[Click here for the answer]{style="color: #1388aa;"}</summary>
 
 But in general, you need to submit two files; a `.Rmd` file containing your code and a `.html` file for viewing your finished document. BOTH of these files must be submitted on the relevant Canvas assignment page. Occasionally, you might also need to submit your dataset.

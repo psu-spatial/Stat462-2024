@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Lab 2 | STAT462 Lab Book 2024</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="0.3 Aim Welcome to lab 2. This is worth 10% (100 points) and you can drop your lowest lab out of six. The aim of the lab is to continue getting used to some basic exploratory data analysis,...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Lab 2 | STAT462 Lab Book 2024">
+<meta property="og:type" content="book">
+<meta property="og:description" content="0.3 Aim Welcome to lab 2. This is worth 10% (100 points) and you can drop your lowest lab out of six. The aim of the lab is to continue getting used to some basic exploratory data analysis,...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lab 2 | STAT462 Lab Book 2024">
+<meta name="twitter:description" content="0.3 Aim Welcome to lab 2. This is worth 10% (100 points) and you can drop your lowest lab out of six. The aim of the lab is to continue getting used to some basic exploratory data analysis,...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">STAT462 Lab Book 2024</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to STAT-462!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li class="book-part">.</li>
+<li class="book-part">Lab instructions</li>
+<li><a class="" href="Lab_1.html">Lab 1</a></li>
+<li><a class="active" href="Lab_2.html">Lab 2</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">UPDATING R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Using R Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="Lab_2" class="section level1 unnumbered">
+<h1>Lab 2<a class="anchor" aria-label="anchor" href="#Lab_2"><i class="fas fa-link"></i></a>
+</h1>
+<div id="aim-1" class="section level2" number="0.3">
+<h2>
+<span class="header-section-number">0.3</span> Aim<a class="anchor" aria-label="anchor" href="#aim-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Welcome to lab 2. This is worth 10% (100 points) and you can drop your lowest lab out of six. The aim of the lab is to continue getting used to some basic exploratory data analysis, including</p>
+<ul>
+<li><p>Getting help</p></li>
+<li><p>Reading in data</p></li>
+<li><p>Dealing with missing data</p></li>
+<li><p>Making nice plots &amp; summary statistics</p></li>
+</ul>
+<p>This is a ONE WEEK LAB. You only have one lab session (today) working on this during class, then 10 days to finish up and write up. The maximum time it should take is about 4-5 hrs of your time. <u><strong>If you are stuck, ask for help</strong></u>.</p>
+<p><br></p>
+<hr>
+</div>
+<div id="instructions-1" class="section level2 unnumbered">
+<h2>Instructions<a class="anchor" aria-label="anchor" href="#instructions-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="set-up-dont-skip" class="section level3 unnumbered">
+<h3>Set up (DON’T SKIP)<a class="anchor" aria-label="anchor" href="#set-up-dont-skip"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>[1] Create a project for Lab 2</strong></p>
+<ul>
+<li>
+<p>If you are using the POSIT Cloud (AKA R-Studio online),</p>
+<ul>
+<li>Log in and make a new project for lab 2 using <a href="T1_Projects.html#T1_ProjectsCloud">Tutorial 1B</a>
+</li>
+</ul>
+</li>
+<li>
+<p>If you are using R-Studio on your own computer/laptop</p>
+<ul>
+<li>Log in and make a new project for lab 2 using <a href="T1_Projects.html#T1_ProjectsCloud">T1_ProjectsDesktop</a>
+</li>
+<li>To open/re-open your project, look in the STAT462/Lab2 folder on your computer and double click the .RProj file (I often rename it something like OPENTHIS.RProj)</li>
+</ul>
+</li>
+</ul>
+<p><br><br></p>
+<p><strong>[2] Download the lab report template</strong></p>
+<ul>
+<li><p>Go to the Canvas assignment page and, download <code>Lab1_Template.RmD</code>,</p></li>
+<li><p><strong>RENAME IT TO <code>Lab1_Email_ID.RmD</code> (e.g. for me, <code>Lab1_hlg5155.RmD</code>)</strong> DON’T FORGET THIS STEP!</p></li>
+<li><p>For desktop users, place the file your Lab 2 folder on your computer. On Posit Cloud, open your project, then look for the upload button in the Files tab.</p></li>
+</ul>
+<p><br><br></p>
+<p><strong>[4] Edit the yaml code</strong></p>
+<ul>
+<li>Inside R-studio, open your lab 2 project (if it’s not already open), then click Lab1_Email_ID.RmD to open it. Change the author name at the top to your email ID.</li>
+</ul>
+<p><br><br></p>
+<p><strong>[5] Check Progress</strong></p>
+<ul>
+<li>You should have something like this
+<ul>
+<li>e.g. you are in your project, you have downloaded/renamed your lab report and changed the author name. If you are stuck, either go back and redo the tutorials or talk to Dr G.</li>
+</ul>
+</li>
+<li>Press knit and check it all works. You might need to install some packages.</li>
+</ul>
+<div class="figure" style="text-align: center">
+<img src="index_images/im_Lab02_SetUp.png" alt="*Your screen should look like this*" width="90%"><p class="caption">
+(#fig:im_Lab02_SetUp)<em>Your screen should look like this</em>
+</p>
+</div>
+<hr>
+<p><br><br></p>
+<p><strong>[6] OPTIONAL</strong></p>
+<p>If you like my black background or want to change how your code looks as you type, go to the tools menu at the VERY TOP OF THE ENTIRE SCREEN, then click the last option, Global Options. Inside, click appearance.</p>
+<p><br></p>
+</div>
+<div id="getting-help" class="section level3 unnumbered">
+<h3>Getting help<a class="anchor" aria-label="anchor" href="#getting-help"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are 60 of you and one of me. So we space where you can ask for help, I can answer a question once and you will all be able to see it.</p>
+<p>We will do this using the ‘github’ help discussion boards, as they are then linked to the course Lab book and are designed for code.</p>
+<p>Github is a free online system designed for sharing and collaborating on computer code. It is widely used in the professional world</p>
+<ul>
+<li><p><strong>[6]</strong> Go to <a href="https://github.com/" class="uri">https://github.com/</a> and either make an account or log in. Use any email address.</p></li>
+<li><p><strong>[7]</strong> Click on the top right to go to your profile, then click edit and add in a few details about yourself or a photo (employers see this, think of it like claiming your LinkedIn page).</p></li>
+</ul>
+<details><summary><span style="color: #1388aa;">Expand to see me do this</span>
+</summary><video width="600" controls><source src="./index_videos/vid_Lab2_GithubSignup.mp4" type="video/mp4">
+    Your browser does not support mp4 videos.
+   </source></video><p><br></p>
+</details><ul>
+<li>
+<strong>[8]</strong> In QUESTION 1 in your lab report, add the web address of your github profile as a clickable link (hint, remember <a href="T3_Markdown.html#T32A_visualmode">Visual Mode</a>.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<strong>[9]</strong> Now go here - <a href="https://github.com/psu-spatial/Stat462-2024/issues" class="uri">https://github.com/psu-spatial/Stat462-2024/issues</a> On the right, there is a button called “create an issue”. This is what you will click if you have a real question/issue. For now, we will make a test issue. Click “create a new issue”, say hello and attach a screenshot of your code (any screenshot is fine).</li>
+</ul>
+<p><br></p>
+<hr>
+</div>
+<div id="functionscommands-and-data.frames-spreadsheets" class="section level3 unnumbered">
+<h3>Functions/Commands and data.frames (spreadsheets)<a class="anchor" aria-label="anchor" href="#functionscommands-and-data.frames-spreadsheets"><i class="fas fa-link"></i></a>
+</h3>
+<p>Just read this section. We started by looking at a few commands. Now we will see how these apply to tables of data. Specifically we will be looking at penguins.</p>
+<p>The top five things you need to remember</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>The structure of an R Command is <br><code>VARIABLE &lt;- COMMAND(variable_you_apply_it_to, options)</code></p>
+<ol style="list-style-type: decimal">
+<li><p>So a command/function always has ( ) after it, even if they are empty.</p></li>
+<li>
+<p>and you are always saving your answer using the little arrow &lt;-</p>
+<p><br></p>
+</li>
+</ol>
+</li>
+<li>
+<p>You can see the help file for ANY command or inbuilt dataset by typing ?commandname into the console e.g. try typing ?mean into the console to see all the possible options, and a worked example at the bottom. I don’t recommend typing this into a code chunk as knit gets confused.</p>
+<p><br></p>
+</li>
+<li>
+<p>You must run the library code chunk at the top for anything to work<br></p>
+<p><br></p>
+</li>
+<li>
+<p>Within a table, you can select columns using the TableName$ColumnName (it should autocomplete) e.g. answer &lt;- mean(mytable$columnA) will take the mean of column A and save the result to a variable called answer.</p>
+<p><br><br></p>
+</li>
+<li><p>You can select within a table/object using SQUARE BRACKETS <br> e.g. TableName[ Row(s) , Column(s)]</p></li>
+</ol>
+<p><br></p>
+</div>
+<div id="penguin-data-analysis" class="section level3 unnumbered">
+<h3>Penguin data analysis<a class="anchor" aria-label="anchor" href="#penguin-data-analysis"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>[10]</strong> If you are new to R, consider doing this chapter in data camp - <a href="https://campus.datacamp.com/courses/free-introduction-to-r/chapter-5-data-frames" class="uri">https://campus.datacamp.com/courses/free-introduction-to-r/chapter-5-data-frames</a>. It will count for your participation..</li>
+</ul>
+<div id="a.-packages" class="section level4 unnumbered">
+<h4>A. packages<a class="anchor" aria-label="anchor" href="#a.-packages"><i class="fas fa-link"></i></a>
+</h4>
+<p>Today we will be using commands from several packages. Somewhere near the top of your script, make a new code chunk and add this code. To add a new code chunk, CLICK THE LITTLE GREEN BUTTON (Top Right) and choose the R option.</p>
+<p>Before it runs, you might have to install/download the packages first (see <a href="#id_#T2_Libraries">The library tutorial</a> )</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/skimr/">skimr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ggstatsplot2</span><span class="op">)</span></span></code></pre></div>
+<p>Remember to run the code chunk! <a href="https://www.pipinghotdata.com/posts/2020-09-07-introducing-the-rstudio-ide-and-r-markdown/gifs/run-chunk.gif">(pressing the green arrow, or go to the run button on the top right and press Run All</a>)</p>
+<p>Before it runs, you might have to install/download the packages first (see <a href="#id_#T2_Libraries">The library tutorial</a> )</p>
+<p><br></p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup><col width="100%"></colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">#### B Load &amp; look at the data</td>
+</tr>
+<tr class="odd">
+<td align="left">Leave a blank line, and create a new level 1 heading called <em>Penguin Analysis</em>. E.g. write the text, click on it, then in visual mode click the little arrow by normal and set to heading 1.</td>
+</tr>
+<tr class="even">
+<td align="left">Leave a blank line afterwards too. We’re going to work with a table of data that’s already pre-loaded into R inside the ggplot2 package.</td>
+</tr>
+<tr class="odd">
+<td align="left">1. Make sure you have run the library code chunk above without error, or it won’t work. <br>
+</td>
+</tr>
+<tr class="even">
+<td align="left">2. Load the data using this command. You can ignore the raw penguin data</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>r data("penguins")</code></td>
+</tr>
+<tr class="even">
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">3. Type the <code><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html">?penguins</a></code> command in the console. This will bring up the help file.</td>
+</tr>
+<tr class="even">
+<td align="left">4. State the</td>
+</tr>
+<tr class="odd">
+<td align="left">- Object of Analysis
+- A <u><em>reasonable</em></u> population you would be happy to apply this dataset to*
+- Variables and units - you are allowed to copy these names/units from the help file</td>
+</tr>
+<tr class="even">
+<td align="left"><em>*Imagine you are giving this analysis to a newspaper editor. What population do you think this sample could represent?</em></td>
+</tr>
+<tr class="odd">
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">#### C Examine the data</td>
+</tr>
+<tr class="odd">
+<td align="left">Now look at the data itself. If you look in the environment tab, you will see a new variable called penguins Click on it’s NAME to see the spreadsheet/table itself and familiarise yourself with the data. <br><br>
+</td>
+</tr>
+<tr class="even">
+<td align="left">We could have also looked at the data by either by typing its name into the console, the command <code>View(penguins)</code> or a code chunk, or by using commands like <code>head(penguins)</code> to show the first few lines</td>
+</tr>
+<tr class="odd">
+<td align="left">#### D Examine the data</td>
+</tr>
+<tr class="even">
+<td align="left">Let’s look at the summary statistics. Leave a blank line and create a new code chunk containing the following code <br><br>
+</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>r # penguins comes from the palmerpenguins package # skim comes from the skimr package skim(penguins)</code></td>
+</tr>
+<tr class="even">
+<td align="left">This command compiles the summary statistics for the penguin dataset - sometimes its easier to view this if you press the knit button and look at the html pop-up. You can also use the summary() command to achieve a similar result <br><br>
+</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>r summary(penguins)</code></td>
+</tr>
+<tr class="even">
+<td align="left">Summarise the dataset.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>This should include:</strong></td>
+</tr>
+<tr class="even">
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">1. A short description of any missing data. For example, are there entire rows missing? Certain columns? Imagine you are using this dataset for modelling, are there rows that will need removing? etc etc? Try `View(penguins)` to look at the penguin dataset itself<br>
+</td>
+</tr>
+<tr class="even">
+<td align="left">
+<br>
+2. How many penguins were from 2008?</td>
+</tr>
+<tr class="odd">
+<td align="left">- <em>Hint, <a href="https://www.statology.org/table-function-in-r/">the table command</a>..</em>
+</td>
+</tr>
+<tr class="even">
+<td align="left">- <em>Hint 2, to choose a column use the $ sign e.g. tablename$columnname</em>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">- <em>Hint 3, R IS CASE SENSITIVE!</em><br>
+</td>
+</tr>
+<tr class="even">
+<td align="left">
+<br>
+3. A histogram of one variable of your choice and a description of the variable.<br>
+E.g. unimodal? skewed? Any outliers?
+- *Hint <a href="https://allisonhorst.github.io/palmerpenguins/articles/examples.html" class="uri">https://allisonhorst.github.io/palmerpenguins/articles/examples.html</a> *<br>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">
+<br>
+4. A scatterplot between two variables of your choice and a description of what the data shows.
+- <em>Hint <a href="https://allisonhorst.github.io/palmerpenguins/articles/examples.html" class="uri">https://allisonhorst.github.io/palmerpenguins/articles/examples.html</a> *</em>
+</td>
+</tr>
+<tr class="even">
+<td align="left">- *Hint 2, for a description, <a href="https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/scatterplots-correlation/a/describing-scatterplots-form-direction-strength-outliers">see this Khan page</a><br>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">
+<br>
+5. The correlation between two variables of your choice
+- <em>Hint, <a href="https://www.statology.org/r-cor-function/">the cor command</a></em> *<br>
+</td>
+</tr>
+<tr class="even">
+<td align="left">
+<br><br>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">## Submitting your Lab</td>
+</tr>
+<tr class="even">
+<td align="left">Remember to save your work throughout and to spell check your writing (next to the save button). Now, press the knit button again. If you have not made any mistakes in the code then R should create a html file in your lab 1 folder which includes your answers. If you look at your lab 1 folder, you should see this there - complete with a very recent time-stamp.</td>
+</tr>
+<tr class="odd">
+<td align="left">In that folder, double click on the html file. This will open it in your web-browser.<br>
+CHECK THAT THIS IS WHAT YOU WANT TO SUBMIT.</td>
+</tr>
+<tr class="even">
+<td align="left">If you are on R studio cloud, see Tutorial 1 for how to download your files</td>
+</tr>
+<tr class="odd">
+<td align="left">Now go to Canvas and submit BOTH your html and your .Rmd file in Lab 2.</td>
+</tr>
+<tr class="even">
+<td align="left"><!--chapter:end:in_02-Lab2.Rmd--></td>
+</tr>
+<tr class="odd">
+<td align="left"># (PART*) <span style="color: white;">~</span> {.unnumbered}
+# (PART*) <strong>Getting Started</strong> {.unnumbered}</td>
+</tr>
+<tr class="even">
+<td align="left"># Installing R/R-Studio on your computer for the first time {#Setup_Desktop .unnumbered}</td>
+</tr>
+<tr class="odd">
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">If you are brand new, consider skimming through <a href="WhatIsR.html#WhatIsR">What are R and R-Studio</a>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">To use it on your own computer we need to do two things. <br>
+</td>
+</tr>
+<tr class="even">
+<td align="left">- First, teach the computer to ‘speak R’.</td>
+</tr>
+<tr class="odd">
+<td align="left">- Secondly download the RStudio software.<br><br>
+</td>
+</tr>
+<tr class="even">
+<td align="left">In this section, I first include a video where I go through it - and then written instructions going over the same thing.</td>
+</tr>
+<tr class="odd">
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="Setup_DesktopVideo" class="section level3 unnumbered">
+<h3>Video instructions<a class="anchor" aria-label="anchor" href="#Setup_DesktopVideo"><i class="fas fa-link"></i></a>
+</h3>
+<p>Here’s a video where I install R/R-Studio on my mac. It should take less than 10 minutes to follow along &amp; there are subtitles. I will try to also put up another for my windows machine.</p>
+<details><summary><span style="color: #1388aa;">Click to expand &amp; watch</span>
+</summary><p><br></p>
+<div style="max-width:640px">
+<div style="position:relative;padding-bottom:100%">
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2356971/sp/235697100/embedIframeJs/uiconf_id/41416911/partner_id/2356971?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=1_009n7kh8&amp;flashvars%5BstreamerType%5D=auto&amp;flashvars%5BlocalizationCode%5D=en&amp;flashvars%5BsideBarContainer.plugin%5D=true&amp;flashvars%5BsideBarContainer.position%5D=left&amp;flashvars%5BsideBarContainer.clickToClose%5D=true&amp;flashvars%5Bchapters.plugin%5D=true&amp;flashvars%5Bchapters.layout%5D=vertical&amp;flashvars%5Bchapters.thumbnailRotator%5D=false&amp;flashvars%5BstreamSelector.plugin%5D=true&amp;flashvars%5BEmbedPlayer.SpinnerTarget%5D=videoHolder&amp;flashvars%5BdualScreen.plugin%5D=true&amp;flashvars%5Bhotspots.plugin%5D=1&amp;flashvars%5BKaltura.addCrossoriginToIframe%5D=true&amp;&amp;wid=1_i392r73r" width="640" height="640" allowfullscreen webkitallowfullscreen mozallowfullscreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="R-Tutorials Video 1. Installing R and R studio on a mac" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0">
+</iframe>
+</div>
+</div>
+<p><br></p>
+</details><hr>
+</div>
+</div>
+<div id="written-instructions" class="section level2" number="0.4">
+<h2>
+<span class="header-section-number">0.4</span> Written Instructions<a class="anchor" aria-label="anchor" href="#written-instructions"><i class="fas fa-link"></i></a>
+</h2>
+<p>If you’re not a video sort of person, here are written instructions:</p>
+<div id="Setup_R" class="section level3 unnumbered">
+<h3>1. Installing R.<a class="anchor" aria-label="anchor" href="#Setup_R"><i class="fas fa-link"></i></a>
+</h3>
+<p>First, we teach the computer to ‘speak R’.</p>
+<p>Go here: <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a>. Click the Install R button <br></p>
+<div class="figure" style="text-align: center">
+<img src="index_images/im_02Setup_4InstallR.png" alt="Click here!" width="698"><p class="caption">
+(#fig:Setup_Fig1)Click here!
+</p>
+</div>
+<p>Click the link and you will go to a terrifying website called CRAN R.</p>
+<div class="figure" style="text-align: center">
+<img src="index_images/im_02Setup_5CranR.png" alt="*Choose your computer type*" width="1025"><p class="caption">
+(#fig:Setup_Fig2)<em>Choose your computer type</em>
+</p>
+</div>
+<div id="Setup_R_PC" class="section level4 unnumbered">
+<h4>If you are on a WINDOWS/PC computer<a class="anchor" aria-label="anchor" href="#Setup_R_PC"><i class="fas fa-link"></i></a>
+</h4>
+<details><summary><span style="color: #1388aa;">Click to expand</span>
+</summary><p><br></p>
+<div class="figure" style="text-align: center">
+<img src="index_images/im_02Setup_6WINDOWS.png" alt="*Choose your computer type*" width="1128"><p class="caption">
+(#fig:Setup_Fig3)<em>Choose your computer type</em>
+</p>
+</div>
+<p>Click the “install for the first time” link and follow through to install R - EVEN IF YOU ALREADY HAVE R AND R STUDIO INSTALLED. <br><br></p>
+<p>Say yes to all the default options. Send Dr G a message if you get stuck <br></p>
+<p><br></p>
+</details>
+</div>
+<div id="Setup_R_Mac" class="section level4 unnumbered">
+<h4>If you are on a MAC/AppleMac<a class="anchor" aria-label="anchor" href="#Setup_R_Mac"><i class="fas fa-link"></i></a>
+</h4>
+<details><summary><span style="color: #1388aa;">Click to expand</span>
+</summary><p><br></p>
+<p>If you are a MAC user, you will need <u>EITHER</u> one of these two files. If your computer is new, try the top one, if it’s older try the second - the wrong one simply won’t work.</p>
+<div class="figure" style="text-align: center">
+<img src="index_images/im_02Setup_7MAC.png" alt="*Choose your computer type*" width="1437"><p class="caption">
+(#fig:Setup_Fig4)<em>Choose your computer type</em>
+</p>
+</div>
+<ol style="list-style-type: decimal">
+<li><p>Click the filename to download <br></p></li>
+<li><p>MOVE THE DOWNLOAD OUTSIDE YOUR DOWNLOAD FOLDER (they have a weird bug.) Put it on your desktop</p></li>
+<li><p>Open the download and follow the instructions. <br></p></li>
+<li><p>You can delete the download.</p></li>
+</ol>
+<p>If you have issues, try watching my video at the top and see if that solves it. Or talk to Dr G</p>
+<p><br></p>
+</details>
+</div>
+</div>
+<div id="Setup_RStudio" class="section level3 unnumbered">
+<h3>2. Installing R studio<a class="anchor" aria-label="anchor" href="#Setup_RStudio"><i class="fas fa-link"></i></a>
+</h3>
+<p>Go back here: <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a>. Click the Install R-Studio button</p>
+<div class="inline-figure"><img src="index_images/im_02Setup_8InstallRstudio.png" width="739" style="display: block; margin: auto;"></div>
+<div id="Setup_RStudio_PC" class="section level4 unnumbered">
+<h4>If you are on a WINDOWS/PC computer<a class="anchor" aria-label="anchor" href="#Setup_RStudio_PC"><i class="fas fa-link"></i></a>
+</h4>
+<details><summary><span style="color: #1388aa;">Click to expand</span>
+</summary><p><br></p>
+<p>Install the same way you install any new software</p>
+<p><br></p>
+</details>
+</div>
+<div id="Setup_RStudio_Mac" class="section level4 unnumbered">
+<h4>If you are on a Mac computer<a class="anchor" aria-label="anchor" href="#Setup_RStudio_Mac"><i class="fas fa-link"></i></a>
+</h4>
+<details><summary><span style="color: #1388aa;">Click to expand</span>
+</summary><p><br></p>
+<div class="figure" style="text-align: center">
+<img src="index_images/im_02Setup_9RstudioMacinstall.png" alt="*Will look different for windows*" width="428"><p class="caption">
+(#fig:Setup_Fig6)<em>Will look different for windows</em>
+</p>
+</div>
+<ul>
+<li><p>Download the dmg file, click to open, then DRAG it over to applications.</p></li>
+<li><p>If it asks to overwrite, say yes.</p></li>
+</ul>
+<p>It might get angry at this stage if your mac is very out of date. Your choices are probably to backup your computer, update your operating system and reinstall R. OR! Just use RStudio online rather than downloading it at all. Feel free to chat with Dr G about options.</p>
+<p><br></p>
+</details><p><br></p>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="Lab_1.html">Lab 1</a></div>
+<div class="next"><a href="Setup_UpdateDesktop.html">UPDATING R/R-Studio</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#Lab_2">Lab 2</a></li>
+<li><a class="nav-link" href="#aim-1"><span class="header-section-number">0.3</span> Aim</a></li>
+<li>
+<a class="nav-link" href="#instructions-1">Instructions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#set-up-dont-skip">Set up (DON’T SKIP)</a></li>
+<li><a class="nav-link" href="#getting-help">Getting help</a></li>
+<li><a class="nav-link" href="#functionscommands-and-data.frames-spreadsheets">Functions/Commands and data.frames (spreadsheets)</a></li>
+<li><a class="nav-link" href="#penguin-data-analysis">Penguin data analysis</a></li>
+<li><a class="nav-link" href="#Setup_DesktopVideo">Video instructions</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#written-instructions"><span class="header-section-number">0.4</span> Written Instructions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#Setup_R">1. Installing R.</a></li>
+<li><a class="nav-link" href="#Setup_RStudio">2. Installing R studio</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-01-24.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
