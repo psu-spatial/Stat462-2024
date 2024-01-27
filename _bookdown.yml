@@ -12,12 +12,12 @@ rmd_files:
     "in_01-CourseFAQ.Rmd",
     "in_01-WhatIsR.Rmd",
 
-    "in_02-Lab1.Rmd",
-    "in_02-Lab2.Rmd",
-
     "in_03-Setup1_desktop.Rmd",
     "in_03-Setup2_updatedesktop.Rmd",
     "in_03-Setup3_RCloud.Rmd",
+
+    "in_02-Lab1.Rmd",
+    "in_02-Lab2.Rmd",
 
     "in_04-Tutorial1_Projects.Rmd",
     "in_04-Tutorial2_Libraries.Rmd",

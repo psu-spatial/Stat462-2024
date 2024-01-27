@@ -1,4 +1,4 @@
-# (PART\*) [~]{style="color: white;"} {.unnumbered}
+# (PART\*) [.]{style="color: white;"} {.unnumbered}
 # (PART\*) **Getting Started** {.unnumbered}
 
 ```{r, include=FALSE,echo=FALSE,warning=FALSE,message=FALSE}
