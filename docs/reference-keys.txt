@@ -11,7 +11,6 @@ b.-the-ggplot-histogram
 c.-the-ggstatsplot-histogram-gghistostats.
 a.-the-base-r-scatterplot-plot.
 b.-the-ggstatplot-r-scatterplot-ggscatterstats.
-taiwan-analysis
 T1_Projects
 T1_ProjectsCloud
 T1_ProjectsDesktop
@@ -61,7 +60,7 @@ calculate-a-probability-given-a-t-statistic
 calculate-a-t-statistic-for-a-given-probability
 one-sided-t-test
 others
-plots
+T6_plots
 what-to-choose
 where-to-find-worked-examples
 plot-gallery

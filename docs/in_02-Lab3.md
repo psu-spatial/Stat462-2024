@@ -87,20 +87,20 @@ So far you have only dealt with data stored inside R. Here we will be practicing
 
  - Click on the plot to make yourself a scatterplot with negative correlation.
 
- - Save the data as a csv file and put it in your Lab 3 folder. You might need to add column names
+ - Save the data as a csv file and put it in your Lab 3 folder. You WILL need to add column names. You can do this by opening it in excel and adding them in on the top row (e.g. X and Y), then saving as a CSV or EXCEL. Don't let your mac save it as a stupid format.
 
- - Read the data into R.
+ - Read the data into R.  [TUTORIAL 4](#T4_ReadingData)
 
- - Find the statistical summary of the data  (e.g. summary/command)
+ - Find the statistical summary of the data  (e.g. summary/command - labs 1 and 2)
  
- - Make a scatterplot and create your first linear regression model (TUTORIAL 8)
+ - Make a scatterplot and create your first linear regression model (Tutorial 6 plots - [Plots](#T6_plots) scroll down to scatterplots, and Tutorial 8: [Regression](#T8_regression) )
  
-  - Write the gradient and intercept - and the full model equation.
+  - Write the gradient and intercept - and the full model equation. BONUS 1%, see if you can use Insert to write it in Latex equation format. (and google)
   
 
 <br><br>
 
-## 3: Taiwan analysis
+## 3: Taiwan analysis {.unnumbered}
 
 Next month, your friend is moving to Sindian Dist., in New Taipei City, Taiwan. They want to buy a house and have asked you to figure out what most impacts house price.
 
@@ -216,12 +216,12 @@ ggplotly(p)
  
  <br>
 
-**[Step 9]:** FINAL 2%.  Work out how much does the house price goes up for every 1 KILOMETER that you travel away from a metro station? Hint(remember the lm command..)
+**[Step 9]:** FINAL 2%.  Work out how much does the house price goes up for every 1 KILOMETER that you travel away from a metro station?
 
 
 <br><br>
 
-## 5. Submitting your Lab {.unnumbered}
+## 4. Submitting your Lab {.unnumbered}
 
 Remember to save your work throughout and to spell check your writing (next to the save button). Now, press the knit button again. If you have not made any mistakes in the code then R should create a html file in your lab 2 folder which includes your answers.
 

@@ -27,7 +27,7 @@ data("HousesNY", package = "Stat2Data")
 
 ```
 
-# Plots
+# Plots {#T6_plots}
 
 Plots are designed to do two things, allow you to see something in the data that you couldn't see in the numbers, plus communicate output in a compelling way.
 
