@@ -18,9 +18,16 @@ rmd_files:
 
     "in_02-Lab1.Rmd",
     "in_02-Lab2.Rmd",
+    "in_02-Lab3.Rmd",
 
     "in_04-Tutorial1_Projects.Rmd",
     "in_04-Tutorial2_Libraries.Rmd",
     "in_04-Tutorial3_Markdown.Rmd",
+    "in_04-Tutorial4_ReadingInData.Rmd",
+    "in_04-Tutorial5_NormalDistributionsTTests.Rmd",
+    "in_04-Tutorial6_Plots.Rmd",
+    "in_04-Tutorial7_Correlation.Rmd",
+    "in_04-Tutorial8_Regression.Rmd",
+
 
   ]

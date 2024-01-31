@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 4 Reading in data | STAT462 Lab Book 2024</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="4.1 DON’T USE ‘FILE/IMPORT’ OR DRAG IN DATA We often have to read in data from file. For those of you who have used before, you might have done this interactively e.g. going to File/Import data....">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Chapter 4 Reading in data | STAT462 Lab Book 2024">
+<meta property="og:type" content="book">
+<meta property="og:description" content="4.1 DON’T USE ‘FILE/IMPORT’ OR DRAG IN DATA We often have to read in data from file. For those of you who have used before, you might have done this interactively e.g. going to File/Import data....">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 4 Reading in data | STAT462 Lab Book 2024">
+<meta name="twitter:description" content="4.1 DON’T USE ‘FILE/IMPORT’ OR DRAG IN DATA We often have to read in data from file. For those of you who have used before, you might have done this interactively e.g. going to File/Import data....">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">STAT462 Lab Book 2024</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to STAT-462!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li class="book-part">.</li>
+<li class="book-part">Getting Started</li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio on your computer for the first time</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">UPDATING R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Using R Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">Lab instructions</li>
+<li><a class="" href="Lab_1.html">Lab 1</a></li>
+<li><a class="" href="Lab_2.html">Lab 2</a></li>
+<li><a class="" href="Lab_3.html">Lab 3</a></li>
+<li class="book-part">.</li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="active" href="T4_ReadingData.html"><span class="header-section-number">4</span> Reading in data</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">5</span> Probability distributions</a></li>
+<li><a class="" href="plots.html"><span class="header-section-number">6</span> Plots</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">7</span> Correlation</a></li>
+<li><a class="" href="T8_regression.html"><span class="header-section-number">8</span> Regression</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="T4_ReadingData" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> Reading in data<a class="anchor" aria-label="anchor" href="#T4_ReadingData"><i class="fas fa-link"></i></a>
+</h1>
+<p><br></p>
+<div id="dont-use-fileimport-or-drag-in-data" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> DON’T USE ‘FILE/IMPORT’ OR DRAG IN DATA<a class="anchor" aria-label="anchor" href="#dont-use-fileimport-or-drag-in-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>We often have to read in data from file. For those of you who have used before, you might have done this interactively e.g. going to File/Import data. The problem with this is that when you press ‘knit’ the computer don’t know how to reproduce your actions, so it will crash.</p>
+<p>So we want to learn the code commands to put into a code chunk. Here are some common ways to do so (there are many others!)</p>
+<p><br><br></p>
+<hr>
+</div>
+<div id="remember-to-use-projects" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> REMEMBER TO USE PROJECTS<a class="anchor" aria-label="anchor" href="#remember-to-use-projects"><i class="fas fa-link"></i></a>
+</h2>
+<p>The advantage of using projects is that you don’t have to ‘tell’ the computer where to look for data. So for those of you who used R before, you don’t have to use commands like setwd().</p>
+<p><strong>INSTEAD PUT THE DATA FILES IN THE SAME FOLDER AS YOUR PROJECT .Rproj file.</strong></p>
+<p>R will automatically look there first without you needing to tell it any locations.</p>
+<p><u><strong>ADVANCED</strong></u>: If you want to be fancy, you can make a sub-folder and the use “<em>./foldername/</em>filename..” in front of your file name. e.g, the . means look in the current folder, then go into the subfolder called foldername, then look for your filename.</p>
+<p><br><br></p>
+<hr>
+</div>
+<div id="reading-in-csv-files" class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> Reading in csv files<a class="anchor" aria-label="anchor" href="#reading-in-csv-files"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>First, make sure your csv is in your lab folder and you are running your lab project.</strong></p>
+<p>CSV files are like basic spreadsheets without formatting. E.g. comma separated values. The easiest way to read in a csv file is using the read.csv() command. This is built into R, you don’t need to install any packages.</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"FILENAME.csv"</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li><p>The command is <code><a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a></code> - if you go to ?read.csv you can see lots of other options like skipping rows etc.</p></li>
+<li><p>“<code>FILENAME.csv</code>” is whatever you have called your file. Its case sensitive.</p></li>
+<li><p><code>mydata</code> is the variable name you wish to save it as. This can be anything you like (e.g. if i read in data on frost dates, I might call it frost).</p></li>
+</ul>
+<p>Other valid commands that do the same thing are <code>read_csv()</code> (from the readr package) and <code>fread()</code> (from the data.table package). These are faster and more adaptable, but you would have do download the packages and they read the data into their own propitiatory format.</p>
+<div id="i-got-an-error" class="section level3" number="4.3.1">
+<h3>
+<span class="header-section-number">4.3.1</span> I got an error<a class="anchor" aria-label="anchor" href="#i-got-an-error"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you get an error, it means that either you have typed the filename in wrongly (for example you didn’t include the .csv) or that the file isn’t in exactly the same folder as your .rproj, or that you’re not running your project so the computer doesn’t know where to look.</p>
+</div>
+<div id="my-data-doesnt-have-column-names" class="section level3" number="4.3.2">
+<h3>
+<span class="header-section-number">4.3.2</span> My data doesn’t have column names<a class="anchor" aria-label="anchor" href="#my-data-doesnt-have-column-names"><i class="fas fa-link"></i></a>
+</h3>
+<p>If your data doesn’t have column names, you can tell R that it doesn’t like this:</p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"FILENAME.csv"</span>,header<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<p>Then you can rename your columns using the <code><a href="https://rdrr.io/r/base/names.html">names()</a></code> command.</p>
+<p><br><br></p>
+<hr>
+</div>
+</div>
+<div id="T4_readxl" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> Reading in excel files<a class="anchor" aria-label="anchor" href="#T4_readxl"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>First, make sure your xlsx or xls file is in your lab folder and you are running your lab project.</strong></p>
+<p>More complex spreadsheets are easily read in using the <code><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel()</a></code> command from the <code>readxl</code> package.</p>
+<p>First, go to the packages tab, click install and download/install the readxl package. Then add <code>readxl</code> to your library code chunk and run (e.g. <code><a href="https://readxl.tidyverse.org">library(readxl)</a></code> )</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span></code></pre></div>
+<p>Now you can read in excel files using this command</p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mydata2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"FILENAME.xlsx"</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li><p>The command is read_excel<code>()</code> - if you go to ?read_excel you can see lots of other options like skipping rows etc.</p></li>
+<li><p>“FILENAME.xlsx” is whatever you have called your file. Its case sensitive and you need the extension.</p></li>
+<li><p><code>mydata2</code> is the variable name you wish to save it as. This can be anything you like (e.g. if i read in data on frost dates, I might call it frost).</p></li>
+</ul>
+<p>Other valid commands that do the same thing are <code>read_table()</code> (from the readr package) and <code>fread()</code> (from the data.table package). These are faster and more adaptable, but you would have do download the packages and they read the data into their own propitiatory format.</p>
+<p>If you get an error, it means that either you have typed the filename in wrongly (for example you didn’t include the .csv) or that the file isn’t in exactly the same folder as your .rproj, or that you’re not running your project so the computer doesn’t know where to look.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></div>
+<div class="next"><a href="probability-distributions.html"><span class="header-section-number">5</span> Probability distributions</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T4_ReadingData"><span class="header-section-number">4</span> Reading in data</a></li>
+<li><a class="nav-link" href="#dont-use-fileimport-or-drag-in-data"><span class="header-section-number">4.1</span> DON’T USE ‘FILE/IMPORT’ OR DRAG IN DATA</a></li>
+<li><a class="nav-link" href="#remember-to-use-projects"><span class="header-section-number">4.2</span> REMEMBER TO USE PROJECTS</a></li>
+<li>
+<a class="nav-link" href="#reading-in-csv-files"><span class="header-section-number">4.3</span> Reading in csv files</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#i-got-an-error"><span class="header-section-number">4.3.1</span> I got an error</a></li>
+<li><a class="nav-link" href="#my-data-doesnt-have-column-names"><span class="header-section-number">4.3.2</span> My data doesn’t have column names</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#T4_readxl"><span class="header-section-number">4.4</span> Reading in excel files</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-01-31.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
