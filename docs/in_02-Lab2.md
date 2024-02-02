@@ -39,9 +39,9 @@ This is a ONE WEEK LAB. You only have one lab session (today) working on this du
 
 ### **[1.2] Download the lab report template** {.unnumbered}
 
--   Go to the Canvas assignment page and, download `Lab1_Template.RmD`,
+-   Go to the Canvas assignment page and, download `Lab2_Template.RmD`,
 
--   DON'T FORGET THIS STEP! <br> **RENAME THE FILE TO `Lab1_Email_ID.RmD` (e.g. for me, `Lab1_hlg5155.RmD`)** <br> You do this by right clicking on the file on your computer and selecting rename.
+-   DON'T FORGET THIS STEP! <br> **RENAME THE FILE TO `Lab2_Email_ID.RmD` (e.g. for me, `Lab2_hlg5155.RmD`)** <br> You do this by right clicking on the file on your computer and selecting rename.
 
 -   Now place the file in your Lab 2 folder
 
@@ -63,7 +63,7 @@ This is a ONE WEEK LAB. You only have one lab session (today) working on this du
 
 ### **[1.3] Edit the yaml code** {.unnumbered}
 
--   Inside R-studio, open your lab 2 project (if it's not already open), then click Lab1_Email_ID.RmD to open it.\
+-   Inside R-studio, open your lab 2 project (if it's not already open), then click Lab2_Email_ID.RmD to open it.\
 -   Change the author name at the top to your email ID.
 
 <br>
