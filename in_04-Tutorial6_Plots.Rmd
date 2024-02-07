@@ -63,18 +63,13 @@ If you are new to data visualisation, read these two articles
 -   <https://flowingdata.com/2014/10/23/moving-past-default-charts/>
 -   <https://flowingdata.com/2012/05/15/how-to-visualize-and-compare-distributions/>
 
-<br>
-
-## Plot gallery
-
-
 <br> <br>
 
-### Scatterplots
+## Scatterplots {#T6_PlotsScatter}
 
-#### Built in plot command
+### Built in plot command
 
-Here is the absolute basic scatterplot.  This should not be the one you submit in your reports (e.g. either choose a more professional one or adjust the options below)
+Here is the absolute basic scatterplot. This should not be the one you submit in your reports (e.g. either choose a more professional one or adjust the options below)
 
 ```{r}
 # you can either do plot(x, y)
@@ -120,10 +115,11 @@ lines(HousesNY$Price ~ HousesNY$Beds,
 
 ```
 
+<br>
 
-#### adding a lione of best fit
+## Adding a line of best fit
 
-To add a line, you can use the abline command IN THE SAME CODE CHUNK. For example
+To add a line, you can use the `abline` command IN THE SAME CODE CHUNK. For example
 
 ```{r}
 
@@ -148,8 +144,9 @@ abline(lm(HousesNY$Price ~ HousesNY$Beds),col="blue",lty="dotted",lwd=3)
 
 ```
 
-#### ggplot
+<br>
 
+### Tidyverse/GGPLOT2 scatterplots
 
 GGPlot also has basic and advanced options, but you need to install/run the ggplot2 package. From the basics:
 
@@ -180,14 +177,17 @@ ggplot(HousesNY, aes(x=Beds, y=Price)) +
     theme_ipsum()
 ```
 
-Adding a line of best fit is also easy, but fits less easily with R's modelling commands:
+
+#### Adding a line of best fit. 
+
+Adding a line of best fit is  easy, but it takes a bit of getting used to
 
 ```{r}
-# Library
+# Library. Put these at the top!
 library(ggplot2)
 library(hrbrthemes)
 
-# Create dummy data
+# Create dummy data. You will always have your own data
 data <- data.frame(
   cond = rep(c("condition_1", "condition_2"), each=10), 
   my_x = 1:100 + rnorm(100,sd=9), 
@@ -195,31 +195,29 @@ data <- data.frame(
 )
 
 # Basic scatter plot.
-p1 <- ggplot(data, aes(x=my_x, y=my_y)) + 
+ggplot(data, aes(x=my_x, y=my_y)) + 
   geom_point( color="#69b3a2") +
   theme_ipsum()
  
-# with linear trend
-p2 <- ggplot(data, aes(x=my_x, y=my_y)) +
+# Add with linear trend line/line of best fit
+ggplot(data, aes(x=my_x, y=my_y)) +
   geom_point() +
   geom_smooth(method=lm , color="red", se=FALSE) +
   theme_ipsum()
 
-# linear trend + confidence interval
-p3 <- ggplot(data, aes(x=my_x, y=my_y)) +
+# Add linear trend + confidence interval
+ggplot(data, aes(x=my_x, y=my_y)) +
   geom_point() +
   geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE) +
   theme_ipsum()
 
-p1
-p2
-p3
 ```
 
-#### Interactive!
+<br>
 
+### Interactive scatterplots!
 
-Or using the plotly library to make your plots interactive (really useful, try zooming in or clicking on a few points)
+You can use the plotly library to make your plots interactive (really useful, try zooming in or clicking on a few points)
 
 ```{r}
 # create the plot, save it as "p" rather than print immediately
@@ -246,27 +244,33 @@ ggplotly(myplot)
 
 Many more interactive options in this tutorial: <https://plotly.com/r/line-and-scatter/>
 
+<br><br>
 
 
-### Histograms
+## Histograms
 
 Especially just looking at a single response variable, it's useful to look immediately at the distribution itself. Histograms are great for this, although you must be careful that the bin size doesn't impact your perception of results. Adding in a boxplot is often useful
 
-#### Basics 
+### Basics
 
 Here is the absolute basic histogram
 
 ```{r}
-hist(HousesNY$Price)
+hist(HousesNY$Price, xlab="Price (USD)")
 ```
 
-Or changing the bin size
+Or changing the bin size. You can also specify exact bin sizes using br. - see ?hist
 
 ```{r}
-hist(HousesNY$Price,br=40)
+hist(HousesNY$Price,
+     br=40,
+     xlab="Price (USD)")
 ```
 
-In GGPlot 2, it's also easy. Remember to install the ggplot2 package.
+
+### ggplot2 histograms
+
+In GGPlot 2, it's also easy. Remember to install the ggplot2 package. Check google for how to add your x label
 
 ```{r}
 
@@ -274,6 +278,7 @@ ggplot(data=HousesNY, aes(x=Price)) +
   geom_histogram(bins=20) 
 
 ```
+
 
 #### Adding a boxplot and histogram
 
@@ -321,22 +326,9 @@ ggMarginal(p, type="boxplot", margins = "x")
 
 ```
 
+### ggstatsplot histograms
+
 I also love the ggstatplot version
-
-```{r}
-
-library(ggstatsplot)
-## plot
-gghistostats(
-  data       = HousesNY, ## dataframe from which variable is to be taken
-  x          = Price, ## numeric variable whose distribution is of interest
-  title      = "Price of sampled houses in Canton NY", ## title for the plot
-  caption    = "Source: Zillow",
-  type = "parametric",
-  xlab = NULL,subtitle=FALSE,
-  ggthemes::theme_tufte(),
-  binwidth   = 8) ## binwidth value (experiment)
-```
 
 Or their version that includes a lot of associated statistics. You can turn many of these on and off
 
@@ -345,15 +337,15 @@ library(ggstatsplot)
 
 ## plot
 gghistostats(
-  data       = HousesNY, ## dataframe from which variable is to be taken
-  x          = Price, ## numeric variable whose distribution is of interest
-  title      = "Price of sampled houses in Canton NY", ## title for the plot
+  data       = HousesNY, 
+  x          = Price, 
+  title      = "Price of sampled houses in Canton NY", 
   caption    = "Source: Zillow",
-  type = "parametric",
-  xlab = NULL,
-  ggthemes::theme_tufte(),
-  binwidth   = 8) ## binwidth value (experiment)
+  results.subtitle = FALSE,
+  xlab = "Price (USD)")
+
 ```
+
 
 #### Adding a density function
 
@@ -365,6 +357,8 @@ hist(HousesNY$Price, prob = TRUE,
 lines(density(HousesNY$Price), col = 4, lwd = 2)
 box()
 ```
+
+
 
 #### Adding a distribution
 
@@ -417,13 +411,19 @@ box()
 
 ```
 
-#### Comparing groups
+
+#### Mulitple histograms
 
 Or you can easily compare two datasets, tutorial for this plot here: <https://www.r-graph-gallery.com/histogram_several_group.html>
 
-<br> <br>
+See also ridgeline plots below. 
 
-### Boxplots {#T6_boxplots}
+
+<br><br>
+
+
+
+## Boxplots {#T6_boxplots}
 
 Boxplots have been around over 40 years! See their history and evolution here: <http://vita.had.co.nz/papers/boxplots.pdf>
 
@@ -437,7 +437,7 @@ If there are only one or two variables, I often jump to the violin or histogram 
 
 So.. how to make these yourselves. You have a range of options!
 
-#### Basics (single boxplot)
+### Basics (single boxplot)
 
 Here is the most basic boxplot you can make. I often start with this for my own use when exploring the data, then later decide which plots to "make pretty".
 
@@ -481,7 +481,7 @@ ggplot(HousesNY, aes(x = "", y = Price)) +
   geom_jitter()
 ```
 
-#### Comparing groups
+### Comparing groups
 
 The basic code to see a boxplot split by group, in this case the price per number of beds:
 
@@ -550,7 +550,7 @@ There are MANY more options, plus code here: <https://www.r-graph-gallery.com/bo
 
 and a delightful tutorial here: <https://www.r-bloggers.com/2021/11/how-to-make-stunning-boxplots-in-r-a-complete-guide-with-ggplot2/>
 
-#### Sophisticated
+### Sophisticated
 
 Finally, we *can* get super fancy in base R - it's often a good way to learn how to code. I like this example because it shows many different aspects/useful commands in R programming. <http://www.opiniomics.org/beautiful-boxplots-in-base-r/>
 
@@ -612,7 +612,7 @@ Or if you wish to do the rainbow many group boxplot at the beginning, the code i
 
 <br> <br>
 
-### Violin plots
+## Violin plots
 
 Violin plots combine the simplicity of a boxplot with a sense of the underlying distribution. This is useful when you want a sense of both the symmetry of the data and the underlying distribution. Highly recommended! For a single variable, consider a box-plot-with-histogram (see below).
 
@@ -644,7 +644,7 @@ Or we can customise it even more using this tutorial to get results like this (<
 
 <br> <br>
 
-### Ridgeline plots
+## Ridgeline plots
 
 These are another way of looking at histograms for different groups. They work especially when your grouping data is ORDINAL (has some inherent order). So bedrooms would be a good example
 
@@ -713,7 +713,7 @@ ggplot(HousesNY, aes(x = Price, y = Beds, fill = stat(quantile))) +
                     labels = c("(0, 5%]", "(5%, 95%]", "(95%, 1]"))
 ```
 
-### Beeswarm plots
+## Beeswarm plots
 
 These are cool. As described here:
 

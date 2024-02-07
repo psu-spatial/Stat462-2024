@@ -54,17 +54,18 @@ This is a TWO WEEK LAB. You only have two lab sessions (today and next week) wor
 
 <br>
 
-### **[1.3] Edit the yaml code - NEW**  {.unnumbered}
+### **[1.3] Edit the yaml code - NEW** {.unnumbered}
 
 -   Inside R-studio, open your lab 2 project (if it's not already open), then click Lab1_Email_ID.RmD to open it.
 
 -   Change the author name at the top to your email ID.
 
--   There are many themes you can choose for your reports. Time to choose a new one.
+-   There are many themes you can choose for your reports. Time to choose a new one. Go here - <https://github.com/juba/rmdformats> and scroll down. You will see many different formats. Note the name of the one you like.
 
-    -   In your YAML code, you should see something like this
+    -   In your YAML code, you should see something like this. \
+        ![](index_images/im_T3_templates.png){width="90%"}
 
-<br>
+    -   Change the word downcute to your new template name. You might need also to CAREFULLY delete some of the options after it (e.g. the downcute_theme line is probably not needed.)
 
 ### **[1.4] Check Progress & knit** {.unnumbered}
 
@@ -77,26 +78,31 @@ This is a TWO WEEK LAB. You only have two lab sessions (today and next week) wor
 <p class="caption">(\#fig:im_Lab03_SetUp)*Your screen should look like this*</p>
 </div>
 
+<br>
+
 ------------------------------------------------------------------------
 
 ## 2. Code showcase {.unnumbered}
 
 So far you have only dealt with data stored inside R. Here we will be practicing reading in data from files and the basics of regression code.
 
- - Go here: https://stephenturner.github.io/drawmydata/
+-   Go here: <https://stephenturner.github.io/drawmydata/>
 
- - Click on the plot to make yourself a scatterplot with negative correlation.
+-   Click on the plot itself to draw dots; make yourself a scatterplot with negative correlation.
 
- - Save the data as a csv file and put it in your Lab 3 folder. You WILL need to add column names. You can do this by opening it in excel and adding them in on the top row (e.g. X and Y), then saving as a CSV or EXCEL. Don't let your mac save it as a stupid format.
+-   Save the data as a csv file and put it in your Lab 3 folder.
 
- - Read the data into R.  [TUTORIAL 4](#T4_ReadingData)
+    -   **You will need to add column names.**
 
- - Find the statistical summary of the data  (e.g. summary/command - labs 1 and 2)
- 
- - Make a scatterplot and create your first linear regression model (Tutorial 6 plots - [Plots](#T6_plots) scroll down to scatterplots, and Tutorial 8: [Regression](#T8_regression) )
- 
-  - Write the gradient and intercept - and the full model equation. BONUS 1%, see if you can use Insert to write it in Latex equation format. (and google)
-  
+        -   You can do this by opening it in excel and adding them in on the top row (e.g. X and Y), then saving as a `.csv` or `.xlsx` format. Don't let your mac save it as a stupid format.
+
+-   Read the data into R using [TUTORIAL 4](#T4_ReadingData)
+
+-   Make a statistical summary of the data (e.g. using the summary or skim commands in - labs 1 and 2)
+
+-   Make a scatterplot and create your first linear regression model (Tutorial 6 plots - [ScatterPlots](#T6_PlotsScatter) scroll down to scatterplots, and Tutorial 8: [Regression](#T8_regression) )
+
+-   Write the gradient and intercept - and the full model equation. BONUS 1%, see if you can use Insert to write it in Latex equation format. (and google)
 
 <br><br>
 
@@ -104,7 +110,7 @@ So far you have only dealt with data stored inside R. Here we will be practicing
 
 Next month, your friend is moving to Sindian Dist., in New Taipei City, Taiwan. They want to buy a house and have asked you to figure out what most impacts house price.
 
-**In your write up I want you to imagine your are LITERALLY writing this analysis for your friend.** \
+**In your write up I want you to imagine your are LITERALLY writing this analysis for your friend.**
 
 <br>
 
@@ -112,12 +118,11 @@ Next month, your friend is moving to Sindian Dist., in New Taipei City, Taiwan. 
 
 <br>
 
-**[Step 2]:** You have been given a specific dataset to help answer your friend's question. Read more about the data here:<https://archive.ics.uci.edu/ml/datasets/Real+estate+valuation+data+set>.  
+**[Step 2]:** You have been given a specific dataset to help answer your friend's question. Read more about the data here:<https://archive.ics.uci.edu/ml/datasets/Real+estate+valuation+data+set>.
 
-In your report, define a relevant population to answer your friend's question (start of question 3), then discuss how this data might be useful, but also any issues or limitations with the inferences you can make using this data.  
+In your report, define a relevant population to answer your friend's question (start of question 3), then discuss how this data might be useful, but also any issues or limitations with the inferences you can make using this data.
 
-**[Step 3]:** Describe your object of analysis and your response variable (INCLUDING UNITS).  
-
+**[Step 3]:** Describe your object of analysis and your response variable (INCLUDING UNITS).
 
 **[Step 4]:** If you haven't already, download the "Lab03_house.xlsx" dataset from the Lab page on canvas and put it into your Lab 3 folder.
 
@@ -129,32 +134,31 @@ In your report, define a relevant population to answer your friend's question (s
 
 **[Step 6]:** Now use R-Commands that you learned in Labs 1, 2 and the tutorials to explore the summary statistics and distribution of the House.Price column. See if you can work out:
 
- - What range of costs are "most" of the prices between? (say 68%) or the interquartile range. (Remember you can google the command for IQR, or see the boxplot tutorials in (Tutorial 6: [Box Plots](#T6_boxplots)
+-   What range of costs are "most" of the prices between? (say 68%) or the interquartile range. (Remember you can google the command for IQR, or see the boxplot tutorials in (Tutorial 6: [Box Plots](#T6_boxplots)
 
- - Is the house price data normally distributed? See (Tutorial 5: [Normal distribution](#T5_NormalDist)
- 
- - Make a professional looking histogram of the price data (see tutorial 6) 
- 
- <br>
- 
-**[Step 7]:** Your friend has been told that houses "might be more expensive in the North" and wants you to assess this.  So I want you to complete a regression analysis between the house price and a predictor of 'Latitude'.
+-   Is the house price data normally distributed? See (Tutorial 5: [Normal distribution](#T5_NormalDist)
 
- - Create a high quality scatterplot of your response and predictor WITHOUT A REGRESSION LINE (hint, on the more sophisticated plots, you can go into help to work out how to turn it off)
- 
- - Describe the scatterplot's form, direction, strength and outliers - hint
- https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/scatterplots-correlation/a/describing-scatterplots-form-direction-strength-outliers
-
--   Create your first Simple Linear Regression model to assess the issue.  See (Tutorial 8: [Regression](#T8_regression) 
-
-- Make a new scatterplot, but this time with your line of best fit added.
+-   Make a professional looking histogram of the price data (see tutorial 6)
 
 <br>
 
-**[Step 8]:**   In your report explain to your friend why this might be be misleading as an analysis? or why might this model be flawed? (e.g. are there confounding/lurking variables? 
+**[Step 7]:** Your friend has been told that houses "might be more expensive in the North" and wants you to assess this. So I want you to complete a regression analysis between the house price and a predictor of 'Latitude'.
 
-**[Step 9]:**  
+-   Create a high quality scatterplot of your response and predictor WITHOUT A REGRESSION LINE (hint, on the more sophisticated plots, you can go into help to work out how to turn it off)
 
-To help you answer question 8, try running this code to further explore the data on a map.   You might have to first install the sf package and add library(sf) to your library code chunk (and re-run the library code chunk).
+-   Describe the scatterplot's form, direction, strength and outliers - hint <https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/scatterplots-correlation/a/describing-scatterplots-form-direction-strength-outliers>
+
+-   Create your first Simple Linear Regression model to assess the issue. See (Tutorial 8: [Regression](#T8_regression)
+
+-   Make a new scatterplot, but this time with your line of best fit added.
+
+<br>
+
+**[Step 8]:** In your report explain to your friend why this might be be misleading as an analysis? or why might this model be flawed? (e.g. are there confounding/lurking variables?
+
+**[Step 9]:**
+
+To help you answer question 8, try running this code to further explore the data on a map. You might have to first install the sf package and add library(sf) to your library code chunk (and re-run the library code chunk).
 
 I am assuming your house data is called house (all lower case). if not, remember to change 'house' to whatever you called it.
 
@@ -180,14 +184,13 @@ tm_basemap("Esri.WorldTopoMap") +
          symbols.style="fisher") # color breaks
 ```
 
-
 <br>
 
-**[Step 10]:**  Now continue your answer to question 8.  Is there a variable that is more important than latitude in predicting house prices? Provide evidence to justify your answer. To help you answer this data and answer this question, some useful code includes:
+**[Step 10]:** Now continue your answer to question 8. Is there a variable that is more important than latitude in predicting house prices? Provide evidence to justify your answer. To help you answer this data and answer this question, some useful code includes:
 
-- A correlation matrix  (see tutorial 7)
+-   A correlation matrix (see tutorial 7)
 
-- Interactive plots If you then want to look at three variables together, you can use an interactive plot e.g you can use this code and change the response, y (currently house price), the predictor x (currently latitude) and the colour (currently distance from the metro station). Have a play and see what variables stand out.
+-   Interactive plots If you then want to look at three variables together, you can use an interactive plot e.g you can use this code and change the response, y (currently house price), the predictor x (currently latitude) and the colour (currently distance from the metro station). Have a play and see what variables stand out.
 
 
 ```r
@@ -202,22 +205,21 @@ p <- house %>%
 ggplotly(p)
 ```
 
-- You can also use standard scatterplots and regression models if that is easier. Or even excel and screenshots embedded in your report if it is all going wrong!
+-   You can also use standard scatterplots and regression models if that is easier. Or even excel and screenshots embedded in your report if it is all going wrong!
 
 <br>
 
 8.  Your friend forgot to tell you that they *love* shopping. They only want to live in a house that is close to at least 7 shops, but are worried that they might end up paying too much.
 
- - Filter the data so that it only includes 7 or more nearby shops e.g you're subsetting by the number of shops column (Tutorial 2C, section 1.8.6). Save the output to a new variable called `house.gt7shop`.\  Hint, TUTORIAL HERE: <https://crd150.github.io/lab2.html#Filtering> 
-    
- - Run a t.test to find out if your house.gt7shop data has a mean that is significantly higher than the mean of the house prices over the whole region. See Tutorial 6: [T Distribution](#TDist) and homework 3, lecture 4C.
- 
- Remember to write up your hypotheses, the results and the conclusion in plain English that your friend would understand.
- 
- <br>
+-   Filter the data so that it only includes 7 or more nearby shops e.g you're subsetting by the number of shops column (Tutorial 2C, section 1.8.6). Save the output to a new variable called `house.gt7shop`.  Hint, TUTORIAL HERE: <https://crd150.github.io/lab2.html#Filtering>
 
-**[Step 9]:** FINAL 2%.  Work out how much does the house price goes up for every 1 KILOMETER that you travel away from a metro station?
+-   Run a t.test to find out if your house.gt7shop data has a mean that is significantly higher than the mean of the house prices over the whole region. See Tutorial 6: [T Distribution](#TDist) and homework 3, lecture 4C.
 
+Remember to write up your hypotheses, the results and the conclusion in plain English that your friend would understand.
+
+<br>
+
+**[Step 9]:** FINAL 2%. Work out how much does the house price goes up for every 1 KILOMETER that you travel away from a metro station?
 
 <br><br>
 

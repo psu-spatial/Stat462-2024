@@ -137,13 +137,13 @@
 <li><p>Inside R-studio, open your lab 2 project (if it’s not already open), then click Lab1_Email_ID.RmD to open it.</p></li>
 <li><p>Change the author name at the top to your email ID.</p></li>
 <li>
-<p>There are many themes you can choose for your reports. Time to choose a new one.</p>
+<p>There are many themes you can choose for your reports. Time to choose a new one. Go here - <a href="https://github.com/juba/rmdformats" class="uri">https://github.com/juba/rmdformats</a> and scroll down. You will see many different formats. Note the name of the one you like.</p>
 <ul>
-<li>In your YAML code, you should see something like this</li>
+<li><p>In your YAML code, you should see something like this.<br><img src="index_images/im_T3_templates.png" style="width:90.0%"></p></li>
+<li><p>Change the word downcute to your new template name. You might need also to CAREFULLY delete some of the options after it (e.g. the downcute_theme line is probably not needed.)</p></li>
 </ul>
 </li>
 </ul>
-<p><br></p>
 </div>
 <div id="check-progress-knit-1" class="section level3 unnumbered">
 <h3>
@@ -158,6 +158,7 @@
 (#fig:im_Lab03_SetUp)<em>Your screen should look like this</em>
 </p>
 </div>
+<p><br></p>
 <hr>
 </div>
 </div>
@@ -167,11 +168,21 @@
 <p>So far you have only dealt with data stored inside R. Here we will be practicing reading in data from files and the basics of regression code.</p>
 <ul>
 <li><p>Go here: <a href="https://stephenturner.github.io/drawmydata/" class="uri">https://stephenturner.github.io/drawmydata/</a></p></li>
-<li><p>Click on the plot to make yourself a scatterplot with negative correlation.</p></li>
-<li><p>Save the data as a csv file and put it in your Lab 3 folder. You WILL need to add column names. You can do this by opening it in excel and adding them in on the top row (e.g. X and Y), then saving as a CSV or EXCEL. Don’t let your mac save it as a stupid format.</p></li>
-<li><p>Read the data into R. <a href="T4_ReadingData.html#T4_ReadingData">TUTORIAL 4</a></p></li>
-<li><p>Find the statistical summary of the data (e.g. summary/command - labs 1 and 2)</p></li>
-<li><p>Make a scatterplot and create your first linear regression model (Tutorial 6 plots - <a href="T6_plots.html#T6_plots">Plots</a> scroll down to scatterplots, and Tutorial 8: <a href="T8_regression.html#T8_regression">Regression</a> )</p></li>
+<li><p>Click on the plot itself to draw dots; make yourself a scatterplot with negative correlation.</p></li>
+<li>
+<p>Save the data as a csv file and put it in your Lab 3 folder.</p>
+<ul>
+<li>
+<p><strong>You will need to add column names.</strong></p>
+<ul>
+<li>You can do this by opening it in excel and adding them in on the top row (e.g. X and Y), then saving as a <code>.csv</code> or <code>.xlsx</code> format. Don’t let your mac save it as a stupid format.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Read the data into R using <a href="T4_ReadingData.html#T4_ReadingData">TUTORIAL 4</a></p></li>
+<li><p>Make a statistical summary of the data (e.g. using the summary or skim commands in - labs 1 and 2)</p></li>
+<li><p>Make a scatterplot and create your first linear regression model (Tutorial 6 plots - <a href="T6_plots.html#T6_PlotsScatter">ScatterPlots</a> scroll down to scatterplots, and Tutorial 8: <a href="T8_regression.html#T8_regression">Regression</a> )</p></li>
 <li><p>Write the gradient and intercept - and the full model equation. BONUS 1%, see if you can use Insert to write it in Latex equation format. (and google)</p></li>
 </ul>
 <p><br><br></p>
@@ -180,7 +191,7 @@
 <h2>3: Taiwan analysis<a class="anchor" aria-label="anchor" href="#taiwan-analysis"><i class="fas fa-link"></i></a>
 </h2>
 <p>Next month, your friend is moving to Sindian Dist., in New Taipei City, Taiwan. They want to buy a house and have asked you to figure out what most impacts house price.</p>
-<p><strong>In your write up I want you to imagine your are LITERALLY writing this analysis for your friend.</strong><br></p>
+<p><strong>In your write up I want you to imagine your are LITERALLY writing this analysis for your friend.</strong></p>
 <p><br></p>
 <p><strong>[Step 1]:</strong> Go to the “House Price Analysis” section of your report</p>
 <p><br></p>
@@ -201,8 +212,7 @@
 <p><strong>[Step 7]:</strong> Your friend has been told that houses “might be more expensive in the North” and wants you to assess this. So I want you to complete a regression analysis between the house price and a predictor of ‘Latitude’.</p>
 <ul>
 <li><p>Create a high quality scatterplot of your response and predictor WITHOUT A REGRESSION LINE (hint, on the more sophisticated plots, you can go into help to work out how to turn it off)</p></li>
-<li><p>Describe the scatterplot’s form, direction, strength and outliers - hint
-<a href="https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/scatterplots-correlation/a/describing-scatterplots-form-direction-strength-outliers" class="uri">https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/scatterplots-correlation/a/describing-scatterplots-form-direction-strength-outliers</a></p></li>
+<li><p>Describe the scatterplot’s form, direction, strength and outliers - hint <a href="https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/scatterplots-correlation/a/describing-scatterplots-form-direction-strength-outliers" class="uri">https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/scatterplots-correlation/a/describing-scatterplots-form-direction-strength-outliers</a></p></li>
 <li><p>Create your first Simple Linear Regression model to assess the issue. See (Tutorial 8: <a href="T8_regression.html#T8_regression">Regression</a></p></li>
 <li><p>Make a new scatterplot, but this time with your line of best fit added.</p></li>
 </ul>
@@ -325,7 +335,7 @@ CHECK THAT THIS IS WHAT YOU WANT TO SUBMIT.</p></li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-02-01.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-02-07.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
