@@ -39,7 +39,7 @@ CSV files are like basic spreadsheets without formatting. E.g. comma separated v
 mydata <- read.csv("FILENAME.csv")
 ```
 
--   The command is `read.csv()`  - if you go to ?read.csv you can see lots of other options like skipping rows etc.
+-   The command is `read.csv()` - if you go to ?read.csv you can see lots of other options like skipping rows etc.
 
 -   "`FILENAME.csv`" is whatever you have called your file. Its case sensitive.
 
@@ -86,7 +86,7 @@ Now you can read in excel files using this command
 mydata2 <- read_excel("FILENAME.xlsx")
 ```
 
--   The command is read_excel`()`  - if you go to ?read_excel you can see lots of other options like skipping rows etc.
+-   The command is read_excel`()` - if you go to ?read_excel you can see lots of other options like skipping rows etc.
 
 -   "FILENAME.xlsx" is whatever you have called your file. Its case sensitive and you need the extension.
 
@@ -95,3 +95,39 @@ mydata2 <- read_excel("FILENAME.xlsx")
 Other valid commands that do the same thing are `read_table()` (from the readr package) and `fread()` (from the data.table package). These are faster and more adaptable, but you would have do download the packages and they read the data into their own propitiatory format.
 
 If you get an error, it means that either you have typed the filename in wrongly (for example you didn't include the .csv) or that the file isn't in exactly the same folder as your .rproj, or that you're not running your project so the computer doesn't know where to look.
+
+<br><br>
+
+------------------------------------------------------------------------
+
+## Loading built-in data {#T4_loaddata}
+
+R also has many built-in datasets. To load them into R:
+
+1.  In your library code chunk, load the library that contains the dataset \<br<br>
+
+2.  Load the dataset using the 'data' command <br><br>
+
+3.  This will create a 'data promise' in your Environment tab. To look at or use the data, click on its NAME, or run any command. Here, I used the glimpse command, but you can do anything.
+
+For example, to load the palmer penguins data.
+
+
+```r
+library(palmerpenguins) #normally this would be at the top of the code chunk
+data("penguins")
+glimpse(penguins)
+```
+
+```
+## Rows: 344
+## Columns: 8
+## $ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               <fct> male, female, female, NA, female, male, female, male…
+## $ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+```

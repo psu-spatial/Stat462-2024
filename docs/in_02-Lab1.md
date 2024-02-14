@@ -1,6 +1,3 @@
-# (PART\*) . {.unnumbered}
-
-# (PART\*) **Lab instructions** {.unnumbered}
 
 
 

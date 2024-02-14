@@ -2,7 +2,7 @@
 
 
 
-# Using R Online {#Setup_Online .unnumbered}
+# Posit Cloud Online {#Setup_Online .unnumbered}
 
 <br>
 

@@ -1,9 +1,7 @@
-# (PART\*) [.]{style="color: white;"} {.unnumbered}
-# (PART\*) **Getting Started** {.unnumbered}
 
 
 
-# Installing R/R-Studio on your computer for the first time {#Setup_Desktop .unnumbered}
+# Installing R/R-Studio {#Setup_Desktop .unnumbered}
 
 <br>
 

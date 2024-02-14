@@ -1,6 +1,6 @@
 
 
-# UPDATING R/R-Studio {#Setup_UpdateDesktop .unnumbered}
+# Updating R/R-Studio {#Setup_UpdateDesktop .unnumbered}
 
 ## Exceptions {#Setup_UpdateExceptions .unnumbered}
 

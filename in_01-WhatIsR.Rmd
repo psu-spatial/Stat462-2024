@@ -38,6 +38,7 @@ GetRLatest <- function(Website="https://cran.r-project.org/banner.shtml"){
 }
 ```
 
+
 ```{=html}
 <style>
 details > *:not(summary){

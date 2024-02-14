@@ -35,4 +35,11 @@ div.sidebar {
   margin-bottom: 0;
 }
 
+.part-header {
+  color: blue; /* Change the color to blue */
+  font-style: italic; /* Make the font italic */
+  /* Add more styling as needed */
+}
+
+
 

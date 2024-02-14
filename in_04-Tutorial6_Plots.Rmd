@@ -22,6 +22,7 @@ library(units)
 library(olsrr)
 
 data("HousesNY", package = "Stat2Data")
+HousesNY$Beds <- as.numeric(HousesNY$Beds)
 
 
 
@@ -56,18 +57,44 @@ There are three places I visit constantly:
 -   <https://r-charts.com/distribution/>
 -   <https://flowingdata.com/>
 
-For plots, we have *many* choices. We can use what is built into R, or.. use the ggplot system where you add on layers to your plot using the + symbol, or use specialist packages such as ggstatplot or beeswarm.
-
 If you are new to data visualisation, read these two articles
 
 -   <https://flowingdata.com/2014/10/23/moving-past-default-charts/>
 -   <https://flowingdata.com/2012/05/15/how-to-visualize-and-compare-distributions/>
 
-<br> <br>
+------------------------------------------------------------------------
+
+<br><br> {#T6_ExampleData}
+
+## Example dataset
+
+Throughout this tutorial, I will use an example dataset on houses in New York. This has the columns:
+
+-   `Price`: Estimated price (in \$1,000's)
+-   `Beds`: Number of bedrooms
+-   `Baths`: Number of bathrooms
+-   `Size`: Floor area of the house (in 1,000 square feet)
+-   `Lot`: Size of the lot (in acres)
+
+```{r}
+data("HousesNY", package = "Stat2Data")
+
+head(HousesNY)
+```
+
+```{r, include=FALSE}
+HousesNY$Beds <- as.numeric(HousesNY$Beds)
+```
+
+------------------------------------------------------------------------
+
+<br><br>
 
 ## Scatterplots {#T6_PlotsScatter}
 
-### Built in plot command
+<br>
+
+### Basic plot (no line of best fit)
 
 Here is the absolute basic scatterplot. This should not be the one you submit in your reports (e.g. either choose a more professional one or adjust the options below)
 
@@ -75,17 +102,11 @@ Here is the absolute basic scatterplot. This should not be the one you submit in
 # you can either do plot(x, y)
 # OR (recommended), use the ~ to say plot(y~x) 
 # e.g. y depends on x
-
-HousesNY$Beds <- as.numeric(HousesNY$Beds)
-
-plot(HousesNY$Price ~ HousesNY$Beds)
+plot(HousesNY$Price ~ HousesNY$Beds,
+     xlab="Beds",ylab="Price (USD")
 ```
 
-See below for how to add a line of best fit.
-
-There are many things we can change, see the help file for the `par` command for more.
-
-For example, here is an ugly plot showing as many as I can think!
+There are many things we can change, see the help file for the `par` command for more. For example, here is an ugly plot showing as many as I can think!
 
 ```{r}
 
@@ -117,54 +138,55 @@ lines(HousesNY$Price ~ HousesNY$Beds,
 
 <br>
 
-## Adding a line of best fit
+## Basic plot WITH a line of best fit
 
-To add a line, you can use the `abline` command IN THE SAME CODE CHUNK. For example
+To add a line, you can use the `abline` command IN THE SAME CODE CHUNK:
 
 ```{r}
-
+# Create the plot
 plot(HousesNY$Price ~ HousesNY$Beds,
-     xlim=c(0,7), #xlimits
-     ylim=c(40,220), #ylimits
-     xlab=list("Beds",cex=.8,col="red",font=2), # play with x-label
-     ylab=list("Price",cex=1.2,col="blue",font=3), # play with x-label
-     main="", # no title
-     cex=1.2, #point size
-     pch=16, # symbol shape (try plot(1:24,1:24,pch=1:24 to see them all))
-     tcl=-.25, # smaller tick marks
-     mgp=c(1.75,.5,0)) # move the x/y labels around
+     xlab="Beds", ylab="Price (1000 USD)", main="", 
+     cex=1.2, pch=16) 
 
 # add vertical line at 3.5
+# # add horizontal line at the mean of price
 abline(v=5.5,col="red")
-# add horizontal line at the mean of price
-abline(h=mean(HousesNY$Price)) 
-# add line of best fit
-abline(lm(HousesNY$Price ~ HousesNY$Beds),col="blue",lty="dotted",lwd=3) 
+abline(h=mean(HousesNY$Price),col="blue",lty="dotted")
+
+# add line of best fit from a linear model
+mymodel <- lm(Price ~ Beds, HousesNY)
+abline(mymodel,col="purple",lty="dotted",lwd=3) 
 
 
 ```
 
 <br>
 
-### Tidyverse/GGPLOT2 scatterplots
+### GGplot2 scatterplots
 
-GGPlot also has basic and advanced options, but you need to install/run the ggplot2 package. From the basics:
+GGPlot2 also has basic and advanced options, but you need to install/run the ggplot2 package.
+
+Again, I am using the HousesNY example dataset that I discussed earlier with the bed and price column names. You can see that each command is joined by a "+".
 
 ```{r}
+# Normally this goes in your library code chunk
 library(ggplot2)
-#
+
+# ggplot (TABLENAME, aes(x=XCOLUMN_NAME, y=YCOLUMN_NAME)
 ggplot(HousesNY, aes(x=Beds, y=Price)) + 
-    geom_point()
+    geom_point() + 
+    ggtitle("Price of New York Homes by bedroom size") +
+    xlab("Beds") + ylab("Price (1000 USD)")
 
 ```
 
 To more advanced:
 
 ```{r}
+# Library. Put these at the top!
 library(ggplot2)
 library(hrbrthemes)
 
-# use options!
 ggplot(HousesNY, aes(x=Beds, y=Price)) + 
     geom_point(
         color="black",
@@ -174,78 +196,90 @@ ggplot(HousesNY, aes(x=Beds, y=Price)) +
         size=6,
         stroke = 1
         ) +
-    theme_ipsum()
+    theme_ipsum() +   
+   ggtitle("Price of New York Homes by bedroom size") +
+   xlab("Beds") + ylab("Price (1000 USD)")
+
 ```
 
+<br><br>
 
-#### Adding a line of best fit. 
+### GGplot2 adding a line of best fit.
 
-Adding a line of best fit is  easy, but it takes a bit of getting used to
+Adding a line of best fit is easy, but it takes a bit of getting used to
 
 ```{r}
 # Library. Put these at the top!
 library(ggplot2)
 library(hrbrthemes)
 
-# Create dummy data. You will always have your own data
-data <- data.frame(
-  cond = rep(c("condition_1", "condition_2"), each=10), 
-  my_x = 1:100 + rnorm(100,sd=9), 
-  my_y = 1:100 + rnorm(100,sd=16) 
-)
 
-# Basic scatter plot.
-ggplot(data, aes(x=my_x, y=my_y)) + 
-  geom_point( color="#69b3a2") +
-  theme_ipsum()
- 
-# Add with linear trend line/line of best fit
-ggplot(data, aes(x=my_x, y=my_y)) +
-  geom_point() +
-  geom_smooth(method=lm , color="red", se=FALSE) +
-  theme_ipsum()
+# Add linear trend WITHOUT confidence intervals
+ggplot(HousesNY, aes(x=Beds, y=Price)) + 
+    geom_point() + 
+    ggtitle("Price of New York Homes by bedroom size") +
+    xlab("Beds") + ylab("Price (1000 USD)")+
+    geom_smooth(method=lm , color="red", se=FALSE) +
+    theme_ipsum()
+
 
 # Add linear trend + confidence interval
-ggplot(data, aes(x=my_x, y=my_y)) +
-  geom_point() +
-  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE) +
-  theme_ipsum()
+ggplot(HousesNY, aes(x=Beds, y=Price)) + 
+    geom_point() + 
+    ggtitle("Price of New York Homes by bedroom size") +
+    xlab("Beds") + ylab("Price (1000 USD)")+
+    geom_smooth(method=lm , color="blue", fill="#69b3a2", se=TRUE) +
+    theme_ipsum()
 
 ```
 
 <br>
 
-### Interactive scatterplots!
+### Plotly Interactive scatterplots! {#T6_ScatterPlotly}
 
-You can use the plotly library to make your plots interactive (really useful, try zooming in or clicking on a few points)
+You can use the plotly library to make ANY ggplot2 plot interactive
+
+This is really useful, try zooming in or clicking on a few points. If you don't want the line of best fit, simply remove the geom_smooth line.
 
 ```{r}
-# create the plot, save it as "p" rather than print immediately
-myplot <-   ggplot(HousesNY, aes(x=Beds, y=Price, label=Baths)) + 
-            geom_point(alpha=.5) +
-            theme_classic()
+# create the plot, save it as a variable rather than print immediately
+myplot <-   ggplot(HousesNY, aes(x=Beds, y=Price)) + 
+               geom_point() + 
+               geom_smooth(method=lm , color="red", se=FALSE) +
+               ggtitle("Price of New York Homes by bedroom size") +
+               xlab("Beds") + ylab("Price (1000 USD)")
             
 # and plot interactively
 ggplotly(myplot)
 ```
 
-It's also very easy to add in color to see another variable. For example
+It's also very easy to add in color to see another variable. For example, here I also add in the lot size.
 
 ```{r}
 # create the plot, save it as "p" rather than print immediately
-myplot <-   ggplot(HousesNY, aes(x=Beds, y=Price,color=Baths)) + 
-            geom_point(alpha=.5) +
-            theme_classic()+
-            scale_color_gradient(low="blue", high="red")
+myplot2 <-   ggplot(HousesNY, aes(x=Beds, y=Price,color=Lot)) + 
+               geom_point(alpha=.5) +
+               scale_color_gradient(low="blue", high="red")+
+               ggtitle("New York Homes price by bedrooms and lot size (acres)") +
+               xlab("Beds") + 
+               ylab("Price (1000 USD)")
 
 # and plot interactively
-ggplotly(myplot)
+ggplotly(myplot2)
+```
+
+If you get this error, go to the Session menu at the very top of the screen and click "Restart R and run all code chunks".
+
+```         
+Error in file(file, ifelse(append, "a", "w")) : 
+  cannot open the connection
 ```
 
 Many more interactive options in this tutorial: <https://plotly.com/r/line-and-scatter/>
 
-<br><br>
+------------------------------------------------------------------------
 
+<br><br>
 
 ## Histograms
 
@@ -253,10 +287,11 @@ Especially just looking at a single response variable, it's useful to look immed
 
 ### Basics
 
-Here is the absolute basic histogram
+Here is the absolute basic histogram, again on our HousesNY price data.
 
 ```{r}
-hist(HousesNY$Price, xlab="Price (USD)")
+hist(HousesNY$Price, 
+     xlab="Price (USD)",main="")
 ```
 
 Or changing the bin size. You can also specify exact bin sizes using br. - see ?hist
@@ -266,7 +301,6 @@ hist(HousesNY$Price,
      br=40,
      xlab="Price (USD)")
 ```
-
 
 ### ggplot2 histograms
 
@@ -278,7 +312,6 @@ ggplot(data=HousesNY, aes(x=Price)) +
   geom_histogram(bins=20) 
 
 ```
-
 
 #### Adding a boxplot and histogram
 
@@ -346,7 +379,6 @@ gghistostats(
 
 ```
 
-
 #### Adding a density function
 
 Sometimes seeing a smoothed line helps draw the eye to distributions
@@ -357,8 +389,6 @@ hist(HousesNY$Price, prob = TRUE,
 lines(density(HousesNY$Price), col = 4, lwd = 2)
 box()
 ```
-
-
 
 #### Adding a distribution
 
@@ -411,17 +441,13 @@ box()
 
 ```
 
-
 #### Mulitple histograms
 
 Or you can easily compare two datasets, tutorial for this plot here: <https://www.r-graph-gallery.com/histogram_several_group.html>
 
-See also ridgeline plots below. 
-
+See also ridgeline plots below.
 
 <br><br>
-
-
 
 ## Boxplots {#T6_boxplots}
 

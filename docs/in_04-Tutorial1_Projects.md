@@ -1,6 +1,5 @@
 # (PART\*) [.]{style="color: white;"} {.unnumbered}
-
-# (PART\*) **Tutorials** {.unnumbered}
+# (PART\*) **TUTORIALS** {.unnumbered}
 
 
 
