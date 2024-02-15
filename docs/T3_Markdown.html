@@ -127,29 +127,21 @@
 <p><br></p>
 <hr>
 </div>
-<div id="T32C_YAML" class="section level3" number="3.2.3">
+<div id="T32D_CodeChunks" class="section level3" number="3.2.3">
 <h3>
-<span class="header-section-number">3.2.3</span> YAML Code and templates<a class="anchor" aria-label="anchor" href="#T32C_YAML"><i class="fas fa-link"></i></a>
-</h3>
-<p>For Lab 1 and 2, you will be using a custom template that I made using the package <code>rmdformats</code>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;You should have downloaded and renamed the lab script from Canvas (see lab 1). You should also be running your project. Click the .RmD file name to open&lt;/em&gt;&lt;/p&gt;"><sup>3</sup></a> This outputs a html file in a special format called ‘downcute’.</p>
-<p>So for now, don’t worry other than editing the author field to include your name</p>
-<p><br></p>
-<hr>
-</div>
-<div id="T32D_CodeChunks" class="section level3" number="3.2.4">
-<h3>
-<span class="header-section-number">3.2.4</span> Code chunks<a class="anchor" aria-label="anchor" href="#T32D_CodeChunks"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2.3</span> Code chunks<a class="anchor" aria-label="anchor" href="#T32D_CodeChunks"><i class="fas fa-link"></i></a>
 </h3>
 <p>Code chunks are mini consoles where you can run R commands. We will talk more about them in the next tutorial.</p>
-<p><img src="index_images/im_T3_CodeChunkCreate.png" width="80%" style="display: block; margin: auto;"><br></p>
+<div class="inline-figure"><img src="index_images/im_T3_CodeChunkCreate.png" width="80%" style="display: block; margin: auto;"></div>
+<p><br></p>
 <p>On the top right there are a suite of buttons for adding a new code chunk, running code etc. The green one adds a new code chunk. To run an individual code chunk you will press the green arrow on its top right e.g.</p>
 <div class="inline-figure"><img src="index_images/im_T3_RunCodeChunk.png" width="90" style="display: block; margin: auto;"></div>
 <p><br></p>
 <hr>
 </div>
-<div id="T32E_Knitting" class="section level3" number="3.2.5">
+<div id="T32E_Knitting" class="section level3" number="3.2.4">
 <h3>
-<span class="header-section-number">3.2.5</span> Knitting<a class="anchor" aria-label="anchor" href="#T32E_Knitting"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2.4</span> Knitting<a class="anchor" aria-label="anchor" href="#T32E_Knitting"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure"><img src="index_images/im_T3_knit.png" width="90" style="display: block; margin: auto;"></div>
 <p>The file on your screen isn’t the finished article. To see how it will look as a final version, we need to “knit” it. Go to the top of the .Rmd file, find the <code>knit</code> button. Press it (you might have to first save your script if you haven’t already, then press it again)</p>
@@ -158,6 +150,120 @@
 <p>For example, here is a file with markdown and knitted output.</p>
 <div class="inline-figure"><img src="index_images/im_T3_AllMarkdownElements.png" width="90" style="display: block; margin: auto;"></div>
 <p><br><br></p>
+<hr>
+</div>
+</div>
+<div id="T3_YAML" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> YAML Code and templates<a class="anchor" aria-label="anchor" href="#T3_YAML"><i class="fas fa-link"></i></a>
+</h2>
+<p>For Lab 1-3, you will be using a custom template that I made using the package <code>rmdformats</code>.[^in_04-tutorial3_markdown-1] This outputs a html file in a special html format called ‘downcute’.</p>
+<p>From lab 4 onwards, you will be making your own markdown documents.</p>
+<p><br><br></p>
+<hr>
+</div>
+<div id="T3_MathsEquations" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Maths equations<a class="anchor" aria-label="anchor" href="#T3_MathsEquations"><i class="fas fa-link"></i></a>
+</h2>
+<p><br><br></p>
+<hr>
+</div>
+<div id="T3_CodeChunkOptions" class="section level2" number="3.5">
+<h2>
+<span class="header-section-number">3.5</span> Code Chunk options<a class="anchor" aria-label="anchor" href="#T3_CodeChunkOptions"><i class="fas fa-link"></i></a>
+</h2>
+<p>What are they? Essentially, instructions that you tell the computer when you press knit.</p>
+<div id="creating-them-in-source-mode" class="section level3" number="3.5.1">
+<h3>
+<span class="header-section-number">3.5.1</span> Creating them in Source mode<a class="anchor" aria-label="anchor" href="#creating-them-in-source-mode"><i class="fas fa-link"></i></a>
+</h3>
+<p>Click source mode and have a look at a code chunk. You will see it starts with three little back-ticks and the {r} sign. For code chunk options, we will be focusing on the top line with the {r}</p>
+<div class="inline-figure"><img src="index_images/im_T3CodeChunkOptions.png" width="600"></div>
+<p>At the moment, the code chunk tells us that the code inside is written in R.</p>
+<p>We can also add other options, <strong>separated using commas.</strong></p>
+<div class="inline-figure"><img src="index_images/im_T3CodeChunkOptionsComplete.png" width="600"></div>
+<p>In fact, you have often seen me add message=FALSE and warning=FALSE to prevent any spurious messages appearing when you press knit. Keep reading to see the many other things you can add.</p>
+<p><br></p>
+</div>
+<div id="creating-them-in-view-mode" class="section level3" number="3.5.2">
+<h3>
+<span class="header-section-number">3.5.2</span> Creating them in View mode<a class="anchor" aria-label="anchor" href="#creating-them-in-view-mode"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can also edit code chunk options in view mode. Create a new code chunk, then click on the little (almost invisible) cogwheel near the run triangle</p>
+<div class="inline-figure"><img src="index_images/im_T3CodeChunkOptionsView.png" width="700"></div>
+<p>This will open a menu where you can choose many of the common options</p>
+<div class="inline-figure"><img src="index_images/im_T3CodeChunkOptionsViewMenu.png" width="400"></div>
+<p><br></p>
+</div>
+<div id="setting-the-default-for-the-whole-document" class="section level3" number="3.5.3">
+<h3>
+<span class="header-section-number">3.5.3</span> Setting the default for the whole document<a class="anchor" aria-label="anchor" href="#setting-the-default-for-the-whole-document"><i class="fas fa-link"></i></a>
+</h3>
+<p>Many templates already include this for you to edit.</p>
+<p>If not, you can put a code chunk at the top of your document (below the YAML code) containing <code>knitr::opts_chunk$set()</code> to change the default values of chunk options in a document.</p>
+<p>For example, you may put this in the first code chunk of your document to stop it showing messages on knit.</p>
+<p><code>{{r, include=FALSE}} knitr::opts_chunk$set(warning=FALSE, message=FALSE)</code></p>
+<p><br></p>
+</div>
+<div id="common-options" class="section level3" number="3.5.4">
+<h3>
+<span class="header-section-number">3.5.4</span> Common options<a class="anchor" aria-label="anchor" href="#common-options"><i class="fas fa-link"></i></a>
+</h3>
+<p>Here are the common options we typically need:</p>
+<ul>
+<li><p><code>message = TRUE/FALSE</code>. Don’t show friendly R messages on knitting. I use this so often that I put it in that knitr code chunk at the top of my scripts.
+<br></p></li>
+<li><p><code>warning = TRUE/FALSE</code> . Don’t show R warnings on knitting. It will still show errors, so this is another good one to use.
+<br></p></li>
+<li><p><code>include = TRUE/FALSE.</code> Show or Hide the code AND output in the final document. Really useful with inline code (next section)
+<br></p></li>
+<li><p><code>echo = TRUE/FALSE.</code> Show or Hide the code chunk code in the final document. The output will still be shown.
+<br></p></li>
+<li><p><code>eval = TRUE/FALSE</code>. This option determines whether the code is evaluated or executed. If <strong><code>eval = TRUE</code></strong>, the code is executed. If <strong><code>eval = FALSE</code></strong>, the code is not executed, but the code chunk is still displayed. This can be useful for showing example code without actually running it.</p></li>
+<li><p>Or for example, if you can’t knit because of an error, you can add eval=FALSE to the problem code chunk so I can see what you did but you can still knit.</p></li>
+</ul>
+<p><br><br></p>
+<hr>
+</div>
+</div>
+<div id="inline-code" class="section level2" number="3.6">
+<h2>
+<span class="header-section-number">3.6</span> Inline Code<a class="anchor" aria-label="anchor" href="#inline-code"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are two types of code you can write in your reports: code chunks and inline R code.</p>
+<div id="code-chunks" class="section level4" number="3.6.0.1">
+<h4>
+<span class="header-section-number">3.6.0.1</span> Code chunks<a class="anchor" aria-label="anchor" href="#code-chunks"><i class="fas fa-link"></i></a>
+</h4>
+<p>Click source mode and have a look at a code chunk. You will see it starts with three little back-ticks and the {r} sign.</p>
+<div class="inline-figure"><img src="index_images/im_T3CodeChunk.png" width="600"></div>
+</div>
+<div id="vs-inline-code" class="section level4" number="3.6.0.2">
+<h4>
+<span class="header-section-number">3.6.0.2</span> .. vs Inline Code<a class="anchor" aria-label="anchor" href="#vs-inline-code"><i class="fas fa-link"></i></a>
+</h4>
+<p>Inline R code is embedded in the TEXT/NARRATIVE of your document using single back-ticks. For example, writing</p>
+<p>My value of y is <code>`r y`</code> and x-squared is <code>`r x^2`</code></p>
+<p>Will output:</p>
+<p>My value of y is 10 and x-squared is 49.</p>
+<p>If this doesn’t make sense, follow these tutorial to see how to add inline code.</p>
+<ul>
+<li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/r-code.html</a></li>
+<li><a href="https://www.njtierney.com/post/2019/07/10/jq-verbatim-inline-r/" class="uri">https://www.njtierney.com/post/2019/07/10/jq-verbatim-inline-r/</a></li>
+<li><a href="https://rmarkdown.rstudio.com/lesson-4.html" class="uri">https://rmarkdown.rstudio.com/lesson-4.html</a></li>
+</ul>
+<p><br><br></p>
+</div>
+<div id="tips-for-adding-inline-code" class="section level3" number="3.6.1">
+<h3>
+<span class="header-section-number">3.6.1</span> Tips for adding inline code<a class="anchor" aria-label="anchor" href="#tips-for-adding-inline-code"><i class="fas fa-link"></i></a>
+</h3>
+<p>Inline code is GREAT. Imagine writing your 100 page thesis, but then you realise that your dataset was wrong. If all the numbers in your report are added using inline code, then it will automatically update your entire report.</p>
+<p>The easiest way to do this is to run your commands in a “silent” code chunk with the echo=FALSE and include=FALSE options. Then in the text, I just put the variable name I want to print, sometimes rounding to a better number of decimal places<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;You can round in the inline code or the code chunk. Both are fine&lt;/p&gt;"><sup>3</sup></a>.</p>
+<p>For example here’s how I typed that the mean height of the starwars data is 174.6 cm:</p>
+<div class="inline-figure"><img src="index_images/im_T3InlineCode.png" width="700"></div>
+<p>You don’t actually need echo AND include. I can simply never remember which one is which and use them both :).</p>
 
 </div>
 </div>
@@ -175,10 +281,22 @@
 <a class="nav-link" href="#T32_MarkdownImportant"><span class="header-section-number">3.2</span> Important things to know</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#T32A_visualmode"><span class="header-section-number">3.2.1</span> Visual mode</a></li>
 <li><a class="nav-link" href="#T32B_formatting"><span class="header-section-number">3.2.2</span> Inserting images/tables and formatting</a></li>
-<li><a class="nav-link" href="#T32C_YAML"><span class="header-section-number">3.2.3</span> YAML Code and templates</a></li>
-<li><a class="nav-link" href="#T32D_CodeChunks"><span class="header-section-number">3.2.4</span> Code chunks</a></li>
-<li><a class="nav-link" href="#T32E_Knitting"><span class="header-section-number">3.2.5</span> Knitting</a></li>
+<li><a class="nav-link" href="#T32D_CodeChunks"><span class="header-section-number">3.2.3</span> Code chunks</a></li>
+<li><a class="nav-link" href="#T32E_Knitting"><span class="header-section-number">3.2.4</span> Knitting</a></li>
 </ul>
+</li>
+<li><a class="nav-link" href="#T3_YAML"><span class="header-section-number">3.3</span> YAML Code and templates</a></li>
+<li><a class="nav-link" href="#T3_MathsEquations"><span class="header-section-number">3.4</span> Maths equations</a></li>
+<li>
+<a class="nav-link" href="#T3_CodeChunkOptions"><span class="header-section-number">3.5</span> Code Chunk options</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#creating-them-in-source-mode"><span class="header-section-number">3.5.1</span> Creating them in Source mode</a></li>
+<li><a class="nav-link" href="#creating-them-in-view-mode"><span class="header-section-number">3.5.2</span> Creating them in View mode</a></li>
+<li><a class="nav-link" href="#setting-the-default-for-the-whole-document"><span class="header-section-number">3.5.3</span> Setting the default for the whole document</a></li>
+<li><a class="nav-link" href="#common-options"><span class="header-section-number">3.5.4</span> Common options</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#inline-code"><span class="header-section-number">3.6</span> Inline Code</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#tips-for-adding-inline-code"><span class="header-section-number">3.6.1</span> Tips for adding inline code</a></li></ul>
 </li>
 </ul>
 

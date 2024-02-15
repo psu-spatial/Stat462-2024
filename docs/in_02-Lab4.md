@@ -33,7 +33,7 @@ The maximum time this lab should take is about 9-10 hrs of your time (e.g 4-5 hr
 
 <br>
 
-### **[1.1] Create a project for Lab 4** {.unnumbered}
+### **[Step 1.1] Create a project for Lab 4** {.unnumbered}
 
 -   If you are using the POSIT Cloud (AKA R-Studio online), log-in and make a new project for lab 3 using [Tutorial 1B](#T1_ProjectsCloud)
 
@@ -41,7 +41,7 @@ The maximum time this lab should take is about 9-10 hrs of your time (e.g 4-5 hr
 
 <br>
 
-### **[1.2] Create your own lab report (NEW)** {.unnumbered}
+### **[Step 1.2] Create your own lab report (NEW)** {.unnumbered}
 
 -   This week you will be creating your own reports using the tutorial below, rather than downloading my template from canvas:
 
@@ -55,7 +55,7 @@ The maximum time this lab should take is about 9-10 hrs of your time (e.g 4-5 hr
 
 <br>
 
-### **[1.3] Add libraries** {.unnumbered}
+### **[Step 1.3] Add libraries** {.unnumbered}
 
 -   Create a header-1 chapter called "Set-Up".
     -   E.g. in the text, write the word Set-Up, then using visual mode, change it to 'header 1' (or in source mode, write `# Set-Up)`
@@ -82,7 +82,7 @@ library(yarrr)
 
 <br>
 
-### **[1.3] Check Progress & knit** {.unnumbered}
+### **[Step 1.4] Check Progress & knit** {.unnumbered}
 
 -   You should have something like this. E.g. you are in your project, you have created your lab report and changed the author name. If you are stuck, either go back and redo the tutorials or talk to Dr G.
 
@@ -99,49 +99,53 @@ library(yarrr)
 
 ## 2. Challenge - Data wrangling {.unnumbered}
 
+You are being graded in part for your style and clarity of your write up. In part this is so that it's easier for me to grade. But by the end of the semester, I want you automatically writing reports you could show off to future employers during an interview.
+
+So... from now onward, even if I don't explicitly ask:\
 <br>
 
-### Style
+-   Include your code and write up your answers as full sentences below your code.\
+    <br>
 
--   You are being graded in part for your style and clarity of your write up:
+-   Include units and write up your results clearly, explaining your thinking. This is not a writing course and I am not grading you on grammar, but use the spell checker by the save button..
 
-    -   Include your code and write up your answers as full sentences below your code.\
+-   For each step, make a new 'level-2' sub-heading. This will make the table of contents look nice.
 
-    -   For each step, make a new 'level-2' sub-heading. <br>\
-        **This means it will appear in the table of contents making it MUCH easier to grade**. <br><br>\
-        In visual model you can type Step 2.1, then click on it and press Header 2. In source mode you would type this, leaving a space after the ##.
+    -   In visual model you can type Step 2.1, then click on it and press Header 2.
+
+    -   In source mode you would type this, leaving a space after the ##.
 
         ```         
           ## Step 2.1
         ```
 
-        *\*Note, you don't need to get R to auto-number sections, you can type the numbers.*
+*\*Note, you can type the numbers and don't need to get R to auto-number sections,.*
 
 <br>
 
 
 
-### **[Step 2]: Pirates**
+### **[Step 2]: Pirates** {.unnumbered}
 
 -   Create a new level-1 heading called Pirate analysis
 
 <br>
 
-### **[Step 2.1]: Pirates data**
+### **[Step 2.1]: Pirates data** {.unnumbered}
 
 -   Load the `pirates` dataset from the `yarrr` package. ([Tutorial 4.3, built in data](#T4_loaddata)).
 
 <br>
 
-### **[Step 2.2]: Select values**
+### **[Step 2.2]: Select values** {.unnumbered}
 
--   Select the value of the pirates dataset for the 15th row and 4th column (I need to see the R code!). Write your answer as a full sentence below your r-code. Hint ([Tutorial9,Wrangle basics](#WrangleBasics)). 
+-   Select the value of the pirates dataset for the 15th row and 4th column (I need to see the R code!). Write your answer as a full sentence below your r-code. Hint ([Tutorial9,Wrangle basics](#WrangleBasics)).
 
 <br>
 
-### **[Step 2.3]: Filtering data**
+### **[Step 2.3]: Filtering data** {.unnumbered}
 
-Hint, ([Tutorial9,Wrangle basics](#WrangleFilter)) 
+Hint, ([Tutorial9,Wrangle basics](#WrangleFilter))
 
 -   Filter the full pirates data so that it just includes pirates with more than 3 parrots and save to a new variable called `pirateparrots`.
 
@@ -152,7 +156,7 @@ Hint, ([Tutorial9,Wrangle basics](#WrangleFilter))
 
     <br>
 
-### **[Step 2.4]: Advanced Filtering**
+### **[Step 2.4]: Advanced Filtering** {.unnumbered}
 
 -   Use similar techniques to work out how many pirates that are
 
@@ -160,15 +164,15 @@ Hint, ([Tutorial9,Wrangle basics](#WrangleFilter))
 
         <br>
 
-### **[Step 2.5]: Removing data**
+### **[Step 2.5]: Removing data** {.unnumbered}
 
 -   Remove the 17th row from the main pirates dataset and overwrite (e.g. save the result to a variable called pirates)
 
 <br>
 
-### **[Step 2.6] Combining skills:**
+### **[Step 2.6]: Combining skills** {.unnumbered}
 
-Hint,  ([Tutorial9,Missing data](#Missing)) 
+Hint, ([Tutorial9,Missing data](#Missing))
 
 -   In the main pirates dataset, remove the row containing the tallest pirate (let's say the data was entered incorrectly) and overwrite.\
     <br>
@@ -180,7 +184,7 @@ Hint,  ([Tutorial9,Missing data](#Missing))
 
 <br><br>
 
-## 3. Challenge - Mystery data
+## 3. Challenge - Mystery data {.unnumbered}
 
 <br>
 
@@ -225,7 +229,7 @@ Hint,  ([Tutorial9,Missing data](#Missing))
 
 ## 4. Challenge - Regression {.unnumbered}
 
-### Style
+### Style {.unnumbered}
 
 -   Same as above, please write your answers as full sentences referring to your code.
 
@@ -235,7 +239,7 @@ Hint,  ([Tutorial9,Missing data](#Missing))
 
 <br>
 
-### The problem - read carefully
+### The problem - read carefully {.unnumbered}
 
 [**Public safety spending**]{.underline}
 
@@ -245,7 +249,7 @@ Hint,  ([Tutorial9,Missing data](#Missing))
 
 <br>
 
-### **[Step 4.1]:** Get the data
+### **[Step 4.1]:** Get the data {.unnumbered}
 
 BEFORE you read a file into R, it is good to look at column names. It's very frustrating in R to type column names with spaces or special characters. It makes it especially hard to refer to a column/variable by name, e.g. `table$columnname`won't work.
 
@@ -275,7 +279,7 @@ You *can* change this in R using the `names()` command. But it's much easier to 
 
 <br><br>
 
-### **[Step 4.2]:** Stacked commands
+### **[Step 4.2]:** Stacked commands {.unnumbered}
 
 *We often need to apply more than one command at once. Rather than saving the result each time and applying the next command, we can stack them together. For example, here I find the length of the longest word in the group of words*
 
@@ -304,17 +308,19 @@ longestwordlength <- max(allwordlengths)
 
 <br><br>
 
-### **[Step 4.3]:** Inline code commands
+### **[Step 4.3]:** Inline code commands {.unnumbered}
 
 We will now learn how to hide code chunks and to automatically put the answer in your write-up.
 
--   Use inline code to write a sentence in your report telling me the number of towns in the sample and the average population of the sampled towns. (See Lab 3 / [Tutorial 4.8, Inline code](https://psu-spatial.github.io/stat462-2022/T1_R_Basics.html#48_Inline_code)).
+-   First, edit the code chunk options to hide the chunk when you press knit using include/echo = FALSE See ([Tutorial 3, Code chunk options](T3_CodeChunkOptions)).
+
+-   Use inline code to write a sentence in your report telling me the number of towns in the sample and the average population of the sampled towns. See ([Tutorial 3, Inline Code](T3_InlineCode)). THIS IS EASIER IN SOURCE MODE.
 
 Note, if you use inline code in the future, remember to use things like 'round' so that your text contains an appropriate number of decimal places.
 
 <br><br>
 
-### **[Step 4.4]:** Scatterplots
+### **[Step 4.4]:** Scatterplots {.unnumbered}
 
 -   Make a 'professional looking scatter-plot[^in_02-lab4-1]' of your response and predictor WITHOUT a line of best fit. Describe it fully in the text, referring to form, direction, and strength of the association, along with the presence of any outliers.
 
@@ -322,7 +328,7 @@ Note, if you use inline code in the future, remember to use things like 'round' 
 
 <br><br>
 
-### **[Step 4.5]:** Regression model
+### **[Step 4.5]:** Regression model {.unnumbered}
 
 -   Using the data as-is, fit a regression model to the data using `lm` and save it as a variable called `model1`.
 
@@ -353,7 +359,7 @@ Note, if you use inline code in the future, remember to use things like 'round' 
 
 <br><br>
 
-### **[Step 4.6]:** Outliers
+### **[Step 4.6]:** Outliers {.unnumbered}
 
 -   Remove the outlier in the same way you did in challenge 2.
 
@@ -363,7 +369,7 @@ Note, if you use inline code in the future, remember to use things like 'round' 
 
 <br><br>\
 
-### **[Step 4.7]:** Correlation coefficient
+### **[Step 4.7]:** Correlation coefficient {.unnumbered}
 
 Normally, to calculate the correlation coefficient between two variables, we use the `cor()` command or we could look at the output from `ols_regress()`. Let's imagine that these have mysteriously broken.
 
@@ -373,11 +379,11 @@ Normally, to calculate the correlation coefficient between two variables, we use
 
 <br><br>
 
-### **[Step 4.8]:** Coefficient of variation
+### **[Step 4.8]:** Coefficient of variation {.unnumbered}
 
 This will be discussed in the lectures on Friday & next week, or see <https://online.stat.psu.edu/stat501/lesson/1/1.5> , and <https://online.stat.psu.edu/stat501/lesson/2/2.4>
 
--   Look at the ANOVA table (middle part of `ols_regress(model2)` or make a new code chunk and add `anova(model2)`). \
+-   Look at the ANOVA table (middle part of `ols_regress(model2)` or make a new code chunk and add `anova(model2)`).\
     <br>
 
 -   Using the information provided there, calculate the coefficient of variation (lecture next week)
@@ -388,7 +394,7 @@ This will be discussed in the lectures on Friday & next week, or see <https://on
 
 <br><br>
 
-### **[Step 4.9]:** Slope test
+### **[Step 4.9]:** Slope test {.unnumbered}
 
 This will be discussed in the lectures next week, or see <https://online.stat.psu.edu/stat501/lesson/2/2.1>
 
@@ -396,7 +402,7 @@ This will be discussed in the lectures next week, or see <https://online.stat.ps
 
     <br>
 
--   Show all your workings and professionally format any equations. \
+-   Show all your workings and professionally format any equations.\
     <br>
 
 -   For half marks, you can test if the slope is different to 0.
