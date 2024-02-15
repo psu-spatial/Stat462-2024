@@ -39,7 +39,7 @@ The maximum time this lab should take is about 9-10 hrs of your time (e.g 4-5 hr
 
 -   If you are using R-Studio on your own computer/laptop, log in and make a new project for lab 3 using [T1_ProjectsDesktop](#T1_ProjectsCloud). To open/re-open your project, look in the STAT462/Lab3 folder on your computer and double click the .RProj file (I often rename it something like OPENTHIS.RProj)
 
-<br>
+<br><br>
 
 ### **[Step 1.2] Create your own lab report (NEW)** {.unnumbered}
 
@@ -51,9 +51,9 @@ The maximum time this lab should take is about 9-10 hrs of your time (e.g 4-5 hr
 
     -   You must save your lab report as STAT-462_Lab4_EMAILID.Rmd\*\* (e.g.STAT-462_Lab4_hlg5155.Rmd)
 
--   Follow this tutorial to do this:
+-   Follow this tutorial to do this: [T3_Templates](#T3_YAML)
 
-<br>
+<br><br>
 
 ### **[Step 1.3] Add libraries** {.unnumbered}
 
@@ -80,7 +80,7 @@ library(readxl)
 library(yarrr)
 ```
 
-<br>
+<br><br>
 
 ### **[Step 1.4] Check Progress & knit** {.unnumbered}
 
@@ -204,7 +204,7 @@ Hint, ([Tutorial9,Missing data](#Missing))
 
 <br>
 
--   Write out the model equation using equation format (hint - create the equation here - <https://latexeditor.lagrida.com/> , then you can put it into the text of your REPORT (not a code chunk) using double dollar signs.
+-   Write out the model equation using equation format (hint - create the equation here - <https://latexeditor.lagrida.com/> , then you can put it into the text of your REPORT (not a code chunk) using double dollar signs. More in this tutorial ([Tutorial3,Equations](#T3_MathsEquations)). 
 
     ```         
     $$
@@ -332,11 +332,11 @@ Note, if you use inline code in the future, remember to use things like 'round' 
 
 -   Using the data as-is, fit a regression model to the data using `lm` and save it as a variable called `model1`.
 
-    <br>
+<br>
 
 -   Summarise the the model fit using OLSRR
 
--   <br>
+<br>
 
 -   In the text of your report, write formally write the model equation. (hint - create the equation here - <https://latexeditor.lagrida.com/> , then you can put it into the text of your REPORT (not a code chunk) using double dollar signs.
 

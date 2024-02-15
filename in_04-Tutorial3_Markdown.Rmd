@@ -18,6 +18,7 @@ library(biscale)
 library(tidycensus)
 library(cowplot)
 library(units)
+library(equatiomatic)
 
 
 ```
@@ -114,15 +115,133 @@ knitr::include_graphics('./index_images/im_T3_AllMarkdownElements.png')
 
 ## YAML Code and templates {#T3_YAML}
 
-For Lab 1-3, you will be using a custom template that I made using the package `rmdformats`.[\^in_04-tutorial3_markdown-1] This outputs a html file in a special html format called 'downcute'.
+For Lab 1-3, you will be using a custom template that I made using the package `rmdformats`.[\^in_04-tutorial3_markdown-1] This outputs a html file in a special html format called 'downcute'. From lab 4 onwards, you will be making your own markdown documents. Here's how
 
-From lab 4 onwards, you will be making your own markdown documents.
+1.  Make sure that you have installed the `rmdformats` package. If you're on posit cloud, you will need to install it every time.<br>
+
+2.  MAKE SURE YOU ARE RUNNING YOUR PROJECT\
+    <br>
+
+3.  Go to File/New File/[**R-Markdown**]{.underline} (it's the 5th menu option down)\
+    <br>
+
+4.  Don't be tempted to fill in the title. Instead IMMEDIATELY click on the template button on the left.\
+    <br>
+
+5.  This will bring up a list of templates. Choose one you like. If you're not sure, have a look here: <https://github.com/juba/rmdformats?tab=readme-ov-file#readme>
+
+    <br>
+
+Now there are two things you might see (I'm not sure why - Mac vs PC?)
+
+**OPTION A:** If you see something like this, where the bottom bit is blank.
+
+-   ![](index_images/im_T3Rmdformats.png){width="400"}
+
+-   Choose your template, press OK and it will make a file called untitled.RmD. Click either knit or save and save it as your labnumber_emailID.RmD.
+
+<br>
+
+**OPTION B:** On some computers (including mine), it says that these files need to be put into a new directory.
+
+-   ![](index_images/im_T3RmdformatsPlus.png){width="400"}
+
+-   In that case, name the file here as your labnumber_emailID.Rm and click OK.
+
+-   It will make a new file named correctly. BUT there's a (mini) issue. It puts the file in a subfolder inside your lab folder. Close the file.
+
+-   You can either close Rstudio and on your computer, move the RmD up a level to the main lab folder and delete the subfolder. OR.. you can do it inside R studio.
+
+    -   And now, go to the files quadrant. If you are running your project, you should see a new subfolder named whatever you named your RmD file. Click on its name to open.
+
+    -   Then click on the tickbox by your lab report file, click on the cogwheel on the right (this gets hidden if your R-Studio isn't full screen) and click move. Move it up one-level to your main lab folder.\
+        ![](index_images/im_T3MoveLabReport.png)\
+
+    -   Then move up a level to your main lab 4, click the tickbox by the sub-folder and press delete.
+
+    -   ![](index_images/im_T3DeleteFolder.png)
+
+Now reopen the RmD file and carry on with your lab.
 
 <br><br>
 
 ------------------------------------------------------------------------
 
-## Maths equations {#T3_MathsEquations}
+## Writing Maths equations in R-Markdown {#T3_MathsEquations}
+
+### Double dollar signs
+
+It is relatively easy to write equations in R markdown. They use the "Latex" format and you put them between double dollar signs.
+
+For example, try typing `$$x=2$$` on a new line of the white text area in your repprt ( NOT INTO A CODE CHUNK), then pressing knit. You should see:
+
+$$x=2$$
+
+But how do you write all the fancy equation stuff? We cheat.
+
+Create the equation you want in one of these generators, then copy the code into your script and put it between double dollar signs:
+
+-   <https://latex.codecogs.com/eqneditor/editor.php>
+-   <https://www.tutorialspoint.com/latex_equation_editor.htm>
+
+For example
+
+`$$\widehat{y} = b_{0}+b_{1}x$$`
+
+Shows up as $$\widehat{y} = b_{0}+b_{1}x$$
+
+<br><br>
+
+### Single dollar signs
+
+Essentially this is the same, but the equation is part of the text and you only see the output when you press knit. For example including `$x=2$` in this sentence shows $x=2$ as an output.
+
+<br><br>
+
+### Using Equatiomatic {#S.Tutorial.4C.2}
+
+There's also a package called `equatiomatic` that we can use to directly make equations from our linear models. Full tutorial here: <https://github.com/datalorax/equatiomatic>
+
+#### Installing it
+
+It's no longer in the official app-store, so to install it, FIRST, install a package called '`remotes`'.
+
+Then run this code to install from github:
+
+`remotes::install_github("datalorax/equatiomatic")`
+
+Then add the library command in the library code chunk. Note, as discussed here, this might not work for some people and to be honest, I think this package might be more effort than it's worth.
+
+<br>
+
+#### Using it
+
+Equatiomatic allows us to extract an equation from any linear model using `extract_eq()`. For example, let's create a linear model:
+
+```{r, eval=FALSE}
+data(starwars)
+mymodel <- lm(mass~height,data=starwars)
+```
+
+Then extract_eq allows you to see the LateX version of the equation.
+
+```{r, eval=FALSE}
+extract_eq(mymodel)
+```
+
+If you run it in the console, the command returns the LaTeX code you need to add it into the text yourself. If you want to use the actual numbers, simply turn on use_coefs=TRUE.
+
+```{r, eval=FALSE}
+extract_eq(mymodel, use_coefs = TRUE)
+```
+
+Let's say our data is a sample, not the population, then we want to use lower case names for our sample statistics (b0 & b1).
+
+There is no easy way to do this in the command, so I run the command in the console, then copy the command over to the TEXT part of the report as an equation and change the betas to 'b's.
+
+More examples here:
+
+![From the equatiomatic website: <https://github.com/datalorax/equatiomatic>](https://github.com/datalorax/equatiomatic/raw/master/img/equatiomatic.gif)
 
 <br><br>
 
@@ -130,7 +249,7 @@ From lab 4 onwards, you will be making your own markdown documents.
 
 ## Code Chunk options {#T3_CodeChunkOptions}
 
-What are they?  Essentially, instructions that you  tell the computer when you press knit. 
+What are they? Essentially, instructions that you tell the computer when you press knit.
 
 ### Creating them in Source mode
 
@@ -178,15 +297,14 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 
 Here are the common options we typically need:
 
--   `message = TRUE/FALSE`. Don't show friendly R messages on knitting. I use this so often that I put it in that knitr code chunk at the top of my scripts.
-<br>
+-   `message = TRUE/FALSE`. Don't show friendly R messages on knitting. I use this so often that I put it in that knitr code chunk at the top of my scripts. <br>
 
--   `warning = TRUE/FALSE` . Don't show R warnings on knitting. It will still show errors, so this is another good one to use.
-<br>
--   `include = TRUE/FALSE.` Show or Hide the code AND output in the final document. Really useful with inline code (next section)
-<br>
--   `echo = TRUE/FALSE.` Show or Hide the code chunk code in the final document. The output will still be shown.
-<br>
+-   `warning = TRUE/FALSE` . Don't show R warnings on knitting. It will still show errors, so this is another good one to use. <br>
+
+-   `include = TRUE/FALSE.` Show or Hide the code AND output in the final document. Really useful with inline code (next section) <br>
+
+-   `echo = TRUE/FALSE.` Show or Hide the code chunk code in the final document. The output will still be shown. <br>
+
 -   `eval = TRUE/FALSE`. This option determines whether the code is evaluated or executed. If **`eval = TRUE`**, the code is executed. If **`eval = FALSE`**, the code is not executed, but the code chunk is still displayed. This can be useful for showing example code without actually running it.
 
 -   Or for example, if you can't knit because of an error, you can add eval=FALSE to the problem code chunk so I can see what you did but you can still knit.

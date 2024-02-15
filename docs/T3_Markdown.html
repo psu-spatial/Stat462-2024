@@ -157,17 +157,111 @@
 <h2>
 <span class="header-section-number">3.3</span> YAML Code and templates<a class="anchor" aria-label="anchor" href="#T3_YAML"><i class="fas fa-link"></i></a>
 </h2>
-<p>For Lab 1-3, you will be using a custom template that I made using the package <code>rmdformats</code>.[^in_04-tutorial3_markdown-1] This outputs a html file in a special html format called ‘downcute’.</p>
-<p>From lab 4 onwards, you will be making your own markdown documents.</p>
+<p>For Lab 1-3, you will be using a custom template that I made using the package <code>rmdformats</code>.[^in_04-tutorial3_markdown-1] This outputs a html file in a special html format called ‘downcute’. From lab 4 onwards, you will be making your own markdown documents. Here’s how</p>
+<ol style="list-style-type: decimal">
+<li><p>Make sure that you have installed the <code>rmdformats</code> package. If you’re on posit cloud, you will need to install it every time.<br></p></li>
+<li><p>MAKE SURE YOU ARE RUNNING YOUR PROJECT<br><br></p></li>
+<li><p>Go to File/New File/<u><strong>R-Markdown</strong></u> (it’s the 5th menu option down)<br><br></p></li>
+<li><p>Don’t be tempted to fill in the title. Instead IMMEDIATELY click on the template button on the left.<br><br></p></li>
+<li>
+<p>This will bring up a list of templates. Choose one you like. If you’re not sure, have a look here: <a href="https://github.com/juba/rmdformats?tab=readme-ov-file#readme" class="uri">https://github.com/juba/rmdformats?tab=readme-ov-file#readme</a></p>
+<p><br></p>
+</li>
+</ol>
+<p>Now there are two things you might see (I’m not sure why - Mac vs PC?)</p>
+<p><strong>OPTION A:</strong> If you see something like this, where the bottom bit is blank.</p>
+<ul>
+<li><div class="inline-figure"><img src="index_images/im_T3Rmdformats.png" width="400"></div></li>
+<li><p>Choose your template, press OK and it will make a file called untitled.RmD. Click either knit or save and save it as your labnumber_emailID.RmD.</p></li>
+</ul>
+<p><br></p>
+<p><strong>OPTION B:</strong> On some computers (including mine), it says that these files need to be put into a new directory.</p>
+<ul>
+<li><div class="inline-figure"><img src="index_images/im_T3RmdformatsPlus.png" width="400"></div></li>
+<li><p>In that case, name the file here as your labnumber_emailID.Rm and click OK.</p></li>
+<li><p>It will make a new file named correctly. BUT there’s a (mini) issue. It puts the file in a subfolder inside your lab folder. Close the file.</p></li>
+<li>
+<p>You can either close Rstudio and on your computer, move the RmD up a level to the main lab folder and delete the subfolder. OR.. you can do it inside R studio.</p>
+<ul>
+<li><p>And now, go to the files quadrant. If you are running your project, you should see a new subfolder named whatever you named your RmD file. Click on its name to open.</p></li>
+<li><p>Then click on the tickbox by your lab report file, click on the cogwheel on the right (this gets hidden if your R-Studio isn’t full screen) and click move. Move it up one-level to your main lab folder.<br><img src="index_images/im_T3MoveLabReport.png"><br></p></li>
+<li><p>Then move up a level to your main lab 4, click the tickbox by the sub-folder and press delete.</p></li>
+<li><div class="inline-figure"><img src="index_images/im_T3DeleteFolder.png"></div></li>
+</ul>
+</li>
+</ul>
+<p>Now reopen the RmD file and carry on with your lab.</p>
 <p><br><br></p>
 <hr>
 </div>
 <div id="T3_MathsEquations" class="section level2" number="3.4">
 <h2>
-<span class="header-section-number">3.4</span> Maths equations<a class="anchor" aria-label="anchor" href="#T3_MathsEquations"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.4</span> Writing Maths equations in R-Markdown<a class="anchor" aria-label="anchor" href="#T3_MathsEquations"><i class="fas fa-link"></i></a>
 </h2>
+<div id="double-dollar-signs" class="section level3" number="3.4.1">
+<h3>
+<span class="header-section-number">3.4.1</span> Double dollar signs<a class="anchor" aria-label="anchor" href="#double-dollar-signs"><i class="fas fa-link"></i></a>
+</h3>
+<p>It is relatively easy to write equations in R markdown. They use the “Latex” format and you put them between double dollar signs.</p>
+<p>For example, try typing <code>$$x=2$$</code> on a new line of the white text area in your repprt ( NOT INTO A CODE CHUNK), then pressing knit. You should see:</p>
+<p><span class="math display">\[x=2\]</span></p>
+<p>But how do you write all the fancy equation stuff? We cheat.</p>
+<p>Create the equation you want in one of these generators, then copy the code into your script and put it between double dollar signs:</p>
+<ul>
+<li><a href="https://latex.codecogs.com/eqneditor/editor.php" class="uri">https://latex.codecogs.com/eqneditor/editor.php</a></li>
+<li><a href="https://www.tutorialspoint.com/latex_equation_editor.htm" class="uri">https://www.tutorialspoint.com/latex_equation_editor.htm</a></li>
+</ul>
+<p>For example</p>
+<p><code>$$\widehat{y} = b_{0}+b_{1}x$$</code></p>
+<p>Shows up as <span class="math display">\[\widehat{y} = b_{0}+b_{1}x\]</span></p>
+<p><br><br></p>
+</div>
+<div id="single-dollar-signs" class="section level3" number="3.4.2">
+<h3>
+<span class="header-section-number">3.4.2</span> Single dollar signs<a class="anchor" aria-label="anchor" href="#single-dollar-signs"><i class="fas fa-link"></i></a>
+</h3>
+<p>Essentially this is the same, but the equation is part of the text and you only see the output when you press knit. For example including <code>$x=2$</code> in this sentence shows <span class="math inline">\(x=2\)</span> as an output.</p>
+<p><br><br></p>
+</div>
+<div id="S.Tutorial.4C.2" class="section level3" number="3.4.3">
+<h3>
+<span class="header-section-number">3.4.3</span> Using Equatiomatic<a class="anchor" aria-label="anchor" href="#S.Tutorial.4C.2"><i class="fas fa-link"></i></a>
+</h3>
+<p>There’s also a package called <code>equatiomatic</code> that we can use to directly make equations from our linear models. Full tutorial here: <a href="https://github.com/datalorax/equatiomatic" class="uri">https://github.com/datalorax/equatiomatic</a></p>
+<div id="installing-it" class="section level4" number="3.4.3.1">
+<h4>
+<span class="header-section-number">3.4.3.1</span> Installing it<a class="anchor" aria-label="anchor" href="#installing-it"><i class="fas fa-link"></i></a>
+</h4>
+<p>It’s no longer in the official app-store, so to install it, FIRST, install a package called ‘<code>remotes</code>’.</p>
+<p>Then run this code to install from github:</p>
+<p><code>remotes::install_github("datalorax/equatiomatic")</code></p>
+<p>Then add the library command in the library code chunk. Note, as discussed here, this might not work for some people and to be honest, I think this package might be more effort than it’s worth.</p>
+</div>
+<div id="using-it" class="section level4" number="3.4.3.2">
+<h4>
+<span class="header-section-number">3.4.3.2</span> Using it<a class="anchor" aria-label="anchor" href="#using-it"><i class="fas fa-link"></i></a>
+</h4>
+<p>Equatiomatic allows us to extract an equation from any linear model using <code>extract_eq()</code>. For example, let’s create a linear model:</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">)</span></span>
+<span><span class="va">mymodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mass</span><span class="op">~</span><span class="va">height</span>,data<span class="op">=</span><span class="va">starwars</span><span class="op">)</span></span></code></pre></div>
+<p>Then extract_eq allows you to see the LateX version of the equation.</p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">extract_eq</span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
+<p>If you run it in the console, the command returns the LaTeX code you need to add it into the text yourself. If you want to use the actual numbers, simply turn on use_coefs=TRUE.</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">extract_eq</span><span class="op">(</span><span class="va">mymodel</span>, use_coefs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>Let’s say our data is a sample, not the population, then we want to use lower case names for our sample statistics (b0 &amp; b1).</p>
+<p>There is no easy way to do this in the command, so I run the command in the console, then copy the command over to the TEXT part of the report as an equation and change the betas to ’b’s.</p>
+<p>More examples here:</p>
+<div class="float">
+<img src="https://github.com/datalorax/equatiomatic/raw/master/img/equatiomatic.gif" alt="From the equatiomatic website: https://github.com/datalorax/equatiomatic"><div class="figcaption">From the equatiomatic website: <a href="https://github.com/datalorax/equatiomatic" class="uri">https://github.com/datalorax/equatiomatic</a>
+</div>
+</div>
 <p><br><br></p>
 <hr>
+</div>
+</div>
 </div>
 <div id="T3_CodeChunkOptions" class="section level2" number="3.5">
 <h2>
@@ -212,14 +306,10 @@
 </h3>
 <p>Here are the common options we typically need:</p>
 <ul>
-<li><p><code>message = TRUE/FALSE</code>. Don’t show friendly R messages on knitting. I use this so often that I put it in that knitr code chunk at the top of my scripts.
-<br></p></li>
-<li><p><code>warning = TRUE/FALSE</code> . Don’t show R warnings on knitting. It will still show errors, so this is another good one to use.
-<br></p></li>
-<li><p><code>include = TRUE/FALSE.</code> Show or Hide the code AND output in the final document. Really useful with inline code (next section)
-<br></p></li>
-<li><p><code>echo = TRUE/FALSE.</code> Show or Hide the code chunk code in the final document. The output will still be shown.
-<br></p></li>
+<li><p><code>message = TRUE/FALSE</code>. Don’t show friendly R messages on knitting. I use this so often that I put it in that knitr code chunk at the top of my scripts. <br></p></li>
+<li><p><code>warning = TRUE/FALSE</code> . Don’t show R warnings on knitting. It will still show errors, so this is another good one to use. <br></p></li>
+<li><p><code>include = TRUE/FALSE.</code> Show or Hide the code AND output in the final document. Really useful with inline code (next section) <br></p></li>
+<li><p><code>echo = TRUE/FALSE.</code> Show or Hide the code chunk code in the final document. The output will still be shown. <br></p></li>
 <li><p><code>eval = TRUE/FALSE</code>. This option determines whether the code is evaluated or executed. If <strong><code>eval = TRUE</code></strong>, the code is executed. If <strong><code>eval = FALSE</code></strong>, the code is not executed, but the code chunk is still displayed. This can be useful for showing example code without actually running it.</p></li>
 <li><p>Or for example, if you can’t knit because of an error, you can add eval=FALSE to the problem code chunk so I can see what you did but you can still knit.</p></li>
 </ul>
@@ -286,7 +376,13 @@
 </ul>
 </li>
 <li><a class="nav-link" href="#T3_YAML"><span class="header-section-number">3.3</span> YAML Code and templates</a></li>
-<li><a class="nav-link" href="#T3_MathsEquations"><span class="header-section-number">3.4</span> Maths equations</a></li>
+<li>
+<a class="nav-link" href="#T3_MathsEquations"><span class="header-section-number">3.4</span> Writing Maths equations in R-Markdown</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#double-dollar-signs"><span class="header-section-number">3.4.1</span> Double dollar signs</a></li>
+<li><a class="nav-link" href="#single-dollar-signs"><span class="header-section-number">3.4.2</span> Single dollar signs</a></li>
+<li><a class="nav-link" href="#S.Tutorial.4C.2"><span class="header-section-number">3.4.3</span> Using Equatiomatic</a></li>
+</ul>
+</li>
 <li>
 <a class="nav-link" href="#T3_CodeChunkOptions"><span class="header-section-number">3.5</span> Code Chunk options</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#creating-them-in-source-mode"><span class="header-section-number">3.5.1</span> Creating them in Source mode</a></li>

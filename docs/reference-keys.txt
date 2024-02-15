@@ -41,6 +41,11 @@ T32D_CodeChunks
 T32E_Knitting
 T3_YAML
 T3_MathsEquations
+double-dollar-signs
+single-dollar-signs
+S.Tutorial.4C.2
+installing-it
+using-it
 T3_CodeChunkOptions
 creating-them-in-source-mode
 creating-them-in-view-mode
