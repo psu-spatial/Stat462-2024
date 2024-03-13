@@ -33,7 +33,7 @@ The maximum time this lab should take is about 4-5 hrs of your time.
 
 ### **[Step 1.1] Create a project for Lab 5** {.unnumbered}
 
-** YOU WILL BE CONTINUING IN THE SAME PROJECT NEXT WEEK **
+\*\* YOU WILL BE CONTINUING IN THE SAME PROJECT NEXT WEEK \*\*
 
 -   If you are using the POSIT Cloud (AKA R-Studio online), log-in and make a new project using [Tutorial 1B](#T1_ProjectsCloud)
 
@@ -51,11 +51,11 @@ This week you will be creating your own reports from scratch rather than using a
 
 -   But this time, DON'T GO TO THE TEMPLATE MENU. Simply add the title and your name, then press OK.
 
-    ![Make a new markdown file from scratch](index_images/im_05MarkdownScratch.png){width="600"}
+    ![Make a new markdown file from scratch](index_images/im_05MarkdownScratch.png){width="70%"}
 
 -   This will create a document that looks like this. Just so you can see the subheading structure, change line 12 so it reads `# R Markdown` (e.g. remove one of the hashtags)
 
-    ![Output of the markdown document](index_images/im_05MarkdownScratchOutput.png){width="1000"}
+    ![Output of the markdown document](index_images/im_05MarkdownScratchOutput.png){width="70%"}
 
 -   Press knit, then save as your Lab 5 report. You must save your lab report as STAT-462_Lab5_EMAILID.Rmd\*\* (e.g.STAT-462_Lab5_hlg5155.Rmd). You might need to press knit twice.
 
@@ -92,10 +92,10 @@ output:
     \
 
 <br><br>
-    
-### **[Step 1.3] Document options & libraries ** {.unnumbered}
-    
- - Now, let's edit the first code chunk below the YAML code, which allows us to set the visualization options for your report. At the moment, it says
+
+### **[Step 1.3] Document options & libraries**  {.unnumbered}
+
+-   Now, let's edit the first code chunk below the YAML code, which allows us to set the visualization options for your report. At the moment, it says
 
 ```         
 knitr::opts_chunk$set(echo = TRUE)
@@ -106,12 +106,12 @@ knitr::opts_chunk$set(echo = TRUE)
 -   Finally, as you can see, the basic R-Markdown document includes a load of 'friendly welcome text' explaining what a markdown document is. We don't need this. So delete EVERYTHING below your first code chunk.
 
 -   Create a header-1 chapter called "Set-Up".
+
     -   E.g. in the text, write the word Set-Up, then using visual mode, change it to 'header 1' (or in source mode, write `# Set-Up)`
 
 <br>
 
 -   Add a new code chunk and use this code to load the following libraries. If some don't exist on your computer or on the cloud, use [Tutorial 2](#T2_Libraries) to install/download them first from the app-store.<br>
-
 
 
 ```r
@@ -132,13 +132,13 @@ library("plotly")    # Interactive plots
 library("readxl")    # Read from excel files
 ```
 
- - To make sure they loaded OK, run the code chunk TWICE. The second time any welcome text will disappear unless there are errors.
+-   To make sure they loaded OK, run the code chunk TWICE. The second time any welcome text will disappear unless there are errors.
 
 <br><br>
 
 ### **[Step 1.4] Check Progress** {.unnumbered}
 
--   OK - so by now, you should be in your project, you have created your lab report, the YAML code works and your libraries work. Press knit and check it all works. If not, STOP, go back and redo the tutorials or talk to Dr G. 
+-   OK - so by now, you should be in your project, you have created your lab report, the YAML code works and your libraries work. Press knit and check it all works. If not, STOP, go back and redo the tutorials or talk to Dr G.
 
 <br><br>
 
@@ -148,94 +148,89 @@ library("readxl")    # Read from excel files
 
 ### **[Step 2.1] LINE** {.unnumbered}
 
- - Create a level 1 heading called LINE assumptions. From your notes and the online textbook (https://online.stat.psu.edu/stat501/lesson/4/4.1), explain in your report what the LINE assumptions are for linear regression.  
- 
+-   Create a level 1 heading called LINE assumptions. From your notes and the online textbook (<https://online.stat.psu.edu/stat501/lesson/4/4.1>), explain in your report what the LINE assumptions are for linear regression.
+
 <br><br>
- 
+
 ### **[Step 2.2] Create Datasets** {.unnumbered}
 
- - Go to https://stephenturner.github.io/drawmydata/.  You are going to create and save 3 datasets into your Lab 5 folder. Each should have _at minimum_ 30 points. 
- 
-   - A dataset that meets all the assumptions of simple linear regression
-   - A dataset that breaks the assumption of linearity
-   - A dataset that breaks the assumption of equal variance/heteroskadisity
+-   Go to <https://stephenturner.github.io/drawmydata/>. You are going to create and save 3 datasets into your Lab 5 folder. Each should have *at minimum* 30 points.
+
+    -   A dataset that meets all the assumptions of simple linear regression
+    -   A dataset that breaks the assumption of linearity
+    -   A dataset that breaks the assumption of equal variance/heteroskadisity
 
 <br>
 
- - I strongly suggest opening the datasets in Excel first adding a new row at the top and adding in column names ([Tutorial here](https://support.microsoft.com/en-us/office/insert-or-delete-rows-and-columns-6f40e6e4-85af-45e0-b39d-65dd504a3246)). I also suggest naming your files sensible things  so you don't go insane. 
+-   I strongly suggest opening the datasets in Excel first adding a new row at the top and adding in column names ([Tutorial here](https://support.microsoft.com/en-us/office/insert-or-delete-rows-and-columns-6f40e6e4-85af-45e0-b39d-65dd504a3246)). I also suggest naming your files sensible things so you don't go insane.
 
 <br>
 
- - Read the three files into R and assign to sensible variable names. 
- 
+-   Read the three files into R and assign to sensible variable names.
+
 <br>
- 
+
 ### **[Step 2.3] Examine scatterplots** {.unnumbered}
- 
- - Create a professional scatterplot of each of your three datasets.  I suggest using this code for convenience - https://psu-spatial.github.io/Stat462-2024/T6_plots.html#T6_PlotGGPlot 
- 
+
+-   Create a professional scatterplot of each of your three datasets. I suggest using this code for convenience - <https://psu-spatial.github.io/Stat462-2024/T6_plots.html#T6_PlotGGPlot>
+
 <br>
 
- - Below each one, explain why you think it does/doesn't meet the linearity and equal variance LINE assumptions. See here for example wording - https://online.stat.psu.edu/stat501/lesson/4/4.7 
+-   Below each one, explain why you think it does/doesn't meet the linearity and equal variance LINE assumptions. See here for example wording - <https://online.stat.psu.edu/stat501/lesson/4/4.7>
 
 <br><br>
-  
-### **[Step 2.4] Create a regression model {.unnumbered}
 
- - For each dataset, create a linear regression model, making sure that your response (y-axis) and predictor are the correct way around [Tutorial here]https://psu-spatial.github.io/Stat462-2024/T8_regression.html).  You do not need to write out the equation, but check against your scatterplot to make sure it all makes sense.
- 
- 
+### **[Step 2.4] Create a regression model** {.unnumbered}
+
+-   For each dataset, create a linear regression model, making sure that your response (y-axis) and predictor are the correct way around [Tutorial here]<https://psu-spatial.github.io/Stat462-2024/T8_regression.html>). You do not need to write out the equation, but check against your scatterplot to make sure it all makes sense.
+
 <br><br>
-   
- 
-### **[Step 2.5] Residual vs fits {.unnumbered}
 
-As you will see in future labs, it's sometimes not very easy to see things like linearity and heteroscadisity by eye.  Looking at plots of the residuals can help with this.  This type of plot is also useful in identifying outliers, something we will do in Lab 6.
- 
- - Create a sub-heading called regression diagnostics. 
- 
- - Create a sub-sub-heading called residuals vs fits (e.g. header 3)
- 
- - Read https://online.stat.psu.edu/stat501/lesson/4/4.2 and https://online.stat.psu.edu/stat501/lesson/4/4.4.
- 
- - Then read through Tutorial 10 (menu on left), up to the end of equal variance to make standardised "Residual vs Fits" plots of your three datasets. 
- 
- - Underneath your plots and referring to the textbook reading, write at least 150 words (total) explaining in your own words
-   - What a residual vs fits plot is, 
-   - Why it's useful compared to just looking at the scatterplot.  
-   - Referring to your plots to explain how each of your three datasets does/doesn't meet the LINE assumptions of linearity and equal variance. 
-   
- - For each of your three models, conduct a F-test for heteroscadisity (see tutorial 10).  In the text, explain in general what your H0 and H1 are, and interpret the results of the three tests (e.g. what's the test statistic, what's the p-value, and does it suggest equal variances or not)
- 
+### **[Step 2.5] Residual vs fits** {.unnumbered}
 
- 
+As you will see in future labs, it's sometimes not very easy to see things like linearity and heteroscadisity by eye. Looking at plots of the residuals can help with this. This type of plot is also useful in identifying outliers, something we will do in Lab 6.
+
+-   Create a sub-heading called regression diagnostics.
+
+-   Create a sub-sub-heading called residuals vs fits (e.g. header 3)
+
+-   Read <https://online.stat.psu.edu/stat501/lesson/4/4.2> and <https://online.stat.psu.edu/stat501/lesson/4/4.4>.
+
+-   Then read through Tutorial 10 (menu on left), up to the end of equal variance to make standardised "Residual vs Fits" plots of your three datasets.
+
+-   Underneath your plots and referring to the textbook reading, write at least 150 words (total) explaining in your own words
+
+    -   What a residual vs fits plot is,
+    -   Why it's useful compared to just looking at the scatterplot.\
+    -   Referring to your plots to explain how each of your three datasets does/doesn't meet the LINE assumptions of linearity and equal variance.
+
+-   For each of your three models, conduct a F-test for heteroscadisity (see tutorial 10). In the text, explain in general what your H0 and H1 are, and interpret the results of the three tests (e.g. what's the test statistic, what's the p-value, and does it suggest equal variances or not)
+
 <br><br>
-   
-### **[Step 2.6] Residual normal analysis {.unnumbered}
+
+### **[Step 2.6] Residual normal analysis** {.unnumbered}
 
 We also need to assess whether your residuals are normally distributed. For this, we have another set of diagnostic tools.
 
- - Create a sub-sub heading called Residual Normality
- 
- - Read https://online.stat.psu.edu/stat501/lesson/4/4.6 and tutorial 10 (https://psu-spatial.github.io/Stat462-2024/T10_diagnostics.html) continued
- 
- - Use tutorial 10 to create residual histograms and residual QQ plots for each of your three datasets.
- 
-  - Underneath your plots and referring to the textbook reading, write at least 100 words (total) explaining in your own words
-   - What the residual histograms and residual QQplots are showing you, 
-   - Why it's useful compared to just looking at the scatterplot.  
-   - Referring to your plots to explain how each of your three datasets does/doesn't meet the LINE assumptions of normality. 
-    
-  - For each of your three models, run the ols_test_normality() command to do all the normality datasets. What do they suggest?  Hint - see here for the interpretation. https://www.statology.org/shapiro-wilk-test-r/.  and https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3693611/ 
-  
+-   Create a sub-sub heading called Residual Normality
 
- - Use google and the resources provided to explain the difference between the tests that your code outputs. 
-  
-  
+-   Read <https://online.stat.psu.edu/stat501/lesson/4/4.6> and tutorial 10 (<https://psu-spatial.github.io/Stat462-2024/T10_diagnostics.html>) continued
+
+-   Use tutorial 10 to create residual histograms and residual QQ plots for each of your three datasets.
+
+-   Underneath your plots and referring to the textbook reading, write at least 100 words (total) explaining in your own words
+
+-   What the residual histograms and residual QQplots are showing you,
+
+-   Why it's useful compared to just looking at the scatterplot.\
+
+-   Referring to your plots to explain how each of your three datasets does/doesn't meet the LINE assumptions of normality.
+
+-   For each of your three models, run the ols_test_normality() command to do all the normality datasets. What do they suggest? Hint - see here for the interpretation. <https://www.statology.org/shapiro-wilk-test-r/>. and <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3693611/>
+
+-   Use google and the resources provided to explain the difference between the tests that your code outputs.
+
 <br><br>
-
-
-
 
 ## 3. Submitting your Lab {.unnumbered}
 

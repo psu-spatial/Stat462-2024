@@ -10,9 +10,9 @@ We know from the lectures that there are multiple assumptions underpinning wheth
 
 It can be difficult looking at the raw data to assess whether many of the assumptions are true or not. So in this case we can look at residual plots.
 
-![](index_images/im_T10_residualplot.png){width="800"}
+![](index_images/im_T10_residualplot.png){width="80%"}
 
-![](index_images/im_T10_residualplotB.png){width="500"}
+![](index_images/im_T10_residualplotB.png){width="50%"}
 
 Still confused? See
 
@@ -77,7 +77,7 @@ lines(c(alcoholdata$alcohol[1],alcoholdata$alcohol[1]),
 
 **THE AIM HERE IS TO SEE IF A CURVE (or pattern) WOULD FIT THE DATA BETTER THAN A LINE. JUST RANDOM POINTS IS OK, A CURVE/DINOSAUR IS BAD.**
 
-![](index_images/im_T10_linearity.png)
+![](index_images/im_T10_linearity.png){width="90%"}
 
 <br>
 
@@ -170,7 +170,7 @@ ols_plot_resid_fit(tread_model)
 
 **Look at the cloud of points - they should stay roughly the same distance away either side of your line**
 
-![](index_images/im_T10_variance.png)
+![](index_images/im_T10_variance.png){width="90%"}
 
 <br>
 
@@ -245,8 +245,7 @@ There is also another test available, the Breusch Pagan Test - but this relies o
 
 **Again, we are testing whether the RESIDUALS are normal around the regression line**
 
-
-![](index_images/im_T10_Normality.png)
+![](index_images/im_T10_Normality.png){width="90%"}
 
 To get the best estimates of parameters such as B0 and B1, the residuals must be normally distributed around the regression line. However, this has a much smaller effect typically than non-linearity or breaking assumptions of independence.
 
@@ -254,7 +253,7 @@ Breaking normality is only important in the calculation of p values for signific
 
 So never throw away your data if it breaks normality. But it's good to take a look.
 
-First, read this to see how the different tests look:  https://online.stat.psu.edu/stat501/lesson/4/4.6 
+First, read this to see how the different tests look: <https://online.stat.psu.edu/stat501/lesson/4/4.6>
 
 Let's go back to our original test data:
 
@@ -302,7 +301,7 @@ ols_test_normality(mymodel)
 
 In this case, our residuals look very normal.
 
-There are several tests available, look at papers such as these to understand why and which is best - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3693611/ 
+There are several tests available, look at papers such as these to understand why and which is best - <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3693611/>
 
 <br><br>
 

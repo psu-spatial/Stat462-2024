@@ -90,8 +90,8 @@
 <span class="header-section-number">10.1</span> What are residuals?<a class="anchor" aria-label="anchor" href="#T10_residuals"><i class="fas fa-link"></i></a>
 </h2>
 <p>It can be difficult looking at the raw data to assess whether many of the assumptions are true or not. So in this case we can look at residual plots.</p>
-<div class="inline-figure"><img src="index_images/im_T10_residualplot.png" width="800"></div>
-<div class="inline-figure"><img src="index_images/im_T10_residualplotB.png" width="500"></div>
+<div class="inline-figure"><img src="index_images/im_T10_residualplot.png" style="width:80.0%"></div>
+<div class="inline-figure"><img src="index_images/im_T10_residualplotB.png" style="width:50.0%"></div>
 <p>Still confused? See</p>
 <ul>
 <li><p><a href="https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/xfb5d8e68:residuals/v/regression-residual-intro" class="uri">https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/xfb5d8e68:residuals/v/regression-residual-intro</a>)</p></li>
@@ -143,7 +143,7 @@
 <span class="header-section-number">10.2</span> Checking linearity<a class="anchor" aria-label="anchor" href="#T10.Linearity"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>THE AIM HERE IS TO SEE IF A CURVE (or pattern) WOULD FIT THE DATA BETTER THAN A LINE. JUST RANDOM POINTS IS OK, A CURVE/DINOSAUR IS BAD.</strong></p>
-<div class="inline-figure"><img src="index_images/im_T10_linearity.png"></div>
+<div class="inline-figure"><img src="index_images/im_T10_linearity.png" style="width:90.0%"></div>
 <p><br></p>
 <p>The goal of data-science is often to find the ‘best’ model that fits your data AKA the one with the smallest residuals. If your underlying dataset is not linear, then we probably want to choose a different model than linear data.</p>
 <p>However, in real life, it can often be difficult to assess whether the fit is linear by looking at the scatterplot alone. For example, using another dataset from the textbook, your mind might think this is linear.</p>
@@ -215,7 +215,7 @@ Figure 10.2: A parabola would clearly fit the data better than a straight line
 <span class="header-section-number">10.3</span> Checking Equal Variance/homoscadisity<a class="anchor" aria-label="anchor" href="#T10.Variance"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>Look at the cloud of points - they should stay roughly the same distance away either side of your line</strong></p>
-<div class="inline-figure"><img src="index_images/im_T10_variance.png"></div>
+<div class="inline-figure"><img src="index_images/im_T10_variance.png" style="width:90.0%"></div>
 <p><br></p>
 <div id="residual-vs-fits-plots-for-equal-variance-checks" class="section level3" number="10.3.1">
 <h3>
@@ -277,7 +277,7 @@ Figure 10.3: This data breaks equal variance
 <span class="header-section-number">10.4</span> Checking Normality<a class="anchor" aria-label="anchor" href="#T10.Normality"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>Again, we are testing whether the RESIDUALS are normal around the regression line</strong></p>
-<div class="inline-figure"><img src="index_images/im_T10_Normality.png"></div>
+<div class="inline-figure"><img src="index_images/im_T10_Normality.png" style="width:90.0%"></div>
 <p>To get the best estimates of parameters such as B0 and B1, the residuals must be normally distributed around the regression line. However, this has a much smaller effect typically than non-linearity or breaking assumptions of independence.</p>
 <p>Breaking normality is only important in the calculation of p values for significance testing and confidence intervals, but this is only a problem when the sample size is small. When the sample size is larger (&gt;200), the Central Limit Theorem ensures that the distribution of residuals will approximate normality when calculating parameters.</p>
 <p>So never throw away your data if it breaks normality. But it’s good to take a look.</p>

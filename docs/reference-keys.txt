@@ -17,9 +17,6 @@ a.-the-base-r-scatterplot-plot.
 b.-the-ggstatplot-r-scatterplot-ggscatterstats.
 need-help
 need-help-1
-step-2.4-create-a-regression-model-.unnumbered
-step-2.5-residual-vs-fits-.unnumbered
-step-2.6-residual-normal-analysis-.unnumbered
 T1_Projects
 T1_ProjectsCloud
 T1_ProjectsDesktop
