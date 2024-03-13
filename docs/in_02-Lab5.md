@@ -4,7 +4,7 @@
 
 ## Aim {.unnumbered}
 
-Welcome to lab 5. This is worth 5% (50 points), alongside Lab 5B next week (you can drop them together or neither)
+Welcome to lab 5. This is worth 4% (40 points), alongside 60 for Lab 5B next week (you can drop them together or neither)
 
 By the end of this lab, you will be able to:
 
@@ -172,7 +172,7 @@ library("readxl")    # Read from excel files
  
 ### **[Step 2.3] Examine scatterplots** {.unnumbered}
  
- - Create a professional scatterplot of each of your three datasets.  I suggest using this code for convenience [tutorial here](#T6_PlotGGPlot)
+ - Create a professional scatterplot of each of your three datasets.  I suggest using this code for convenience - https://psu-spatial.github.io/Stat462-2024/T6_plots.html#T6_PlotGGPlot 
  
 <br>
 
@@ -182,7 +182,7 @@ library("readxl")    # Read from excel files
   
 ### **[Step 2.4] Create a regression model {.unnumbered}
 
- - For each dataset, create a linear regression model, making sure that your response (y-axis) and predictor are the correct way around [Tutorial here](# {#T8_lmbasics}).  You do not need to write out the equation, but check against your scatterplot to make sure it all makes sense.
+ - For each dataset, create a linear regression model, making sure that your response (y-axis) and predictor are the correct way around [Tutorial here]https://psu-spatial.github.io/Stat462-2024/T8_regression.html).  You do not need to write out the equation, but check against your scatterplot to make sure it all makes sense.
  
  
 <br><br>
@@ -205,7 +205,7 @@ As you will see in future labs, it's sometimes not very easy to see things like 
    - Why it's useful compared to just looking at the scatterplot.  
    - Referring to your plots to explain how each of your three datasets does/doesn't meet the LINE assumptions of linearity and equal variance. 
    
- - For each of your three models, conduct a Breusch pagen test for heteroskadisity (see tutorial).  In the text, explain in general what your H0 and H1 are, and interpret the results of the three tests (e.g. what's the test statistic, what's the p-value, and does it suggest equal variances or not)
+ - For each of your three models, conduct a F-test for heteroscadisity (see tutorial 10).  In the text, explain in general what your H0 and H1 are, and interpret the results of the three tests (e.g. what's the test statistic, what's the p-value, and does it suggest equal variances or not)
  
 
  
@@ -217,7 +217,7 @@ We also need to assess whether your residuals are normally distributed. For this
 
  - Create a sub-sub heading called Residual Normality
  
- - Read https://online.stat.psu.edu/stat501/lesson/4/4.6 and tutorial 10 continued
+ - Read https://online.stat.psu.edu/stat501/lesson/4/4.6 and tutorial 10 (https://psu-spatial.github.io/Stat462-2024/T10_diagnostics.html) continued
  
  - Use tutorial 10 to create residual histograms and residual QQ plots for each of your three datasets.
  
