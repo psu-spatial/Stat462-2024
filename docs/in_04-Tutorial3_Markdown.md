@@ -184,6 +184,8 @@ Then run this code to install from github:
 
 Then add the library command in the library code chunk. Note, as discussed here, this might not work for some people and to be honest, I think this package might be more effort than it's worth.
 
+<br>
+
 #### Using it
 
 Equatiomatic allows us to extract an equation from any linear model using `extract_eq()`. For example, let's create a linear model:
@@ -252,17 +254,21 @@ This will open a menu where you can choose many of the common options
 
 <br>
 
-### Setting the default for the whole document
+### Setting the default for the whole document {#T3_CodeChunkWholeDoc}
 
 Many templates already include this for you to edit.
 
-If not, you can put a code chunk at the top of your document (below the YAML code) containing `knitr::opts_chunk$set()` to change the default values of chunk options in a document.
+If not, you can put a code chunk at the top of your document (below the YAML code) containing `knitr::opts_chunk$set(echo=TRUE)` to change the default values of chunk options in a document.
 
 For example, you may put this in the first code chunk of your document to stop it showing messages on knit.
 
-```{{r, include=FALSE}}
-knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+````         
+```{}
+knitr::opts_chunk$set(echo=TRUE, 
+                      warning=FALSE, 
+                      message=FALSE)
 ```
+````
 
 <br>
 

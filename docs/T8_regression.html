@@ -59,6 +59,7 @@
 <li><a class="" href="Lab_2.html">Lab 2</a></li>
 <li><a class="" href="Lab_3.html">Lab 3</a></li>
 <li><a class="" href="Lab_4.html">Lab 4</a></li>
+<li><a class="" href="Lab_5.html">Lab 5A</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
@@ -70,6 +71,7 @@
 <li><a class="" href="correlation.html"><span class="header-section-number">7</span> Correlation</a></li>
 <li><a class="active" href="T8_regression.html"><span class="header-section-number">8</span> Regression</a></li>
 <li><a class="" href="T9_wrangling.html"><span class="header-section-number">9</span> Data Wrangling</a></li>
+<li><a class="" href="T10_diagnostics.html"><span class="header-section-number">10</span> Assessing LINE</a></li>
 </ul>
 
         <div class="book-extra">
@@ -82,17 +84,17 @@
 <span class="header-section-number">8</span> Regression<a class="anchor" aria-label="anchor" href="#T8_regression"><i class="fas fa-link"></i></a>
 </h1>
 <p>Now we will fit our first regression model.</p>
-<div id="standard-regression-output" class="section level2" number="8.1">
+<div id="T8_lmbasics" class="section level2" number="8.1">
 <h2>
-<span class="header-section-number">8.1</span> “Standard” regression output<a class="anchor" aria-label="anchor" href="#standard-regression-output"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.1</span> “Standard” regression output<a class="anchor" aria-label="anchor" href="#T8_lmbasics"><i class="fas fa-link"></i></a>
 </h2>
 <p>The command to do this is <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> e.g. linear model.</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y_column</span> <span class="op">~</span> <span class="va">x_column</span>,data<span class="op">=</span><span class="va">tablename</span><span class="op">)</span></span>
 <span><span class="va">output</span></span></code></pre></div>
-<p>NOTE, THE WEIRD ~ SYMBOL. This means “depends on” and it’s how we tell R what the response variable is. E.g. y depends on x, or y=mx+c.</p>
-<p>For example for the NYHouses data, it would be</p>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<p>NOTE, THE WEIRD ~ SYMBOL. This means “depends on”/“is modelled by” and it’s how we tell R what the response variable is. E.g. in y=mx+c, y depends on x, or y is modelled/predicted by x.</p>
+<p>For example for the NYHouses dataset, if I wanted to create a model of the Price and Lot columns to see if Lot size could predict house sales price, then I would type.</p>
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># response = Price, predictor = Lot size</span></span>
 <span><span class="va">Model1.lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Price</span> <span class="op">~</span> <span class="va">Lot</span>,data<span class="op">=</span><span class="va">HousesNY</span><span class="op">)</span></span>
 <span><span class="va">Model1.lm</span></span></code></pre></div>
@@ -111,7 +113,7 @@
 <span class="header-section-number">8.1.1</span> Printing out the equation<a class="anchor" aria-label="anchor" href="#printing-out-the-equation"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can also directly get the code for the model equation by the equatiomatic package</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># YOU MIGHT NEED TO INSTALL THIS PACKAGE (SEE THE TUTORIAL)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/datalorax/equatiomatic">equatiomatic</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://datalorax.github.io/equatiomatic/reference/extract_eq.html">extract_eq</a></span><span class="op">(</span><span class="va">Model1.lm</span>,use_coefs<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
@@ -123,14 +125,14 @@ Figure 8.1: See the asis in the top, this prints the output directly when you kn
 </p>
 </div>
 <p>Turns into this:</p>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/datalorax/equatiomatic">equatiomatic</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://datalorax.github.io/equatiomatic/reference/extract_eq.html">extract_eq</a></span><span class="op">(</span><span class="va">Model1.lm</span>,use_coefs<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><span class="math display">\[
 \operatorname{Price} = \alpha + \beta_{1}(\operatorname{Lot}) + \epsilon
 \]</span></p>
 <p>You can also look at the summary by looking at the summary command:</p>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -152,7 +154,7 @@ Figure 8.1: See the asis in the top, this prints the output directly when you kn
 ## F-statistic: 0.005705 on 1 and 51 DF,  p-value: 0.9401</code></pre>
 <p>In both cases, we have an estimate of the intercept (0.6386) and of the gradient (-13.8103). We will discuss the other values in later labs/lectures.</p>
 <p>Now let’s see how to add the regression line to our scatterplot. We can do this using <code>abline(REGRESSION_VARIABLE)</code>, where regression_variable is the name of the variable you saved the output of lm to. For example.</p>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span> <span class="op">~</span> <span class="va">HousesNY</span><span class="op">$</span><span class="va">Lot</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Price</span> <span class="op">~</span> <span class="va">Lot</span>,data<span class="op">=</span><span class="va">HousesNY</span><span class="op">)</span>,col<span class="op">=</span><span class="st">"blue"</span>,lwd<span class="op">=</span><span class="fl">1</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial8_Regression_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
@@ -165,7 +167,7 @@ Figure 8.1: See the asis in the top, this prints the output directly when you kn
 <span class="header-section-number">8.2</span> “Better” OLSRR regression output<a class="anchor" aria-label="anchor" href="#better-olsrr-regression-output"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you want a different way of seeing the same output, you can use the <code><a href="https://olsrr.rsquaredacademy.com/reference/ols_regress.html">ols_regress()</a></code> command inside the <code>olsrr</code> package.</p>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://olsrr.rsquaredacademy.com/">olsrr</a></span><span class="op">)</span></span>
 <span><span class="va">Model1.lm.ols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_regress.html">ols_regress</a></span><span class="op">(</span><span class="va">Model1.lm</span><span class="op">)</span></span>
 <span><span class="va">Model1.lm.ols</span></span></code></pre></div>
@@ -222,7 +224,7 @@ Figure 8.1: See the asis in the top, this prints the output directly when you kn
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#T8_regression"><span class="header-section-number">8</span> Regression</a></li>
 <li>
-<a class="nav-link" href="#standard-regression-output"><span class="header-section-number">8.1</span> “Standard” regression output</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#printing-out-the-equation"><span class="header-section-number">8.1.1</span> Printing out the equation</a></li></ul>
+<a class="nav-link" href="#T8_lmbasics"><span class="header-section-number">8.1</span> “Standard” regression output</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#printing-out-the-equation"><span class="header-section-number">8.1.1</span> Printing out the equation</a></li></ul>
 </li>
 <li>
 <a class="nav-link" href="#better-olsrr-regression-output"><span class="header-section-number">8.2</span> “Better” OLSRR regression output</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#errors"><span class="header-section-number">8.2.1</span> Errors</a></li></ul>
@@ -243,7 +245,7 @@ Figure 8.1: See the asis in the top, this prints the output directly when you kn
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-02-14.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,6 +1,9 @@
 tab:tab-main-rubric
 fig:eqn
 tab:unnamed-chunk-7
+fig:unnamed-chunk-3
+fig:unnamed-chunk-4
+fig:unnamed-chunk-6
 written-instructions
 then-update-your-packages.
 everyone-should-sign-up-for-an-account-here-httpsposit.cloud
@@ -13,6 +16,10 @@ c.-the-ggstatsplot-histogram-gghistostats.
 a.-the-base-r-scatterplot-plot.
 b.-the-ggstatplot-r-scatterplot-ggscatterstats.
 need-help
+need-help-1
+step-2.4-create-a-regression-model-.unnumbered
+step-2.5-residual-vs-fits-.unnumbered
+step-2.6-residual-normal-analysis-.unnumbered
 T1_Projects
 T1_ProjectsCloud
 T1_ProjectsDesktop
@@ -49,7 +56,7 @@ using-it
 T3_CodeChunkOptions
 creating-them-in-source-mode
 creating-them-in-view-mode
-setting-the-default-for-the-whole-document
+T3_CodeChunkWholeDoc
 common-options
 inline-code
 code-chunks
@@ -86,7 +93,8 @@ T6_PlotsScatter
 basic-plot-no-line-of-best-fit
 basic-plot-with-a-line-of-best-fit
 ggplot2-scatterplots
-ggplot2-adding-a-line-of-best-fit.
+T6_PlotGGPlot
+ggplot2-adding-a-line-of-best-fit-and-confidence-intervals
 T6_ScatterPlotly
 histograms-1
 basics
@@ -107,7 +115,7 @@ correlation
 basics-1
 covariancecorrelation-matrix-plots
 T8_regression
-standard-regression-output
+T8_lmbasics
 printing-out-the-equation
 better-olsrr-regression-output
 errors
@@ -132,3 +140,14 @@ the-dplyr-filter-command-tidyverse
 group_by-command-statistics-per-group
 sorting-data
 the-dplyr-arrange-command-tidyverse
+T10_diagnostics
+T10_residuals
+printing-out-residuals
+T10.Linearity
+residual-vs-fits-plot-for-linearity
+T10.Variance
+residual-vs-fits-plots-for-equal-variance-checks
+statistical-tests-for-non-equal-variance
+T10.Normality
+testing-for-independence
+tests-for-outliers

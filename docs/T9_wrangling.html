@@ -59,6 +59,7 @@
 <li><a class="" href="Lab_2.html">Lab 2</a></li>
 <li><a class="" href="Lab_3.html">Lab 3</a></li>
 <li><a class="" href="Lab_4.html">Lab 4</a></li>
+<li><a class="" href="Lab_5.html">Lab 5A</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
@@ -70,6 +71,7 @@
 <li><a class="" href="correlation.html"><span class="header-section-number">7</span> Correlation</a></li>
 <li><a class="" href="T8_regression.html"><span class="header-section-number">8</span> Regression</a></li>
 <li><a class="active" href="T9_wrangling.html"><span class="header-section-number">9</span> Data Wrangling</a></li>
+<li><a class="" href="T10_diagnostics.html"><span class="header-section-number">10</span> Assessing LINE</a></li>
 </ul>
 
         <div class="book-extra">
@@ -131,7 +133,7 @@
 <h3>
 <span class="header-section-number">9.2.1</span> Example<a class="anchor" aria-label="anchor" href="#example"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Note, there are sometimes more columns to the right, use the arrow to see</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   Price Beds Baths  Size  Lot
@@ -142,11 +144,11 @@
 ## 5  92.5    3     1 1.329 0.42
 ## 6  50.0    2     1 0.974 0.34</code></pre>
 <p>To see what the column names are, you can use the <code>names(dataset)</code> command</p>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "Price" "Beds"  "Baths" "Size"  "Lot"</code></pre>
 <p>Or the glimpse command:</p>
-<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Rows: 53
 ## Columns: 5
@@ -156,10 +158,10 @@
 ## $ Size  &lt;dbl&gt; 0.960, 2.786, 1.704, 1.200, 1.329, 0.974, 1.029, 2.818, 2.268, 1…
 ## $ Lot   &lt;dbl&gt; 1.30, 0.23, 0.27, 0.80, 0.42, 0.34, 0.29, 0.21, 1.00, 0.30, 1.30…</code></pre>
 <p>To see how many columns and rows there are, you can use the <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> and <code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code> commands</p>
-<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 53</code></pre>
-<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <hr>
@@ -179,7 +181,7 @@
 <code>summarize(dataset)</code> in the papeR package. This looks pretty powerful, I’m just learning it</li>
 </ul>
 <p>None are better or worse than others - simply choose what works for you in the moment.</p>
-<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##      Price            Beds           Baths            Size      
 ##  Min.   : 38.5   Min.   :2.000   Min.   :1.000   Min.   :0.712  
@@ -195,7 +197,7 @@
 ##  Mean   :0.7985  
 ##  3rd Qu.:1.1000  
 ##  Max.   :3.5000</code></pre>
-<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/skimr/">skimr</a></span><span class="op">)</span> <span class="co"># you would need to install this</span></span>
 <span><span class="fu"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
@@ -332,7 +334,7 @@
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://pillar.r-lib.org/">pillar</a></span><span class="op">)</span> <span class="co"># you would need to install this</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Rows: 53
@@ -343,7 +345,7 @@
 ## $ Size  &lt;dbl&gt; 0.960, 2.786, 1.704, 1.200, 1.329, 0.974, 1.029, 2.818, 2.268, 1…
 ## $ Lot   &lt;dbl&gt; 1.30, 0.23, 0.27, 0.80, 0.42, 0.34, 0.29, 0.21, 1.00, 0.30, 1.30…</code></pre>
 <p>or</p>
-<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 'data.frame':    53 obs. of  5 variables:
 ##  $ Price: num  57.6 120 150 143 92.5 ...
@@ -352,11 +354,11 @@
 ##  $ Size : num  0.96 2.79 1.7 1.2 1.33 ...
 ##  $ Lot  : num  1.3 0.23 0.27 0.8 0.42 0.34 0.29 0.21 1 0.3 ...</code></pre>
 <p>To see what the column names are, you can use the names(dataset) command</p>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "Price" "Beds"  "Baths" "Size"  "Lot"</code></pre>
 <p>To print the first few rows</p>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   Price Beds Baths  Size  Lot
 ## 1  57.6    3     2 0.960 1.30
@@ -366,36 +368,36 @@
 ## 5  92.5    3     1 1.329 0.42
 ## 6  50.0    2     1 0.974 0.34</code></pre>
 <p>To find the number of rows and columns</p>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 53</code></pre>
-<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#or both dimensions</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 53  5</code></pre>
 <p>Or you can do things manually, using the $ symbol to choose a column. All of this is for the price column</p>
-<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 113.6321</code></pre>
-<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 107</code></pre>
-<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mode.html">mode</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "numeric"</code></pre>
-<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 41.43006</code></pre>
-<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1716.45</code></pre>
-<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/IQR.html">IQR</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 58.3</code></pre>
-<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1]  38.5 197.5</code></pre>
 <hr>
@@ -411,7 +413,7 @@
 </h3>
 <p>The na.omit command will remove any row with ANY missing value.</p>
 <p>Note I’m overwriting my variable HousesNY with the new one. It’s up to you if you want to do this or make a new variable</p>
-<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">HousesNY</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <p><br><br></p>
 </div>
@@ -420,7 +422,7 @@
 <span class="header-section-number">9.4.2</span> Missing values in single columns, complete.cases<a class="anchor" aria-label="anchor" href="#missing-values-in-single-columns-complete.cases"><i class="fas fa-link"></i></a>
 </h3>
 <p>If you want to only remove rows with missing values in a single column, we can use the complete cases command</p>
-<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">HousesNY</span> <span class="op">&lt;-</span> <span class="va">HousesNY</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div>
 <p>E.g. take the HousesNY table and ONLY include values where the price data is not missing. Note, this can be any column name at all.</p>
 <p><br><br></p>
@@ -431,7 +433,7 @@
 </h3>
 <p>Sometimes, you have -999 or something as your missing mark. R expects them to be NA.</p>
 <p>You can apply a RULE using the filter command below or like this to make them actually NAs</p>
-<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span><span class="op">[</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span> <span class="op">&lt;</span> <span class="fl">0</span><span class="op">]</span>   <span class="op">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
 <p>E.g. here I select all the prices that are less than 0 (e.g impossible) and set them to NA.</p>
 <p><br></p>
@@ -442,7 +444,7 @@
 <span class="header-section-number">9.5</span> Ignoring missing data in commands<a class="anchor" aria-label="anchor" href="#ignoring-missing-data-in-commands"><i class="fas fa-link"></i></a>
 </h2>
 <p>There are missing values in some datasets - and by default, R will set the answer to statistics to also be missing.</p>
-<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create some test data</span></span>
 <span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>A<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span>,</span>
 <span>                   B<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fl">3</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
@@ -451,20 +453,20 @@
 ## 1 1 NA
 ## 2 3  3
 ## 3 4  1</code></pre>
-<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Take the mean of column B</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">test</span><span class="op">$</span><span class="va">B</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Take the correlation between A and B</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">test</span><span class="op">$</span><span class="va">A</span>,<span class="va">test</span><span class="op">$</span><span class="va">B</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>To ignore them in a given command, try adding ,na.rm=TRUE to the command e.g.</p>
-<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">test</span><span class="op">$</span><span class="va">B</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>or sometimes I look in the help file (or on google) for a slightly different terminology.</p>
-<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#the cor command doesn't follow the pattern.</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">test</span><span class="op">$</span><span class="va">A</span>,<span class="va">test</span><span class="op">$</span><span class="va">B</span>,use <span class="op">=</span> <span class="st">"complete.obs"</span><span class="op">)</span></span></code></pre></div>
@@ -475,13 +477,13 @@
 <span class="header-section-number">9.6</span> Making frequency tables<a class="anchor" aria-label="anchor" href="#making-frequency-tables"><i class="fas fa-link"></i></a>
 </h2>
 <p>Sometimes we want to see how many rows there are in different categories. The easiest way to do this is using the table command. For example, in our New York data, we can see how many houses there are with each number of beds using</p>
-<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Beds</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  2  3  4  5  6 
 ##  5 26 19  2  1</code></pre>
 <p>So there are 19 rows in our dataset where the Beds column says 4 (AKA 19 houses in our sample with 4 beds). Or we can look at a 2 dimensional table</p>
-<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Beds</span>, <span class="va">HousesNY</span><span class="op">$</span><span class="va">Baths</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    
 ##      1 1.5  2 2.5  3 3.5
@@ -492,7 +494,7 @@
 ##   6  0   0  1   0  0   0</code></pre>
 <p>So there are 10 houses with 4 beds and 2 baths</p>
 <p>To make these look more professional there are a number of packages you can install and use. For example, ztable will take the output of table and format it in a pretty way. This will look TERRIBLE when you run R as it’s making html code. But when you press knit it will look beautiful</p>
-<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># don't include the install line in your code, run it in the console</span></span>
 <span><span class="co"># install.package("ztable")</span></span>
 <span></span>
@@ -663,7 +665,7 @@ Table 1. Basic Table
 </h3>
 <p>Here I am using the NYHouses data as an example. Sometimes we want to deal with only one specific column in our spreadsheet/dataframe, for example applying the mean/standard deviation/inter-quartile range command to say just the Price column.</p>
 <p>To do this, we use the $ symbol. For example, here I’m simply selecting the data in the elevation column only and saving it to a new variable called elevationdata.</p>
-<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"HousesNY"</span><span class="op">)</span></span>
 <span><span class="va">price</span> <span class="op">&lt;-</span> <span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span></span>
 <span></span>
@@ -692,7 +694,7 @@ Table 1. Basic Table
 <li><p>If you know which number rows or columns you want, you can use <strong>square brackets</strong> to numerically select data.</p></li>
 </ul>
 <p>Essentially our data follows the format: tablename<span class="math display">\[ROWS,COLUMNS\]</span></p>
-<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># reading in some new data</span></span>
 <span><span class="va">frost</span>    <span class="op">&lt;-</span> <span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"Data_frostdata.xlsx"</span><span class="op">)</span></span>
 <span></span>
@@ -702,7 +704,7 @@ Table 1. Basic Table
 ##   Elevation
 ##       &lt;dbl&gt;
 ## 1       195</code></pre>
-<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># This will select the 2nd row and ALL the columns </span></span>
 <span><span class="va">frost</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span></span></code></pre></div>
 <pre><code>## # A tibble: 1 × 8
@@ -710,7 +712,7 @@ Table 1. Basic Table
 ##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;                   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
 ## 1 Union   AL    City                     82.3     32.0     -85.8       440
 ## # ℹ 1 more variable: Dist_to_Coast &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># This will select the 3rd column and ALL the rows</span></span>
 <span><span class="va">frost</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## # A tibble: 76 × 1
@@ -727,7 +729,7 @@ Table 1. Basic Table
 ##  9 Agricultural_Research_Station
 ## 10 Agricultural_Research_Station
 ## # ℹ 66 more rows</code></pre>
-<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># similar to using its name</span></span>
 <span><span class="va">frost</span><span class="op">$</span><span class="va">Type_Fake</span></span></code></pre></div>
 <pre><code>##  [1] "City"                          "City"                         
@@ -768,12 +770,12 @@ Table 1. Basic Table
 ## [71] "Airport"                       "City"                         
 ## [73] "Airport"                       "Airport"                      
 ## [75] "City"                          "Agricultural_Research_Station"</code></pre>
-<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># We can combine our commands, this will print the 13th row of the Longitude column </span></span>
 <span><span class="co"># (no comma as we're only looking at one column)</span></span>
 <span><span class="va">frost</span><span class="op">$</span><span class="va">Longitude</span><span class="op">[</span><span class="fl">13</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## [1] -82.58</code></pre>
-<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># The : symbol lets you choose a sequence of numbers e.g. 1:5 is 1 2 3 4 5</span></span>
 <span><span class="co"># So this prints out rows 11 to 15 and all the columns</span></span>
 <span><span class="va">frost</span><span class="op">[</span><span class="fl">11</span><span class="op">:</span><span class="fl">15</span>,<span class="op">]</span></span></code></pre></div>
@@ -786,7 +788,7 @@ Table 1. Basic Table
 ## 4 Clemson  SC    City                          93.6     34.7     -82.8       824
 ## 5 De       FL    City                          71.3     30.7     -86.1       245
 ## # ℹ 1 more variable: Dist_to_Coast &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># The "c" command allows you to enter whatever numbers you like.  </span></span>
 <span><span class="co"># So this will print out rows 4,3,7 and the "Elevation" and "Dist_to_Coast" columns</span></span>
 <span><span class="va">frost</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">3</span>,<span class="fl">7</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Elevation"</span>,<span class="st">"Dist_to_Coast"</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
@@ -802,7 +804,7 @@ Table 1. Basic Table
 <span class="header-section-number">9.7.3</span> Deleting rows<a class="anchor" aria-label="anchor" href="#deleting-rows"><i class="fas fa-link"></i></a>
 </h3>
 <p>Or if you know the row number you can use the minus - sign to remove. Or just filter below.</p>
-<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># remove row 6 and and overwrite</span></span>
 <span><span class="va">frost</span> <span class="op">&lt;-</span> <span class="va">frost</span><span class="op">[</span><span class="op">-</span><span class="fl">6</span> ,<span class="op">]</span></span>
 <span></span>
@@ -821,15 +823,15 @@ Table 1. Basic Table
 </h3>
 <p>The which command essentially says “which numbers” meet a certain threshold</p>
 <p>e,g,</p>
-<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">100</span><span class="op">:</span><span class="fl">110</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="fl">107</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1]  9 10 11</code></pre>
 <p>Or which rows:</p>
-<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">outlier_rows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">frost</span><span class="op">$</span><span class="va">Dist_to_Coast</span> <span class="op">&lt;</span> <span class="fl">1.5</span><span class="op">)</span></span></code></pre></div>
 <p>So you can also add questions and commands inside the square brackets. For example here is the weather station with the lowest elevation. You can see my command chose BOTH rows where elevation = 10.</p>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># which row has the lowest elevation</span></span>
 <span><span class="co"># note the double == (more below)</span></span>
 <span><span class="va">row_number</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">frost</span><span class="op">$</span><span class="va">Elevation</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">frost</span><span class="op">$</span><span class="va">Elevation</span><span class="op">)</span><span class="op">)</span></span>
@@ -843,7 +845,7 @@ Table 1. Basic Table
 ## 1 Charlestown SC    Agricultur…                84.6     32.8     -79.9        10
 ## 2 Edenton     NC    City                       85.3     36.0     -76.6        10
 ## # ℹ 1 more variable: Dist_to_Coast &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">seaside</span> <span class="op">&lt;-</span> <span class="va">frost</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">frost</span><span class="op">$</span><span class="va">Dist_to_Coast</span> <span class="op">&lt;</span> <span class="fl">10</span><span class="op">)</span> ,  <span class="op">]</span></span>
 <span><span class="va">seaside</span></span></code></pre></div>
 <pre><code>## # A tibble: 5 × 8
@@ -862,29 +864,29 @@ Table 1. Basic Table
 </h3>
 <p>Filtering means selecting rows/observations based on their values. To filter in R, use the command <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> from the dplyr package. I tend to write it as <code>dplyr:filter()</code> to force it to be correct.</p>
 <p>Here we can apply the filter command to choose specific rows that meet certain criteria</p>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">frost</span>, <span class="va">State</span> <span class="op">==</span> <span class="st">"FL"</span><span class="op">)</span></span></code></pre></div>
 <p>The double equal operator <code>==</code> means equal to. The command is telling R to keep the rows in <em>frost</em> where the <em>State</em> column equals “FL”.</p>
 <p>If you want a few categories, choose the %in% operator, using the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> command to stick together the categories you want. For example, here are states in Florida and Virginia.</p>
-<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">frost</span>, <span class="va">State</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"FL"</span>,<span class="st">"VA"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>We can also explicitly exclude cases and keep everything else by using the not equal operator <code>!=</code>. The following code <em>excludes</em> airport stations.</p>
-<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">frost</span>, <span class="va">Type_Fake</span> <span class="op">!=</span> <span class="st">"Airport"</span><span class="op">)</span></span></code></pre></div>
 <p>What about filtering if a row has a value greater than a specified value? For example, Stations with an elevation greater than 500 feet?</p>
-<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">frost</span>, <span class="va">Elevation</span> <span class="op">&gt;</span> <span class="fl">500</span><span class="op">)</span></span></code></pre></div>
 <p>Or less-than-or-equal-to 200 feet.</p>
-<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># or save the result to a new variable</span></span>
 <span><span class="va">lowland_stations</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">frost</span>, <span class="va">Elevation</span> <span class="op">&lt;</span> <span class="fl">200</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lowland_stations</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 <p>In addition to comparison operators, filtering may also utilize logical operators that make multiple selections. There are three basic logical operators: <code>&amp;</code> (and), <code>|</code> (or), and <code>!</code> (not). We can keep Stations with an <em>Elevation</em> greater than 300 <strong>and</strong> <em>State</em> in Alabama <code>&amp;</code>.</p>
-<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">frost</span>, <span class="va">Elevation</span> <span class="op">&gt;</span> <span class="fl">300</span> <span class="op">&amp;</span> <span class="va">State</span> <span class="op">==</span> <span class="st">"AL"</span><span class="op">)</span></span></code></pre></div>
 <p>Use <code>|</code> to keep Stations with a <em>Type_Fake</em> of “Airport” <strong>or</strong> a last spring frost date after April (~ day 90 of the year).</p>
-<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">frost</span>, <span class="va">Type_Fake</span> <span class="op">==</span> <span class="st">"Airport"</span> <span class="op">|</span> <span class="va">Avg_DOY_SpringFrost</span> <span class="op">&gt;</span> <span class="fl">90</span> <span class="op">)</span></span></code></pre></div>
 <p><br><br></p>
 </div>
@@ -896,7 +898,7 @@ Table 1. Basic Table
 <p>Well, we can use the <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> commands and save our answers to a new variable.</p>
 <p>Here we are making use of the pipe symbol, %&gt;%, which takes the answer from group_by and sends it directly to the summarise command.</p>
 <p>Here is some data on frost dates at weather stations.</p>
-<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">frost</span>    <span class="op">&lt;-</span> <span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"Data_frostdata.xlsx"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">frost</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
@@ -910,7 +912,7 @@ Table 1. Basic Table
 ## 6 West       GA    City                     85.6     32.9     -85.2       575
 ## # ℹ 1 more variable: Dist_to_Coast &lt;dbl&gt;</code></pre>
 <p>To summarise results by the type of weather station:</p>
-<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">frost.summary.type</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">frost</span>, by<span class="op">=</span><span class="va">Type_Fake</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Latitude</span><span class="op">)</span>,</span>
 <span>                                    <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Latitude</span><span class="op">)</span>,</span>
@@ -941,7 +943,7 @@ Table 1. Basic Table
 <span class="header-section-number">9.9.1</span> The dplyr arrange command (tidyverse)<a class="anchor" aria-label="anchor" href="#the-dplyr-arrange-command-tidyverse"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use the <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> function to sort a data frame by one or more variables. You might want to do this to get a sense of which cases have the highest or lowest values in your data set or sort counties by their name. For example, let’s sort in ascending order by elevation.</p>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">frost</span>, <span class="va">Latitude</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 76 × 8
 ##    Station     State Type_Fake  Avg_DOY_SpringFrost Latitude Longitude Elevation
@@ -959,7 +961,7 @@ Table 1. Basic Table
 ## # ℹ 66 more rows
 ## # ℹ 1 more variable: Dist_to_Coast &lt;dbl&gt;</code></pre>
 <p>By default, <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> sorts in ascending order. We can sort by a variable in descending order by using the <code><a href="https://dplyr.tidyverse.org/reference/desc.html">desc()</a></code> function on the variable we want to sort by. For example, to sort the dataframe by <em>Avg_DOY_SpringFrost</em> in descending order we use</p>
-<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">frost</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">Avg_DOY_SpringFrost</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 76 × 8
 ##    Station      State Type_Fake Avg_DOY_SpringFrost Latitude Longitude Elevation
@@ -981,17 +983,9 @@ Table 1. Basic Table
 </div>
 </div>
 </div>
-
-
-
-
-
-
-
-
   <div class="chapter-nav">
 <div class="prev"><a href="T8_regression.html"><span class="header-section-number">8</span> Regression</a></div>
-<div class="empty"></div>
+<div class="next"><a href="T10_diagnostics.html"><span class="header-section-number">10</span> Assessing LINE</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -1043,7 +1037,7 @@ Table 1. Basic Table
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-02-14.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

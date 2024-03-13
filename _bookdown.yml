@@ -20,6 +20,8 @@ rmd_files:
     "in_02-Lab2.Rmd",
     "in_02-Lab3.Rmd",
     "in_02-Lab4.Rmd",
+    "in_02-Lab5.Rmd",
+
 
     "in_04-Tutorial1_Projects.Rmd",
     "in_04-Tutorial2_Libraries.Rmd",
@@ -30,5 +32,6 @@ rmd_files:
     "in_04-Tutorial7_Correlation.Rmd",
     "in_04-Tutorial8_Regression.Rmd",
     "in_04-Tutorial9_Wrangling.Rmd",
+    "in_04-Tutorial10_Diagnostics.Rmd",
 
   ]

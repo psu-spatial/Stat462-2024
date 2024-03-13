@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 10 Assessing LINE | STAT462 Lab Book 2024</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="We know from the lectures that there are multiple assumptions underpinning whether a regression is a good model or not - especially LINE assumptions (as described in Online STAT-462 - Lesson 4)....">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Chapter 10 Assessing LINE | STAT462 Lab Book 2024">
+<meta property="og:type" content="book">
+<meta property="og:description" content="We know from the lectures that there are multiple assumptions underpinning whether a regression is a good model or not - especially LINE assumptions (as described in Online STAT-462 - Lesson 4)....">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 10 Assessing LINE | STAT462 Lab Book 2024">
+<meta name="twitter:description" content="We know from the lectures that there are multiple assumptions underpinning whether a regression is a good model or not - especially LINE assumptions (as described in Online STAT-462 - Lesson 4)....">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">STAT462 Lab Book 2024</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to STAT-462!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="Lab_1.html">Lab 1</a></li>
+<li><a class="" href="Lab_2.html">Lab 2</a></li>
+<li><a class="" href="Lab_3.html">Lab 3</a></li>
+<li><a class="" href="Lab_4.html">Lab 4</a></li>
+<li><a class="" href="Lab_5.html">Lab 5A</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">4</span> Reading in data</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">5</span> Probability distributions</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">6</span> Plots</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">7</span> Correlation</a></li>
+<li><a class="" href="T8_regression.html"><span class="header-section-number">8</span> Regression</a></li>
+<li><a class="" href="T9_wrangling.html"><span class="header-section-number">9</span> Data Wrangling</a></li>
+<li><a class="active" href="T10_diagnostics.html"><span class="header-section-number">10</span> Assessing LINE</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="T10_diagnostics" class="section level1" number="10">
+<h1>
+<span class="header-section-number">10</span> Assessing LINE<a class="anchor" aria-label="anchor" href="#T10_diagnostics"><i class="fas fa-link"></i></a>
+</h1>
+<p>We know from the lectures that there are multiple assumptions underpinning whether a regression is a good model or not - especially LINE assumptions (as described in <a href="https://online.stat.psu.edu/stat501/lesson/4/">Online STAT-462 - Lesson 4</a>). Regression diagnostics are a set of tools we can use to assess these assumptions. All the example datasets are from the online textbook and can be downloaded there.</p>
+<p><br><br></p>
+<div id="T10_residuals" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> What are residuals?<a class="anchor" aria-label="anchor" href="#T10_residuals"><i class="fas fa-link"></i></a>
+</h2>
+<p>It can be difficult looking at the raw data to assess whether many of the assumptions are true or not. So in this case we can look at residual plots.</p>
+<div class="inline-figure"><img src="index_images/im_T10_residualplot.png" width="800"></div>
+<div class="inline-figure"><img src="index_images/im_T10_residualplotB.png" width="500"></div>
+<p>Still confused? See</p>
+<ul>
+<li><p><a href="https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/xfb5d8e68:residuals/v/regression-residual-intro" class="uri">https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/xfb5d8e68:residuals/v/regression-residual-intro</a>)</p></li>
+<li><p>or <a href="https://www.displayr.com/learn-what-are-residuals/" class="uri">https://www.displayr.com/learn-what-are-residuals/</a></p></li>
+</ul>
+<p><br><br></p>
+<div id="printing-out-residuals" class="section level3" number="10.1.1">
+<h3>
+<span class="header-section-number">10.1.1</span> Printing out residuals<a class="anchor" aria-label="anchor" href="#printing-out-residuals"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can extract these from the model.</p>
+<p>Imagine you are interested in determining whether or not alcohol consumption was linearly related to muscle strength. You measured the total lifetime consumption of alcohol (x) on a random sample of n = 50 alcoholic men. They also measured the strength (y) of the deltoid muscle in each person’s left arm, then created a linear model to forecast strength.</p>
+<p>The predicted value is the y-value at the line for each point, strength is the actual measured strength and residual is the difference between the two.</p>
+<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">alcoholdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"alcoholstrength.csv"</span><span class="op">)</span></span>
+<span><span class="va">mymodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">strength</span><span class="op">~</span><span class="va">alcohol</span>,data<span class="op">=</span><span class="va">alcoholdata</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># now add in the predicted and residual values</span></span>
+<span><span class="va">alcoholdata</span><span class="op">$</span><span class="va">strength_predicted</span> <span class="op">&lt;-</span> <span class="va">mymodel</span><span class="op">$</span><span class="va">fitted.values</span></span>
+<span><span class="va">alcoholdata</span><span class="op">$</span><span class="va">residuals</span>          <span class="op">&lt;-</span> <span class="va">mymodel</span><span class="op">$</span><span class="va">residuals</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">alcoholdata</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##   alcohol strength strength_predicted residuals
+## 1    36.2     1000           1565.911 -565.9109
+## 2    39.7     1000           1462.357 -462.3570
+## 3    39.5     1080           1468.274 -388.2744
+## 4    18.2     1220           2098.474 -878.4739
+## 5    29.2     1310           1773.019 -463.0187
+## 6    32.5     1400           1675.382 -275.3822</code></pre>
+<p>See if you can match the point in red to the first value above and understand the numbers.</p>
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># and make a quick plot</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">alcoholdata</span><span class="op">$</span><span class="va">strength</span> <span class="op">~</span> <span class="va">alcoholdata</span><span class="op">$</span><span class="va">alcohol</span>,xlab<span class="op">=</span><span class="st">"Alcohol"</span>,ylab<span class="op">=</span><span class="st">"Strength"</span>,col<span class="op">=</span><span class="st">"dark grey"</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">900</span>,<span class="fl">3000</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># plot the first point in red</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">alcoholdata</span><span class="op">$</span><span class="va">strength</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">~</span> <span class="va">alcoholdata</span><span class="op">$</span><span class="va">alcohol</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,col<span class="op">=</span><span class="st">"red"</span>,type<span class="op">=</span><span class="st">"p"</span>,lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co"># add the line of best fit</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="va">alcoholdata</span><span class="op">$</span><span class="va">strength</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,lty<span class="op">=</span><span class="st">"dotted"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">alcoholdata</span><span class="op">$</span><span class="va">alcohol</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,lty<span class="op">=</span><span class="st">"dotted"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">alcoholdata</span><span class="op">$</span><span class="va">alcohol</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,<span class="va">alcoholdata</span><span class="op">$</span><span class="va">alcohol</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">alcoholdata</span><span class="op">$</span><span class="va">strength</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,<span class="va">alcoholdata</span><span class="op">$</span><span class="va">strength_predicted</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>      lty<span class="op">=</span><span class="st">"dashed"</span>,col<span class="op">=</span><span class="st">"red"</span>,lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
+<p><br><br></p>
+</div>
+</div>
+<div id="T10.Linearity" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> Checking linearity<a class="anchor" aria-label="anchor" href="#T10.Linearity"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>THE AIM HERE IS TO SEE IF A CURVE (or pattern) WOULD FIT THE DATA BETTER THAN A LINE. JUST RANDOM POINTS IS OK, A CURVE/DINOSAUR IS BAD.</strong></p>
+<div class="inline-figure"><img src="index_images/im_T10_linearity.png"></div>
+<p><br></p>
+<p>The goal of data-science is often to find the ‘best’ model that fits your data AKA the one with the smallest residuals. If your underlying dataset is not linear, then we probably want to choose a different model than linear data.</p>
+<p>However, in real life, it can often be difficult to assess whether the fit is linear by looking at the scatterplot alone. For example, using another dataset from the textbook, your mind might think this is linear.</p>
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">treadwear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"treadwear.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># make a linear model</span></span>
+<span><span class="va">tread_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mileage</span><span class="op">~</span><span class="va">groove</span>,data<span class="op">=</span><span class="va">treadwear</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># and make a plot, using ggplot this time</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">treadwear</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">groove</span>, y<span class="op">=</span><span class="va">mileage</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"How much trainers wear down by walking"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Mileage walked"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Groove depth (mm)"</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="va">lm</span> , color<span class="op">=</span><span class="st">"red"</span>, se<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/hrbrthemes/man/theme_ipsum.html">theme_ipsum</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-3-1.png" alt="This looks relatively linear, but...." width="672"><p class="caption">
+Figure 10.1: This looks relatively linear, but….
+</p>
+</div>
+<p><br><br></p>
+<div id="residual-vs-fits-plot-for-linearity" class="section level3" number="10.2.1">
+<h3>
+<span class="header-section-number">10.2.1</span> Residual vs fits plot for linearity<a class="anchor" aria-label="anchor" href="#residual-vs-fits-plot-for-linearity"><i class="fas fa-link"></i></a>
+</h3>
+<p>Instead, we plot at the <em>residuals</em> vs the fitted values, which often show a pattern much more clearly. If you’re not sure what I mean by these words, go back and read from “what are residuals”</p>
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># using the olsrr package</span></span>
+<span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_fit.html">ols_plot_resid_fit</a></span><span class="op">(</span><span class="va">tread_model</span><span class="op">)</span></span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-4-1.png" alt="A parabola would clearly fit the data better than a straight line" width="672"><p class="caption">
+Figure 10.2: A parabola would clearly fit the data better than a straight line
+</p>
+</div>
+<p>Let’s compare this residual plot to the strength/alcohol example from the section above (I include all the code for completeness). You can see in the treadwear data, the residuals depart from 0 in a very systematic manner. They are clearly positive for small x values, negative for medium x values, and positive again for large x values. Clearly, a non-linear model would better describe the relationship between the two variables. In future classes we will touch upon polynomial models that you might use to deal with this.</p>
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">alcoholdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">alcohol</span>, y<span class="op">=</span><span class="va">strength</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Alcohol consumed"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Strength"</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="va">lm</span> , color<span class="op">=</span><span class="st">"red"</span>, se<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/hrbrthemes/man/theme_ipsum.html">theme_ipsum</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">alcohol_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">strength</span><span class="op">~</span><span class="va">alcohol</span>,data<span class="op">=</span><span class="va">alcoholdata</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_fit.html">ols_plot_resid_fit</a></span><span class="op">(</span><span class="va">alcohol_model</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-2.png" width="672"></div>
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">treadwear</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">groove</span>, y<span class="op">=</span><span class="va">mileage</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Mileage walked"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Groove depth (mm)"</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="va">lm</span> , color<span class="op">=</span><span class="st">"red"</span>, se<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/hrbrthemes/man/theme_ipsum.html">theme_ipsum</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-3.png" width="672"></div>
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tread_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mileage</span><span class="op">~</span><span class="va">groove</span>,data<span class="op">=</span><span class="va">treadwear</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_fit.html">ols_plot_resid_fit</a></span><span class="op">(</span><span class="va">tread_model</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-4.png" width="672"></div>
+<p>**IF IT’S LINEAR, WE SHOULD SEE A GENERAL CLOUD OF POINTS WITH NO CLEAR PATTERN. IF IT’S NOT LINEAR, YOU MIGHT SEE A CURVE OR A PATTERN (or a dinosaur..)</p>
+<p><br><br></p>
+</div>
+</div>
+<div id="T10.Variance" class="section level2" number="10.3">
+<h2>
+<span class="header-section-number">10.3</span> Checking Equal Variance/homoscadisity<a class="anchor" aria-label="anchor" href="#T10.Variance"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Look at the cloud of points - they should stay roughly the same distance away either side of your line</strong></p>
+<div class="inline-figure"><img src="index_images/im_T10_variance.png"></div>
+<p><br></p>
+<div id="residual-vs-fits-plots-for-equal-variance-checks" class="section level3" number="10.3.1">
+<h3>
+<span class="header-section-number">10.3.1</span> Residual vs fits plots for equal variance checks<a class="anchor" aria-label="anchor" href="#residual-vs-fits-plots-for-equal-variance-checks"><i class="fas fa-link"></i></a>
+</h3>
+<p>This can also be hard to see in the raw scatterplot, so again we use the residual vs fits plot. Look for the dots “fanning out” or bow-tie shapes vs a random cloud.</p>
+<p>Heres how some data appears in the raw scatterplot and the residual fits plot.</p>
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">alphapluto</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"alphapluto.txt"</span>,sep<span class="op">=</span><span class="st">"\t"</span>,header<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># make a linear model</span></span>
+<span><span class="va">alpha_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">alpha</span><span class="op">~</span><span class="va">pluto</span>,data<span class="op">=</span><span class="va">alphapluto</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># and make a plot, using ggplot this time</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">alphapluto</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">pluto</span>, y<span class="op">=</span><span class="va">alpha</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"alpha"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"pluto"</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="va">lm</span> , color<span class="op">=</span><span class="st">"red"</span>, se<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> </span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-6-1.png" alt="This data breaks equal variance" width="672"><p class="caption">
+Figure 10.3: This data breaks equal variance
+</p>
+</div>
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_fit.html">ols_plot_resid_fit</a></span><span class="op">(</span><span class="va">alpha_model</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
+<p>You can clearly see here that for low values of the fitted data, there is not much variance - but there is a lot of variance as the data expands.</p>
+</div>
+<div id="statistical-tests-for-non-equal-variance" class="section level3" number="10.3.2">
+<h3>
+<span class="header-section-number">10.3.2</span> Statistical Tests for non-equal variance<a class="anchor" aria-label="anchor" href="#statistical-tests-for-non-equal-variance"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can also run statistical tests, explained in more detail here: <a href="https://rpubs.com/tskam/Session06" class="uri">https://rpubs.com/tskam/Session06</a></p>
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># F test - assumes residuals are  independent and identically distributed (i.i.d.)</span></span>
+<span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_test_f.html">ols_test_f</a></span><span class="op">(</span><span class="va">alpha_model</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##  F Test for Heteroskedasticity
+##  -----------------------------
+##  Ho: Variance is homogenous
+##  Ha: Variance is not homogenous
+## 
+##  Variables: fitted values of alpha 
+## 
+##         Test Summary         
+##  ----------------------------
+##  Num DF     =    1 
+##  Den DF     =    21 
+##  F          =    16.37716 
+##  Prob &gt; F   =    0.0005808712</code></pre>
+<p>In this case, we can see that perhaps we need to worry less about unequal variance,</p>
+<p>There is also another test available, the Breusch Pagan Test - but this relies on the residuals being normally distributed.</p>
+<p><br><br></p>
+</div>
+</div>
+<div id="T10.Normality" class="section level2" number="10.4">
+<h2>
+<span class="header-section-number">10.4</span> Checking Normality<a class="anchor" aria-label="anchor" href="#T10.Normality"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Again, we are testing whether the RESIDUALS are normal around the regression line</strong></p>
+<div class="inline-figure"><img src="index_images/im_T10_Normality.png"></div>
+<p>To get the best estimates of parameters such as B0 and B1, the residuals must be normally distributed around the regression line. However, this has a much smaller effect typically than non-linearity or breaking assumptions of independence.</p>
+<p>Breaking normality is only important in the calculation of p values for significance testing and confidence intervals, but this is only a problem when the sample size is small. When the sample size is larger (&gt;200), the Central Limit Theorem ensures that the distribution of residuals will approximate normality when calculating parameters.</p>
+<p>So never throw away your data if it breaks normality. But it’s good to take a look.</p>
+<p>First, read this to see how the different tests look: <a href="https://online.stat.psu.edu/stat501/lesson/4/4.6" class="uri">https://online.stat.psu.edu/stat501/lesson/4/4.6</a></p>
+<p>Let’s go back to our original test data:</p>
+<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mymodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">strength</span><span class="op">~</span><span class="va">alcohol</span>,data<span class="op">=</span><span class="va">alcoholdata</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">alcoholdata</span><span class="op">$</span><span class="va">alcohol</span>,<span class="va">alcoholdata</span><span class="op">$</span><span class="va">strength</span>,xlab<span class="op">=</span><span class="st">"Alcohol"</span>,ylab<span class="op">=</span><span class="st">"Strength"</span>,pch<span class="op">=</span><span class="fl">16</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
+<p>To test normality, we can use OLSRR to:</p>
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#Create a QQ plot of the residuals</span></span>
+<span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_qq.html">ols_plot_resid_qq</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#Create a histogram of the residuals</span></span>
+<span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_hist.html">ols_plot_resid_hist</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-10-2.png" width="672"></div>
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#Run a Wilks-Shapiro test for normality</span></span>
+<span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_test_normality.html">ols_test_normality</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## -----------------------------------------------
+##        Test             Statistic       pvalue  
+## -----------------------------------------------
+## Shapiro-Wilk              0.9877         0.8767 
+## Kolmogorov-Smirnov        0.0502         0.9990 
+## Cramer-von Mises          4.1667         0.0000 
+## Anderson-Darling          0.1699         0.9289 
+## -----------------------------------------------</code></pre>
+<p>In this case, our residuals look very normal.</p>
+<p>There are several tests available, look at papers such as these to understand why and which is best - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3693611/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3693611/</a></p>
+<p><br><br></p>
+</div>
+<div id="testing-for-independence" class="section level2" number="10.5">
+<h2>
+<span class="header-section-number">10.5</span> Testing for independence<a class="anchor" aria-label="anchor" href="#testing-for-independence"><i class="fas fa-link"></i></a>
+</h2>
+<p>To come in Lab 5B</p>
+<p><br><br></p>
+</div>
+<div id="tests-for-outliers" class="section level2" number="10.6">
+<h2>
+<span class="header-section-number">10.6</span> Tests for outliers<a class="anchor" aria-label="anchor" href="#tests-for-outliers"><i class="fas fa-link"></i></a>
+</h2>
+<p>To come in Lab 5B</p>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="T9_wrangling.html"><span class="header-section-number">9</span> Data Wrangling</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T10_diagnostics"><span class="header-section-number">10</span> Assessing LINE</a></li>
+<li>
+<a class="nav-link" href="#T10_residuals"><span class="header-section-number">10.1</span> What are residuals?</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#printing-out-residuals"><span class="header-section-number">10.1.1</span> Printing out residuals</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#T10.Linearity"><span class="header-section-number">10.2</span> Checking linearity</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#residual-vs-fits-plot-for-linearity"><span class="header-section-number">10.2.1</span> Residual vs fits plot for linearity</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#T10.Variance"><span class="header-section-number">10.3</span> Checking Equal Variance/homoscadisity</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#residual-vs-fits-plots-for-equal-variance-checks"><span class="header-section-number">10.3.1</span> Residual vs fits plots for equal variance checks</a></li>
+<li><a class="nav-link" href="#statistical-tests-for-non-equal-variance"><span class="header-section-number">10.3.2</span> Statistical Tests for non-equal variance</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#T10.Normality"><span class="header-section-number">10.4</span> Checking Normality</a></li>
+<li><a class="nav-link" href="#testing-for-independence"><span class="header-section-number">10.5</span> Testing for independence</a></li>
+<li><a class="nav-link" href="#tests-for-outliers"><span class="header-section-number">10.6</span> Tests for outliers</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

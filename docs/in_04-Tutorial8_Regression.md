@@ -4,7 +4,7 @@
 
 Now we will fit our first regression model.
 
-## "Standard" regression output
+## "Standard" regression output {#T8_lmbasics}
 
 The command to do this is `lm()` e.g. linear model.
 
@@ -14,9 +14,9 @@ output <- lm(y_column ~ x_column,data=tablename)
 output
 ```
 
-NOTE, THE WEIRD \~ SYMBOL. This means "depends on" and it's how we tell R what the response variable is. E.g. y depends on x, or y=mx+c.
+NOTE, THE WEIRD \~ SYMBOL. This means "depends on"/"is modelled by" and it's how we tell R what the response variable is. E.g. in y=mx+c, y depends on x, or y is modelled/predicted by x.
 
-For example for the NYHouses data, it would be
+For example for the NYHouses dataset, if I wanted to create a model of the Price and Lot columns to see if Lot size could predict house sales price, then I would type.
 
 
 ```r
@@ -40,6 +40,9 @@ So we are saying here that the equation is
 Expected_Average_Price = -0.5749\*Lot_Size + 114.0911
 
 E.g. the average expected price house with no Lot/Garden is 114.09
+
+
+
 
 ### Printing out the equation
 

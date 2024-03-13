@@ -59,6 +59,7 @@
 <li><a class="" href="Lab_2.html">Lab 2</a></li>
 <li><a class="" href="Lab_3.html">Lab 3</a></li>
 <li><a class="" href="Lab_4.html">Lab 4</a></li>
+<li><a class="" href="Lab_5.html">Lab 5A</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
@@ -70,6 +71,7 @@
 <li><a class="" href="correlation.html"><span class="header-section-number">7</span> Correlation</a></li>
 <li><a class="" href="T8_regression.html"><span class="header-section-number">8</span> Regression</a></li>
 <li><a class="" href="T9_wrangling.html"><span class="header-section-number">9</span> Data Wrangling</a></li>
+<li><a class="" href="T10_diagnostics.html"><span class="header-section-number">10</span> Assessing LINE</a></li>
 </ul>
 
         <div class="book-extra">
@@ -236,20 +238,21 @@
 <p>Then run this code to install from github:</p>
 <p><code>remotes::install_github("datalorax/equatiomatic")</code></p>
 <p>Then add the library command in the library code chunk. Note, as discussed here, this might not work for some people and to be honest, I think this package might be more effort than it’s worth.</p>
+<p><br></p>
 </div>
 <div id="using-it" class="section level4" number="3.4.3.2">
 <h4>
 <span class="header-section-number">3.4.3.2</span> Using it<a class="anchor" aria-label="anchor" href="#using-it"><i class="fas fa-link"></i></a>
 </h4>
 <p>Equatiomatic allows us to extract an equation from any linear model using <code>extract_eq()</code>. For example, let’s create a linear model:</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">)</span></span>
 <span><span class="va">mymodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mass</span><span class="op">~</span><span class="va">height</span>,data<span class="op">=</span><span class="va">starwars</span><span class="op">)</span></span></code></pre></div>
 <p>Then extract_eq allows you to see the LateX version of the equation.</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">extract_eq</span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
 <p>If you run it in the console, the command returns the LaTeX code you need to add it into the text yourself. If you want to use the actual numbers, simply turn on use_coefs=TRUE.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">extract_eq</span><span class="op">(</span><span class="va">mymodel</span>, use_coefs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Let’s say our data is a sample, not the population, then we want to use lower case names for our sample statistics (b0 &amp; b1).</p>
 <p>There is no easy way to do this in the command, so I run the command in the console, then copy the command over to the TEXT part of the report as an equation and change the betas to ’b’s.</p>
@@ -290,14 +293,18 @@
 <div class="inline-figure"><img src="index_images/im_T3CodeChunkOptionsViewMenu.png" width="400"></div>
 <p><br></p>
 </div>
-<div id="setting-the-default-for-the-whole-document" class="section level3" number="3.5.3">
+<div id="T3_CodeChunkWholeDoc" class="section level3" number="3.5.3">
 <h3>
-<span class="header-section-number">3.5.3</span> Setting the default for the whole document<a class="anchor" aria-label="anchor" href="#setting-the-default-for-the-whole-document"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.5.3</span> Setting the default for the whole document<a class="anchor" aria-label="anchor" href="#T3_CodeChunkWholeDoc"><i class="fas fa-link"></i></a>
 </h3>
 <p>Many templates already include this for you to edit.</p>
-<p>If not, you can put a code chunk at the top of your document (below the YAML code) containing <code>knitr::opts_chunk$set()</code> to change the default values of chunk options in a document.</p>
+<p>If not, you can put a code chunk at the top of your document (below the YAML code) containing <code>knitr::opts_chunk$set(echo=TRUE)</code> to change the default values of chunk options in a document.</p>
 <p>For example, you may put this in the first code chunk of your document to stop it showing messages on knit.</p>
-<p><code>{{r, include=FALSE}} knitr::opts_chunk$set(warning=FALSE, message=FALSE)</code></p>
+<pre><code>```{}
+knitr::opts_chunk$set(echo=TRUE, 
+                      warning=FALSE, 
+                      message=FALSE)
+```</code></pre>
 <p><br></p>
 </div>
 <div id="common-options" class="section level3" number="3.5.4">
@@ -387,7 +394,7 @@
 <a class="nav-link" href="#T3_CodeChunkOptions"><span class="header-section-number">3.5</span> Code Chunk options</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#creating-them-in-source-mode"><span class="header-section-number">3.5.1</span> Creating them in Source mode</a></li>
 <li><a class="nav-link" href="#creating-them-in-view-mode"><span class="header-section-number">3.5.2</span> Creating them in View mode</a></li>
-<li><a class="nav-link" href="#setting-the-default-for-the-whole-document"><span class="header-section-number">3.5.3</span> Setting the default for the whole document</a></li>
+<li><a class="nav-link" href="#T3_CodeChunkWholeDoc"><span class="header-section-number">3.5.3</span> Setting the default for the whole document</a></li>
 <li><a class="nav-link" href="#common-options"><span class="header-section-number">3.5.4</span> Common options</a></li>
 </ul>
 </li>
@@ -410,7 +417,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-02-14.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
