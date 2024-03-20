@@ -5,6 +5,11 @@ tab:unnamed-chunk-7
 fig:unnamed-chunk-3
 fig:unnamed-chunk-4
 fig:unnamed-chunk-6
+fig:unnamed-chunk-11
+fig:unnamed-chunk-12
+fig:unnamed-chunk-13
+fig:unnamed-chunk-14
+fig:unnamed-chunk-18
 written-instructions
 then-update-your-packages.
 everyone-should-sign-up-for-an-account-here-httpsposit.cloud
@@ -150,3 +155,6 @@ statistical-tests-for-non-equal-variance
 T10.Normality
 testing-for-independence
 tests-for-outliers
+assessing-outliers-via-visual-inspection
+detecting-outliers
+detecting-influential-points

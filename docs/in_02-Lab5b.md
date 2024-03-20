@@ -71,7 +71,7 @@ If for some reason, you didn't do lab 5A, START THERE FIRST!
 
 *We will be discussing this in next week's lectures.*
 
-FIRST, read this tutorial on identifying outliers: https://psu-spatial.github.io/stat462-2022/T1_R_Basics.html#14_Outliers,_leverage_and_influential_points
+FIRST, read this tutorial on identifying outliers: https://psu-spatial.github.io/Stat462-2024/T10_diagnostics.html#tests-for-outliers
 
 - Go to Canvas and download the three "testdata" datasets into your lab 5 folder (you may as well also download the bass data at this point) <br>
  
