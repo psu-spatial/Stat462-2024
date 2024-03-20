@@ -60,6 +60,7 @@
 <li><a class="" href="Lab_3.html">Lab 3</a></li>
 <li><a class="" href="Lab_4.html">Lab 4</a></li>
 <li><a class="" href="Lab_5.html">Lab 5A</a></li>
+<li><a class="" href="Lab_5B.html">Lab 5B</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
@@ -105,7 +106,7 @@
 <p>We can extract these from the model.</p>
 <p>Imagine you are interested in determining whether or not alcohol consumption was linearly related to muscle strength. You measured the total lifetime consumption of alcohol (x) on a random sample of n = 50 alcoholic men. They also measured the strength (y) of the deltoid muscle in each person’s left arm, then created a linear model to forecast strength.</p>
 <p>The predicted value is the y-value at the line for each point, strength is the actual measured strength and residual is the difference between the two.</p>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">alcoholdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"alcoholstrength.csv"</span><span class="op">)</span></span>
 <span><span class="va">mymodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">strength</span><span class="op">~</span><span class="va">alcohol</span>,data<span class="op">=</span><span class="va">alcoholdata</span><span class="op">)</span></span>
 <span></span>
@@ -121,7 +122,7 @@
 ## 5    29.2     1310           1773.019 -463.0187
 ## 6    32.5     1400           1675.382 -275.3822</code></pre>
 <p>See if you can match the point in red to the first value above and understand the numbers.</p>
-<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># and make a quick plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">alcoholdata</span><span class="op">$</span><span class="va">strength</span> <span class="op">~</span> <span class="va">alcoholdata</span><span class="op">$</span><span class="va">alcohol</span>,xlab<span class="op">=</span><span class="st">"Alcohol"</span>,ylab<span class="op">=</span><span class="st">"Strength"</span>,col<span class="op">=</span><span class="st">"dark grey"</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">900</span>,<span class="fl">3000</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co"># plot the first point in red</span></span>
@@ -147,7 +148,7 @@
 <p><br></p>
 <p>The goal of data-science is often to find the ‘best’ model that fits your data AKA the one with the smallest residuals. If your underlying dataset is not linear, then we probably want to choose a different model than linear data.</p>
 <p>However, in real life, it can often be difficult to assess whether the fit is linear by looking at the scatterplot alone. For example, using another dataset from the textbook, your mind might think this is linear.</p>
-<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">treadwear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"treadwear.csv"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># make a linear model</span></span>
@@ -172,7 +173,7 @@ Figure 10.1: This looks relatively linear, but….
 <span class="header-section-number">10.2.1</span> Residual vs fits plot for linearity<a class="anchor" aria-label="anchor" href="#residual-vs-fits-plot-for-linearity"><i class="fas fa-link"></i></a>
 </h3>
 <p>Instead, we plot at the <em>residuals</em> vs the fitted values, which often show a pattern much more clearly. If you’re not sure what I mean by these words, go back and read from “what are residuals”</p>
-<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># using the olsrr package</span></span>
 <span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_fit.html">ols_plot_resid_fit</a></span><span class="op">(</span><span class="va">tread_model</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
@@ -182,7 +183,7 @@ Figure 10.2: A parabola would clearly fit the data better than a straight line
 </p>
 </div>
 <p>Let’s compare this residual plot to the strength/alcohol example from the section above (I include all the code for completeness). You can see in the treadwear data, the residuals depart from 0 in a very systematic manner. They are clearly positive for small x values, negative for medium x values, and positive again for large x values. Clearly, a non-linear model would better describe the relationship between the two variables. In future classes we will touch upon polynomial models that you might use to deal with this.</p>
-<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">alcoholdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">alcohol</span>, y<span class="op">=</span><span class="va">strength</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -191,18 +192,18 @@ Figure 10.2: A parabola would clearly fit the data better than a straight line
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="va">lm</span> , color<span class="op">=</span><span class="st">"red"</span>, se<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/pkg/hrbrthemes/man/theme_ipsum.html">theme_ipsum</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">alcohol_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">strength</span><span class="op">~</span><span class="va">alcohol</span>,data<span class="op">=</span><span class="va">alcoholdata</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_fit.html">ols_plot_resid_fit</a></span><span class="op">(</span><span class="va">alcohol_model</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-2.png" width="672"></div>
-<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">treadwear</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">groove</span>, y<span class="op">=</span><span class="va">mileage</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Mileage walked"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Groove depth (mm)"</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="va">lm</span> , color<span class="op">=</span><span class="st">"red"</span>, se<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/pkg/hrbrthemes/man/theme_ipsum.html">theme_ipsum</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-3.png" width="672"></div>
-<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tread_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mileage</span><span class="op">~</span><span class="va">groove</span>,data<span class="op">=</span><span class="va">treadwear</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_fit.html">ols_plot_resid_fit</a></span><span class="op">(</span><span class="va">tread_model</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-4.png" width="672"></div>
@@ -223,7 +224,7 @@ Figure 10.2: A parabola would clearly fit the data better than a straight line
 </h3>
 <p>This can also be hard to see in the raw scatterplot, so again we use the residual vs fits plot. Look for the dots “fanning out” or bow-tie shapes vs a random cloud.</p>
 <p>Heres how some data appears in the raw scatterplot and the residual fits plot.</p>
-<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">alphapluto</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"alphapluto.txt"</span>,sep<span class="op">=</span><span class="st">"\t"</span>,header<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># make a linear model</span></span>
@@ -240,7 +241,7 @@ Figure 10.2: A parabola would clearly fit the data better than a straight line
 Figure 10.3: This data breaks equal variance
 </p>
 </div>
-<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_fit.html">ols_plot_resid_fit</a></span><span class="op">(</span><span class="va">alpha_model</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
 <p>You can clearly see here that for low values of the fitted data, there is not much variance - but there is a lot of variance as the data expands.</p>
@@ -250,7 +251,7 @@ Figure 10.3: This data breaks equal variance
 <span class="header-section-number">10.3.2</span> Statistical Tests for non-equal variance<a class="anchor" aria-label="anchor" href="#statistical-tests-for-non-equal-variance"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can also run statistical tests, explained in more detail here: <a href="https://rpubs.com/tskam/Session06" class="uri">https://rpubs.com/tskam/Session06</a></p>
-<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># F test - assumes residuals are  independent and identically distributed (i.i.d.)</span></span>
 <span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_test_f.html">ols_test_f</a></span><span class="op">(</span><span class="va">alpha_model</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
@@ -283,21 +284,21 @@ Figure 10.3: This data breaks equal variance
 <p>So never throw away your data if it breaks normality. But it’s good to take a look.</p>
 <p>First, read this to see how the different tests look: <a href="https://online.stat.psu.edu/stat501/lesson/4/4.6" class="uri">https://online.stat.psu.edu/stat501/lesson/4/4.6</a></p>
 <p>Let’s go back to our original test data:</p>
-<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mymodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">strength</span><span class="op">~</span><span class="va">alcohol</span>,data<span class="op">=</span><span class="va">alcoholdata</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">alcoholdata</span><span class="op">$</span><span class="va">alcohol</span>,<span class="va">alcoholdata</span><span class="op">$</span><span class="va">strength</span>,xlab<span class="op">=</span><span class="st">"Alcohol"</span>,ylab<span class="op">=</span><span class="st">"Strength"</span>,pch<span class="op">=</span><span class="fl">16</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
 <p>To test normality, we can use OLSRR to:</p>
-<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#Create a QQ plot of the residuals</span></span>
 <span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_qq.html">ols_plot_resid_qq</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
-<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#Create a histogram of the residuals</span></span>
 <span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_hist.html">ols_plot_resid_hist</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-10-2.png" width="672"></div>
-<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#Run a Wilks-Shapiro test for normality</span></span>
 <span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_test_normality.html">ols_test_normality</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## -----------------------------------------------
@@ -373,7 +374,7 @@ Figure 10.3: This data breaks equal variance
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-13.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

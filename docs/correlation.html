@@ -60,6 +60,7 @@
 <li><a class="" href="Lab_3.html">Lab 3</a></li>
 <li><a class="" href="Lab_4.html">Lab 4</a></li>
 <li><a class="" href="Lab_5.html">Lab 5A</a></li>
+<li><a class="" href="Lab_5B.html">Lab 5B</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
@@ -88,7 +89,7 @@
 <span class="header-section-number">7.1</span> Basics<a class="anchor" aria-label="anchor" href="#basics-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>To find the correlation between two variables, you can simply use the cor function e.g.</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">$</span><span class="va">Price</span>,<span class="va">HousesNY</span><span class="op">$</span><span class="va">Beds</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.4191355</code></pre>
 <p>To see the correlation between ALL columns we can make a “correlation matrix”</p>
@@ -98,16 +99,16 @@
 <span class="header-section-number">7.2</span> Covariance/Correlation matrix plots<a class="anchor" aria-label="anchor" href="#covariancecorrelation-matrix-plots"><i class="fas fa-link"></i></a>
 </h2>
 <p>Looking at correlations is a quick (but often misleading) way to assess what is happening. Essentially we can look at the correlation between each column of data.</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Choose column names - let's say I don't care about location</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "Price" "Beds"  "Baths" "Size"  "Lot"</code></pre>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create plot - note I have message=TRUE and warning=TRUE turned on at the top of my code chunk</span></span>
 <span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">HousesNY</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Price"</span>,<span class="st">"Beds"</span> ,<span class="st">"Baths"</span>,<span class="st">"Size"</span> , <span class="st">"Lot"</span>   <span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial7_Correlation_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
 <p>You can simply look at the correlations of any NUMERIC columns using the corrplot code.</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/taiyun/corrplot">corrplot</a></span><span class="op">)</span></span>
 <span><span class="va">house.numeric.columns</span> <span class="op">&lt;-</span> <span class="va">HousesNY</span><span class="op">[</span> , <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">HousesNY</span>,<span class="va">is.numeric</span><span class="op">)</span><span class="op">]</span></span>
 <span></span>
@@ -144,7 +145,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-13.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

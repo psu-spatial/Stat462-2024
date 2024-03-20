@@ -93,7 +93,7 @@ output:
 
 <br><br>
 
-### **[Step 1.3] Document options & libraries**  {.unnumbered}
+### **[Step 1.3] Document options & libraries** {.unnumbered}
 
 -   Now, let's edit the first code chunk below the YAML code, which allows us to set the visualization options for your report. At the moment, it says
 

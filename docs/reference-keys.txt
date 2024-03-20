@@ -1,4 +1,5 @@
 tab:tab-main-rubric
+fig:unnamed-chunk-5
 fig:eqn
 tab:unnamed-chunk-7
 fig:unnamed-chunk-3
@@ -17,6 +18,7 @@ a.-the-base-r-scatterplot-plot.
 b.-the-ggstatplot-r-scatterplot-ggscatterstats.
 need-help
 need-help-1
+need-help-2
 T1_Projects
 T1_ProjectsCloud
 T1_ProjectsDesktop

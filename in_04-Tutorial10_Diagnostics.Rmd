@@ -248,10 +248,98 @@ There are several tests available, look at papers such as these to understand wh
 
 ## Testing for independence
 
-To come in Lab 5B
+To come in Lab 6
 
 <br><br>
 
 ## Tests for outliers
 
-To come in Lab 5B
+
+There are three key things to know when it comes to outliers:
+
+We use the word **outlier** to describe an observation (point on the scatterplot) that has a very different response from the predicted response from the model 
+
+ - e.g. it does not follow the trend determined by the rest of the dataset. We consider it an outlier *only* if it is an extreme "y" value e.g. an extreme response.
+
+If a data point has an x-value that is extremely different (either too high or too low) from the rest of the data points, we call this a **high leverage** point.  
+
+It might, or might not be an outlier.
+
+3.  We call a data point an **influential point** if that data point has a considerable impact on the regression model. For instance, if the model fit changes considerably by removing a point, such data point is called an influential point. Influential points tend to be further from the mean. We know the regression lines goes through the mean of x and the mean of y, they tent to tilt like a see-saw.
+
+Both outliers and the leverage points can be influential depending on where they located in a scatterplot. We can easily see them using a fits vs residuals plot (we'll get to this below)
+
+For more details here, see <https://online.stat.psu.edu/stat501/lesson/11/11.1>
+
+## Visual inspection
+
+The first way we can check for simple linear regression is to plot the data and take a look. Here are some examples that we can assess by eye which show the different effects.
+
+#### No outliers, influential or high leverage points {.unnumbered}
+
+```{r,echo=FALSE,message=FALSE,fig.cap="No outliers, influential values or high leverage points"}
+data <- read.csv("neither.csv")
+layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+plot(data$x,data$y,pch=16,xlab="x",ylab="y",main="Dataset A")
+plot(data$x,data$y,pch=16,xlab="x",ylab="y",main="Dataset A"); abline(lm(y~x,data=data))
+
+```
+
+In the figure above, all of the data points follow the general trend of the rest of the data, so there are no outliers (in the y direction). And, none of the data points are extreme with respect to x, so there are no high leverage points. Overall, none of the data points would appear to be influential with respect to the location of the best fitting line. e.g. if we removed any one point, the line would probably be the same.
+
+#### An outlier with no leverage {.unnumbered}
+
+```{r,echo=FALSE,message=FALSE,fig.cap="One outlier. The red-dashed line is the model including all the points. The black-solid line is the model with the red point removed "}
+data1 <- read.csv("outlier.csv")
+data1b <- data1[-21,]
+
+layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+plot(data1$x,data1$y,pch=16,xlab="x",ylab="y",main="Dataset B",col="red")
+lines(data1b$x,data1b$y,pch=16,xlab="x" ,ylab="y",main="Dataset B",type="p")
+plot(data1$x,data1$y,pch=16,xlab="x",ylab="y",main="Dataset B",col="red")
+lines(data1b$x,data1b$y,pch=16,xlab="x",ylab="y",main="DatasetB",type="p")
+abline(lm(y~x,data=data1b))
+abline(lm(y~x,data=data1),col="red",lty="dashed")
+
+```
+
+In the figure above, most of the data points follow the general trend of the rest of the data, but there is one clear outlier (one point that is unusual in the y direction). However, no point has an extreme x value, so there are no high leverage points. Overall, none of the data points would appear to be influential with respect to the location of the best fitting line. e.g.when we removed the red point,the line of best fit remains relatively stable.
+
+#### A high leverage point that isn't an outlier {.unnumbered}
+
+```{r,echo=FALSE,message=FALSE,fig.cap="No outliers,but one high leverage point. The red-dashed line is the model including all the points. The black-solid line is the model with the red point removed"}
+data2 <- read.csv("leverage.csv")
+data2b <- data2[-25,]
+
+layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+plot(data2$x,data2$y,pch=16,xlab="x",ylab="y",main="Dataset C",col="red",ylim=c(0,120))
+lines(data2b$x,data2b$y,pch=16,xlab="x" ,ylab="y",main="Dataset C",type="p")
+plot(data2$x,data2$y,pch=16,xlab="x",ylab="y",main="Dataset C",col="red",ylim=c(0,120))
+lines(data2b$x,data2b$y,pch=16,xlab="x",ylab="y",main="DatasetC",type="p")
+abline(lm(y~x,data=data2b))
+abline(lm(y~x,data=data2),col="red",lty="dashed")
+
+```
+
+In the figure above, most of the data points follow the general trend of the rest of the data, so there are no outliers (in the y direction). But one data points is extreme with respect to x. Overall, none of the data points would appear to be influential with respect to the location of the best fitting line. e.g.when we removed the red point,the line of best fit remained relatively stable.
+
+#### An influential high leverage outlier {.unnumbered}
+
+```{r,echo=FALSE,message=FALSE,fig.cap="One influential high leverage outlier. The red-dashed line is the model including all the points. The black-solid line is the model with the red point removed" }
+data2 <- read.csv("influential.csv")
+data2b <- data2[-25,]
+
+layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+plot(data2$x,data2$y,pch=16,xlab="x",ylab="y",main="Dataset D",col="red",ylim=c(0,120))
+lines(data2b$x,data2b$y,pch=16,xlab="x" ,ylab="y",main="Dataset D",type="p")
+plot(data2$x,data2$y,pch=16,xlab="x",ylab="y",main="Dataset D",col="red",ylim=c(0,120))
+lines(data2b$x,data2b$y,pch=16,xlab="x",ylab="y",main="Dataset D",type="p")
+abline(lm(y~x,data=data2b))
+abline(lm(y~x,data=data2),col="red",lty="dashed")
+
+```
+
+In the figure above, most of the data points follow the general trend of the rest of the data, with one clear outlier. This point also has high leverage abd appears to be very influential. e.g.when we removed the red point,the line of best fit changes hugely,
+
+Here with a simple regression, we can easily see outliers. This is much harder when we have many predictors. So as well as examining the data by eye, we can use diagnostic plots.
+
