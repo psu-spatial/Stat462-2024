@@ -196,14 +196,18 @@ You can clearly see here that for low values of the fitted data, there is not mu
 
 You can also run statistical tests, explained in more detail here: <https://rpubs.com/tskam/Session06>
 
+For example, this is the heteroskadisity F-Test. There is also another test available, the Breusch Pagan Test - but this relies on the residuals being normally distributed.
+
+
 ```{r}
 # F test - assumes residuals are  independent and identically distributed (i.i.d.)
 ols_test_f(alpha_model)
 ```
 
-In this case, we can see that perhaps we need to worry less about unequal variance,
+**In this case, we can see that perhaps we DO need to worry about unequal variance.** (note, updated from a typo before where I used a different dataset - this is now correct) 
 
-There is also another test available, the Breusch Pagan Test - but this relies on the residuals being normally distributed.
+There is a small probability of seeing this sample result if H0 is true and the underlying population has equal variance.  So I have enough evidence to reject H0 and suggest that maybe the underlying population does not have equal variance.
+
 
 <br><br>
 
@@ -252,22 +256,29 @@ To come in Lab 6
 
 <br><br>
 
-## Tests for outliers
+## Outliers
 
+### Key things to know
 
 There are three key things to know when it comes to outliers:
+
+#### An "outlier"  {.unnumbered}
 
 We use the word **outlier** to describe an observation (point on the scatterplot) that has a very different response from the predicted response from the model 
 
  - e.g. it does not follow the trend determined by the rest of the dataset. We consider it an outlier *only* if it is an extreme "y" value e.g. an extreme response.
  
- <br>
+<br><br>
+ 
+#### A high leverage point  {.unnumbered}
 
 If a data point has an x-value that is extremely different (either too high or too low) from the rest of the data points, we call this a **high leverage** point.  
 
  - It might, or might not be an outlier.
  
- <br>
+<br><br>
+ 
+#### An influential point  {.unnumbered}
 
 We call a data point an **influential point** if that data point has a considerable impact on the regression model.  It likely has an unusual X AND an unusual Y
 
@@ -276,6 +287,17 @@ We call a data point an **influential point** if that data point has a considera
 Both outliers and the leverage points can be influential depending on where they located in a scatterplot. We can easily see them using a fits vs residuals plot (we'll get to this below)
 
 For more details here, see <https://online.stat.psu.edu/stat501/lesson/11/11.1>
+
+<br>
+
+#### An important distinction! {.unnumbered}
+
+There is such an important distinction between a data point that has high leverage and one that has high influence that it is worth saying it one more time:
+
+-   The leverage merely quantifies the potential for a data point to exert strong influence on the regression analysis.
+-   The leverage depends only on the predictor values.
+-   Whether the data point is influential or not also depends on the observed value of the reponse.
+
 
 <br><br>
 
@@ -360,15 +382,7 @@ In the figure above, most of the data points follow the general trend of the res
 Here with a simple regression, we can easily see outliers. This is much harder when we have many predictors. So as well as examining the data by eye, we can use diagnostic plots.
 
 
-#### An important distinction! {.unnumbered}
-
-There is such an important distinction between a data point that has high leverage and one that has high influence that it is worth saying it one more time:
-
--   The leverage merely quantifies the potential for a data point to exert strong influence on the regression analysis.
--   The leverage depends only on the predictor values.
--   Whether the data point is influential or not also depends on the observed value of the reponse.
-
-## Detecting outliers
+### Detecting outliers via plots
 
 In lab 5, we mentioned two measures that we use to help identify outliers. They are:
 
@@ -437,11 +451,11 @@ data1[21,]
 
 <br><br>
 
-## Detecting influential points 
+### Detecting influential points 
 
-If a point is both an outlier AND has leverage, chances are it will be influential over the fit.
+If a point is both an outlier AND has leverage, chances are it will be influential over the fit. OLSRR has a nice way of summarising both statistics. 
 
-OLSRR has a nice way of summarising both statistics. For example here are our four plots together:
+For example here are our four plots together:
 
 ```{r,message=FALSE,fig.cap="Our four examples"}
 # read the data
@@ -478,6 +492,15 @@ lines(data4b$x,data4b$y,pch=16,type="p")
 abline(model4)
 
 ```
+
+and here are the OLSRR summary plots for each.  
+
+ - On the x-axis, you can see how high the leverage is.  E.g. if it's on the left it's close to the mean x, if it's on the right it's far from the mean AKA it's high leverage
+
+ - On the y-axis, you can see the normalised residual value AKA how big is the residual, but plotted in terms of standard deviations away from the mean of y.
+ 
+Compare plots 1,2,3 and 4 with the scatterplots above. See if you can identify which is which.
+ 
 
 ```{r}
 # model A

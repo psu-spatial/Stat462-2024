@@ -154,7 +154,8 @@ residual-vs-fits-plots-for-equal-variance-checks
 statistical-tests-for-non-equal-variance
 T10.Normality
 testing-for-independence
-tests-for-outliers
+outliers
+key-things-to-know
 assessing-outliers-via-visual-inspection
-detecting-outliers
+detecting-outliers-via-plots
 detecting-influential-points
