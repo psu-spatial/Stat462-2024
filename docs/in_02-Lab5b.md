@@ -1,7 +1,5 @@
 
 
-
-
 # Lab 5B {#Lab_5B .unnumbered}
 
 ## Aim {.unnumbered}
@@ -71,13 +69,13 @@ If for some reason, you didn't do lab 5A, START THERE FIRST!
 
 *We will be discussing this in next week's lectures.*
 
-FIRST, read this tutorial on identifying outliers: https://psu-spatial.github.io/Stat462-2024/T10_diagnostics.html#tests-for-outliers
+FIRST, read this tutorial on identifying outliers: <https://psu-spatial.github.io/Stat462-2024/T10_diagnostics.html#tests-for-outliers>
 
-- Go to Canvas and download the three "testdata" datasets into your lab 5 folder (you may as well also download the bass data at this point) <br>
- 
-- Scroll to the end of your Lab report & press enter a few times. Create a level 1 heading called "Lab 5B - Outliers" <br>
+-   Go to Canvas and download the three "testdata" datasets into your lab 5 folder (you may as well also download the bass data at this point) <br>
 
- - Now copy/paste this code into your report and get it running. Remember to make sure that the data is in your lab 5 folder AND you are running your project AND you have run your library code chunk.
+-   Scroll to the end of your Lab report & press enter a few times. Create a level 1 heading called "Lab 5B - Outliers" <br>
+
+-   Now copy/paste this code into your report and get it running. Remember to make sure that the data is in your lab 5 folder AND you are running your project AND you have run your library code chunk.
 
 
 ```r
@@ -99,27 +97,24 @@ plot(testdata3$y ~ testdata3$x,pch=16,xlab="x3",ylab="y3",main="Example 3")
 abline(Model3)
 ```
 
- - In your report, and using the tutorial I linked to above, describe the difference between an outlier, a high leverage point and an influential outlier.
- 
- - In your report, identify which of the three Models has a high leverage point, which has an influential outlier, and which has been a non-influential outlier
- 
- 
+-   In your report, and using the tutorial I linked to above, describe the difference between an outlier, a high leverage point and an influential outlier.
+
+-   In your report, identify which of the three Models has a high leverage point, which has an influential outlier, and which has been a non-influential outlier
+
 ### **[Step 2.2] Using code to detect outliers** {.unnumbered}
 
- 
- - Now run this code for each model.  Below your results, explain how these plots agree/disagree with your conclusions above. 
+-   Now run this code for each model. Below your results, explain how these plots agree/disagree with your conclusions above.
 
 
 ```r
 # remember to edit for model 2 and 3 
  ols_plot_resid_lev(Model1)
 ```
- 
+
 ### **[Step 2.3] Understand influential outliers** {.unnumbered}
- 
- 
-  - Finally, this code filters out the outliers.  In real life, you could use the filter command on column of your choice, remove the data in excel or use the which command. Get this running.
- 
+
+-   Finally, this code filters out the outliers. In real life, you could use the filter command on column of your choice, remove the data in excel or use the which command. Get this running.
+
 
 ```r
 # remember to edit for model 2 and 3 
@@ -130,11 +125,10 @@ NewModel1 <- lm(y~x,data=new_testdata1)
 NewModel2 <- lm(y~x,data=new_testdata2)
 NewModel3 <- lm(y~x,data=new_testdata3)
 ```
-  
- -  Now examine the model slope and intercept for Model1 vs NewModel1,  Model2 vs NewModel2 and Model3 vs NewModel3 (you could look at the OLSregress summary or the normal summary, or just type its name in the console). You don't need to include all the code if you don't want to.
- 
- - In your report, use this additional evidence to explain how these plots agree/disagree with your conclusions above.  Bonus, think about using the confidence intervals on the slope in the OLSRR summary to help with this.
- 
+
+-   Now examine the model slope and intercept for Model1 vs NewModel1, Model2 vs NewModel2 and Model3 vs NewModel3 (you could look at the OLSregress summary or the normal summary, or just type its name in the console). You don't need to include all the code if you don't want to.
+
+-   In your report, use this additional evidence to explain how these plots agree/disagree with your conclusions above. Bonus, think about using the confidence intervals on the slope in the OLSRR summary to help with this.
 
 <br><br>
 
@@ -142,14 +136,13 @@ NewModel3 <- lm(y~x,data=new_testdata3)
 
 ## 3. Real Data - Florida Fish Challenge {.unnumbered}
 
-
 <br>
 
 ### **[Step 3.1] Read everything in this section - you will need it!** {.unnumbered}
 
 (remember you can use google translate if/as needed)
 
-#### Study Background  {.unnumbered}
+#### Study Background {.unnumbered}
 
 <div class="figure" style="text-align: center">
 <img src="index_images/im_Lab5_Fish.png" alt="a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwood Higman, Ground Truth Trekking) b. (middle) A large bass caught and released in a central Florida lake (https://www.wired2fish.com/news/young-man-catches-releases-huge-bass-from-bank/) c. (right). The location of the lakes in Florida (Google maps)" width="95%" />
@@ -167,7 +160,7 @@ Urgent research was required to inform public policy about which lakes needed to
 
 You can see part of the paper here: [https://www.researchgate.net/publication/15388314_Mercury_accumulation_in_largemouth_bass_Micropterus_salmoides_in_a\\\_Florida_Lake](https://www.researchgate.net/publication/15388314_Mercury_accumulation_in_largemouth_bass_Micropterus_salmoides_in_a_Florida_Lake){.uri}<br>
 
-#### Your Goal  {.unnumbered}
+#### Your Goal {.unnumbered}
 
 **You have been asked to use this dataset assess whether the alkalinity levels of a lake might impact Mercury levels in large-mouth bass.**
 
@@ -207,7 +200,7 @@ NOTE, I HAVE CHANGED NUMBERS IN THIS DATASET - IT'S NOT THE ONE YOU SEE ONLINE..
 
 <br><br>
 
-### **[Step 3.2]** Obtain the data  {.unnumbered}
+### **[Step 3.2]** Obtain the data {.unnumbered}
 
 -   Scroll to the end of your Lab report & press enter a few times.
 -   Create a level 1 heading called Lab 5B - Florida Fish\
@@ -221,7 +214,7 @@ bass <- read_excel("BassNew.xlsx")
 
 <br><br>
 
-### **[Step 3.3]** Describe the study aim  {.unnumbered}
+### **[Step 3.3]** Describe the study aim {.unnumbered}
 
 -   If you skipped it, go back and read the brief in 3.1. Seriously, it will save you time.
 
@@ -241,7 +234,7 @@ bass <- read_excel("BassNew.xlsx")
 
 <br><br>
 
-### **[Step 3.4]** Exploratory analysis  {.unnumbered}
+### **[Step 3.4]** Exploratory analysis {.unnumbered}
 
 -   Conduct a quick exploratory analysis of the data using commands like skim or summary (read ahead first!).
 
@@ -264,7 +257,7 @@ ggcorrmat(bass)
 
 <br><br>
 
-### **[Step 3.5]** First model  {.unnumbered}
+### **[Step 3.5]** First model {.unnumbered}
 
 -   Create a linear model between your response and predictor (remember to read the problem statement to work out what they are). It will make your life easier to save this as a variable called model1. e.g. `model1 <- ..`
 
@@ -284,7 +277,7 @@ ggcorrmat(bass)
 
 <br><br>
 
-### **[Step 3.5]** LINE inspection  {.unnumbered}
+### **[Step 3.5]** LINE inspection {.unnumbered}
 
 We are now able to check for Linearity, Normality, Equal Variance and Outliers. We will look at independence in Lab 6.
 
@@ -294,7 +287,7 @@ We are now able to check for Linearity, Normality, Equal Variance and Outliers. 
 
 <br><br>
 
-### **[Step 3.6]** Outliers  {.unnumbered}
+### **[Step 3.6]** Outliers {.unnumbered}
 
 In this lab, we will now also look at Outliers. We will look at independence in Lab 6.
 
@@ -336,85 +329,79 @@ which(tablename$columnname == max(tablename$columnname, na.rm=TRUE))
 
 <br><br>
 
-### **[Step 3.7]** Outlier question  {.unnumbered}
+### **[Step 3.7]** Outlier question {.unnumbered}
 
--   Another analyst looked at your results and suggested that there are four Lakes which appear to be Influential, or close-to-influential Outliers.
+-   Another analyst looked at the scatterplot and suggested that they thought there might be four Lakes which appear to be either Influential, or close-to-influential outliers.
 
--   In your analysis, use Cook's distance to explain why they think this and identify the Lakes they are worried about.
+-   In your analysis, use Cook's distance to identify the Lakes they are worried about.
 
 -   In the text explain if you agree with their comment. Explain your reasoning and point the reader to evidence in your R output.
 
 <br><br>
 
-### **[Step 3.8]** Transformations  {.unnumbered}
+### **[Step 3.8]** Transformations {.unnumbered}
 
 Linearity appears to be the biggest problem - we are going to see if we can use a transformation to fit the data. We will cover these in next week's lecture
 
- - To do this, we will take the log transformation of our predictor, lake_alkalinity, and save it as a new columm. Get this running in the code:
+-   To do this, we will take the log transformation of our predictor, lake_alkalinity, and save it as a new columm. Get this running in the code:
 
 
 ```r
 bass$Log_Alkalinity <- log(bass$lake_alkalinity)
 ```
 
- - Now fit a NEW model between your response and lake_alkalinity (call it model2), 
- 
- - Plot it in a professional scatterplot (with a line of best fit) 
- 
- - Assess it for LINE/outliers (ignoring independence). 
- 
- - Write out the regression equation remembering that you are now looking at log(alkalinity) as a predictor..
- 
- Remember you can copy/paste previous code! 
- 
+-   Now fit a NEW model between your response and lake_alkalinity (call it model2),
+
+-   Plot it in a professional scatterplot (with a line of best fit)
+
+-   Assess it for LINE/outliers (ignoring independence).
+
+-   Write out the regression equation remembering that you are now looking at log(alkalinity) as a predictor..
+
+Remember you can copy/paste previous code!
 
 
 
 <br><br>
 
-### **[Step 3.9]** Model skill  {.unnumbered}
+### **[Step 3.9]** Model skill {.unnumbered}
 
-Make a new sub-heading called "Model skill" to make it easy for me to find these.  In your report....
-
-<br>
-
-1.  Out of model 1 and model 2, discuss which model best fits the LINE assumptions,  referring to your code output above.
+Make a new sub-heading called "Model skill" to make it easy for me to find these. In your report....
 
 <br>
 
-2.  Out of model 1 and model 2, where do you see the greatest increase in mercury content if you increase the lake alkalinity?  HINT, Remember your model 2 is looking at LOG alkalinity!
+1.  Out of model 1 and model 2, discuss which model in your opinion best fits the LINE assumptions, referring to your code output above.
 
-    -   *Provide evidence to justify your answer (thinking about 95% confidence intervals on your estimates from the olsrr output), including the relevant statistics/numbers for each model.*
+NOTE - QUESTION 2 WAS INCLUDED IN ERROR (LEFT OVER FROM OLD DATASET) AND HAS BEEN REMOVED.
 
 <br>
 
-3.  Out of model 1 and model 2, which model explains the most variability in fish-mercury-content across the lakes? AKA 
+3.  Out of model 1 and model 2, which model explains the most variability in fish-mercury-content across the lakes?
 
-    -   *Provide evidence to justify your answer, including the relevant statistic/numbers for each model from your code above.*
-    
+    -   *Provide evidence to justify your answer, including the relevant statisticfor each model from your model summaries.*
+
     <br>
 
-4.  For model 2, are there still any outliers you might want to take a look at?  Are they especially inflential?
+4.  For model 2, are there still any outliers you might want to take a look at? Are they especially influential?
 
     -   *Provide evidence to justify your answer, referring to your code above*
 
 <br><br>
 
-### **[Step 3.10]** Prediction  {.unnumbered}
+### **[Step 3.10]** Prediction {.unnumbered}
 
 Make a new subsection called `Prediction`
 
-The Governor recently had a question from a member if the public who went fishing in a new lake that was not part of the study. 
+The Governor recently had a question from a member if the public who went fishing in a new lake that was not part of the study.
 
- - We know the alkalinity level of that lake was 40mg/L. 
- - The member of the public wants to be 99% sure that they won't exceed the Florida Health Advisory level for Mercury levels in Fish, which is 1 $\mu g$ of Mercury.
+-   We know the alkalinity level of that lake was 40mg/L.
+-   The member of the public wants to be 99% sure that they won't exceed the Florida Health Advisory level for Mercury levels in Fish, which is 1 $\mu g$ of Mercury.
 
-Should they eat the fish? Explain your answer and show your evidence for how you came to your conclusion. You should decide the best model to use in getting to your answer. 
+Should they eat the fish? Explain your answer and show your evidence for how you came to your conclusion. You should decide the best model to use in getting to your answer.
 
 <br><br>
 
-### **[Step 3.11]**  More complex - worth 3%.  {.unnumbered}
-
+### **[Step 3.11]** More complex - worth 3%. {.unnumbered}
 
 Make a new subsection called `Bonus`
 
@@ -422,9 +409,7 @@ Make a new subsection called `Bonus`
 
 The Florida Health Advisory level for Mercury levels in Fish is 1 $\mu g$ of Mercury. The Governor has accepted your model and is requiring state-wide alkalinity tests.
 
-Using your new model, what is your recommended "safety cut-off" value of alkalinity for new lakes? You would like to be 95% sure that you aren't just seeing this result by chance. 
-Provide evidence/code showing how you got to your answer
-
+Using your new model, what is your recommended "safety cut-off" value of alkalinity for new lakes? You would like to be 95% sure that you aren't just seeing this result by chance. Provide evidence/code showing how you got to your answer
 
 <br><br>
 
@@ -454,8 +439,6 @@ Remember to save your work throughout and to spell check your writing (next to t
 -   Now go to Canvas and submit BOTH your html and your .Rmd file in Lab 5.
 
 Congrats! You are done.
-
-
 
 Overall, here is what your lab should correspond to:
 
