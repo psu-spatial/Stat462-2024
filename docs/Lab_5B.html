@@ -73,6 +73,8 @@
 <li><a class="" href="T8_regression.html"><span class="header-section-number">8</span> Regression</a></li>
 <li><a class="" href="T9_wrangling.html"><span class="header-section-number">9</span> Data Wrangling</a></li>
 <li><a class="" href="T10_diagnostics.html"><span class="header-section-number">10</span> Assessing LINE</a></li>
+<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">11</span> Outliers, high leverage &amp; influential points</a></li>
+<li><a class="" href="confidence-and-prediction-intervals.html"><span class="header-section-number">12</span> Confidence and Prediction Intervals</a></li>
 </ul>
 
         <div class="book-extra">
@@ -394,9 +396,9 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 </ul>
 <p><br><br></p>
 </div>
-<div id="step-3.6-outliers" class="section level3 unnumbered">
+<div id="step-3.6-outliers---see-tutorial-11-new" class="section level3 unnumbered">
 <h3>
-<strong>[Step 3.6]</strong> Outliers<a class="anchor" aria-label="anchor" href="#step-3.6-outliers"><i class="fas fa-link"></i></a>
+<strong>[Step 3.6]</strong> Outliers - SEE TUTORIAL 11 (NEW)<a class="anchor" aria-label="anchor" href="#step-3.6-outliers---see-tutorial-11-new"><i class="fas fa-link"></i></a>
 </h3>
 <p>In this lab, we will now also look at Outliers. We will look at independence in Lab 6.</p>
 <ul>
@@ -418,9 +420,10 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 <span><span class="co"># Print out the table</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">bass</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
+<p><strong>Now take a look at tutorial 11 (NEW)!.</strong></p>
 <ul>
 <li>
-<p>Use this to identify:</p>
+<p>Use this data to identify:</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>The name of the lake with highest residual mercury value</p></li>
 <li><p>The name of the lake with highest leverage</p></li>
@@ -437,8 +440,8 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 <strong>[Step 3.7]</strong> Outlier question<a class="anchor" aria-label="anchor" href="#step-3.7-outlier-question"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li><p>Another analyst looked at the scatterplot and suggested that they thought there might be four Lakes which appear to be either Influential, or close-to-influential outliers.</p></li>
-<li><p>In your analysis, use Cook’s distance to identify the Lakes they are worried about.</p></li>
+<li><p>Another analyst looked at the scatterplot and suggested that they thought there might be three or four Lakes which appear to be either Influential, or close-to-influential outliers.</p></li>
+<li><p>In your analysis, use Cook’s distance to identify the names of lakes the analysts are worried about.</p></li>
 <li><p>In the text explain if you agree with their comment. Explain your reasoning and point the reader to evidence in your R output.</p></li>
 </ul>
 <p><br><br></p>
@@ -490,9 +493,9 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 </ol>
 <p><br><br></p>
 </div>
-<div id="step-3.10-prediction" class="section level3 unnumbered">
+<div id="step-3.10-prediction---see-tutorial-12-new" class="section level3 unnumbered">
 <h3>
-<strong>[Step 3.10]</strong> Prediction<a class="anchor" aria-label="anchor" href="#step-3.10-prediction"><i class="fas fa-link"></i></a>
+<strong>[Step 3.10]</strong> Prediction - SEE TUTORIAL 12 (NEW)<a class="anchor" aria-label="anchor" href="#step-3.10-prediction---see-tutorial-12-new"><i class="fas fa-link"></i></a>
 </h3>
 <p>Make a new subsection called <code>Prediction</code></p>
 <p>The Governor recently had a question from a member if the public who went fishing in a new lake that was not part of the study.</p>
@@ -575,11 +578,11 @@ CHECK THAT THIS IS WHAT YOU WANT TO SUBMIT.</p></li>
 <li><a class="nav-link" href="#step-3.4-exploratory-analysis">[Step 3.4] Exploratory analysis</a></li>
 <li><a class="nav-link" href="#step-3.5-first-model">[Step 3.5] First model</a></li>
 <li><a class="nav-link" href="#step-3.5-line-inspection">[Step 3.5] LINE inspection</a></li>
-<li><a class="nav-link" href="#step-3.6-outliers">[Step 3.6] Outliers</a></li>
+<li><a class="nav-link" href="#step-3.6-outliers---see-tutorial-11-new">[Step 3.6] Outliers - SEE TUTORIAL 11 (NEW)</a></li>
 <li><a class="nav-link" href="#step-3.7-outlier-question">[Step 3.7] Outlier question</a></li>
 <li><a class="nav-link" href="#step-3.8-transformations">[Step 3.8] Transformations</a></li>
 <li><a class="nav-link" href="#step-3.9-model-skill">[Step 3.9] Model skill</a></li>
-<li><a class="nav-link" href="#step-3.10-prediction">[Step 3.10] Prediction</a></li>
+<li><a class="nav-link" href="#step-3.10-prediction---see-tutorial-12-new">[Step 3.10] Prediction - SEE TUTORIAL 12 (NEW)</a></li>
 <li><a class="nav-link" href="#step-3.11-more-complex---worth-3.">[Step 3.11] More complex - worth 3%.</a></li>
 </ul>
 </li>
@@ -600,7 +603,7 @@ CHECK THAT THIS IS WHAT YOU WANT TO SUBMIT.</p></li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-29.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

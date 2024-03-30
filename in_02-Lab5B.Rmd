@@ -313,7 +313,7 @@ We are now able to check for Linearity, Normality, Equal Variance and Outliers. 
 
 <br><br>
 
-### **[Step 3.6]** Outliers {.unnumbered}
+### **[Step 3.6]** Outliers -  SEE TUTORIAL 11 (NEW) {.unnumbered}
 
 In this lab, we will now also look at Outliers. We will look at independence in Lab 6.
 
@@ -338,7 +338,9 @@ head(bass)
 
 <br>
 
--   Use this to identify:
+**Now take a look at tutorial 11 (NEW)!.**
+
+-   Use this data to identify:
 
     a.  The name of the lake with highest residual mercury value
 
@@ -356,9 +358,9 @@ which(tablename$columnname == max(tablename$columnname, na.rm=TRUE))
 
 ### **[Step 3.7]** Outlier question {.unnumbered}
 
--   Another analyst looked at the scatterplot and suggested that they thought there might be four Lakes which appear to be either Influential, or close-to-influential outliers.
+-   Another analyst looked at the scatterplot and suggested that they thought there might be three or four Lakes which appear to be either Influential, or close-to-influential outliers.
 
--   In your analysis, use Cook's distance to identify the Lakes they are worried about.
+-   In your analysis, use Cook's distance to identify the names of lakes the analysts are worried about.
 
 -   In the text explain if you agree with their comment. Explain your reasoning and point the reader to evidence in your R output.
 
@@ -420,7 +422,7 @@ NOTE - QUESTION 2 WAS INCLUDED IN ERROR (LEFT OVER FROM OLD DATASET) AND HAS BEE
 
 <br><br>
 
-### **[Step 3.10]** Prediction {.unnumbered}
+### **[Step 3.10]** Prediction - SEE TUTORIAL 12 (NEW) {.unnumbered}
 
 Make a new subsection called `Prediction`
 

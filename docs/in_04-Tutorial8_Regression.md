@@ -132,14 +132,17 @@ Model1.lm.ols
 ```
 ##                           Model Summary                           
 ## -----------------------------------------------------------------
-## R                        0.011       RMSE                 41.832 
-## R-Squared                0.000       Coef. Var            36.813 
-## Adj. R-Squared          -0.019       MSE                1749.910 
-## Pred R-Squared          -0.068       MAE                  34.152 
+## R                        0.011       RMSE                 41.035 
+## R-Squared                0.000       MSE                1749.910 
+## Adj. R-Squared          -0.019       Coef. Var            36.813 
+## Pred R-Squared          -0.068       AIC                 550.137 
+## MAE                     34.152       SBC                 556.048 
 ## -----------------------------------------------------------------
 ##  RMSE: Root Mean Square Error 
 ##  MSE: Mean Square Error 
 ##  MAE: Mean Absolute Error 
+##  AIC: Akaike Information Criteria 
+##  SBC: Schwarz Bayesian Criteria 
 ## 
 ##                                ANOVA                                 
 ## --------------------------------------------------------------------

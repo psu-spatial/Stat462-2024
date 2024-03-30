@@ -6,7 +6,8 @@ We know from the lectures that there are multiple assumptions underpinning wheth
 
 <br><br>
 
-## What are residuals? {#T10_residuals}
+## Basic code {#T10_basics}
+
 
 It can be difficult looking at the raw data to assess whether many of the assumptions are true or not. So in this case we can look at residual plots.
 
@@ -22,9 +23,14 @@ Still confused? See
 
 <br><br>
 
-### Printing out residuals
 
-We can extract these from the model.
+### Adding a new column with the residuals
+
+We can add a new column with the residuals.
+
+<details>
+
+<summary>[Expand for more details]{style="color: #1388aa;"}</summary>
 
 Imagine you are interested in determining whether or not alcohol consumption was linearly related to muscle strength. You measured the total lifetime consumption of alcohol (x) on a random sample of n = 50 alcoholic men. They also measured the strength (y) of the deltoid muscle in each person's left arm, then created a linear model to forecast strength.
 
@@ -53,64 +59,72 @@ head(alcoholdata)
 
 See if you can match the point in red to the first value above and understand the numbers.
 
-
-```r
-# and make a quick plot
-plot(alcoholdata$strength ~ alcoholdata$alcohol,xlab="Alcohol",ylab="Strength",col="dark grey",ylim=c(900,3000))
-# plot the first point in red
-lines(alcoholdata$strength[1] ~ alcoholdata$alcohol[1],col="red",type="p",lwd=2)
-# add the line of best fit
-abline(mymodel)
-
-abline(h=alcoholdata$strength[1],lty="dotted")
-abline(v=alcoholdata$alcohol[1],lty="dotted")
-lines(c(alcoholdata$alcohol[1],alcoholdata$alcohol[1]),
-      c(alcoholdata$strength[1],alcoholdata$strength_predicted[1]),
-      lty="dashed",col="red",lwd=2)
-```
-
 <img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 <br><br>
 
-## Checking linearity {#T10.Linearity}
+</details>
+
+
+### Code for plotting the residuals
+
+Instead, we plot at the *residuals* vs the fitted values, which often show a pattern much more clearly. If you're not sure what I mean by these words, go back and read from "what are residuals"
+
+The code to do this is pretty simple from the olsrr package.  If this is the scatterplot:
+
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+
+Here are the raw residuals
+
+
+```r
+ols_plot_resid_fit(mymodel)
+```
+
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+
+and here are the residuals, but this time they are normalised (e.g. the residuals are in "standard deviations away from the mean").  
+
+
+```r
+ols_plot_resid_stud_fit(mymodel)
+```
+
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+
+<br><br>
+
+
+## Checking LINE
+
+### Checking Linearity {#T10.Linearity}
 
 **THE AIM HERE IS TO SEE IF A CURVE (or pattern) WOULD FIT THE DATA BETTER THAN A LINE. JUST RANDOM POINTS IS OK, A CURVE/DINOSAUR IS BAD.**
 
 ![](index_images/im_T10_linearity.png){width="90%"}
 
-<br>
+We do this by looking at the residuals vs fits plot. 
+
+<br><br>
+
+<details>
+
+<summary>[Expand to see an example]{style="color: #1388aa;"}</summary>
 
 The goal of data-science is often to find the 'best' model that fits your data AKA the one with the smallest residuals. If your underlying dataset is not linear, then we probably want to choose a different model than linear data.
 
 However, in real life, it can often be difficult to assess whether the fit is linear by looking at the scatterplot alone. For example, using another dataset from the textbook, your mind might think this is linear.
 
 
-```r
-treadwear <- read.csv("treadwear.csv")
-
-# make a linear model
-tread_model <- lm(mileage~groove,data=treadwear)
-
-# and make a plot, using ggplot this time
-ggplot(treadwear, aes(x=groove, y=mileage)) + 
-    geom_point() + 
-    ggtitle("How much trainers wear down by walking") +
-    xlab("Mileage walked") + ylab("Groove depth (mm)")+
-    geom_smooth(method=lm , color="red", se=FALSE) +
-    theme_ipsum()
-```
-
 <div class="figure">
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-3-1.png" alt="This looks relatively linear, but...." width="672" />
-<p class="caption">(\#fig:unnamed-chunk-3)This looks relatively linear, but....</p>
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-6-1.png" alt="This looks relatively linear, but...." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-6)This looks relatively linear, but....</p>
 </div>
 
 <br><br>
 
-### Residual vs fits plot for linearity
+and calculate the residuals.
 
-Instead, we plot at the *residuals* vs the fitted values, which often show a pattern much more clearly. If you're not sure what I mean by these words, go back and read from "what are residuals"
 
 
 ```r
@@ -119,84 +133,46 @@ ols_plot_resid_fit(tread_model)
 ```
 
 <div class="figure">
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-4-1.png" alt="A parabola would clearly fit the data better than a straight line" width="672" />
-<p class="caption">(\#fig:unnamed-chunk-4)A parabola would clearly fit the data better than a straight line</p>
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-7-1.png" alt="A parabola would clearly fit the data better than a straight line" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-7)A parabola would clearly fit the data better than a straight line</p>
 </div>
 
-Let's compare this residual plot to the strength/alcohol example from the section above (I include all the code for completeness). You can see in the treadwear data, the residuals depart from 0 in a very systematic manner. They are clearly positive for small x values, negative for medium x values, and positive again for large x values. Clearly, a non-linear model would better describe the relationship between the two variables. In future classes we will touch upon polynomial models that you might use to deal with this.
+Let's compare this residual plot to the strength/alcohol example from the section above (I include all the code for completeness). You can see in the treadwear data, the residuals depart from 0 in a very systematic manner. They are clearly positive for small x values, negative for medium x values, and positive again for large x values. 
 
+Clearly, a non-linear model would better describe the relationship between the two variables. 
 
-```r
-par(mfrow = c(2, 2))
-
-ggplot(alcoholdata, aes(x=alcohol, y=strength)) + 
-    geom_point() + 
-    xlab("Alcohol consumed") + ylab("Strength")+
-    geom_smooth(method=lm , color="red", se=FALSE) +
-    theme_ipsum()
-```
-
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-1.png" width="672" />
-
-```r
-alcohol_model <- lm(strength~alcohol,data=alcoholdata)
-ols_plot_resid_fit(alcohol_model)
-```
-
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-2.png" width="672" />
-
-```r
-ggplot(treadwear, aes(x=groove, y=mileage)) + 
-    geom_point() + 
-    xlab("Mileage walked") + ylab("Groove depth (mm)")+
-    geom_smooth(method=lm , color="red", se=FALSE) +
-    theme_ipsum()
-```
-
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-3.png" width="672" />
-
-```r
-tread_model <- lm(mileage~groove,data=treadwear)
-ols_plot_resid_fit(tread_model)
-```
-
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-4.png" width="672" />
 
 \*\*IF IT'S LINEAR, WE SHOULD SEE A GENERAL CLOUD OF POINTS WITH NO CLEAR PATTERN. IF IT'S NOT LINEAR, YOU MIGHT SEE A CURVE OR A PATTERN (or a dinosaur..)
 
 <br><br>
 
-## Checking Equal Variance/homoscadisity {#T10.Variance}
+</details>
+
+
+### Checking Equal Variance/homoscadisity {#T10.Variance}
 
 **Look at the cloud of points - they should stay roughly the same distance away either side of your line**
 
 ![](index_images/im_T10_variance.png){width="90%"}
 
-<br>
+We do this by looking at the residuals vs fits plot AND by looking at a significance test. 
 
-### Residual vs fits plots for equal variance checks
+<br><br>
+
+<details>
+
+<summary>[Expand to read more about how to do this]{style="color: #1388aa;"}</summary>
+
+
+#### Residual vs fits plots for equal variance checks
 
 This can also be hard to see in the raw scatterplot, so again we use the residual vs fits plot. Look for the dots "fanning out" or bow-tie shapes vs a random cloud.
 
 Heres how some data appears in the raw scatterplot and the residual fits plot.
 
-
-```r
-alphapluto <- read.table("alphapluto.txt",sep="\t",header=TRUE)
-
-# make a linear model
-alpha_model <- lm(alpha~pluto,data=alphapluto)
-
-# and make a plot, using ggplot this time
-ggplot(alphapluto, aes(x=pluto, y=alpha)) + 
-    geom_point() + 
-    xlab("alpha") + ylab("pluto")+
-    geom_smooth(method=lm , color="red", se=FALSE) 
-```
-
 <div class="figure">
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-6-1.png" alt="This data breaks equal variance" width="672" />
-<p class="caption">(\#fig:unnamed-chunk-6)This data breaks equal variance</p>
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-8-1.png" alt="This data breaks equal variance" width="672" />
+<p class="caption">(\#fig:unnamed-chunk-8)This data breaks equal variance</p>
 </div>
 
 
@@ -204,11 +180,11 @@ ggplot(alphapluto, aes(x=pluto, y=alpha)) +
 ols_plot_resid_fit(alpha_model)
 ```
 
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 You can clearly see here that for low values of the fitted data, there is not much variance - but there is a lot of variance as the data expands.
 
-### Statistical Tests for non-equal variance
+#### Statistical Tests for non-equal variance
 
 You can also run statistical tests, explained in more detail here: <https://rpubs.com/tskam/Session06>
 
@@ -238,14 +214,21 @@ ols_test_f(alpha_model)
 ##  Prob > F   =    0.0005808712
 ```
 
-**In this case, we can see that perhaps we DO need to worry about unequal variance.** (note, updated from a typo before where I used a different dataset - this is now correct) 
 
 There is a small probability of seeing this sample result if H0 is true and the underlying population has equal variance.  So I have enough evidence to reject H0 and suggest that maybe the underlying population does not have equal variance.
+
+**In this case, we can see that, similar to the plot, we need to worry about unequal variance.** (note, updated from a typo before where I used a different dataset - this is now correct) 
+
 
 
 <br><br>
 
-## Checking Normality {#T10.Normality}
+</details>
+
+
+
+
+### Checking Normality {#T10.Normality}
 
 **Again, we are testing whether the RESIDUALS are normal around the regression line**
 
@@ -256,6 +239,8 @@ To get the best estimates of parameters such as B0 and B1, the residuals must be
 Breaking normality is only important in the calculation of p values for significance testing and confidence intervals, but this is only a problem when the sample size is small. When the sample size is larger (\>200), the Central Limit Theorem ensures that the distribution of residuals will approximate normality when calculating parameters.
 
 So never throw away your data if it breaks normality. But it's good to take a look.
+
+
 
 First, read this to see how the different tests look: <https://online.stat.psu.edu/stat501/lesson/4/4.6>
 
@@ -268,7 +253,7 @@ plot(alcoholdata$alcohol,alcoholdata$strength,xlab="Alcohol",ylab="Strength",pch
 abline(mymodel)
 ```
 
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 To test normality, we can use OLSRR to:
 
@@ -278,14 +263,14 @@ To test normality, we can use OLSRR to:
 ols_plot_resid_qq(mymodel)
 ```
 
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
 ```r
 #Create a histogram of the residuals
 ols_plot_resid_hist(mymodel)
 ```
 
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-10-2.png" width="672" />
+<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-12-2.png" width="672" />
 
 ```r
 #Run a Wilks-Shapiro test for normality
@@ -309,276 +294,10 @@ There are several tests available, look at papers such as these to understand wh
 
 <br><br>
 
-## Testing for independence
+### Checking Independence
 
 To come in Lab 6
 
 <br><br>
 
-## Outliers
 
-### Key things to know
-
-There are three key things to know when it comes to outliers:
-
-#### An "outlier"  {.unnumbered}
-
-We use the word **outlier** to describe an observation (point on the scatterplot) that has a very different response from the predicted response from the model 
-
- - e.g. it does not follow the trend determined by the rest of the dataset. We consider it an outlier *only* if it is an extreme "y" value e.g. an extreme response.
- 
-<br><br>
- 
-#### A high leverage point  {.unnumbered}
-
-If a data point has an x-value that is extremely different (either too high or too low) from the rest of the data points, we call this a **high leverage** point.  
-
- - It might, or might not be an outlier.
- 
-<br><br>
- 
-#### An influential point  {.unnumbered}
-
-We call a data point an **influential point** if that data point has a considerable impact on the regression model.  It likely has an unusual X AND an unusual Y
-
- - For instance, if the model fit changes considerably by removing a point, such data point is called an influential point. Influential points tend to be further from the mean. We know the regression lines goes through the mean of x and the mean of y, they tent to tilt like a see-saw. 
-
-Both outliers and the leverage points can be influential depending on where they located in a scatterplot. We can easily see them using a fits vs residuals plot (we'll get to this below)
-
-For more details here, see <https://online.stat.psu.edu/stat501/lesson/11/11.1>
-
-<br>
-
-#### An important distinction! {.unnumbered}
-
-There is such an important distinction between a data point that has high leverage and one that has high influence that it is worth saying it one more time:
-
--   The leverage merely quantifies the potential for a data point to exert strong influence on the regression analysis.
--   The leverage depends only on the predictor values.
--   Whether the data point is influential or not also depends on the observed value of the reponse.
-
-
-<br><br>
-
-### Assessing outliers via visual inspection
-
-The first way we can check for simple linear regression is to plot the data and take a look. Here are some examples that we can assess by eye which show the different effects.
-
-<br>
-
-##### No outliers, influential or high leverage points {.unnumbered}
-
-<div class="figure">
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-11-1.png" alt="No outliers, influential values or high leverage points" width="672" />
-<p class="caption">(\#fig:unnamed-chunk-11)No outliers, influential values or high leverage points</p>
-</div>
-
-In the figure above, all of the data points follow the general trend of the rest of the data, so there are no outliers (in the y direction). And, none of the data points are extreme with respect to x, so there are no high leverage points. Overall, none of the data points would appear to be influential with respect to the location of the best fitting line. e.g. if we removed any one point, the line would probably be the same.
-
-<br>
-
-#### An outlier with no leverage {.unnumbered}
-
-<div class="figure">
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-12-1.png" alt="One outlier. The red-dashed line is the model including all the points. The black-solid line is the model with the red point removed " width="672" />
-<p class="caption">(\#fig:unnamed-chunk-12)One outlier. The red-dashed line is the model including all the points. The black-solid line is the model with the red point removed </p>
-</div>
-
-In the figure above, most of the data points follow the general trend of the rest of the data, but there is one clear outlier (one point that is unusual in the y direction). However, no point has an extreme x value, so there are no high leverage points. Overall, none of the data points would appear to be influential with respect to the location of the best fitting line. e.g.when we removed the red point,the line of best fit remains relatively stable.
-
-<br>
-
-#### A high leverage point that isn't an outlier {.unnumbered}
-
-<div class="figure">
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-13-1.png" alt="No outliers,but one high leverage point. The red-dashed line is the model including all the points. The black-solid line is the model with the red point removed" width="672" />
-<p class="caption">(\#fig:unnamed-chunk-13)No outliers,but one high leverage point. The red-dashed line is the model including all the points. The black-solid line is the model with the red point removed</p>
-</div>
-
-In the figure above, most of the data points follow the general trend of the rest of the data, so there are no outliers (in the y direction). But one data points is extreme with respect to x. Overall, none of the data points would appear to be influential with respect to the location of the best fitting line. e.g.when we removed the red point,the line of best fit remained relatively stable.
-
-<br>
-
-#### An influential high leverage outlier {.unnumbered}
-
-<div class="figure">
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-14-1.png" alt="One influential high leverage outlier. The red-dashed line is the model including all the points. The black-solid line is the model with the red point removed" width="672" />
-<p class="caption">(\#fig:unnamed-chunk-14)One influential high leverage outlier. The red-dashed line is the model including all the points. The black-solid line is the model with the red point removed</p>
-</div>
-
-In the figure above, most of the data points follow the general trend of the rest of the data, with one clear outlier. This point also has high leverage abd appears to be very influential. e.g.when we removed the red point,the line of best fit changes hugely,
-
-Here with a simple regression, we can easily see outliers. This is much harder when we have many predictors. So as well as examining the data by eye, we can use diagnostic plots.
-
-
-### Detecting outliers via plots
-
-In lab 5, we mentioned two measures that we use to help identify outliers. They are:
-
--   Residuals
--   Studentized residuals (or internally studentized residuals) (often called standardized residuals)
-
-First, briefly review these measures using this page: <https://online.stat.psu.edu/stat501/lesson/11/11.3>
-
-OLSRR also offers several more plots and tests including :
-
--   Cook's D Bar Plot
--   Cook's D Chart
--   DFBETAs Panel
--   DFFITs Plot
--   Studentized Residual Plot
--   Standardized Residual Chart
--   Studentized Residuals vs Leverage Plot
--   Deleted Studentized Residual vs Fitted Values Plot
--   Hadi Plot
--   Potential Residual Plot
-
-For now, we will focus on one of the most effective ways to assess residuals, the studentized residual/fits plot.
-
-For example for our test data:
-
-
-```r
-# read the data
-data <- read.csv("neither.csv")
-
-#calculate the model
-model <- lm(y~x,data=data)
-leverage <- ols_leverage(model) 
-
-# plot 1 (left hand side)
-plot(data$x,data$y,pch=16,xlab="x",ylab="y",main="Dataset C"); 
-abline(model)
-```
-
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-15-1.png" width="672" />
-
-```r
-# plot 2 (right hand side). Remember to choose your own ylim
-ols_plot_resid_stud(model)
-```
-
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-15-2.png" width="672" />
-
-There should be no absolute cut-off here (around 2-3 is a warning sign). Instead, take these as an opportunity to explore those points further. For example here is our plot with the residual:
-
-
-```r
-# read the data
-data1 <- read.csv("outlier.csv")
-
-#calculate the model
-model1 <- lm(y~x,data=data1)
-
-# plot 1 (left hand side)
-plot(data1$x,data1$y,pch=16,xlab="x",ylab="y",main="Dataset B"); 
-abline(model1)
-```
-
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-16-1.png" width="672" />
-
-```r
-# plot 2 (right hand side). Remember to choose your own ylim
-ols_plot_resid_stand(model1)
-```
-
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-16-2.png" width="672" />
-
-Here the plot is telling me that it thinks row 21 of the dataset might be an outlier
-
-
-```r
-data1[21,]
-```
-
-```
-##    x  y
-## 21 4 40
-```
-
-<br><br>
-
-### Detecting influential points 
-
-If a point is both an outlier AND has leverage, chances are it will be influential over the fit. OLSRR has a nice way of summarising both statistics. 
-
-For example here are our four plots together:
-
-
-```r
-# read the data
-data <- read.csv("neither.csv")
-data2 <- read.csv("outlier.csv")
-data2b <- data2[-21,]
-data3 <- read.csv("leverage.csv")
-data3b <- data3[-25,]
-data4 <- read.csv("influential.csv")
-data4b <- data4[-25,]
-
-#calculate the model
-model <- lm(y~x,data=data)
-model2 <- lm(y~x,data=data2)
-model3 <- lm(y~x,data=data3)
-model4 <- lm(y~x,data=data4)
-
-# Set up 4 sub-plots one next to each other
-layout(matrix(c(1,2,3,4), 2, 2, byrow = TRUE))
-
-plot(data$x,data$y,pch=16,xlab="x",ylab="y",main="Dataset A",col="black") 
-abline(model)
-
-plot(data2$x,data2$y,pch=16,xlab="x",ylab="y",main="Dataset B",col="red") 
-lines(data2b$x,data2b$y,pch=16,type="p")
-abline(model2)
-
-plot(data3$x,data3$y,pch=16,xlab="x",ylab="y",main="Dataset C",col="red") 
-lines(data3b$x,data3b$y,pch=16,type="p")
-abline(model3)
-
-plot(data4$x,data4$y,pch=16,xlab="x",ylab="y",main="Dataset D",col="red",ylim=c(0,100)) 
-lines(data4b$x,data4b$y,pch=16,type="p")
-abline(model4)
-```
-
-<div class="figure">
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-18-1.png" alt="Our four examples" width="672" />
-<p class="caption">(\#fig:unnamed-chunk-18)Our four examples</p>
-</div>
-
-and here are the OLSRR summary plots for each.  
-
- - On the x-axis, you can see how high the leverage is.  E.g. if it's on the left it's close to the mean x, if it's on the right it's far from the mean AKA it's high leverage
-
- - On the y-axis, you can see the normalised residual value AKA how big is the residual, but plotted in terms of standard deviations away from the mean of y.
- 
-Compare plots 1,2,3 and 4 with the scatterplots above. See if you can identify which is which.
- 
-
-
-```r
-# model A
-ols_plot_resid_lev(model)
-```
-
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-19-1.png" width="672" />
-
-```r
-# model B
-ols_plot_resid_lev(model2)
-```
-
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-19-2.png" width="672" />
-
-```r
-# model C
-ols_plot_resid_lev(model3)
-```
-
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-19-3.png" width="672" />
-
-```r
-# model D
-ols_plot_resid_lev(model4)
-```
-
-<img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-19-4.png" width="672" />

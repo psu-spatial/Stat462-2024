@@ -73,6 +73,8 @@
 <li><a class="active" href="T8_regression.html"><span class="header-section-number">8</span> Regression</a></li>
 <li><a class="" href="T9_wrangling.html"><span class="header-section-number">9</span> Data Wrangling</a></li>
 <li><a class="" href="T10_diagnostics.html"><span class="header-section-number">10</span> Assessing LINE</a></li>
+<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">11</span> Outliers, high leverage &amp; influential points</a></li>
+<li><a class="" href="confidence-and-prediction-intervals.html"><span class="header-section-number">12</span> Confidence and Prediction Intervals</a></li>
 </ul>
 
         <div class="book-extra">
@@ -174,14 +176,17 @@ Figure 8.1: See the asis in the top, this prints the output directly when you kn
 <span><span class="va">Model1.lm.ols</span></span></code></pre></div>
 <pre><code>##                           Model Summary                           
 ## -----------------------------------------------------------------
-## R                        0.011       RMSE                 41.832 
-## R-Squared                0.000       Coef. Var            36.813 
-## Adj. R-Squared          -0.019       MSE                1749.910 
-## Pred R-Squared          -0.068       MAE                  34.152 
+## R                        0.011       RMSE                 41.035 
+## R-Squared                0.000       MSE                1749.910 
+## Adj. R-Squared          -0.019       Coef. Var            36.813 
+## Pred R-Squared          -0.068       AIC                 550.137 
+## MAE                     34.152       SBC                 556.048 
 ## -----------------------------------------------------------------
 ##  RMSE: Root Mean Square Error 
 ##  MSE: Mean Square Error 
 ##  MAE: Mean Absolute Error 
+##  AIC: Akaike Information Criteria 
+##  SBC: Schwarz Bayesian Criteria 
 ## 
 ##                                ANOVA                                 
 ## --------------------------------------------------------------------
@@ -246,7 +251,7 @@ Figure 8.1: See the asis in the top, this prints the output directly when you kn
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-29.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
