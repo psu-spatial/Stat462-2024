@@ -262,10 +262,10 @@ bass <- read_excel("BassNew.xlsx")
 
 -   Make a histogram of the response variable and use any method you see fit to assess its normality. Describe your findings in the text.
 
--   Use the ggcorrmat command from the ggcorrplot package to make a correlation matrix of your bass data: <br>
+-   Use the ggcorrmat command from the ggstatsplot package to make a correlation matrix of your bass data: <br>
 
-    -   Install the ggcorplot package (Tutorial 2: <https://psu-spatial.github.io/Stat462-2024/T2_Libraries.html#the-app-storegetting-new-packages>) <br>
-    -   Add library(ggcorplot) to your library code chunk <br>
+    -   Install the ggstatsplot package (Tutorial 2: <https://psu-spatial.github.io/Stat462-2024/T2_Libraries.html#the-app-storegetting-new-packages>) <br>
+    -   Add library(ggstatsplot) to your library code chunk <br>
     -   Then at the appropriate place in your report, include <br>
 
 ```{r, eval=FALSE}
@@ -297,7 +297,7 @@ olsrr::ols_plot_resid_lev(model1)
 
 -   In the text, describe the scatter-plot (e.g. strength, association, outliers etc)
 
--   The Mayor doesn't know regression. Clearly interpret the estimated model parameters (slope & intercept)/model summary-statistics in the the context of the problem, in a way that would be understandable to a policy maker. <br>
+-   The Mayor doesn't understand statistics very well. Clearly interpret the estimated model parameters (slope & intercept)/model summary-statistics in the the context of the problem, in a way that would be understandable to a policy maker. <br>
 
     -   By this I mean explain what the slope/intercept means in terms of fish and florida lakes, highlighting if a parameter is nonsensical (for example, knowing the weight of someone with zero height is not useful). <br>
 
@@ -358,11 +358,11 @@ which(tablename$columnname == max(tablename$columnname, na.rm=TRUE))
 
 ### **[Step 3.7]** Outlier question {.unnumbered}
 
--   Another analyst looked at the scatterplot and suggested that they thought there might be three or four Lakes which appear to be either Influential, or close-to-influential outliers.
+-   Another analyst looked at the scatterplot and suggested that they thought there might be three or four Lakes which appear to be either Influential, or close-to-influential outliers. If there is an outlier, then the mayor would want to send people to examine the lakes to make sure that there is nothing weird going on (which is expensive and time consuming)
 
 -   In your analysis, use Cook's distance to identify the names of lakes the analysts are worried about.
 
--   In the text explain if you agree with their comment. Explain your reasoning and point the reader to evidence in your R output.
+-   In the text explain if you agree with the comment by the analysts. Explain your reasoning and point the reader to evidence in your R output.
 
 <br><br>
 
@@ -370,7 +370,7 @@ which(tablename$columnname == max(tablename$columnname, na.rm=TRUE))
 
 Linearity appears to be the biggest problem - we are going to see if we can use a transformation to fit the data. We will cover these in next week's lecture
 
--   To do this, we will take the log transformation of our predictor, lake_alkalinity, and save it as a new columm. Get this running in the code:
+-   To do this, we will take the log transformation of our predictor, lake_alkalinity, and save it as a new column. Full tutorial in Tutorial 13, but for now - get this running in the code:
 
 ```{r}
 bass$Log_Alkalinity <- log(bass$lake_alkalinity)
@@ -406,13 +406,13 @@ Make a new sub-heading called "Model skill" to make it easy for me to find these
 
 1.  Out of model 1 and model 2, discuss which model in your opinion best fits the LINE assumptions, referring to your code output above.
 
-NOTE - QUESTION 2 WAS INCLUDED IN ERROR (LEFT OVER FROM OLD DATASET) AND HAS BEEN REMOVED.
+NOTE - QUESTION 3.9 part 2 WAS INCLUDED IN ERROR (LEFT OVER FROM AN OLD DATASET) AND HAS BEEN REMOVED.
 
 <br>
 
 3.  Out of model 1 and model 2, which model explains the most variability in fish-mercury-content across the lakes?
 
-    -   *Provide evidence to justify your answer, including the relevant statisticfor each model from your model summaries.*
+    -   *Provide evidence to justify your answer, including the relevant statistic for each model from your model summaries.*
 
     <br>
 
@@ -424,7 +424,7 @@ NOTE - QUESTION 2 WAS INCLUDED IN ERROR (LEFT OVER FROM OLD DATASET) AND HAS BEE
 
 ### **[Step 3.10]** Prediction - SEE TUTORIAL 12 (NEW) {.unnumbered}
 
-Make a new subsection called `Prediction`
+Make a new subsection called `Prediction` and read Tutorial 12: <https://psu-spatial.github.io/Stat462-2024/confidence-and-prediction-intervals.html>
 
 The Governor recently had a question from a member if the public who went fishing in a new lake that was not part of the study.
 
@@ -437,13 +437,15 @@ Should they eat the fish? Explain your answer and show your evidence for how you
 
 ### **[Step 3.11]** More complex - worth 3%. {.unnumbered}
 
-Make a new subsection called `Bonus`
+Make a new subsection called `Bonus.`
 
-*This question is designed to be more difficult and realistic. I will answer points of clarification, but I will not help anyone work through it before the labs are submitted. However I will award partial marks for workings and how far you get*
+**The Florida Health Advisory level for Mercury levels in Fish is 1** $\mu g$ **of Mercury. The Governor has accepted your model and is requiring state-wide alkalinity tests.**
 
-The Florida Health Advisory level for Mercury levels in Fish is 1 $\mu g$ of Mercury. The Governor has accepted your model and is requiring state-wide alkalinity tests.
+**Using your new model, what is your recommended "safety cut-off" value of alkalinity for new lakes? You would like to be 95% sure that you aren't just seeing this result by chance. Provide evidence/code showing how you got to your answer**
 
-Using your new model, what is your recommended "safety cut-off" value of alkalinity for new lakes? You would like to be 95% sure that you aren't just seeing this result by chance. Provide evidence/code showing how you got to your answer
+*This question is designed to be more difficult and realistic. I will answer points of clarification, but I will not help anyone work through it before the labs are submitted. However I will award partial marks for workings and how far you get.* *It is based on thinking about confidence and prediction intervals and as a hint, think about confidence and prediction intervals like this:*
+
+[![*Confidence and prediction intervals from the STAT online text book*](images/regress_mort_lat_PICI.png){width="50%"}](https://online.stat.psu.edu/stat501/lesson/3/3.3)
 
 <br><br>
 

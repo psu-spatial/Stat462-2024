@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 13 Transformations | STAT462 Lab Book 2024</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="We will talk in the class (or read here! https://online.stat.psu.edu/stat501/lesson/9 ) about why to apply transformations. Here I will simply show you how. We simply make a new column and use...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Chapter 13 Transformations | STAT462 Lab Book 2024">
+<meta property="og:type" content="book">
+<meta property="og:description" content="We will talk in the class (or read here! https://online.stat.psu.edu/stat501/lesson/9 ) about why to apply transformations. Here I will simply show you how. We simply make a new column and use...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 13 Transformations | STAT462 Lab Book 2024">
+<meta name="twitter:description" content="We will talk in the class (or read here! https://online.stat.psu.edu/stat501/lesson/9 ) about why to apply transformations. Here I will simply show you how. We simply make a new column and use...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">STAT462 Lab Book 2024</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to STAT-462!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="Lab_1.html">Lab 1</a></li>
+<li><a class="" href="Lab_2.html">Lab 2</a></li>
+<li><a class="" href="Lab_3.html">Lab 3</a></li>
+<li><a class="" href="Lab_4.html">Lab 4</a></li>
+<li><a class="" href="Lab_5.html">Lab 5A</a></li>
+<li><a class="" href="Lab_5B.html">Lab 5B</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">4</span> Reading in data</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">5</span> Probability distributions</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">6</span> Plots</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">7</span> Correlation</a></li>
+<li><a class="" href="T8_regression.html"><span class="header-section-number">8</span> Regression</a></li>
+<li><a class="" href="T9_wrangling.html"><span class="header-section-number">9</span> Data Wrangling</a></li>
+<li><a class="" href="T10_diagnostics.html"><span class="header-section-number">10</span> Assessing LINE</a></li>
+<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">11</span> Outliers, high leverage &amp; influential points</a></li>
+<li><a class="" href="confidence-and-prediction-intervals.html"><span class="header-section-number">12</span> Confidence and Prediction Intervals</a></li>
+<li><a class="active" href="S.Tutorial_Transformations.html"><span class="header-section-number">13</span> Transformations</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="S.Tutorial_Transformations" class="section level1" number="13">
+<h1>
+<span class="header-section-number">13</span> Transformations<a class="anchor" aria-label="anchor" href="#S.Tutorial_Transformations"><i class="fas fa-link"></i></a>
+</h1>
+<p>We will talk in the class (or read here! <a href="https://online.stat.psu.edu/stat501/lesson/9" class="uri">https://online.stat.psu.edu/stat501/lesson/9</a> ) about <em>why</em> to apply transformations. Here I will simply show you how.</p>
+<p>We simply make a new column and use maths to fill in the value.</p>
+<p>For example. Here is some data.</p>
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># read the data</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"neither.csv"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##         x       y
+## 1 10.2564 16.4663
+## 2  3.0769  4.9279
+## 3 15.1282 26.4663
+## 4 27.4359 30.3125
+## 5 12.0513 13.7740
+## 6 23.0769 13.7740</code></pre>
+<p>To make a column with <span class="math inline">\(\frac{1}{x}\)</span> as the predictor, I would use the $ to create a new column a and on the other side of the arrow, take the fraction.</p>
+<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Note I am trying to avoid spaces  or special characters in my data</span></span>
+<span><span class="va">data</span><span class="op">$</span><span class="va">transform_1overx</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">/</span><span class="va">data</span><span class="op">$</span><span class="va">x</span></span></code></pre></div>
+<p>To make a column with <span class="math inline">\(x^2\)</span> as the predictor, we do</p>
+<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Note I am trying to avoid spaces  or special characters in my data</span></span>
+<span><span class="va">data</span><span class="op">$</span><span class="va">transform_xsquare</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">x</span><span class="op">^</span><span class="fl">2</span></span></code></pre></div>
+<p>To make a column with <span class="math inline">\(\log(x)\)</span> as the predictor, we do (this is the NATURAL LOG)</p>
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Note I am trying to avoid spaces  or special characters in my data</span></span>
+<span><span class="va">data</span><span class="op">$</span><span class="va">transform_lnx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<p>To make a column with <span class="math inline">\(\log_{10}(x)\)</span> as the predictor, we do</p>
+<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Note I am trying to avoid spaces  or special characters in my data</span></span>
+<span><span class="va">data</span><span class="op">$</span><span class="va">transform_logx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">x</span>,base<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
+<p>To make a column with <span class="math inline">\(\sqrt{x}\)</span> as the predictor, we do</p>
+<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Note I am trying to avoid spaces  or special characters in my data</span></span>
+<span><span class="va">data</span><span class="op">$</span><span class="va">transform_sqrtx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<p>And let’s see the output</p>
+<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##         x       y transform_1overx transform_xsquare transform_lnx
+## 1 10.2564 16.4663       0.09750010        105.193741      2.327902
+## 2  3.0769  4.9279       0.32500244          9.467314      1.123923
+## 3 15.1282 26.4663       0.06610172        228.862435      2.716561
+## 4 27.4359 30.3125       0.03644859        752.728609      3.311852
+## 5 12.0513 13.7740       0.08297860        145.233832      2.489173
+## 6 23.0769 13.7740       0.04333338        532.543314      3.138832
+##   transform_logx transform_sqrtx
+## 1      1.0109950        3.202561
+## 2      0.4881134        1.754109
+## 3      1.1797873        3.889499
+## 4      1.4383192        5.237929
+## 5      1.0810339        3.471498
+## 6      1.3631775        4.803842</code></pre>
+<p>We could now perform our linear regression with any of these as our predictor. For example</p>
+<div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">newmodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="va">transform_sqrtx</span>,data<span class="op">=</span><span class="va">data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">y</span><span class="op">~</span><span class="va">data</span><span class="op">$</span><span class="va">transform_sqrtx</span>,xlab<span class="op">=</span><span class="st">"Sqrt(x) UNITS"</span>,ylab<span class="op">=</span><span class="st">"y UNITS"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="in_04-Tutorial13_Transformations_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
+<p>You don’t <em>have</em> to make a new column in advance, you can do the maths within the regression itself:</p>
+<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">newmodel2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,data<span class="op">=</span><span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># For Polynomial regression you can use the poly command e.g. X+X^2 </span></span>
+<span></span>
+<span><span class="va">newmodel3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/poly.html">poly</a></span><span class="op">(</span><span class="va">x</span>,<span class="fl">2</span><span class="op">)</span>,data<span class="op">=</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">newmodel3</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ poly(x, 2), data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -20.945  -6.344   1.280   6.887  15.652 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   56.823      1.936  29.352  &lt; 2e-16 ***
+## poly(x, 2)1  144.687     10.244  14.124 2.03e-13 ***
+## poly(x, 2)2   -7.937     10.244  -0.775    0.446    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 10.24 on 25 degrees of freedom
+## Multiple R-squared:  0.8889, Adjusted R-squared:  0.8801 
+## F-statistic:   100 on 2 and 25 DF,  p-value: 1.174e-12</code></pre>
+<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">equatiomatic</span><span class="fu">::</span><span class="fu"><a href="https://datalorax.github.io/equatiomatic/reference/extract_eq.html">extract_eq</a></span><span class="op">(</span><span class="va">newmodel3</span><span class="op">)</span></span></code></pre></div>
+<p><span class="math display">\[
+\operatorname{y} = \alpha + \beta_{1}(\operatorname{x}) + \beta_{2}(\operatorname{x^2}) + \epsilon
+\]</span></p>
+
+</div>
+
+
+
+
+
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="confidence-and-prediction-intervals.html"><span class="header-section-number">12</span> Confidence and Prediction Intervals</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#S.Tutorial_Transformations"><span class="header-section-number">13</span> Transformations</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-01.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

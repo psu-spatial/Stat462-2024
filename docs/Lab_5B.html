@@ -75,6 +75,7 @@
 <li><a class="" href="T10_diagnostics.html"><span class="header-section-number">10</span> Assessing LINE</a></li>
 <li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">11</span> Outliers, high leverage &amp; influential points</a></li>
 <li><a class="" href="confidence-and-prediction-intervals.html"><span class="header-section-number">12</span> Confidence and Prediction Intervals</a></li>
+<li><a class="" href="S.Tutorial_Transformations.html"><span class="header-section-number">13</span> Transformations</a></li>
 </ul>
 
         <div class="book-extra">
@@ -343,11 +344,11 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 <li><p>Below the code, in the text describe how much data is available, any missing data and any other interesting features. If you already did this above, just refer to what you did.</p></li>
 <li><p>Make a histogram of the response variable and use any method you see fit to assess its normality. Describe your findings in the text.</p></li>
 <li>
-<p>Use the ggcorrmat command from the ggcorrplot package to make a correlation matrix of your bass data: <br></p>
+<p>Use the ggcorrmat command from the ggstatsplot package to make a correlation matrix of your bass data: <br></p>
 <ul>
-<li>Install the ggcorplot package (Tutorial 2: <a href="https://psu-spatial.github.io/Stat462-2024/T2_Libraries.html#the-app-storegetting-new-packages" class="uri">https://psu-spatial.github.io/Stat462-2024/T2_Libraries.html#the-app-storegetting-new-packages</a>) <br>
+<li>Install the ggstatsplot package (Tutorial 2: <a href="https://psu-spatial.github.io/Stat462-2024/T2_Libraries.html#the-app-storegetting-new-packages" class="uri">https://psu-spatial.github.io/Stat462-2024/T2_Libraries.html#the-app-storegetting-new-packages</a>) <br>
 </li>
-<li>Add library(ggcorplot) to your library code chunk <br>
+<li>Add library(ggstatsplot) to your library code chunk <br>
 </li>
 <li>Then at the appropriate place in your report, include <br>
 </li>
@@ -372,7 +373,7 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 <li><p>In the text below the model, formally write out the linear model equation, including the numeric coefficients.</p></li>
 <li><p>In the text, describe the scatter-plot (e.g. strength, association, outliers etc)</p></li>
 <li>
-<p>The Mayor doesn’t know regression. Clearly interpret the estimated model parameters (slope &amp; intercept)/model summary-statistics in the the context of the problem, in a way that would be understandable to a policy maker. <br></p>
+<p>The Mayor doesn’t understand statistics very well. Clearly interpret the estimated model parameters (slope &amp; intercept)/model summary-statistics in the the context of the problem, in a way that would be understandable to a policy maker. <br></p>
 <ul>
 <li>By this I mean explain what the slope/intercept means in terms of fish and florida lakes, highlighting if a parameter is nonsensical (for example, knowing the weight of someone with zero height is not useful). <br>
 </li>
@@ -440,9 +441,9 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 <strong>[Step 3.7]</strong> Outlier question<a class="anchor" aria-label="anchor" href="#step-3.7-outlier-question"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li><p>Another analyst looked at the scatterplot and suggested that they thought there might be three or four Lakes which appear to be either Influential, or close-to-influential outliers.</p></li>
+<li><p>Another analyst looked at the scatterplot and suggested that they thought there might be three or four Lakes which appear to be either Influential, or close-to-influential outliers. If there is an outlier, then the mayor would want to send people to examine the lakes to make sure that there is nothing weird going on (which is expensive and time consuming)</p></li>
 <li><p>In your analysis, use Cook’s distance to identify the names of lakes the analysts are worried about.</p></li>
-<li><p>In the text explain if you agree with their comment. Explain your reasoning and point the reader to evidence in your R output.</p></li>
+<li><p>In the text explain if you agree with the comment by the analysts. Explain your reasoning and point the reader to evidence in your R output.</p></li>
 </ul>
 <p><br><br></p>
 </div>
@@ -452,7 +453,7 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 </h3>
 <p>Linearity appears to be the biggest problem - we are going to see if we can use a transformation to fit the data. We will cover these in next week’s lecture</p>
 <ul>
-<li>To do this, we will take the log transformation of our predictor, lake_alkalinity, and save it as a new columm. Get this running in the code:</li>
+<li>To do this, we will take the log transformation of our predictor, lake_alkalinity, and save it as a new column. Full tutorial in Tutorial 13, but for now - get this running in the code:</li>
 </ul>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bass</span><span class="op">$</span><span class="va">Log_Alkalinity</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">bass</span><span class="op">$</span><span class="va">lake_alkalinity</span><span class="op">)</span></span></code></pre></div>
@@ -474,13 +475,13 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 <ol style="list-style-type: decimal">
 <li>Out of model 1 and model 2, discuss which model in your opinion best fits the LINE assumptions, referring to your code output above.</li>
 </ol>
-<p>NOTE - QUESTION 2 WAS INCLUDED IN ERROR (LEFT OVER FROM OLD DATASET) AND HAS BEEN REMOVED.</p>
+<p>NOTE - QUESTION 3.9 part 2 WAS INCLUDED IN ERROR (LEFT OVER FROM AN OLD DATASET) AND HAS BEEN REMOVED.</p>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
 <li>
 <p>Out of model 1 and model 2, which model explains the most variability in fish-mercury-content across the lakes?</p>
 <ul>
-<li><em>Provide evidence to justify your answer, including the relevant statisticfor each model from your model summaries.</em></li>
+<li><em>Provide evidence to justify your answer, including the relevant statistic for each model from your model summaries.</em></li>
 </ul>
 <p><br></p>
 </li>
@@ -497,7 +498,7 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 <h3>
 <strong>[Step 3.10]</strong> Prediction - SEE TUTORIAL 12 (NEW)<a class="anchor" aria-label="anchor" href="#step-3.10-prediction---see-tutorial-12-new"><i class="fas fa-link"></i></a>
 </h3>
-<p>Make a new subsection called <code>Prediction</code></p>
+<p>Make a new subsection called <code>Prediction</code> and read Tutorial 12: <a href="https://psu-spatial.github.io/Stat462-2024/confidence-and-prediction-intervals.html" class="uri">https://psu-spatial.github.io/Stat462-2024/confidence-and-prediction-intervals.html</a></p>
 <p>The Governor recently had a question from a member if the public who went fishing in a new lake that was not part of the study.</p>
 <ul>
 <li>We know the alkalinity level of that lake was 40mg/L.</li>
@@ -510,10 +511,11 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 <h3>
 <strong>[Step 3.11]</strong> More complex - worth 3%.<a class="anchor" aria-label="anchor" href="#step-3.11-more-complex---worth-3."><i class="fas fa-link"></i></a>
 </h3>
-<p>Make a new subsection called <code>Bonus</code></p>
-<p><em>This question is designed to be more difficult and realistic. I will answer points of clarification, but I will not help anyone work through it before the labs are submitted. However I will award partial marks for workings and how far you get</em></p>
-<p>The Florida Health Advisory level for Mercury levels in Fish is 1 <span class="math inline">\(\mu g\)</span> of Mercury. The Governor has accepted your model and is requiring state-wide alkalinity tests.</p>
-<p>Using your new model, what is your recommended “safety cut-off” value of alkalinity for new lakes? You would like to be 95% sure that you aren’t just seeing this result by chance. Provide evidence/code showing how you got to your answer</p>
+<p>Make a new subsection called <code>Bonus.</code></p>
+<p><strong>The Florida Health Advisory level for Mercury levels in Fish is 1</strong> <span class="math inline">\(\mu g\)</span> <strong>of Mercury. The Governor has accepted your model and is requiring state-wide alkalinity tests.</strong></p>
+<p><strong>Using your new model, what is your recommended “safety cut-off” value of alkalinity for new lakes? You would like to be 95% sure that you aren’t just seeing this result by chance. Provide evidence/code showing how you got to your answer</strong></p>
+<p><em>This question is designed to be more difficult and realistic. I will answer points of clarification, but I will not help anyone work through it before the labs are submitted. However I will award partial marks for workings and how far you get.</em> <em>It is based on thinking about confidence and prediction intervals and as a hint, think about confidence and prediction intervals like this:</em></p>
+<p><a href="https://online.stat.psu.edu/stat501/lesson/3/3.3"><img src="images/regress_mort_lat_PICI.png" style="width:50.0%" alt="Confidence and prediction intervals from the STAT online text book"></a></p>
 <p><br><br></p>
 <hr>
 </div>
@@ -603,7 +605,7 @@ CHECK THAT THIS IS WHAT YOU WANT TO SUBMIT.</p></li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-03-30.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

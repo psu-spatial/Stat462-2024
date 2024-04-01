@@ -166,3 +166,4 @@ confidence-and-prediction-intervals
 what-are-they-1
 calculating-a-confidence-interval
 calculating-a-prediction-interval
+S.Tutorial_Transformations

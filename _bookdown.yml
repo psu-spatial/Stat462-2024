@@ -36,5 +36,6 @@ rmd_files:
     "in_04-Tutorial10_Diagnostics.Rmd",
     "in_04-Tutorial11_Outliers.Rmd",
     "in_04-Tutorial12_ConfPred.Rmd",
+    "in_04-Tutorial13_Transformations.Rmd",
 
   ]
