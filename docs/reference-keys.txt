@@ -166,4 +166,7 @@ confidence-and-prediction-intervals
 what-are-they-1
 calculating-a-confidence-interval
 calculating-a-prediction-interval
+help-my-code-doesnt-work
+predictormodel-name-spelt-wrong
+your-original-lm-command
 S.Tutorial_Transformations

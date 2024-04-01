@@ -392,14 +392,33 @@ NOTE - QUESTION 3.9 part 2 WAS INCLUDED IN ERROR (LEFT OVER FROM AN OLD DATASET)
 
 ### **[Step 3.10]** Prediction - SEE TUTORIAL 12 (NEW) {.unnumbered}
 
-Make a new subsection called `Prediction` and read Tutorial 12: <https://psu-spatial.github.io/Stat462-2024/confidence-and-prediction-intervals.html>
+Read Tutorial 12: <https://psu-spatial.github.io/Stat462-2024/confidence-and-prediction-intervals.html>
 
-The Governor recently had a question from a member if the public who went fishing in a new lake that was not part of the study.
+Make a new subsection called `Prediction`. The mayor recently had a question from a member if the public who went fishing in a new lake that was not part of the study.
 
 -   We know the alkalinity level of that lake was 40mg/L.
 -   The member of the public wants to be 99% sure that they won't exceed the Florida Health Advisory level for Mercury levels in Fish, which is 1 $\mu g$ of Mercury.
 
-Should they eat the fish? Explain your answer and show your evidence for how you came to your conclusion. You should decide the best model to use in getting to your answer.
+Should they eat the fish? **You should decide the best model to use in getting to your answer.**
+
+Explain your answer and show your evidence for how you came to your conclusion.
+
+PROBLEM SOLVING - IF YOU GOT MANY ROWS IN YOUR OUTPUT OR THE OUTPUT LOOKS STRANGE, GO BACK AND CHECK THAT YOUR LINEAR MODEL CODE IS
+
+
+```r
+lm(YColumn ~ XColumn, data=mytable)
+```
+
+NOT
+
+
+```r
+# THIS WILL BREAK THE PREDICT COMMAND LATER ON
+lm(mytable$YColumn ~ mytable$XColumn, data=mytable)
+```
+
+See the end of Tutorial 12 for more details.
 
 <br><br>
 
@@ -407,11 +426,13 @@ Should they eat the fish? Explain your answer and show your evidence for how you
 
 Make a new subsection called `Bonus.`
 
-**The Florida Health Advisory level for Mercury levels in Fish is 1** $\mu g$ **of Mercury. The Governor has accepted your model and is requiring state-wide alkalinity tests.**
+**The Florida Health Advisory level for Mercury levels in Fish is 1** $\mu g$ **of Mercury. The nayor has accepted your model and is requiring state-wide alkalinity tests.**
 
 **Using your new model, what is your recommended "safety cut-off" value of alkalinity for new lakes? You would like to be 95% sure that you aren't just seeing this result by chance. Provide evidence/code showing how you got to your answer**
 
-*This question is designed to be more difficult and realistic. I will answer points of clarification, but I will not help anyone work through it before the labs are submitted. However I will award partial marks for workings and how far you get.* *It is based on thinking about confidence and prediction intervals and as a hint, think about confidence and prediction intervals like this:*
+*This question is designed to be more difficult and realistic. I will answer points of clarification, but I will not help anyone work through it before the labs are submitted. However I will award partial marks for workings and how far you get.*
+
+*It is based on thinking about confidence and prediction intervals and as a hint, think about confidence and prediction intervals graphically on your scatterplot.*
 
 [![*Confidence and prediction intervals from the STAT online text book*](images/regress_mort_lat_PICI.png){width="50%"}](https://online.stat.psu.edu/stat501/lesson/3/3.3)
 

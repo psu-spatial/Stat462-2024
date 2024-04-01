@@ -25,8 +25,6 @@ data("pirates", package = "yarrr")
 
 ```
 
-
-
 # Confidence and Prediction Intervals
 
 ## What are they?
@@ -84,7 +82,8 @@ We are 95% certain that on average, the AVERAGE weight of pirates who are 170cm 
 **A new pirate joins and her height is 160cm. What range of weights is she likely to have? with a significance level of 99%**
 
 ```{r}
-# So we have the MODEL
+# So we have the model
+# MAKE SURE THAT YOU ONLY MENTION THE TABLE-NAME AT THE END
 lm.pirate <- lm(weight~height,data=pirates)
 
 
@@ -100,5 +99,37 @@ predict(lm.pirate,newdata=new.pirates,interval="predict",level=0.99)
 
 Given our model, her weight is likely to be somewhere between 51.27 Kg and 71.56 Kg with 99% certainty.
 
+## HELP! MY CODE DOESN'T WORK
 
+### Predictor/model name spelt wrong
 
+If you don't spell your column name EXACTLY (case sensitive) the same as the predictor in your model, the code will break. Here I put HEIGHT not height for my new predictor:
+
+```{r,error=TRUE}
+# THIS WILL LOOK FINE BUT BREAK PREDICT.
+# ONLY MENTION THE WORD PIRATES AFTER THE DATA BIT
+lm.pirate <- lm(weight~height,data=pirates)
+
+new.pirates <- data.frame(HEIGHT=c(160))
+predict(lm.pirate,newdata=new.pirates,interval="predict",level=0.99)
+
+```
+
+### Your original lm command 
+
+The `predict` command is fussy and depends on your original `lm` command being exactly correct, where you only type the name of the data.table once at the end. If you type it at each stage, then the model doesn't understand it all comes from one table, which means that predict will run, but give the wrong answer.
+
+For example
+
+```{r}
+# this is correct
+# lm_correct <- lm(weight~height,data=pirates)
+
+# If you add the data name at each step, the predict behaves wrongly
+# THIS WILL WORK FINE INITIALY BUT CAUSE ISSUES FOR PREDICT
+lm_WRONG <- lm(pirates$weight~pirates$height,data=pirates)
+
+new.pirates <- data.frame(height=c(160))
+predict(lm_WRONG,newdata=new.pirates,interval="predict",level=0.99)
+
+```

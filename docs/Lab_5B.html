@@ -498,13 +498,22 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 <h3>
 <strong>[Step 3.10]</strong> Prediction - SEE TUTORIAL 12 (NEW)<a class="anchor" aria-label="anchor" href="#step-3.10-prediction---see-tutorial-12-new"><i class="fas fa-link"></i></a>
 </h3>
-<p>Make a new subsection called <code>Prediction</code> and read Tutorial 12: <a href="https://psu-spatial.github.io/Stat462-2024/confidence-and-prediction-intervals.html" class="uri">https://psu-spatial.github.io/Stat462-2024/confidence-and-prediction-intervals.html</a></p>
-<p>The Governor recently had a question from a member if the public who went fishing in a new lake that was not part of the study.</p>
+<p>Read Tutorial 12: <a href="https://psu-spatial.github.io/Stat462-2024/confidence-and-prediction-intervals.html" class="uri">https://psu-spatial.github.io/Stat462-2024/confidence-and-prediction-intervals.html</a></p>
+<p>Make a new subsection called <code>Prediction</code>. The mayor recently had a question from a member if the public who went fishing in a new lake that was not part of the study.</p>
 <ul>
 <li>We know the alkalinity level of that lake was 40mg/L.</li>
 <li>The member of the public wants to be 99% sure that they won’t exceed the Florida Health Advisory level for Mercury levels in Fish, which is 1 <span class="math inline">\(\mu g\)</span> of Mercury.</li>
 </ul>
-<p>Should they eat the fish? Explain your answer and show your evidence for how you came to your conclusion. You should decide the best model to use in getting to your answer.</p>
+<p>Should they eat the fish? <strong>You should decide the best model to use in getting to your answer.</strong></p>
+<p>Explain your answer and show your evidence for how you came to your conclusion.</p>
+<p>PROBLEM SOLVING - IF YOU GOT MANY ROWS IN YOUR OUTPUT OR THE OUTPUT LOOKS STRANGE, GO BACK AND CHECK THAT YOUR LINEAR MODEL CODE IS</p>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">YColumn</span> <span class="op">~</span> <span class="va">XColumn</span>, data<span class="op">=</span><span class="va">mytable</span><span class="op">)</span></span></code></pre></div>
+<p>NOT</p>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># THIS WILL BREAK THE PREDICT COMMAND LATER ON</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mytable</span><span class="op">$</span><span class="va">YColumn</span> <span class="op">~</span> <span class="va">mytable</span><span class="op">$</span><span class="va">XColumn</span>, data<span class="op">=</span><span class="va">mytable</span><span class="op">)</span></span></code></pre></div>
+<p>See the end of Tutorial 12 for more details.</p>
 <p><br><br></p>
 </div>
 <div id="step-3.11-more-complex---worth-3." class="section level3 unnumbered">
@@ -512,9 +521,10 @@ Figure 0.1: a. (Left): The mercury food chain in fish.(Wikimedia commons, Bretwo
 <strong>[Step 3.11]</strong> More complex - worth 3%.<a class="anchor" aria-label="anchor" href="#step-3.11-more-complex---worth-3."><i class="fas fa-link"></i></a>
 </h3>
 <p>Make a new subsection called <code>Bonus.</code></p>
-<p><strong>The Florida Health Advisory level for Mercury levels in Fish is 1</strong> <span class="math inline">\(\mu g\)</span> <strong>of Mercury. The Governor has accepted your model and is requiring state-wide alkalinity tests.</strong></p>
+<p><strong>The Florida Health Advisory level for Mercury levels in Fish is 1</strong> <span class="math inline">\(\mu g\)</span> <strong>of Mercury. The nayor has accepted your model and is requiring state-wide alkalinity tests.</strong></p>
 <p><strong>Using your new model, what is your recommended “safety cut-off” value of alkalinity for new lakes? You would like to be 95% sure that you aren’t just seeing this result by chance. Provide evidence/code showing how you got to your answer</strong></p>
-<p><em>This question is designed to be more difficult and realistic. I will answer points of clarification, but I will not help anyone work through it before the labs are submitted. However I will award partial marks for workings and how far you get.</em> <em>It is based on thinking about confidence and prediction intervals and as a hint, think about confidence and prediction intervals like this:</em></p>
+<p><em>This question is designed to be more difficult and realistic. I will answer points of clarification, but I will not help anyone work through it before the labs are submitted. However I will award partial marks for workings and how far you get.</em></p>
+<p><em>It is based on thinking about confidence and prediction intervals and as a hint, think about confidence and prediction intervals graphically on your scatterplot.</em></p>
 <p><a href="https://online.stat.psu.edu/stat501/lesson/3/3.3"><img src="images/regress_mort_lat_PICI.png" style="width:50.0%" alt="Confidence and prediction intervals from the STAT online text book"></a></p>
 <p><br><br></p>
 <hr>

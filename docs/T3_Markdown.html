@@ -249,14 +249,14 @@
 <span class="header-section-number">3.4.3.2</span> Using it<a class="anchor" aria-label="anchor" href="#using-it"><i class="fas fa-link"></i></a>
 </h4>
 <p>Equatiomatic allows us to extract an equation from any linear model using <code>extract_eq()</code>. For example, let’s create a linear model:</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">)</span></span>
 <span><span class="va">mymodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mass</span><span class="op">~</span><span class="va">height</span>,data<span class="op">=</span><span class="va">starwars</span><span class="op">)</span></span></code></pre></div>
 <p>Then extract_eq allows you to see the LateX version of the equation.</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">extract_eq</span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
 <p>If you run it in the console, the command returns the LaTeX code you need to add it into the text yourself. If you want to use the actual numbers, simply turn on use_coefs=TRUE.</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">extract_eq</span><span class="op">(</span><span class="va">mymodel</span>, use_coefs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Let’s say our data is a sample, not the population, then we want to use lower case names for our sample statistics (b0 &amp; b1).</p>
 <p>There is no easy way to do this in the command, so I run the command in the console, then copy the command over to the TEXT part of the report as an equation and change the betas to ’b’s.</p>
