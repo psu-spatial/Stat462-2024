@@ -22,6 +22,14 @@ b.-the-ggstatplot-r-scatterplot-ggscatterstats.
 need-help
 need-help-1
 need-help-2
+lab-6
+need-help-3
+simple-linear-tutorial-week-1
+step-3.1-weight-loss-challenge---read-this
+step-3.2-the-great-hair-challenge
+step-3.3-the-milkshake-challenge
+step-3.4-model-comparison
+logistic-regression-to-be-released-in-week-2
 T1_Projects
 T1_ProjectsCloud
 T1_ProjectsDesktop

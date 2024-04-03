@@ -269,7 +269,7 @@ ggplotly(myplot)
 
 It's also very easy to add in color to see another variable. For example, here I also add in the lot size.
 
-```{r}
+```{r, eval=FALSE}
 # create the plot, save it as "p" rather than print immediately
 myplot2 <-   ggplot(HousesNY, aes(x=Beds, y=Price,color=Lot)) + 
                geom_point(alpha=.5) +
