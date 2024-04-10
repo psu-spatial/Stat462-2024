@@ -1,6 +1,6 @@
 
 
-# Lab 6
+# Lab 6 {.unnumbered}
 
 ## Aim {.unnumbered}
 
@@ -15,7 +15,7 @@ This is a TWO WEEK LAB (e.g. 3 weeks total). You need to finish writing up by Tu
 
 <br>
 
-### Need help?
+### Need help? {.unnumbered}
 
 REMEMBER THAT EVERY TIME YOU RE-OPEN R-STUDIO YOU NEED TO RE-RUN **ALL** YOUR CODE CHUNKS. The easiest way to do this is to press the "Run All" button (see the Run menu at the top right of your script)
 
@@ -36,7 +36,7 @@ install_github("rsquaredacademy/olsrr")
 # When you run this, it will ask if you want to update your other packages in the console.  Type 2 (e.g. just update CRAN packages) into the console and press enter.
 ```
 
-![](images/Screenshot 2024-04-03 at 3.14.00 PM.png){width="50%"}
+![](images/Screenshot%202024-04-03%20at%203.14.00%20PM.png){width="50%"}
 
 Press 2, then enter in the console.
 
@@ -70,11 +70,11 @@ Press 2, then enter in the console.
 
 ------------------------------------------------------------------------
 
-## 3. Simple Linear Tutorial (week 1)
+## 3. Simple Linear Tutorial (week 1) {.unnumbered}
 
 We have now reached the end of simple linear regression and as we tend to do the same things over and over again, and I want you to make yourself a reference guide similar to Question 4 in homework 6. To get you fast feedback, I am going to grade this using a canvas quiz! (keep reading)
 
-### **[Step 3.1]** Weight loss challenge - READ THIS!
+### **[Step 3.1]** Weight loss challenge - READ THIS! {.unnumbered}
 
 *You just need to read the text for this step.*
 
@@ -92,7 +92,7 @@ To help decide what to do, I managed to find some prior research:
 
 <br>
 
-### **[Step 3.2]** The Great Hair Challenge
+### **[Step 3.2]** The Great Hair Challenge {.unnumbered}
 
 In your write-up template, I have provided you with all the code needed to conduct a linear regression analysis.
 
@@ -104,7 +104,7 @@ In your write-up template, I have provided you with all the code needed to condu
 
 <br>
 
-### **[Step 3.3]** The Milkshake Challenge
+### **[Step 3.3]** The Milkshake Challenge {.unnumbered}
 
 -   Copy the code bundle a second time into the appropriate spot in your write up.
 
@@ -114,7 +114,7 @@ In your write-up template, I have provided you with all the code needed to condu
 
 <br>
 
-### **[Step 3.4]** Model comparison
+### **[Step 3.4]** Model comparison {.unnumbered}
 
 You will see a final set of questions. Answer them as fully as possible.
 
@@ -122,13 +122,15 @@ You will see a final set of questions. Answer them as fully as possible.
 
 ------------------------------------------------------------------------
 
-## 4. Logistic Regression (to be released in week 2)
+## 4. Logistic Regression TUTORIAL RELEASED) {.unnumbered}
 
 We are now moving onto the case where your response variable isn't numeric continuous.
 
+[https://psu-spatial.github.io/Stat462-2024/S.Tutorial_GLM.html](https://psu-spatial.github.io/Stat462-2024/S.Tutorial_Transformations.html){.uri}
+
 With the objective of understanding more about spiders, a researcher has collected data on sand grain size on 28 beaches in Japan and observed the presence or absence of the burrowing wolf spider on each beach. The resulting data is held in your spider dataset
 
-Use Tutorial 14 (to be uploaded) and the online tutorial (<https://online.stat.psu.edu/stat501/lesson/13/13.2>) and next week's lecture notes to create a model and answer the questions.
+Use Tutorial 14 (NOW UPLOADED) and the online tutorial (<https://online.stat.psu.edu/stat501/lesson/13/13.2>) and this week's lecture notes to create a model and answer the questions.
 
 <br><br>
 

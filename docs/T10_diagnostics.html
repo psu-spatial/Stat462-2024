@@ -4,24 +4,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 11 Assessing LINE | STAT462 Lab Book 2024</title>
+<title>Chapter 10 Assessing LINE | STAT462 Lab Book 2024</title>
 <meta name="author" content="Dr Helen Greatrex">
 <meta name="description" content="We know from the lectures that there are multiple assumptions underpinning whether a regression is a good model or not - especially LINE assumptions (as described in Online STAT-462 - Lesson 4)....">
-<meta name="generator" content="bookdown 0.35 with bs4_book()">
-<meta property="og:title" content="Chapter 11 Assessing LINE | STAT462 Lab Book 2024">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Chapter 10 Assessing LINE | STAT462 Lab Book 2024">
 <meta property="og:type" content="book">
 <meta property="og:description" content="We know from the lectures that there are multiple assumptions underpinning whether a regression is a good model or not - especially LINE assumptions (as described in Online STAT-462 - Lesson 4)....">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 11 Assessing LINE | STAT462 Lab Book 2024">
+<meta name="twitter:title" content="Chapter 10 Assessing LINE | STAT462 Lab Book 2024">
 <meta name="twitter:description" content="We know from the lectures that there are multiple assumptions underpinning whether a regression is a good model or not - especially LINE assumptions (as described in Online STAT-462 - Lesson 4)....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.7.0/transition.js"></script><script src="libs/bs3compat-0.7.0/tabs.js"></script><script src="libs/bs3compat-0.7.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
-<link href="libs/htmltools-fill-0.5.8/fill.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.2/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -62,22 +61,23 @@
 <li><a class="" href="Lab_4.html">Lab 4</a></li>
 <li><a class="" href="Lab_5.html">Lab 5A</a></li>
 <li><a class="" href="Lab_5B.html">Lab 5B</a></li>
-<li><a class="" href="lab-6.html"><span class="header-section-number">1</span> Lab 6</a></li>
+<li><a class="" href="lab-6.html">Lab 6</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
-<li><a class="" href="T1_Projects.html"><span class="header-section-number">2</span> Projects/Starting a lab</a></li>
-<li><a class="" href="T2_Libraries.html"><span class="header-section-number">3</span> Libraries/Packages</a></li>
-<li><a class="" href="T3_Markdown.html"><span class="header-section-number">4</span> R-Markdown</a></li>
-<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">5</span> Reading in data</a></li>
-<li><a class="" href="probability-distributions.html"><span class="header-section-number">6</span> Probability distributions</a></li>
-<li><a class="" href="T6_plots.html"><span class="header-section-number">7</span> Plots</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">8</span> Correlation</a></li>
-<li><a class="" href="T8_regression.html"><span class="header-section-number">9</span> Regression</a></li>
-<li><a class="" href="T9_wrangling.html"><span class="header-section-number">10</span> Data Wrangling</a></li>
-<li><a class="active" href="T10_diagnostics.html"><span class="header-section-number">11</span> Assessing LINE</a></li>
-<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">12</span> Outliers, high leverage &amp; influential points</a></li>
-<li><a class="" href="confidence-and-prediction-intervals.html"><span class="header-section-number">13</span> Confidence and Prediction Intervals</a></li>
-<li><a class="" href="S.Tutorial_Transformations.html"><span class="header-section-number">14</span> Transformations</a></li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">4</span> Reading in data</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">5</span> Probability distributions</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">6</span> Plots</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">7</span> Correlation</a></li>
+<li><a class="" href="T8_regression.html"><span class="header-section-number">8</span> Regression</a></li>
+<li><a class="" href="T9_wrangling.html"><span class="header-section-number">9</span> Data Wrangling</a></li>
+<li><a class="active" href="T10_diagnostics.html"><span class="header-section-number">10</span> Assessing LINE</a></li>
+<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">11</span> Outliers, high leverage &amp; influential points</a></li>
+<li><a class="" href="confidence-and-prediction-intervals.html"><span class="header-section-number">12</span> Confidence and Prediction Intervals</a></li>
+<li><a class="" href="S.Tutorial_Transformations.html"><span class="header-section-number">13</span> Transformations</a></li>
+<li><a class="" href="S.Tutorial_GLM.html"><span class="header-section-number">14</span> GLM - Logistic Regression</a></li>
 </ul>
 
         <div class="book-extra">
@@ -85,15 +85,15 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="T10_diagnostics" class="section level1" number="11">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="T10_diagnostics" class="section level1" number="10">
 <h1>
-<span class="header-section-number">11</span> Assessing LINE<a class="anchor" aria-label="anchor" href="#T10_diagnostics"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10</span> Assessing LINE<a class="anchor" aria-label="anchor" href="#T10_diagnostics"><i class="fas fa-link"></i></a>
 </h1>
 <p>We know from the lectures that there are multiple assumptions underpinning whether a regression is a good model or not - especially LINE assumptions (as described in <a href="https://online.stat.psu.edu/stat501/lesson/4/">Online STAT-462 - Lesson 4</a>). Regression diagnostics are a set of tools we can use to assess these assumptions. All the example datasets are from the online textbook and can be downloaded there.</p>
 <p><br><br></p>
-<div id="T10_basics" class="section level2" number="11.1">
+<div id="T10_basics" class="section level2" number="10.1">
 <h2>
-<span class="header-section-number">11.1</span> Basic code<a class="anchor" aria-label="anchor" href="#T10_basics"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1</span> Basic code<a class="anchor" aria-label="anchor" href="#T10_basics"><i class="fas fa-link"></i></a>
 </h2>
 <p>It can be difficult looking at the raw data to assess whether many of the assumptions are true or not. So in this case we can look at residual plots.</p>
 <div class="inline-figure"><img src="index_images/im_T10_residualplot.png" style="width:80.0%"></div>
@@ -104,9 +104,9 @@
 <li><p>or <a href="https://www.displayr.com/learn-what-are-residuals/" class="uri">https://www.displayr.com/learn-what-are-residuals/</a></p></li>
 </ul>
 <p><br><br></p>
-<div id="adding-a-new-column-with-the-residuals" class="section level3" number="11.1.1">
+<div id="adding-a-new-column-with-the-residuals" class="section level3" number="10.1.1">
 <h3>
-<span class="header-section-number">11.1.1</span> Adding a new column with the residuals<a class="anchor" aria-label="anchor" href="#adding-a-new-column-with-the-residuals"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.1</span> Adding a new column with the residuals<a class="anchor" aria-label="anchor" href="#adding-a-new-column-with-the-residuals"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can add a new column with the residuals.</p>
 <details><summary><span style="color: #1388aa;">Expand for more details</span>
@@ -132,9 +132,9 @@
 <p><br><br></p>
 </details>
 </div>
-<div id="code-for-plotting-the-residuals" class="section level3" number="11.1.2">
+<div id="code-for-plotting-the-residuals" class="section level3" number="10.1.2">
 <h3>
-<span class="header-section-number">11.1.2</span> Code for plotting the residuals<a class="anchor" aria-label="anchor" href="#code-for-plotting-the-residuals"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.2</span> Code for plotting the residuals<a class="anchor" aria-label="anchor" href="#code-for-plotting-the-residuals"><i class="fas fa-link"></i></a>
 </h3>
 <p>Instead, we plot at the <em>residuals</em> vs the fitted values, which often show a pattern much more clearly. If you’re not sure what I mean by these words, go back and read from “what are residuals”</p>
 <p>The code to do this is pretty simple from the olsrr package. If this is the scatterplot:</p>
@@ -150,13 +150,13 @@
 <p><br><br></p>
 </div>
 </div>
-<div id="checking-line" class="section level2" number="11.2">
+<div id="checking-line" class="section level2" number="10.2">
 <h2>
-<span class="header-section-number">11.2</span> Checking LINE<a class="anchor" aria-label="anchor" href="#checking-line"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2</span> Checking LINE<a class="anchor" aria-label="anchor" href="#checking-line"><i class="fas fa-link"></i></a>
 </h2>
-<div id="T10.Linearity" class="section level3" number="11.2.1">
+<div id="T10.Linearity" class="section level3" number="10.2.1">
 <h3>
-<span class="header-section-number">11.2.1</span> Checking Linearity<a class="anchor" aria-label="anchor" href="#T10.Linearity"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.1</span> Checking Linearity<a class="anchor" aria-label="anchor" href="#T10.Linearity"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>THE AIM HERE IS TO SEE IF A CURVE (or pattern) WOULD FIT THE DATA BETTER THAN A LINE. JUST RANDOM POINTS IS OK, A CURVE/DINOSAUR IS BAD.</strong></p>
 <div class="inline-figure"><img src="index_images/im_T10_linearity.png" style="width:90.0%"></div>
@@ -168,7 +168,7 @@
 <div class="figure">
 <span style="display:block;" id="fig:unnamed-chunk-6"></span>
 <img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-6-1.png" alt="This looks relatively linear, but...." width="672"><p class="caption">
-Figure 11.1: This looks relatively linear, but….
+Figure 10.1: This looks relatively linear, but….
 </p>
 </div>
 <p><br><br></p>
@@ -179,7 +179,7 @@ Figure 11.1: This looks relatively linear, but….
 <div class="figure">
 <span style="display:block;" id="fig:unnamed-chunk-7"></span>
 <img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-7-1.png" alt="A parabola would clearly fit the data better than a straight line" width="672"><p class="caption">
-Figure 11.2: A parabola would clearly fit the data better than a straight line
+Figure 10.2: A parabola would clearly fit the data better than a straight line
 </p>
 </div>
 <p>Let’s compare this residual plot to the strength/alcohol example from the section above (I include all the code for completeness). You can see in the treadwear data, the residuals depart from 0 in a very systematic manner. They are clearly positive for small x values, negative for medium x values, and positive again for large x values.</p>
@@ -188,25 +188,25 @@ Figure 11.2: A parabola would clearly fit the data better than a straight line
 <p><br><br></p>
 </details>
 </div>
-<div id="T10.Variance" class="section level3" number="11.2.2">
+<div id="T10.Variance" class="section level3" number="10.2.2">
 <h3>
-<span class="header-section-number">11.2.2</span> Checking Equal Variance/homoscadisity<a class="anchor" aria-label="anchor" href="#T10.Variance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.2</span> Checking Equal Variance/homoscadisity<a class="anchor" aria-label="anchor" href="#T10.Variance"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Look at the cloud of points - they should stay roughly the same distance away either side of your line</strong></p>
 <div class="inline-figure"><img src="index_images/im_T10_variance.png" style="width:90.0%"></div>
 <p>We do this by looking at the residuals vs fits plot AND by looking at a significance test.</p>
 <p><br><br></p>
 <details><summary><span style="color: #1388aa;">Expand to read more about how to do this</span>
-</summary><div id="residual-vs-fits-plots-for-equal-variance-checks" class="section level4" number="11.2.2.1">
+</summary><div id="residual-vs-fits-plots-for-equal-variance-checks" class="section level4" number="10.2.2.1">
 <h4>
-<span class="header-section-number">11.2.2.1</span> Residual vs fits plots for equal variance checks<a class="anchor" aria-label="anchor" href="#residual-vs-fits-plots-for-equal-variance-checks"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.2.1</span> Residual vs fits plots for equal variance checks<a class="anchor" aria-label="anchor" href="#residual-vs-fits-plots-for-equal-variance-checks"><i class="fas fa-link"></i></a>
 </h4>
 <p>This can also be hard to see in the raw scatterplot, so again we use the residual vs fits plot. Look for the dots “fanning out” or bow-tie shapes vs a random cloud.</p>
 <p>Heres how some data appears in the raw scatterplot and the residual fits plot.</p>
 <div class="figure">
 <span style="display:block;" id="fig:unnamed-chunk-8"></span>
 <img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-8-1.png" alt="This data breaks equal variance" width="672"><p class="caption">
-Figure 11.3: This data breaks equal variance
+Figure 10.3: This data breaks equal variance
 </p>
 </div>
 <div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
@@ -214,9 +214,9 @@ Figure 11.3: This data breaks equal variance
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
 <p>You can clearly see here that for low values of the fitted data, there is not much variance - but there is a lot of variance as the data expands.</p>
 </div>
-<div id="statistical-tests-for-non-equal-variance" class="section level4" number="11.2.2.2">
+<div id="statistical-tests-for-non-equal-variance" class="section level4" number="10.2.2.2">
 <h4>
-<span class="header-section-number">11.2.2.2</span> Statistical Tests for non-equal variance<a class="anchor" aria-label="anchor" href="#statistical-tests-for-non-equal-variance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.2.2</span> Statistical Tests for non-equal variance<a class="anchor" aria-label="anchor" href="#statistical-tests-for-non-equal-variance"><i class="fas fa-link"></i></a>
 </h4>
 <p>You can also run statistical tests, explained in more detail here: <a href="https://rpubs.com/tskam/Session06" class="uri">https://rpubs.com/tskam/Session06</a></p>
 <p>For example, this is the heteroskadisity F-Test. There is also another test available, the Breusch Pagan Test - but this relies on the residuals being normally distributed.</p>
@@ -244,9 +244,9 @@ Figure 11.3: This data breaks equal variance
 </div>
 </details>
 </div>
-<div id="T10.Normality" class="section level3" number="11.2.3">
+<div id="T10.Normality" class="section level3" number="10.2.3">
 <h3>
-<span class="header-section-number">11.2.3</span> Checking Normality<a class="anchor" aria-label="anchor" href="#T10.Normality"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.3</span> Checking Normality<a class="anchor" aria-label="anchor" href="#T10.Normality"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Again, we are testing whether the RESIDUALS are normal around the regression line</strong></p>
 <div class="inline-figure"><img src="index_images/im_T10_Normality.png" style="width:90.0%"></div>
@@ -284,9 +284,9 @@ Figure 11.3: This data breaks equal variance
 <p>There are several tests available, look at papers such as these to understand why and which is best - <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3693611/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3693611/</a></p>
 <p><br><br></p>
 </div>
-<div id="checking-independence" class="section level3" number="11.2.4">
+<div id="checking-independence" class="section level3" number="10.2.4">
 <h3>
-<span class="header-section-number">11.2.4</span> Checking Independence<a class="anchor" aria-label="anchor" href="#checking-independence"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.4</span> Checking Independence<a class="anchor" aria-label="anchor" href="#checking-independence"><i class="fas fa-link"></i></a>
 </h3>
 <p>To come in Lab 6</p>
 <p><br><br></p>
@@ -295,24 +295,24 @@ Figure 11.3: This data breaks equal variance
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="T9_wrangling.html"><span class="header-section-number">10</span> Data Wrangling</a></div>
-<div class="next"><a href="outliers-high-leverage-influential-points.html"><span class="header-section-number">12</span> Outliers, high leverage &amp; influential points</a></div>
+<div class="prev"><a href="T9_wrangling.html"><span class="header-section-number">9</span> Data Wrangling</a></div>
+<div class="next"><a href="outliers-high-leverage-influential-points.html"><span class="header-section-number">11</span> Outliers, high leverage &amp; influential points</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#T10_diagnostics"><span class="header-section-number">11</span> Assessing LINE</a></li>
+<li><a class="nav-link" href="#T10_diagnostics"><span class="header-section-number">10</span> Assessing LINE</a></li>
 <li>
-<a class="nav-link" href="#T10_basics"><span class="header-section-number">11.1</span> Basic code</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#adding-a-new-column-with-the-residuals"><span class="header-section-number">11.1.1</span> Adding a new column with the residuals</a></li>
-<li><a class="nav-link" href="#code-for-plotting-the-residuals"><span class="header-section-number">11.1.2</span> Code for plotting the residuals</a></li>
+<a class="nav-link" href="#T10_basics"><span class="header-section-number">10.1</span> Basic code</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#adding-a-new-column-with-the-residuals"><span class="header-section-number">10.1.1</span> Adding a new column with the residuals</a></li>
+<li><a class="nav-link" href="#code-for-plotting-the-residuals"><span class="header-section-number">10.1.2</span> Code for plotting the residuals</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#checking-line"><span class="header-section-number">11.2</span> Checking LINE</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#T10.Linearity"><span class="header-section-number">11.2.1</span> Checking Linearity</a></li>
-<li><a class="nav-link" href="#T10.Variance"><span class="header-section-number">11.2.2</span> Checking Equal Variance/homoscadisity</a></li>
-<li><a class="nav-link" href="#T10.Normality"><span class="header-section-number">11.2.3</span> Checking Normality</a></li>
-<li><a class="nav-link" href="#checking-independence"><span class="header-section-number">11.2.4</span> Checking Independence</a></li>
+<a class="nav-link" href="#checking-line"><span class="header-section-number">10.2</span> Checking LINE</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#T10.Linearity"><span class="header-section-number">10.2.1</span> Checking Linearity</a></li>
+<li><a class="nav-link" href="#T10.Variance"><span class="header-section-number">10.2.2</span> Checking Equal Variance/homoscadisity</a></li>
+<li><a class="nav-link" href="#T10.Normality"><span class="header-section-number">10.2.3</span> Checking Normality</a></li>
+<li><a class="nav-link" href="#checking-independence"><span class="header-section-number">10.2.4</span> Checking Independence</a></li>
 </ul>
 </li>
 </ul>
@@ -331,7 +331,7 @@ Figure 11.3: This data breaks equal variance
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-03.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
