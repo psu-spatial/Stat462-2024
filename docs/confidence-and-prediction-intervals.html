@@ -62,6 +62,7 @@
 <li><a class="" href="Lab_5.html">Lab 5A</a></li>
 <li><a class="" href="Lab_5B.html">Lab 5B</a></li>
 <li><a class="" href="lab-6.html">Lab 6</a></li>
+<li><a class="" href="lab-6-1.html">Lab 6</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
@@ -104,7 +105,7 @@
 <li><a href="https://online.stat.psu.edu/stat462/node/128/" class="uri">https://online.stat.psu.edu/stat462/node/128/</a></li>
 </ul>
 <p>In R, lets look at the pirate dataset</p>
-<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#For our pirate weight/height dataset</span></span>
 <span><span class="va">lm.pirate</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">weight</span><span class="op">~</span><span class="va">height</span>,data<span class="op">=</span><span class="va">pirates</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm.pirate</span><span class="op">)</span></span></code></pre></div>
@@ -133,7 +134,7 @@
 <span class="header-section-number">12.2</span> Calculating a confidence interval<a class="anchor" aria-label="anchor" href="#calculating-a-confidence-interval"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>What are the AVERAGE WEIGHTS (and uncertainty on our estimate) of pirates whose heights are 150cm and 170cm?</strong></p>
-<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># So we have the MODEL</span></span>
 <span><span class="va">lm.pirate</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">weight</span><span class="op">~</span><span class="va">height</span>,data<span class="op">=</span><span class="va">pirates</span><span class="op">)</span></span>
 <span></span>
@@ -157,7 +158,7 @@
 <span class="header-section-number">12.3</span> Calculating a prediction interval<a class="anchor" aria-label="anchor" href="#calculating-a-prediction-interval"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>A new pirate joins and her height is 160cm. What range of weights is she likely to have? with a significance level of 99%</strong></p>
-<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># So we have the model</span></span>
 <span><span class="co"># MAKE SURE THAT YOU ONLY MENTION THE TABLE-NAME AT THE END</span></span>
 <span><span class="va">lm.pirate</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">weight</span><span class="op">~</span><span class="va">height</span>,data<span class="op">=</span><span class="va">pirates</span><span class="op">)</span></span>
@@ -183,7 +184,7 @@
 <span class="header-section-number">12.4.1</span> Predictor/model name spelt wrong<a class="anchor" aria-label="anchor" href="#predictormodel-name-spelt-wrong"><i class="fas fa-link"></i></a>
 </h3>
 <p>If you don’t spell your column name EXACTLY (case sensitive) the same as the predictor in your model, the code will break. Here I put HEIGHT not height for my new predictor:</p>
-<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># THIS WILL LOOK FINE BUT BREAK PREDICT.</span></span>
 <span><span class="co"># ONLY MENTION THE WORD PIRATES AFTER THE DATA BIT</span></span>
 <span><span class="va">lm.pirate</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">weight</span><span class="op">~</span><span class="va">height</span>,data<span class="op">=</span><span class="va">pirates</span><span class="op">)</span></span>
@@ -198,7 +199,7 @@
 </h3>
 <p>The <code>predict</code> command is fussy and depends on your original <code>lm</code> command being exactly correct, where you only type the name of the data.table once at the end. If you type it at each stage, then the model doesn’t understand it all comes from one table, which means that predict will run, but give the wrong answer.</p>
 <p>For example</p>
-<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># this is correct</span></span>
 <span><span class="co"># lm_correct &lt;- lm(weight~height,data=pirates)</span></span>
 <span></span>
@@ -1245,7 +1246,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-10.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

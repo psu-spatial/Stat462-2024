@@ -1,6 +1,5 @@
 
 
-
 # Correlation
 
 ## Basics
@@ -18,9 +17,44 @@ cor(HousesNY$Price,HousesNY$Beds)
 
 To see the correlation between ALL columns we can make a "correlation matrix"
 
-## Covariance/Correlation matrix plots 
+Importantly, remember this website - <https://www.tylervigen.com/spurious-correlations>. Just because another variable is correlated with our response does not mean it HAS to be in the model. It simply means that you might want to consider whether there is a reason for that correlation.
 
-Looking at correlations is a quick (but often misleading) way to assess what is happening. Essentially we can look at the correlation between each column of data.
+Also, the correlation is a measure of the LINEAR relationship between two values... All of these scatterplots have the same correlation! (meet the datasaurus)
+
+![](https://media.licdn.com/dms/image/D5612AQHYc0oDHJNE1g/article-inline_image-shrink_400_744/0/1689928057943?e=2147483647&v=beta&t=d6XaMDTpBJyujV1N088xPBIJJNSZdKUJedFclvCQyqQ){width="82%"}
+
+As you can see better in this gif
+
+![](https://miro.medium.com/v2/resize:fit:1400/1*uzVmvgn7I-t9x5MTByQg_A.gif){width="70%"}
+
+## Covariance/Correlation matrix plots
+
+Looking at correlations is a quick (but often misleading) way to assess what is happening. Essentially we can look at the correlation between each column of data. You can simply look at the correlations of any NUMERIC columns using the corrplot code.
+
+
+```r
+library(corrplot)
+
+# Filter to a new data frame with only numeric columns
+house.numeric.columns <- HousesNY[ , sapply(HousesNY,is.numeric)]
+corrplot(cor(house.numeric.columns),method="ellipse",type="lower")
+```
+
+<img src="in_04-Tutorial7_Correlation_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+
+Another one is in the ggstatsplot package - <https://indrajeetpatil.github.io/ggstatsplot/articles/web_only/ggcorrmat.html> many more examples here.
+
+
+```r
+library(ggstatsplot)
+ggcorrmat(HousesNY)
+```
+
+<img src="in_04-Tutorial7_Correlation_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+
+There are LOADS of other ways to run correlation plots here: <https://www.r-graph-gallery.com/correlogram.html> Feel free to choose a favourite.
+
+For example, GGALLY does this with its ggpairs command. But it doesn't like working on large datasets.
 
 
 ```r
@@ -37,24 +71,6 @@ colnames(HousesNY)
 ggpairs(HousesNY[,c("Price","Beds" ,"Baths","Size" , "Lot"   )])
 ```
 
-<img src="in_04-Tutorial7_Correlation_files/figure-html/unnamed-chunk-2-1.png" width="672" />
-
-You can simply look at the correlations of any NUMERIC columns using the corrplot code.
-
-
-```r
-library(corrplot)
-house.numeric.columns <- HousesNY[ , sapply(HousesNY,is.numeric)]
-
-corrplot(cor(house.numeric.columns),method="ellipse",type="lower")
-```
-
-<img src="in_04-Tutorial7_Correlation_files/figure-html/unnamed-chunk-3-1.png" width="672" />
-
-There are LOADS of other ways to run correlation plots here: https://www.r-graph-gallery.com/correlogram.html Feel free to choose a favourite.
-
-Importantly, remember back to this website - https://www.tylervigen.com/spurious-correlations. Just because another variable is correlated with our response does not mean it HAS to be in the model. It simply means that you might want to consider whether there is a reason for that correlation.
+<img src="in_04-Tutorial7_Correlation_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 <br> <br>
-
-

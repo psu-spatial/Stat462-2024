@@ -62,6 +62,7 @@
 <li><a class="" href="Lab_5.html">Lab 5A</a></li>
 <li><a class="" href="Lab_5B.html">Lab 5B</a></li>
 <li><a class="" href="lab-6.html">Lab 6</a></li>
+<li><a class="" href="lab-6-1.html">Lab 6</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
@@ -112,7 +113,7 @@
 <details><summary><span style="color: #1388aa;">Expand for more details</span>
 </summary><p>Imagine you are interested in determining whether or not alcohol consumption was linearly related to muscle strength. You measured the total lifetime consumption of alcohol (x) on a random sample of n = 50 alcoholic men. They also measured the strength (y) of the deltoid muscle in each person’s left arm, then created a linear model to forecast strength.</p>
 <p>The predicted value is the y-value at the line for each point, strength is the actual measured strength and residual is the difference between the two.</p>
-<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">alcoholdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"alcoholstrength.csv"</span><span class="op">)</span></span>
 <span><span class="va">mymodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">strength</span><span class="op">~</span><span class="va">alcohol</span>,data<span class="op">=</span><span class="va">alcoholdata</span><span class="op">)</span></span>
 <span></span>
@@ -140,11 +141,11 @@
 <p>The code to do this is pretty simple from the olsrr package. If this is the scatterplot:</p>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
 <p>Here are the raw residuals</p>
-<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_fit.html">ols_plot_resid_fit</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
 <p>and here are the residuals, but this time they are normalised (e.g. the residuals are in “standard deviations away from the mean”).</p>
-<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_stud_fit.html">ols_plot_resid_stud_fit</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
 <p><br><br></p>
@@ -173,7 +174,7 @@ Figure 10.1: This looks relatively linear, but….
 </div>
 <p><br><br></p>
 <p>and calculate the residuals.</p>
-<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># using the olsrr package</span></span>
 <span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_fit.html">ols_plot_resid_fit</a></span><span class="op">(</span><span class="va">tread_model</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
@@ -209,7 +210,7 @@ Figure 10.2: A parabola would clearly fit the data better than a straight line
 Figure 10.3: This data breaks equal variance
 </p>
 </div>
-<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_fit.html">ols_plot_resid_fit</a></span><span class="op">(</span><span class="va">alpha_model</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
 <p>You can clearly see here that for low values of the fitted data, there is not much variance - but there is a lot of variance as the data expands.</p>
@@ -220,7 +221,7 @@ Figure 10.3: This data breaks equal variance
 </h4>
 <p>You can also run statistical tests, explained in more detail here: <a href="https://rpubs.com/tskam/Session06" class="uri">https://rpubs.com/tskam/Session06</a></p>
 <p>For example, this is the heteroskadisity F-Test. There is also another test available, the Breusch Pagan Test - but this relies on the residuals being normally distributed.</p>
-<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># F test - assumes residuals are  independent and identically distributed (i.i.d.)</span></span>
 <span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_test_f.html">ols_test_f</a></span><span class="op">(</span><span class="va">alpha_model</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
@@ -255,21 +256,21 @@ Figure 10.3: This data breaks equal variance
 <p>So never throw away your data if it breaks normality. But it’s good to take a look.</p>
 <p>First, read this to see how the different tests look: <a href="https://online.stat.psu.edu/stat501/lesson/4/4.6" class="uri">https://online.stat.psu.edu/stat501/lesson/4/4.6</a></p>
 <p>Let’s go back to our original test data:</p>
-<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mymodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">strength</span><span class="op">~</span><span class="va">alcohol</span>,data<span class="op">=</span><span class="va">alcoholdata</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">alcoholdata</span><span class="op">$</span><span class="va">alcohol</span>,<span class="va">alcoholdata</span><span class="op">$</span><span class="va">strength</span>,xlab<span class="op">=</span><span class="st">"Alcohol"</span>,ylab<span class="op">=</span><span class="st">"Strength"</span>,pch<span class="op">=</span><span class="fl">16</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
 <p>To test normality, we can use OLSRR to:</p>
-<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#Create a QQ plot of the residuals</span></span>
 <span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_qq.html">ols_plot_resid_qq</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-12-1.png" width="672"></div>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#Create a histogram of the residuals</span></span>
 <span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_plot_resid_hist.html">ols_plot_resid_hist</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial10_Diagnostics_files/figure-html/unnamed-chunk-12-2.png" width="672"></div>
-<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#Run a Wilks-Shapiro test for normality</span></span>
 <span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_test_normality.html">ols_test_normality</a></span><span class="op">(</span><span class="va">mymodel</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## -----------------------------------------------
@@ -331,7 +332,7 @@ Figure 10.3: This data breaks equal variance
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-10.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
