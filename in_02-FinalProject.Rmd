@@ -22,7 +22,7 @@ library("plotly")    # Interactive plots
 library("readxl")    # Read from excel files
 ```
 
-# Lab 6 {.unnumbered}
+# Final Project {.unnumbered}
 
 ## Aim {.unnumbered}
 

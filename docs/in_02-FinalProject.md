@@ -1,6 +1,6 @@
 
 
-# Lab 6 {.unnumbered}
+# Final Project {.unnumbered}
 
 ## Aim {.unnumbered}
 
