@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>HELP! | STAT462 Lab Book 2024</title>
+<title>Chapter 17 Finding the “optimal model” | STAT462 Lab Book 2024</title>
 <meta name="author" content="Dr Helen Greatrex">
-<meta name="description" content="If you are stuck, you have a few options: If your report won’t knit, first try the suggestions below in My Report won’t knit! You can submit your issue, with screenshots and an explanation of the...">
+<meta name="description" content="17.1 Best subsets There are many models/combinations of predictors that we could use to predict our response variable. We want to find the best model possible, but we also don't want to overfit....">
 <meta name="generator" content="bookdown 0.37 with bs4_book()">
-<meta property="og:title" content="HELP! | STAT462 Lab Book 2024">
+<meta property="og:title" content="Chapter 17 Finding the “optimal model” | STAT462 Lab Book 2024">
 <meta property="og:type" content="book">
-<meta property="og:description" content="If you are stuck, you have a few options: If your report won’t knit, first try the suggestions below in My Report won’t knit! You can submit your issue, with screenshots and an explanation of the...">
+<meta property="og:description" content="17.1 Best subsets There are many models/combinations of predictors that we could use to predict our response variable. We want to find the best model possible, but we also don't want to overfit....">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HELP! | STAT462 Lab Book 2024">
-<meta name="twitter:description" content="If you are stuck, you have a few options: If your report won’t knit, first try the suggestions below in My Report won’t knit! You can submit your issue, with screenshots and an explanation of the...">
+<meta name="twitter:title" content="Chapter 17 Finding the “optimal model” | STAT462 Lab Book 2024">
+<meta name="twitter:description" content="17.1 Best subsets There are many models/combinations of predictors that we could use to predict our response variable. We want to find the best model possible, but we also don't want to overfit....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -54,7 +54,7 @@
 <li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
 <li class="book-part">.</li>
 <li class="book-part">LAB INSTRUCTIONS</li>
-<li><a class="active" href="Help.html">HELP!</a></li>
+<li><a class="" href="Help.html">HELP!</a></li>
 <li><a class="" href="Lab_1.html">Lab 1</a></li>
 <li><a class="" href="Lab_2.html">Lab 2</a></li>
 <li><a class="" href="Lab_3.html">Lab 3</a></li>
@@ -81,7 +81,7 @@
 <li><a class="" href="S.Tutorial_GLM.html"><span class="header-section-number">14</span> GLM - Logistic Regression</a></li>
 <li><a class="" href="basic-model-comparisons.html"><span class="header-section-number">15</span> Basic model comparisons</a></li>
 <li><a class="" href="multiple-regression-model-fitting.html"><span class="header-section-number">16</span> Multiple regression &amp; model fitting</a></li>
-<li><a class="" href="finding-the-optimal-model.html"><span class="header-section-number">17</span> Finding the “optimal model”</a></li>
+<li><a class="active" href="finding-the-optimal-model.html"><span class="header-section-number">17</span> Finding the “optimal model”</a></li>
 </ul>
 
         <div class="book-extra">
@@ -89,98 +89,45 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="Help" class="section level1 unnumbered">
-<h1>HELP!<a class="anchor" aria-label="anchor" href="#Help"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="finding-the-optimal-model" class="section level1" number="17">
+<h1>
+<span class="header-section-number">17</span> Finding the “optimal model”<a class="anchor" aria-label="anchor" href="#finding-the-optimal-model"><i class="fas fa-link"></i></a>
 </h1>
-<p><br></p>
-<p>If you are stuck, you have a few options:</p>
-<ol style="list-style-type: decimal">
-<li><p>If your report won’t knit, first try the suggestions below in <a href="Help.html#Help-Noknit">My Report won’t knit!</a><br></p></li>
-<li><p>You can submit your issue, with screenshots and an explanation of the problem on the course help forum: <a href="https://github.com/psu-spatial/Stat462-2024/issues" class="uri">https://github.com/psu-spatial/Stat462-2024/issues</a><br><br></p></li>
-<li>
-<p>You can attend office hours (after lab Wednesday, after class Friday, Tuesday on zoom) - more details on Canvas:</p>
-<div class="float">
-<img src="index_images/im_01Help_OfficeHours.png" width="800" alt="Find office hr details here"><div class="figcaption">Find office hr details here</div>
-</div>
-</li>
-</ol>
-<p><br></p>
-<ol start="4" style="list-style-type: decimal">
-<li>If you are really stuck you can canvas message me, but I ezpect to see at least one of the github/office hour options tried first.</li>
-</ol>
-<hr>
-<p><br><br></p>
-<div id="Help-Github" class="section level2 unnumbered">
-<h2>Github help portal<a class="anchor" aria-label="anchor" href="#Help-Github"><i class="fas fa-link"></i></a>
+<div id="best-subsets" class="section level2" number="17.1">
+<h2>
+<span class="header-section-number">17.1</span> Best subsets<a class="anchor" aria-label="anchor" href="#best-subsets"><i class="fas fa-link"></i></a>
 </h2>
-<p>You can submit issues, with screenshots and an explanation of the problem on the course help forum: <a href="https://github.com/psu-spatial/Stat462-2024/issues" class="uri">https://github.com/psu-spatial/Stat462-2024/issues</a><br></p>
-<hr>
-<p><br><br></p>
-</div>
-<div id="Help-Noknit" class="section level2 unnumbered">
-<h2>My report won’t knit!<a class="anchor" aria-label="anchor" href="#Help-Noknit"><i class="fas fa-link"></i></a>
-</h2>
-<details><summary><span style="color: #1388aa;">Click here for the answer</span>
-</summary><p>Don’t panic! This is common. It normally means that you either have an issue with your code or your computer has run out of memory (especially using R-Studio Cloud).</p>
-<p>Try these steps to diagnose the issue. Dr G can also help.</p>
-<ol style="list-style-type: decimal">
-<li>Go to the Session menu at the VERY TOP of the screen. Click <code>Restart-R and clear all output</code>.</li>
-<li>Now go to the environment quadrant and click the little arrow by the pie-chart. Free unused R memory.</li>
-<li>Now go back to the Session menu. Click <code>Restart-R and run all code chunks</code>
-</li>
-<li>Carefully watch as your code runs. Does it reach the end without any errors or stopping?</li>
-</ol>
-<p><br></p>
-<details id="error"><summary><span style="color: #1388aa;">IF YOUR CODE STOPS (There was an error), click here</span>
-</summary><ol start="5" style="list-style-type: decimal">
-<li>Read the error message really closely (try reading it out loud) and scroll to the code chunk it’s referring to. See if you can fix the issue, starting with the first line that had an error.<br><br>I’ll try to have a list of common issues on the help page, but in general, check for
-<ul>
-<li>Spelling mistakes (R is case sensitive)</li>
-<li>Whether you have tried to use a variable above the place in the code that you calculated it (double check, you might have accidentally deleted a line).</li>
-<li>If you are running your project, or it won’t be able to find your data/image files.</li>
-</ul>
-</li>
-</ol>
-<p><br></p>
-<details id="error_change"><summary>
-. <span style="color: #1388aa;">If you made a change/fix in your code, click here</span>
-</summary><ol start="6" style="list-style-type: decimal">
-<li><p>Go to the Session menu at the VERY TOP of the screen. Click <code>Restart-R and run all code chunks</code>. See if you get to the end.</p></li>
-<li><p>Keep going, fixing errors as you go, until it all knits. If you still have issues, look at the next section.</p></li>
-</ol>
-<p><br></p>
-</details><p><br></p>
-<details id="error_nofix"><summary>
-. <span style="color: #1388aa;">If you can’t find the issue or it still won’t knit, click here</span>
-</summary><ol start="6" style="list-style-type: decimal">
-<li>Read the error message carefully. See if you can find the problem code chunk(s).</li>
-<li>In the top part of any problem code chunks, type eval=FALSE (see screenshot below), then try pressing knit. You might find that you have to stop quite a few code chunks running. This will allow me to see your code and grade what you have.</li>
-</ol>
-<div class="inline-figure"><img src="index_images/im_01FAQ_evalFALSE.png" width="650" style="display: block; margin: auto;"></div>
-<p><br></p>
-</details><p><br><br></p>
-</details><p><br></p>
-<details id="no_error"><summary><span style="color: #1388aa;">IF THERE WAS NO ERROR (All the code chunks run with no problems), click here</span>
-</summary><ol start="5" style="list-style-type: decimal">
-<li>Make sure you are running your project. Go to the FILES tab. Delete all files EXCEPT your .RProj, your .Rmd, your data and any image files. Basically delete all the auto-created files.</li>
-<li>Try pressing knit again.</li>
-<li>If it still doesn’t work, read the error message carefully and see if it make sense.</li>
-<li>If you still have no luck, take a screenshot of the entire screen (including the error message), then ask Dr G for help.</li>
-</ol>
-<p><br><br></p>
-</details><p><br><br><br></p>
-</details><hr>
+<p>There are many models/combinations of predictors that we could use to predict our response variable. We want to find the best model possible, but we also don't want to overfit.</p>
+<p>So far, we manually compared two models. In fact there is a way to compare all the combinations of predictors. This is using the <code><a href="https://olsrr.rsquaredacademy.com/reference/ols_step_best_subset.html">ols_step_best_subset()</a></code> command.</p>
+<p>Describe what the "best subset" method is doing. Hint, we will go over this in lectures, but also <a href="https://online.stat.psu.edu/stat501/lesson/10/10.3" class="uri">https://online.stat.psu.edu/stat501/lesson/10/10.3</a></p>
+<p>First, decide every predictor you think might be useful and create a model using this.</p>
+<p>FOR YOUR PROJECT, CHOOSE 8 PREDICTORS MAX (or R takes too long)</p>
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">FullModel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sepal.Length</span> <span class="op">~</span> <span class="va">Sepal.Width</span> <span class="op">+</span> <span class="va">Petal.Length</span> <span class="op">+</span> <span class="va">Petal.Width</span> <span class="op">+</span> <span class="va">Species</span> ,data<span class="op">=</span><span class="va">iris</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">BestSubsets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_step_best_subset.html">ols_step_best_subset</a></span><span class="op">(</span><span class="va">FullModel</span><span class="op">)</span></span>
+<span><span class="va">BestSubsets</span></span></code></pre></div>
+<p>So now we can find a model that seems to have the lowest AIC, the highest R2 etc. BUT YOU STILL HAVE TO CHECK FOR LINE!</p>
+
 </div>
 </div>
+
+
+
+
+
+
+
+
   <div class="chapter-nav">
-<div class="prev"><a href="Setup_Online.html">Posit Cloud Online</a></div>
-<div class="next"><a href="Lab_1.html">Lab 1</a></div>
+<div class="prev"><a href="multiple-regression-model-fitting.html"><span class="header-section-number">16</span> Multiple regression &amp; model fitting</a></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#Help">HELP!</a></li>
-<li><a class="nav-link" href="#Help-Github">Github help portal</a></li>
-<li><a class="nav-link" href="#Help-Noknit">My report won’t knit!</a></li>
+<li><a class="nav-link" href="#finding-the-optimal-model"><span class="header-section-number">17</span> Finding the “optimal model”</a></li>
+<li><a class="nav-link" href="#best-subsets"><span class="header-section-number">17.1</span> Best subsets</a></li>
 </ul>
 
       <div class="book-extra">

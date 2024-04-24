@@ -188,3 +188,9 @@ goodness-of-fit
 assessing-model-residuals
 alternative-plots
 interactions-with-other-predictors
+basic-model-comparisons
+rmse
+multiple-regression-model-fitting
+mlr
+finding-the-optimal-model
+best-subsets

@@ -106,7 +106,7 @@ Given what you read above (e.g. using your own common sense), write a prediction
 
 <br><br>
 
-### **[Step 2.2] Read in your sample data**  {.unnumbered}
+### **[Step 2.2] Read in your sample data** {.unnumbered}
 
 You should have downloaded TWO files from the canvas link. Both should have your email ID on them,
 
@@ -136,13 +136,13 @@ house.sf <- st_as_sf(house,coords=c("Longitude","Latitude"),crs=4326)
 
 <br><br>
 
-### **[Step 2.4] Summarise the data** {.unnumbered}
+### **[Step 2.4] Summarise** THE ROOM DATASET {.unnumbered}
 
 Use summary code to describe the dataset. I suggest first copying over the table in these in these instructions into the text so you have a list of variables.
 
 Then you can use your summary code and common sense to report things like how much data you have, what your response variable looks like, if there are any notable outliers, any interesting relationships and any correlations. You can use old code from your old labs! Also included here in the tutorials
 
--    Summary code:<https://psu-spatial.github.io/Stat462-2024/T9_wrangling.html#summary-statistics>
+-   Summary code:<https://psu-spatial.github.io/Stat462-2024/T9_wrangling.html#summary-statistics>
 
 -   Plots: <https://psu-spatial.github.io/Stat462-2024/T6_plots.html>
 
@@ -176,7 +176,7 @@ For more fancy maps (that aren't much harder), see here = BUT KNOW YOU'RE SWITCH
 
 ### **[Step 3.1]** Get the code running {.unnumbered}
 
-Choose [**TWO**]{.underline} variables that you think might predict airbnb prices. Briefly explain why you chose those two variables in your report, using your summary analysis above to justify your choice.
+Choose [**TWO**]{.underline} variables that you think might predict airbnb prices FOR THE ROOM DATASET. Briefly explain why you chose those two variables in your report, using your summary analysis above to justify your choice.
 
 Conduct TWO SEPARATE simple linear regression analyses, one for each variable - with the response as price.
 
@@ -188,7 +188,7 @@ Conduct TWO SEPARATE simple linear regression analyses, one for each variable - 
 
 ### **[Step 3.2]** Compare the models {.unnumbered}
 
-Compare your two models in terms of:
+See tutorial 15 onwards. Compare your two models in terms of:
 
 1.  The percentage variability explained
 
@@ -202,26 +202,10 @@ Compare your two models in terms of:
 
 At the end, explain which model you would choose so far.
 
-<br>
-
-### **[Step 3.3]** The Milkshake Challenge {.unnumbered}
-
--   Copy the code bundle a second time into the appropriate spot in your write up.
-
--   Get the code working to make a liner model that assesses whether removing hairs from your head leads to weight loss - along with professional scatterplots and model diagnostics.
-
--   Underneath this analysis, I asked some questions. Fill in the answers in the space provided along with as much detail as you can (e.g. use this as your revision notes)
-
-<br>
-
-### **[Step 3.4]** Model comparison {.unnumbered}
-
-You will see a final set of questions. Answer them as fully as possible.
-
-<br><br>
+<br><br><br>
 
 ------------------------------------------------------------------------
 
 ## 4. MULTIPLE REGRESSION {.unnumbered}
 
-These instructions and the code will be released this evening.
+WE WILL TALK ABOUT THIS IN CLASS TODAY

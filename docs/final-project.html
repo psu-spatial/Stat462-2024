@@ -79,6 +79,9 @@
 <li><a class="" href="confidence-and-prediction-intervals.html"><span class="header-section-number">12</span> Confidence and Prediction Intervals</a></li>
 <li><a class="" href="S.Tutorial_Transformations.html"><span class="header-section-number">13</span> Transformations</a></li>
 <li><a class="" href="S.Tutorial_GLM.html"><span class="header-section-number">14</span> GLM - Logistic Regression</a></li>
+<li><a class="" href="basic-model-comparisons.html"><span class="header-section-number">15</span> Basic model comparisons</a></li>
+<li><a class="" href="multiple-regression-model-fitting.html"><span class="header-section-number">16</span> Multiple regression &amp; model fitting</a></li>
+<li><a class="" href="finding-the-optimal-model.html"><span class="header-section-number">17</span> Finding the “optimal model”</a></li>
 </ul>
 
         <div class="book-extra">
@@ -202,9 +205,9 @@ Remember you can drop either this or your lowest exam grade</p>
 <span><span class="va">house.sf</span> <span class="op">&lt;-</span> <span class="fu">st_as_sf</span><span class="op">(</span><span class="va">house</span>,coords<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Longitude"</span>,<span class="st">"Latitude"</span><span class="op">)</span>,crs<span class="op">=</span><span class="fl">4326</span><span class="op">)</span></span></code></pre></div>
 <p><br><br></p>
 </div>
-<div id="step-2.4-summarise-the-data" class="section level3 unnumbered">
+<div id="step-2.4-summarise-the-room-dataset" class="section level3 unnumbered">
 <h3>
-<strong>[Step 2.4] Summarise the data</strong><a class="anchor" aria-label="anchor" href="#step-2.4-summarise-the-data"><i class="fas fa-link"></i></a>
+<strong>[Step 2.4] Summarise</strong> THE ROOM DATASET<a class="anchor" aria-label="anchor" href="#step-2.4-summarise-the-room-dataset"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use summary code to describe the dataset. I suggest first copying over the table in these in these instructions into the text so you have a list of variables.</p>
 <p>Then you can use your summary code and common sense to report things like how much data you have, what your response variable looks like, if there are any notable outliers, any interesting relationships and any correlations. You can use old code from your old labs! Also included here in the tutorials</p>
@@ -241,7 +244,7 @@ Remember you can drop either this or your lowest exam grade</p>
 <h3>
 <strong>[Step 3.1]</strong> Get the code running<a class="anchor" aria-label="anchor" href="#step-3.1-get-the-code-running"><i class="fas fa-link"></i></a>
 </h3>
-<p>Choose <u><strong>TWO</strong></u> variables that you think might predict airbnb prices. Briefly explain why you chose those two variables in your report, using your summary analysis above to justify your choice.</p>
+<p>Choose <u><strong>TWO</strong></u> variables that you think might predict airbnb prices FOR THE ROOM DATASET. Briefly explain why you chose those two variables in your report, using your summary analysis above to justify your choice.</p>
 <p>Conduct TWO SEPARATE simple linear regression analyses, one for each variable - with the response as price.</p>
 <ul>
 <li><p>For each, include a professional scatterplot</p></li>
@@ -253,7 +256,7 @@ Remember you can drop either this or your lowest exam grade</p>
 <h3>
 <strong>[Step 3.2]</strong> Compare the models<a class="anchor" aria-label="anchor" href="#step-3.2-compare-the-models"><i class="fas fa-link"></i></a>
 </h3>
-<p>Compare your two models in terms of:</p>
+<p>See tutorial 15 onwards. Compare your two models in terms of:</p>
 <ol style="list-style-type: decimal">
 <li><p>The percentage variability explained</p></li>
 <li><p>AIC</p></li>
@@ -262,32 +265,14 @@ Remember you can drop either this or your lowest exam grade</p>
 <li><p>Meeting the LINE assumptions</p></li>
 </ol>
 <p>At the end, explain which model you would choose so far.</p>
-<p><br></p>
-</div>
-<div id="step-3.3-the-milkshake-challenge-1" class="section level3 unnumbered">
-<h3>
-<strong>[Step 3.3]</strong> The Milkshake Challenge<a class="anchor" aria-label="anchor" href="#step-3.3-the-milkshake-challenge-1"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
-<li><p>Copy the code bundle a second time into the appropriate spot in your write up.</p></li>
-<li><p>Get the code working to make a liner model that assesses whether removing hairs from your head leads to weight loss - along with professional scatterplots and model diagnostics.</p></li>
-<li><p>Underneath this analysis, I asked some questions. Fill in the answers in the space provided along with as much detail as you can (e.g. use this as your revision notes)</p></li>
-</ul>
-<p><br></p>
-</div>
-<div id="step-3.4-model-comparison-1" class="section level3 unnumbered">
-<h3>
-<strong>[Step 3.4]</strong> Model comparison<a class="anchor" aria-label="anchor" href="#step-3.4-model-comparison-1"><i class="fas fa-link"></i></a>
-</h3>
-<p>You will see a final set of questions. Answer them as fully as possible.</p>
-<p><br><br></p>
+<p><br><br><br></p>
 <hr>
 </div>
 </div>
 <div id="multiple-regression" class="section level2 unnumbered">
 <h2>4. MULTIPLE REGRESSION<a class="anchor" aria-label="anchor" href="#multiple-regression"><i class="fas fa-link"></i></a>
 </h2>
-<p>These instructions and the code will be released this evening.</p>
+<p>WE WILL TALK ABOUT THIS IN CLASS TODAY</p>
 
 </div>
 </div>
@@ -319,15 +304,13 @@ Remember you can drop either this or your lowest exam grade</p>
 <li><a class="nav-link" href="#step-2.1-write-up-a-brief-introduction-100-words">[Step 2.1] Write up a brief introduction (~ 100 words)</a></li>
 <li><a class="nav-link" href="#step-2.2-read-in-your-sample-data">[Step 2.2] Read in your sample data</a></li>
 <li><a class="nav-link" href="#step-2.3-now-make-a-spatial-version">[Step 2.3] Now make a spatial version</a></li>
-<li><a class="nav-link" href="#step-2.4-summarise-the-data">[Step 2.4] Summarise the data</a></li>
+<li><a class="nav-link" href="#step-2.4-summarise-the-room-dataset">[Step 2.4] Summarise THE ROOM DATASET</a></li>
 </ul>
 </li>
 <li>
 <a class="nav-link" href="#simple-linear-regression">3. Simple Linear Regression</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#step-3.1-get-the-code-running">[Step 3.1] Get the code running</a></li>
 <li><a class="nav-link" href="#step-3.2-compare-the-models">[Step 3.2] Compare the models</a></li>
-<li><a class="nav-link" href="#step-3.3-the-milkshake-challenge-1">[Step 3.3] The Milkshake Challenge</a></li>
-<li><a class="nav-link" href="#step-3.4-model-comparison-1">[Step 3.4] Model comparison</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#multiple-regression">4. MULTIPLE REGRESSION</a></li>
@@ -347,7 +330,7 @@ Remember you can drop either this or your lowest exam grade</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-17.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-24.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

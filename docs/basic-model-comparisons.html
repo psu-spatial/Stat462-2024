@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 15 Basic model comparisons | STAT462 Lab Book 2024</title>
+<meta name="author" content="Dr Helen Greatrex">
+<meta name="description" content="You are now being asked to assess two (or more) models and decide “which is best”. Here are some metrics we could use to compare models. Is the model appropriate? LINE &amp; influential outliers There...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Chapter 15 Basic model comparisons | STAT462 Lab Book 2024">
+<meta property="og:type" content="book">
+<meta property="og:description" content="You are now being asked to assess two (or more) models and decide “which is best”. Here are some metrics we could use to compare models. Is the model appropriate? LINE &amp; influential outliers There...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 15 Basic model comparisons | STAT462 Lab Book 2024">
+<meta name="twitter:description" content="You are now being asked to assess two (or more) models and decide “which is best”. Here are some metrics we could use to compare models. Is the model appropriate? LINE &amp; influential outliers There...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.3/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">STAT462 Lab Book 2024</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome to STAT-462!</a></li>
+<li><a class="" href="FAQ.html">Course FAQ</a></li>
+<li><a class="" href="WhatIsR.html">What are R and R-Studio?</a></li>
+<li><a class="" href="Setup_Desktop.html">Installing R/R-Studio</a></li>
+<li><a class="" href="Setup_UpdateDesktop.html">Updating R/R-Studio</a></li>
+<li><a class="" href="Setup_Online.html">Posit Cloud Online</a></li>
+<li class="book-part">.</li>
+<li class="book-part">LAB INSTRUCTIONS</li>
+<li><a class="" href="Help.html">HELP!</a></li>
+<li><a class="" href="Lab_1.html">Lab 1</a></li>
+<li><a class="" href="Lab_2.html">Lab 2</a></li>
+<li><a class="" href="Lab_3.html">Lab 3</a></li>
+<li><a class="" href="Lab_4.html">Lab 4</a></li>
+<li><a class="" href="Lab_5.html">Lab 5A</a></li>
+<li><a class="" href="Lab_5B.html">Lab 5B</a></li>
+<li><a class="" href="lab-6.html">Lab 6</a></li>
+<li><a class="" href="final-project.html">Final Project</a></li>
+<li class="book-part">.</li>
+<li class="book-part">TUTORIALS</li>
+<li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
+<li><a class="" href="T2_Libraries.html"><span class="header-section-number">2</span> Libraries/Packages</a></li>
+<li><a class="" href="T3_Markdown.html"><span class="header-section-number">3</span> R-Markdown</a></li>
+<li><a class="" href="T4_ReadingData.html"><span class="header-section-number">4</span> Reading in data</a></li>
+<li><a class="" href="probability-distributions.html"><span class="header-section-number">5</span> Probability distributions</a></li>
+<li><a class="" href="T6_plots.html"><span class="header-section-number">6</span> Plots</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">7</span> Correlation</a></li>
+<li><a class="" href="T8_regression.html"><span class="header-section-number">8</span> Regression</a></li>
+<li><a class="" href="T9_wrangling.html"><span class="header-section-number">9</span> Data Wrangling</a></li>
+<li><a class="" href="T10_diagnostics.html"><span class="header-section-number">10</span> Assessing LINE</a></li>
+<li><a class="" href="outliers-high-leverage-influential-points.html"><span class="header-section-number">11</span> Outliers, high leverage &amp; influential points</a></li>
+<li><a class="" href="confidence-and-prediction-intervals.html"><span class="header-section-number">12</span> Confidence and Prediction Intervals</a></li>
+<li><a class="" href="S.Tutorial_Transformations.html"><span class="header-section-number">13</span> Transformations</a></li>
+<li><a class="" href="S.Tutorial_GLM.html"><span class="header-section-number">14</span> GLM - Logistic Regression</a></li>
+<li><a class="active" href="basic-model-comparisons.html"><span class="header-section-number">15</span> Basic model comparisons</a></li>
+<li><a class="" href="multiple-regression-model-fitting.html"><span class="header-section-number">16</span> Multiple regression &amp; model fitting</a></li>
+<li><a class="" href="finding-the-optimal-model.html"><span class="header-section-number">17</span> Finding the “optimal model”</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="basic-model-comparisons" class="section level1" number="15">
+<h1>
+<span class="header-section-number">15</span> Basic model comparisons<a class="anchor" aria-label="anchor" href="#basic-model-comparisons"><i class="fas fa-link"></i></a>
+</h1>
+<p>You are now being asked to assess two (or more) models and decide “which is best”. Here are some metrics we could use to compare models.</p>
+<div id="is-the-model-appropriate-line-influential-outliers" class="section level3 unnumbered">
+<h3>Is the model appropriate? LINE &amp; influential outliers<a class="anchor" aria-label="anchor" href="#is-the-model-appropriate-line-influential-outliers"><i class="fas fa-link"></i></a>
+</h3>
+<p>There is no point comparing a model if one (or both) of them is not valid! So before carrying on, it’s important to assess whether each of your models is valid in its own right. See the LINE tutorial for more.</p>
+<ol style="list-style-type: decimal">
+<li>
+<u><strong>Linearity</strong></u> <strong>- COULD A CURVE FIT BETTER THAN A LINE?</strong>
+<ul>
+<li>
+<em>Assessed by visual inspection of the scatterplot and residual plot.</em> <br><br>
+</li>
+<li>If broken, apply a transformation to the RESPONSE and see if your new model does better <br><br>
+</li>
+</ul>
+</li>
+<li>
+<u><strong>Independence</strong></u> <strong>- To be best of your knowledge, Is your sample representative of the overall population?</strong> Are all the points independent of each other? Or do you have a “basketball team in your sample” situation (if you are trying to assess student height).
+<ul>
+<li>
+<em>Assessed by visually looking for non-randomness (clusters/patterns) in your data and residual plot.</em> <br><br>
+</li>
+</ul>
+</li>
+<li>
+<u><strong>Normality of residuals</strong></u> <strong>- Are your residuals normally distributed around the line of best fit? Or are they skewed in some way?</strong>
+<ul>
+<li><em>Assessed by the qq-plot and normality tests</em></li>
+<li>If broken apply a transformation to a/the PREDICTOR and see if your new model does better<br><br>
+</li>
+</ul>
+</li>
+<li>
+<u><strong>Equal variance of residuals</strong></u> <strong>- no matter what your predictor/response - are your points around the same distance from the line? Or do you see “fanning out” / “bow-tie shapes”</strong>
+<ul>
+<li><em>Assessed by visual inspection of residual plot and heteroskadisity F-test.</em></li>
+<li>If broken apply a transformation to a/the PREDICTOR and see if your new model does better <br><br>
+</li>
+</ul>
+</li>
+</ol>
+<p><br><br></p>
+</div>
+<div id="coefficient-of-determination-r2" class="section level3 unnumbered">
+<h3>Coefficient of Determination <span class="math inline">\(R^2\)</span><a class="anchor" aria-label="anchor" href="#coefficient-of-determination-r2"><i class="fas fa-link"></i></a>
+</h3>
+<p>We could look first at the coefficient of variation for each model in the model summary. e.g. which model explains more variation in your response variable.</p>
+<p><br></p>
+<div id="standard-r2" class="section level4 unnumbered">
+<h4>Standard <span class="math inline">\(R^2\)</span><a class="anchor" aria-label="anchor" href="#standard-r2"><i class="fas fa-link"></i></a>
+</h4>
+<p>The amount of variability explained by your model. e.g. 90% of the variability in building height can be explained by the number of floors it has.</p>
+</div>
+<div id="adjusted-r2" class="section level4 unnumbered">
+<h4>Adjusted <span class="math inline">\(R^2\)</span><a class="anchor" aria-label="anchor" href="#adjusted-r2"><i class="fas fa-link"></i></a>
+</h4>
+<p>This is more appropriate for multiple regression as it takes into account the number of predictors to prevent overfitting. Read this! <a href="https://online.stat.psu.edu/stat501/lesson/10/10.3" class="uri">https://online.stat.psu.edu/stat501/lesson/10/10.3</a> and see the lecture on transformations/AIC.</p>
+</div>
+<div id="where-to-find-them" class="section level4 unnumbered">
+<h4>Where to find them<a class="anchor" aria-label="anchor" href="#where-to-find-them"><i class="fas fa-link"></i></a>
+</h4>
+<p>The easiest way is in the olsrr summary. Look at the statistics at the top.</p>
+<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"iris"</span><span class="op">)</span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sepal.Length</span><span class="op">~</span><span class="va">Sepal.Width</span>,data<span class="op">=</span><span class="va">iris</span><span class="op">)</span></span>
+<span><span class="fu">olsrr</span><span class="fu">::</span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_regress.html">ols_regress</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##                          Model Summary                           
+## ----------------------------------------------------------------
+## R                        0.118       RMSE                 0.820 
+## R-Squared                0.014       MSE                  0.681 
+## Adj. R-Squared           0.007       Coef. Var           14.120 
+## Pred R-Squared          -0.011       AIC                371.992 
+## MAE                      0.675       SBC                381.024 
+## ----------------------------------------------------------------
+##  RMSE: Root Mean Square Error 
+##  MSE: Mean Square Error 
+##  MAE: Mean Absolute Error 
+##  AIC: Akaike Information Criteria 
+##  SBC: Schwarz Bayesian Criteria 
+## 
+##                                ANOVA                                
+## -------------------------------------------------------------------
+##                Sum of                                              
+##               Squares         DF    Mean Square      F        Sig. 
+## -------------------------------------------------------------------
+## Regression      1.412          1          1.412    2.074    0.1519 
+## Residual      100.756        148          0.681                    
+## Total         102.168        149                                   
+## -------------------------------------------------------------------
+## 
+##                                   Parameter Estimates                                   
+## ---------------------------------------------------------------------------------------
+##       model      Beta    Std. Error    Std. Beta      t        Sig      lower    upper 
+## ---------------------------------------------------------------------------------------
+## (Intercept)     6.526         0.479                 13.628    0.000     5.580    7.473 
+## Sepal.Width    -0.223         0.155       -0.118    -1.440    0.152    -0.530    0.083 
+## ---------------------------------------------------------------------------------------</code></pre>
+<p><br><br></p>
+</div>
+</div>
+<div id="mse-rmse-root-mean-squared-error" class="section level3 unnumbered">
+<h3>MSE, RMSE, (root) mean squared error<a class="anchor" aria-label="anchor" href="#mse-rmse-root-mean-squared-error"><i class="fas fa-link"></i></a>
+</h3>
+<p>This is the raw variability around the regression line in units of Y. You can see this as the residual mean squares in ANOVA, or at the summary at the top.</p>
+<div id="rmse" class="section level4" number="15.0.0.1">
+<h4>
+<span class="header-section-number">15.0.0.1</span> RMSE<a class="anchor" aria-label="anchor" href="#rmse"><i class="fas fa-link"></i></a>
+</h4>
+<p>Root mean squared error. Same thing but the square root (e.g. closer to the standard deviation)</p>
+<p><br><br></p>
+</div>
+</div>
+<div id="information-criteria-aic" class="section level3 unnumbered">
+<h3>Information criteria: AIC<a class="anchor" aria-label="anchor" href="#information-criteria-aic"><i class="fas fa-link"></i></a>
+</h3>
+<p>(read more here: <a href="https://online.stat.psu.edu/stat501/lesson/10/10.5" class="uri">https://online.stat.psu.edu/stat501/lesson/10/10.5</a>).</p>
+<p>To compare regression models, some statistical software may also give values of statistics referred to as <strong>information criterion</strong> statistics. For regression models, these statistics combine information about the SSE, the number of parameters in the model, and the sample size. A low value, compared to values for other possible models, is good. Some data analysts feel that these statistics give a more realistic comparison of models than the 𝐶𝑝 statistic because 𝐶𝑝tends to make models seem more different than they actually are.</p>
+<p>This is a non parametric test that takes into account the number of predictors and the amount of data, so is often more robust to bad linear fits than <span class="math inline">\(R^2\)</span> (which needs LINE to be true)</p>
+<p>Three information criteria that we present are called <strong>Akaike’s Information Criterion</strong> (<strong>AIC</strong>), the <strong>Bayesian Information Criterion</strong> (<strong>BIC</strong>) (which is sometimes called <strong>Schwartz’s Bayesian Criterion</strong> (<strong>SBC</strong>)), and <strong>Amemiya’s Prediction Criterion</strong> (<strong>APC</strong>). The respective formulas are as follows:</p>
+<div class="inline-figure"><img src="images/Screenshot%202024-04-24%20at%203.17.31%20PM.png" style="width:70.0%"></div>
+<p>In the formulas, <em>n</em> = sample size and <em>p</em> = number of regression coefficients in the model being evaluated (including the intercept). Notice that the only difference between AIC and BIC is the multiplier of <em>p</em>, the number of parameters.</p>
+<p>Each of the information criteria is used in a similar way — in comparing two models, the model with the lower value is preferred. The ‘raw’ values have little physical meaning. For now, know that the lower the AIC, the “better” the model.</p>
+<p>Let’s compare two models now, using our transformed data:</p>
+<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">model</span>                 <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sepal.Length</span><span class="op">~</span><span class="va">Sepal.Width</span>,data<span class="op">=</span><span class="va">iris</span><span class="op">)</span></span>
+<span><span class="va">model.transformation</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sepal.Length</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">Sepal.Width</span><span class="op">)</span>,data<span class="op">=</span><span class="va">iris</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">model1summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span>
+<span><span class="va">model2summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model.transformation</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Adjusted R2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Model 1:"</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">model1summary</span><span class="op">$</span><span class="va">adj.r.squared</span>,<span class="fl">2</span><span class="op">)</span> <span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "Model 1: 0.01"</code></pre>
+<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Model 2:"</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">model2summary</span><span class="op">$</span><span class="va">adj.r.squared</span>,<span class="fl">2</span><span class="op">)</span> <span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "Model 2: 0.01"</code></pre>
+<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># AIC</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">AIC</a></span><span class="op">(</span><span class="va">model</span>,<span class="va">model.transformation</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##                      df      AIC
+## model                 3 371.9917
+## model.transformation  3 372.2743</code></pre>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="S.Tutorial_GLM.html"><span class="header-section-number">14</span> GLM - Logistic Regression</a></div>
+<div class="next"><a href="multiple-regression-model-fitting.html"><span class="header-section-number">16</span> Multiple regression &amp; model fitting</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li>
+<a class="nav-link" href="#basic-model-comparisons"><span class="header-section-number">15</span> Basic model comparisons</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#is-the-model-appropriate-line-influential-outliers">Is the model appropriate? LINE &amp; influential outliers</a></li>
+<li><a class="nav-link" href="#coefficient-of-determination-r2">Coefficient of Determination \(R^2\)</a></li>
+<li><a class="nav-link" href="#mse-rmse-root-mean-squared-error">MSE, RMSE, (root) mean squared error</a></li>
+<li><a class="nav-link" href="#information-criteria-aic">Information criteria: AIC</a></li>
+</ul>
+</li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-24.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
