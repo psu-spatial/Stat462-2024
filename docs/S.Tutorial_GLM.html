@@ -63,6 +63,7 @@
 <li><a class="" href="Lab_5B.html">Lab 5B</a></li>
 <li><a class="" href="lab-6.html">Lab 6</a></li>
 <li><a class="" href="final-project.html">Final Project</a></li>
+<li><a class="" href="final-project-example-movie-ratings.html">FINAL PROJECT EXAMPLE: Movie Ratings</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
@@ -80,7 +81,7 @@
 <li><a class="" href="S.Tutorial_Transformations.html"><span class="header-section-number">13</span> Transformations</a></li>
 <li><a class="active" href="S.Tutorial_GLM.html"><span class="header-section-number">14</span> GLM - Logistic Regression</a></li>
 <li><a class="" href="basic-model-comparisons.html"><span class="header-section-number">15</span> Basic model comparisons</a></li>
-<li><a class="" href="multiple-regression-model-fitting.html"><span class="header-section-number">16</span> Multiple regression &amp; model fitting</a></li>
+<li><a class="" href="multiple-regression-model-fitting-1.html"><span class="header-section-number">16</span> Multiple regression &amp; model fitting</a></li>
 <li><a class="" href="finding-the-optimal-model.html"><span class="header-section-number">17</span> Finding the “optimal model”</a></li>
 </ul>
 
@@ -128,7 +129,7 @@
 <h4>
 <span class="header-section-number">14.2.1.1</span> Data summary<a class="anchor" aria-label="anchor" href="#data-summary"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb274"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb342"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"titanic"</span>, package <span class="op">=</span> <span class="st">"DALEX"</span><span class="op">)</span></span>
 <span><span class="va">ship_survival</span> <span class="op">&lt;-</span> <span class="va">titanic</span></span>
 <span>   </span>
@@ -329,12 +330,12 @@
 <span class="header-section-number">14.2.2</span> Filtering data &amp; exploratory plots<a class="anchor" aria-label="anchor" href="#filtering-data-exploratory-plots"><i class="fas fa-link"></i></a>
 </h3>
 <p>I am first going to remove any children from the dataset and any staff (AKA fare = 0), along with the four millionaires that I feel are special cases (e.g. they paid over three times the amount everyone else did)</p>
-<div class="sourceCode" id="cb275"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ship_survival</span> <span class="op">&lt;-</span> <span class="va">ship_survival</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">ship_survival</span><span class="op">$</span><span class="va">fare</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span>,<span class="op">]</span></span>
 <span><span class="va">ship_survival</span> <span class="op">&lt;-</span> <span class="va">ship_survival</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">ship_survival</span><span class="op">$</span><span class="va">age</span> <span class="op">&gt;</span> <span class="fl">21</span><span class="op">)</span>,<span class="op">]</span></span>
 <span><span class="va">ship_survival</span> <span class="op">&lt;-</span> <span class="va">ship_survival</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">ship_survival</span><span class="op">$</span><span class="va">fare</span> <span class="op">&lt;</span> <span class="fl">300</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 <p>If we only have one predictor, we can use plots like this to get a sense of the impact on our binary response. I included “jittered” data AKA the points are scattered around a little to make them visible. This code comes from the ggplot2 package, so remember to put that in your library code chunk.</p>
-<div class="sourceCode" id="cb276"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb344"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">ship_survival</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">survived</span>, y <span class="op">=</span> <span class="va">fare</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -343,7 +344,7 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial14_GLM_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
 <p>Or similarly (but flipped). This code comes from the <strong>ggstatsplot</strong> library/package, so remember to load that first.</p>
-<div class="sourceCode" id="cb277"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb345"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggbetweenstats.html">ggbetweenstats</a></span><span class="op">(</span><span class="va">ship_survival</span>,y<span class="op">=</span><span class="va">fare</span>,x<span class="op">=</span><span class="va">survived</span>,results.subtitle<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial14_GLM_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
@@ -358,7 +359,7 @@
 <li>We also need an extra part to tell R which type of linear model we want. In our case (for binary data), we need <code>family=binomial(link='logit')</code>
 </li>
 </ul>
-<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb346"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">model.logistic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">survived</span> <span class="op">~</span> <span class="va">fare</span>, data<span class="op">=</span><span class="va">ship_survival</span>, </span>
 <span>                      family<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/family.html">binomial</a></span><span class="op">(</span>link<span class="op">=</span><span class="st">'logit'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><br><br></p>
@@ -368,7 +369,7 @@
 <span class="header-section-number">14.2.4</span> Model summary<a class="anchor" aria-label="anchor" href="#model-summary"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>THE OLSRR PACKAGE WILL NO LONGER WORK (it’s only set up for lm).</strong> So we are back to the standard summary command.</p>
-<div class="sourceCode" id="cb279"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb347"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model.logistic</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -395,14 +396,14 @@
 <li><p>Below the table of coefficients are fit indices, including the null and deviance residuals and the AIC. Later we show an example of how you can use these values to help assess model fit.</p></li>
 </ul>
 <p>The coefficients themselves are expressed in terms of LOG-ODDS (because this was the transformation we applied).</p>
-<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># coefficient in terms of Log-odds</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span>Coefficient_logodds <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">model.logistic</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">model.logistic</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##             Coefficient_logodds        2.5 %     97.5 %
 ## (Intercept)         -0.92125477 -1.102666988 -0.7443837
 ## fare                 0.01311288  0.009642147  0.0169076</code></pre>
 <p>You can also use the exponential command to interpret the output as ODDS-RATIOS, or as the percentage change in odds. We can combine this with confidence intervals and our coefficients using this code.</p>
-<div class="sourceCode" id="cb283"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb351"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># coefficient in terms of odds. Note the exp e.g. we are applying an exponential</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span>Coefficient_Odds <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">model.logistic</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">model.logistic</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##             Coefficient_Odds     2.5 %   97.5 %
@@ -441,13 +442,13 @@
 <span class="header-section-number">14.2.5</span> Predicting new values and visualising results<a class="anchor" aria-label="anchor" href="#predicting-new-values-and-visualising-results"><i class="fas fa-link"></i></a>
 </h3>
 <p>For prediction, we can do exactly the same as with the lm case e.g. use predict and fitted.</p>
-<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb353"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ship_survival</span> <span class="op">&lt;-</span> <span class="va">ship_survival</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ship_survival</span><span class="op">$</span><span class="va">fare</span><span class="op">)</span><span class="op">==</span><span class="cn">FALSE</span>,<span class="op">]</span></span>
 <span></span>
 <span><span class="va">ship_survival</span><span class="op">$</span><span class="va">modelled_probability</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted</a></span><span class="op">(</span><span class="va">model.logistic</span>,</span>
 <span>                                             newdata<span class="op">=</span><span class="va">ship_survival</span><span class="op">$</span><span class="va">fare</span><span class="op">)</span></span></code></pre></div>
 <p>and this code might help you visualise results (you need to run the prediction bit first.)</p>
-<div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb354"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ship_survival</span><span class="op">$</span><span class="va">type_num</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">ship_survival</span><span class="op">$</span><span class="va">survived</span> <span class="op">==</span> <span class="st">"yes"</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">ship_survival</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">fare</span>,<span class="va">type_num</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -464,7 +465,7 @@
 <span class="header-section-number">14.2.6</span> Wald test for significance<a class="anchor" aria-label="anchor" href="#wald-test-for-significance"><i class="fas fa-link"></i></a>
 </h3>
 <p>You interpret the significance of the coefficients the same way as your T-test with lm. So we look at the p value in the coefficients table:</p>
-<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb355"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model.logistic</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -495,7 +496,7 @@
 <span class="header-section-number">14.2.7</span> Goodness of fit<a class="anchor" aria-label="anchor" href="#goodness-of-fit"><i class="fas fa-link"></i></a>
 </h3>
 <p>For this, we can use the from the NEW blorr package (AKA you have to go to the app store and install it, then add library(blorr) to your library code chunk)</p>
-<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb357"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://blorr.rsquaredacademy.com/">blorr</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://blorr.rsquaredacademy.com/reference/blr_test_hosmer_lemeshow.html">blr_test_hosmer_lemeshow</a></span><span class="op">(</span><span class="va">model.logistic</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##            Partition for the Hosmer &amp; Lemeshow Test            
@@ -531,7 +532,7 @@
 <blockquote>
 <p><em>“In logistic regression, as with linear regression, the residuals can be defined as observed minus expected values. The data are discrete and so are the residuals. As a result, plots of raw residuals from logistic regression are generally not useful. The binned residuals plot instead, after dividing the data into categories (bins) based on their fitted values, the average residual versus the average fitted value for each bin.”</em></p>
 </blockquote>
-<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://CRAN.R-project.org/package=arm">arm</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/arm/man/binnedplot.html">binnedplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted</a></span><span class="op">(</span><span class="va">model.logistic</span><span class="op">)</span>, </span>
@@ -549,13 +550,13 @@
 <span class="header-section-number">14.2.8.1</span> Alternative plots<a class="anchor" aria-label="anchor" href="#alternative-plots"><i class="fas fa-link"></i></a>
 </h4>
 <p>We can also use plots from the blorr package. These are harder to interpret and go a little beyond this course. I suggest this link for the code <a href="https://cran.r-project.org/web/packages/blorr/vignettes/introduction.html" class="uri">https://cran.r-project.org/web/packages/blorr/vignettes/introduction.html</a> and for the interpretation: <a href="https://bookdown.org/jefftemplewebb/IS-6489/logistic-regression.html" class="uri">https://bookdown.org/jefftemplewebb/IS-6489/logistic-regression.html</a></p>
-<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb360"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://blorr.rsquaredacademy.com/">blorr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://blorr.rsquaredacademy.com/reference/blr_plot_diag_influence.html">blr_plot_diag_influence</a></span><span class="op">(</span><span class="va">model.logistic</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="in_04-Tutorial14_GLM_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
 <p>or simply</p>
-<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">model.logistic</span><span class="op">)</span></span></code></pre></div>
 <p><img src="in_04-Tutorial14_GLM_files/figure-html/unnamed-chunk-15-1.png" width="672"><img src="in_04-Tutorial14_GLM_files/figure-html/unnamed-chunk-15-2.png" width="672"><img src="in_04-Tutorial14_GLM_files/figure-html/unnamed-chunk-15-3.png" width="672"><img src="in_04-Tutorial14_GLM_files/figure-html/unnamed-chunk-15-4.png" width="672"></p>
 <p><br><br></p>
@@ -608,7 +609,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-24.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

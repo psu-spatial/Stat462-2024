@@ -63,6 +63,7 @@
 <li><a class="" href="Lab_5B.html">Lab 5B</a></li>
 <li><a class="" href="lab-6.html">Lab 6</a></li>
 <li><a class="" href="final-project.html">Final Project</a></li>
+<li><a class="" href="final-project-example-movie-ratings.html">FINAL PROJECT EXAMPLE: Movie Ratings</a></li>
 <li class="book-part">.</li>
 <li class="book-part">TUTORIALS</li>
 <li><a class="" href="T1_Projects.html"><span class="header-section-number">1</span> Projects/Starting a lab</a></li>
@@ -80,7 +81,7 @@
 <li><a class="" href="S.Tutorial_Transformations.html"><span class="header-section-number">13</span> Transformations</a></li>
 <li><a class="" href="S.Tutorial_GLM.html"><span class="header-section-number">14</span> GLM - Logistic Regression</a></li>
 <li><a class="active" href="basic-model-comparisons.html"><span class="header-section-number">15</span> Basic model comparisons</a></li>
-<li><a class="" href="multiple-regression-model-fitting.html"><span class="header-section-number">16</span> Multiple regression &amp; model fitting</a></li>
+<li><a class="" href="multiple-regression-model-fitting-1.html"><span class="header-section-number">16</span> Multiple regression &amp; model fitting</a></li>
 <li><a class="" href="finding-the-optimal-model.html"><span class="header-section-number">17</span> Finding the “optimal model”</a></li>
 </ul>
 
@@ -155,7 +156,7 @@
 <h4>Where to find them<a class="anchor" aria-label="anchor" href="#where-to-find-them"><i class="fas fa-link"></i></a>
 </h4>
 <p>The easiest way is in the olsrr summary. Look at the statistics at the top.</p>
-<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb362"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"iris"</span><span class="op">)</span></span>
 <span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sepal.Length</span><span class="op">~</span><span class="va">Sepal.Width</span>,data<span class="op">=</span><span class="va">iris</span><span class="op">)</span></span>
 <span><span class="fu">olsrr</span><span class="fu">::</span><span class="fu"><a href="https://olsrr.rsquaredacademy.com/reference/ols_regress.html">ols_regress</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
@@ -216,7 +217,7 @@
 <p>In the formulas, <em>n</em> = sample size and <em>p</em> = number of regression coefficients in the model being evaluated (including the intercept). Notice that the only difference between AIC and BIC is the multiplier of <em>p</em>, the number of parameters.</p>
 <p>Each of the information criteria is used in a similar way — in comparing two models, the model with the lower value is preferred. The ‘raw’ values have little physical meaning. For now, know that the lower the AIC, the “better” the model.</p>
 <p>Let’s compare two models now, using our transformed data:</p>
-<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb364"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">model</span>                 <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sepal.Length</span><span class="op">~</span><span class="va">Sepal.Width</span>,data<span class="op">=</span><span class="va">iris</span><span class="op">)</span></span>
 <span><span class="va">model.transformation</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sepal.Length</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">Sepal.Width</span><span class="op">)</span>,data<span class="op">=</span><span class="va">iris</span><span class="op">)</span></span>
 <span></span>
@@ -226,10 +227,10 @@
 <span><span class="co"># Adjusted R2</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Model 1:"</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">model1summary</span><span class="op">$</span><span class="va">adj.r.squared</span>,<span class="fl">2</span><span class="op">)</span> <span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "Model 1: 0.01"</code></pre>
-<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb366"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Model 2:"</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">model2summary</span><span class="op">$</span><span class="va">adj.r.squared</span>,<span class="fl">2</span><span class="op">)</span> <span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "Model 2: 0.01"</code></pre>
-<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># AIC</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">AIC</a></span><span class="op">(</span><span class="va">model</span>,<span class="va">model.transformation</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##                      df      AIC
@@ -239,7 +240,7 @@
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="S.Tutorial_GLM.html"><span class="header-section-number">14</span> GLM - Logistic Regression</a></div>
-<div class="next"><a href="multiple-regression-model-fitting.html"><span class="header-section-number">16</span> Multiple regression &amp; model fitting</a></div>
+<div class="next"><a href="multiple-regression-model-fitting-1.html"><span class="header-section-number">16</span> Multiple regression &amp; model fitting</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav"><li>
@@ -265,7 +266,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-24.</p>
+    <p>"<strong>STAT462 Lab Book 2024</strong>" was written by Dr Helen Greatrex. It was last built on 2024-04-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

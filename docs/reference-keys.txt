@@ -23,6 +23,7 @@ b.-the-ggstatplot-r-scatterplot-ggscatterstats.
 need-help
 need-help-1
 need-help-2
+edit-to-make-it-easier
 T1_Projects
 T1_ProjectsCloud
 T1_ProjectsDesktop
@@ -190,7 +191,7 @@ alternative-plots
 interactions-with-other-predictors
 basic-model-comparisons
 rmse
-multiple-regression-model-fitting
+multiple-regression-model-fitting-1
 mlr
 finding-the-optimal-model
 best-subsets
