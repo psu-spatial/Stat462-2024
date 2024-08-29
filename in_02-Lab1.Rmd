@@ -13,7 +13,7 @@ Welcome to your first lab. This is worth 10% (100 points) and you can drop your 
 
 -   To allow you to practice the statistical concepts from the course
 
--   To use real-world data-sets
+-   To use real-world data-sets.
 
 -   To be comfortable conducting analysis in R and writing up your reports professionally.
 
